@@ -1,0 +1,43 @@
+GMP: Version 6.2.0
+ISL: Version 0.22
+MPC: Version 1.1.0
+MPFR: Version 4.0.2
+MinGW-W64: https://github.com/mirror/mingw-w64 master branch at revision 68d0e7d551d2e2a5b8a15bdca3f8d15fc097ed01
+Make: https://github.com/mirror/make master branch at revision 177054021733fde825184b29f7b9435027d255ef
+Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision 84df1f9dcb8ef24cc38db4cc0939e99752c4e42b
+GCC 7: https://github.com/gcc-mirror/gcc releases/gcc-7 branch at revision b2d961e7342b5ba4e57adfa81cb189b738d10901
+GCC 8: https://github.com/gcc-mirror/gcc releases/gcc-8 branch at revision 33ebf40daa79a73e66c379728b4c0ef7297297fe
+GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision d76ee72858dd373ea2bb4594623eb7590c925e68
+GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision cc00eb0af30ab3281d4dbade9f2c1b3a4b63f99f
+GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision 73266be246a1bf1781b8ef6ee1395e8602681350
+GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision 84df1f9dcb8ef24cc38db4cc0939e99752c4e42b
+
+MinGW options used:
+mingw-w64-headers: --enable-idl --with-default-win32-winnt=0x601 --with-default-msvcrt=msvcrt
+mingw-w64-crt: --with-default-msvcrt=msvcrt
+Libraries built:
+winpthreads
+winstorecompat
+
+GCC 7 configure:
+../configure --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --disable-bootstrap --enable-libstdcxx-debug --with-tune=znver1 --prefix=/mnt/c/GCC --with-sysroot=/mnt/c/GCC --disable-libstdcxx-pch --disable-multilib --enable-libgomp --with-cross-host --disable-libstdcxx-verbose --enable-languages=c,c++,fortran,lto,objc,obj-c++ --disable-nls --disable-win32-registry --enable-shared --with-gnu-as --with-gnu-ld --enable-threads=posix --program-suffix=-7 --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-__cxa_atexit
+../configure --target=i686-w64-mingw32 --host=x86_64-w64-mingw32 --disable-bootstrap --enable-libstdcxx-debug --with-tune=znver1 --prefix=/mnt/c/GCC --with-sysroot=/mnt/c/GCC --disable-libstdcxx-pch --disable-multilib --enable-libgomp --with-cross-host --disable-libstdcxx-verbose --enable-languages=c,c++,fortran,lto,objc,obj-c++ --disable-nls --disable-win32-registry --enable-shared --with-gnu-as --with-gnu-ld --enable-threads=posix --program-suffix=-7 --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-__cxa_atexit --program-prefix=i686-w64-mingw32-
+
+GCC 8 configure:
+../configure --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --disable-bootstrap --enable-libstdcxx-debug --with-tune=znver1 --prefix=/mnt/c/GCC --with-sysroot=/mnt/c/GCC --disable-libstdcxx-pch --disable-multilib --enable-libgomp --with-cross-host --disable-libstdcxx-verbose --enable-languages=c,c++,fortran,lto,objc,obj-c++ --disable-nls --disable-win32-registry --enable-shared --with-gnu-as --with-gnu-ld --enable-threads=posix --program-suffix=-8 --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-__cxa_atexit
+../configure --target=i686-w64-mingw32 --host=x86_64-w64-mingw32 --disable-bootstrap --enable-libstdcxx-debug --with-tune=znver1 --prefix=/mnt/c/GCC --with-sysroot=/mnt/c/GCC --disable-libstdcxx-pch --disable-multilib --enable-libgomp --with-cross-host --disable-libstdcxx-verbose --enable-languages=c,c++,fortran,lto,objc,obj-c++ --disable-nls --disable-win32-registry --enable-shared --with-gnu-as --with-gnu-ld --enable-threads=posix --program-suffix=-8 --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-__cxa_atexit --program-prefix=i686-w64-mingw32-
+
+GCC 9 configure:
+../configure --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --disable-bootstrap --enable-libstdcxx-debug --with-tune=znver1 --prefix=/mnt/c/GCC --with-sysroot=/mnt/c/GCC --disable-libstdcxx-pch --disable-multilib --enable-libgomp --with-cross-host --disable-libstdcxx-verbose --enable-languages=c,c++,fortran,lto,objc,obj-c++ --disable-nls --disable-win32-registry --enable-shared --with-gnu-as --with-gnu-ld --enable-threads=posix --program-suffix=-9 --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-__cxa_atexit
+../configure --target=i686-w64-mingw32 --host=x86_64-w64-mingw32 --disable-bootstrap --enable-libstdcxx-debug --with-tune=znver1 --prefix=/mnt/c/GCC --with-sysroot=/mnt/c/GCC --disable-libstdcxx-pch --disable-multilib --enable-libgomp --with-cross-host --disable-libstdcxx-verbose --enable-languages=c,c++,fortran,lto,objc,obj-c++ --disable-nls --disable-win32-registry --enable-shared --with-gnu-as --with-gnu-ld --enable-threads=posix --program-suffix=-9 --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-__cxa_atexit --program-prefix=i686-w64-mingw32-
+
+GCC 10 configure:
+../configure --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --disable-bootstrap --enable-libstdcxx-debug --with-tune=znver1 --prefix=/mnt/c/GCC --with-sysroot=/mnt/c/GCC --disable-libstdcxx-pch --disable-multilib --enable-libgomp --with-cross-host --disable-libstdcxx-verbose --enable-languages=c,c++,fortran,lto,objc,obj-c++ --disable-nls --disable-win32-registry --enable-shared --with-gnu-as --with-gnu-ld --enable-threads=posix --program-suffix=-10 --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-__cxa_atexit
+../configure --target=i686-w64-mingw32 --host=x86_64-w64-mingw32 --disable-bootstrap --enable-libstdcxx-debug --with-tune=znver1 --prefix=/mnt/c/GCC --with-sysroot=/mnt/c/GCC --disable-libstdcxx-pch --disable-multilib --enable-libgomp --with-cross-host --disable-libstdcxx-verbose --enable-languages=c,c++,fortran,lto,objc,obj-c++ --disable-nls --disable-win32-registry --enable-shared --with-gnu-as --with-gnu-ld --enable-threads=posix --program-suffix=-10 --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-__cxa_atexit --program-prefix=i686-w64-mingw32-
+
+GCC 11 configure:
+../configure --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --disable-bootstrap --enable-libstdcxx-debug --with-tune=znver1 --prefix=/mnt/c/GCC --with-sysroot=/mnt/c/GCC --disable-libstdcxx-pch --disable-multilib --enable-libgomp --with-cross-host --disable-libstdcxx-verbose --enable-languages=c,c++,fortran,lto,objc,obj-c++ --disable-nls --disable-win32-registry --enable-shared --with-gnu-as --with-gnu-ld --enable-threads=posix --program-suffix=-11 --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-__cxa_atexit
+../configure --target=i686-w64-mingw32 --host=x86_64-w64-mingw32 --disable-bootstrap --enable-libstdcxx-debug --with-tune=znver1 --prefix=/mnt/c/GCC --with-sysroot=/mnt/c/GCC --disable-libstdcxx-pch --disable-multilib --enable-libgomp --with-cross-host --disable-libstdcxx-verbose --enable-languages=c,c++,fortran,lto,objc,obj-c++ --disable-nls --disable-win32-registry --enable-shared --with-gnu-as --with-gnu-ld --enable-threads=posix --program-suffix=-11 --enable-version-specific-runtime-libs --with-gcc-major-version-only --enable-__cxa_atexit --program-prefix=i686-w64-mingw32-
+
+gdb configure:
+configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --with-auto-load-dir=$debugdir:$datadir/auto-load --with-auto-load-safe-path=$debugdir:$datadir/auto-load --with-expat --with-gdb-datadir=/mnt/c/GDB/share/gdb (relocatable) --with-jit-reader-dir=/mnt/c/GDB/lib/gdb (relocatable) --without-libunwind-ia64 --without-lzma --without-babeltrace --without-intel-pt --without-mpfr --without-xxhash --with-python=/mnt/c/Python27 --without-debuginfod --without-guile --disable-source-highlight --with-separate-debug-dir=/mnt/c/GDB/lib/debug (relocatable) --with-system-gdbinit=/mnt/c/GDB/etc/gdbinit.py (relocatable)
