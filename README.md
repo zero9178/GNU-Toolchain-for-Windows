@@ -4,7 +4,11 @@ This repository is a collection of binaries to create your own GNU Toolchain usa
 branch contains the sum of the latest versions of all binaries.
 
 Binaries are provided for the following programs:
-* GCC
+* GCC 7
+* GCC 8
+* GCC 9
+* GCC 10
+* GCC Trunk (11)
 * make
 * binutils
 * gdb
