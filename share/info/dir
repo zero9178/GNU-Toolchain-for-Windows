@@ -49,9 +49,6 @@ Individual utilities
                                                   resources.
 * windres: (binutils)windres.                   Manipulate Windows resources.
 
-Miscellaneous
-* libgccjit: (libgccjit.info).  GCC-based Just In Time compiler library.
-
 Software development
 * As: (as).                     The GNU assembler.
 * Bfd: (bfd).                   The Binary File Descriptor library.

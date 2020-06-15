@@ -2,15 +2,15 @@ GMP: Version 6.2.0
 ISL: Version 0.22
 MPC: Version 1.1.0
 MPFR: Version 4.0.2
-MinGW-W64: https://github.com/mirror/mingw-w64 master branch at revision 68d0e7d551d2e2a5b8a15bdca3f8d15fc097ed01
+MinGW-W64: https://github.com/mirror/mingw-w64 master branch at revision 40ada3c512e430fde43f16fdaea1166f54e9ee23
 Make: https://github.com/mirror/make master branch at revision 177054021733fde825184b29f7b9435027d255ef
-Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision 84df1f9dcb8ef24cc38db4cc0939e99752c4e42b
+Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision 669203174311c5be76744a879563c697cd479853
 GCC 7: https://github.com/gcc-mirror/gcc releases/gcc-7 branch at revision b2d961e7342b5ba4e57adfa81cb189b738d10901
-GCC 8: https://github.com/gcc-mirror/gcc releases/gcc-8 branch at revision 33ebf40daa79a73e66c379728b4c0ef7297297fe
-GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision d76ee72858dd373ea2bb4594623eb7590c925e68
-GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision cc00eb0af30ab3281d4dbade9f2c1b3a4b63f99f
-GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision 73266be246a1bf1781b8ef6ee1395e8602681350
-GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision 84df1f9dcb8ef24cc38db4cc0939e99752c4e42b
+GCC 8: https://github.com/gcc-mirror/gcc releases/gcc-8 branch at revision f1a8a7dc133e18afe28cae0b7533d1694cf6095b
+GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision a251bf8229e3fca1adaddd822e2bab12a43d8ea6
+GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision 8a3453786c3c2d6343c5258e564ad139d5ad116f
+GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision b6ab9ecd550227684643b41e9e33a4d3466724d8
+GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision 669203174311c5be76744a879563c697cd479853
 
 MinGW options used:
 mingw-w64-headers: --enable-idl --with-default-win32-winnt=0x601 --with-default-msvcrt=msvcrt
