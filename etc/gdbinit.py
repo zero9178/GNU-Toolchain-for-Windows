@@ -3,7 +3,8 @@ import glob
 import os
 import re
 
-candidates = glob.glob('..\share\gcc-*')
+script_dir = os.path.dirname(os.path.abspath(__file__))
+candidates = glob.glob(script_dir + '\..\share\gcc-*')
 
 final = ''
 final_value = 0
@@ -23,4 +24,6 @@ sys.path.insert(0, final + '/python')
 from libstdcxx.v6.printers import register_libstdcxx_printers
 register_libstdcxx_printers (None)
 
+gdb.execute('set auto-load local-gdbinit on')
+gdb.execute('add-auto-load-safe-path /')
 gdb.Breakpoint('_assert')
