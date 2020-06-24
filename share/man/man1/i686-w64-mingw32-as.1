@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "AS 1"
-.TH AS 1 "2020-06-15" "binutils-2.34.50" "GNU Development Tools"
+.TH AS 1 "2020-06-24" "binutils-2.34.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -439,6 +439,7 @@ as [\fB\-a\fR[\fBcdghlns\fR][=\fIfile\fR]] [\fB\-\-alternate\fR] [\fB\-D\fR]
  [\fB\-\-[no\-]transform\fR]
  [\fB\-\-rename\-section\fR \fIoldname\fR=\fInewname\fR]
  [\fB\-\-[no\-]trampolines\fR]
+ [\fB\-\-abi\-windowed\fR|\fB\-\-abi\-call0\fR]
 .PP
 \&\fITarget Z80 options:\fR
   [\fB\-march=\fR\fI\s-1CPU\s0\fR\fI[\-EXT]\fR\fI[+EXT]\fR]
@@ -1424,6 +1425,7 @@ accept various extension mnemonics.  For example,
 \&\f(CW\*(C`avx512_vbmi2\*(C'\fR,
 \&\f(CW\*(C`avx512_vnni\*(C'\fR,
 \&\f(CW\*(C`avx512_bitalg\*(C'\fR,
+\&\f(CW\*(C`avx512_vp2intersect\*(C'\fR,
 \&\f(CW\*(C`avx512_bf16\*(C'\fR,
 \&\f(CW\*(C`noavx512f\*(C'\fR,
 \&\f(CW\*(C`noavx512cd\*(C'\fR,
@@ -2877,6 +2879,12 @@ across a greater range of addresses.    This option should be used when jump tar
 potentially be out of range.  In the absence of such jumps this option
 does not affect code size or performance.  The default is
 \&\fB\-\-trampolines\fR.
+.IP "\fB\-\-abi\-windowed | \-\-abi\-call0\fR" 4
+.IX Item "--abi-windowed | --abi-call0"
+Choose \s-1ABI\s0 tag written to the \f(CW\*(C`.xtensa.info\*(C'\fR section.  \s-1ABI\s0 tag
+indicates \s-1ABI\s0 of the assembly code.  A warning is issued by the linker
+on an attempt to link object files with inconsistent \s-1ABI\s0 tags.
+Default \s-1ABI\s0 is chosen by the Xtensa core configuration.
 .PP
 The following options are available when as is configured for an
 Z80 processor.

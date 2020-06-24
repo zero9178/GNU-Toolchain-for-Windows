@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-06-15" "gcc-11" "GNU"
+.TH GCC 1 "2020-06-24" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -1206,7 +1206,7 @@ See \s-1RS/6000\s0 and PowerPC Options.
 \&\-mgnu\-attribute  \-mno\-gnu\-attribute 
 \&\-mstack\-protector\-guard=\fR\fIguard\fR \fB\-mstack\-protector\-guard\-reg=\fR\fIreg\fR 
 \&\fB\-mstack\-protector\-guard\-offset=\fR\fIoffset\fR \fB\-mprefixed \-mno\-prefixed 
-\&\-mpcrel \-mno\-pcrel\fR
+\&\-mpcrel \-mno\-pcrel \-mmma \-mno\-mmma\fR
 .Sp
 \&\fI\s-1RX\s0 Options\fR
 \&\fB\-m64bit\-doubles  \-m32bit\-doubles  \-fpu  \-nofpu
@@ -24949,7 +24949,8 @@ following options:
 \&\-mpowerpc\-gpopt  \-mpowerpc\-gfxopt 
 \&\-mmulhw  \-mdlmzb  \-mmfpgpr  \-mvsx 
 \&\-mcrypto  \-mhtm  \-mpower8\-fusion  \-mpower8\-vector 
-\&\-mquad\-memory  \-mquad\-memory\-atomic  \-mfloat128  \-mfloat128\-hardware\fR
+\&\-mquad\-memory  \-mquad\-memory\-atomic  \-mfloat128 
+\&\-mfloat128\-hardware \-mprefixed \-mpcrel \-mmma\fR
 .Sp
 The particular options set for any particular \s-1CPU\s0 varies between
 compiler versions, depending on what setting seems to produce optimal
@@ -25958,6 +25959,14 @@ addressing (\fB\-mprefixed\fR) options are enabled.
 .PD
 Generate (do not generate) addressing modes using prefixed load and
 store instructions when the option \fB\-mcpu=future\fR is used.
+.IP "\fB\-mmma\fR" 4
+.IX Item "-mmma"
+.PD 0
+.IP "\fB\-mno\-mma\fR" 4
+.IX Item "-mno-mma"
+.PD
+Generate (do not generate) the \s-1MMA\s0 instructions when the option
+\&\fB\-mcpu=future\fR is used.
 .PP
 \fI\s-1RX\s0 Options\fR
 .IX Subsection "RX Options"

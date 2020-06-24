@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "LD 1"
-.TH LD 1 "2020-06-15" "binutils-2.34.50" "GNU Development Tools"
+.TH LD 1 "2020-06-24" "binutils-2.34.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -758,6 +758,17 @@ shared libraries.  Use \fB\-Bdynamic\fR for this.
 Use \fIoutput\fR as the name for the program produced by \fBld\fR; if this
 option is not specified, the name \fIa.out\fR is used by default.  The
 script command \f(CW\*(C`OUTPUT\*(C'\fR can also specify the output file name.
+.IP "\fB\-\-dependency\-file=\fR\fIdepfile\fR" 4
+.IX Item "--dependency-file=depfile"
+Write a \fIdependency file\fR to \fIdepfile\fR.  This file contains a rule
+suitable for \f(CW\*(C`make\*(C'\fR describing the output file and all the input files
+that were read to produce it.  The output is similar to the compiler's
+output with \fB\-M \-MP\fR.  Note that there is no option like the compiler's \fB\-MM\fR,
+to exclude \*(L"system files\*(R" (which is not a well-specified concept in the
+linker, unlike \*(L"system headers\*(R" in the compiler).  So the output from
+\&\fB\-\-dependency\-file\fR is always specific to the exact state of the
+installation where it was produced, and should not be copied into
+distributed makefiles without careful editing.
 .IP "\fB\-O\fR \fIlevel\fR" 4
 .IX Item "-O level"
 If \fIlevel\fR is a numeric values greater than zero \fBld\fR optimizes
@@ -1247,6 +1258,16 @@ Linux/i386 and Linux/x86_64.
 Specify a stack size for an \s-1ELF\s0 \f(CW\*(C`PT_GNU_STACK\*(C'\fR segment.
 Specifying zero will override any default non-zero sized
 \&\f(CW\*(C`PT_GNU_STACK\*(C'\fR segment creation.
+.IP "\fBstart\-stop\-visibility=\fR\fIvalue\fR" 4
+.IX Item "start-stop-visibility=value"
+Specify the \s-1ELF\s0 symbol visibility for synthesized
+\&\f(CW\*(C`_\|_start_SECNAME\*(C'\fR and \f(CW\*(C`_\|_stop_SECNAME\*(C'\fR symbols.  \fIvalue\fR must be exactly \fBdefault\fR,
+\&\fBinternal\fR, \fBhidden\fR, or \fBprotected\fR.  If no \fB\-z
+start-stop-visibility\fR option is given, \fBprotected\fR is used for
+compatibility with historical practice.  However, it's highly
+recommended to use \fB\-z start\-stop\-visibility=hidden\fR in new
+programs and shared libraries so that these symbols are not exported
+between shared objects, which is not usually what's intended.
 .IP "\fBtext\fR" 4
 .IX Item "text"
 .PD 0

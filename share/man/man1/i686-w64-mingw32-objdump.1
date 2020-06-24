@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "OBJDUMP 1"
-.TH OBJDUMP 1 "2020-06-15" "binutils-2.34.50" "GNU Development Tools"
+.TH OBJDUMP 1 "2020-06-24" "binutils-2.34.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -163,8 +163,8 @@ objdump [\fB\-a\fR|\fB\-\-archive\-headers\fR]
         [\fB\-r\fR|\fB\-\-reloc\fR]
         [\fB\-R\fR|\fB\-\-dynamic\-reloc\fR]
         [\fB\-s\fR|\fB\-\-full\-contents\fR]
-        [\fB\-W[lLiaprmfFsoRtUuTgAckK]\fR|
-         \fB\-\-dwarf\fR[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames\-interp,=str,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow\-links]]
+        [\fB\-W[lLiaprmfFsoORtUuTgAckK]\fR|
+         \fB\-\-dwarf\fR[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames\-interp,=str,=str\-offsets,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow\-links]]
         [\fB\-\-ctf=\fR\fIsection\fR]
         [\fB\-G\fR|\fB\-\-stabs\fR]
         [\fB\-t\fR|\fB\-\-syms\fR]
@@ -827,11 +827,11 @@ colors, but these might not work on all terminals.
 If it is necessary to disable the \fBvisualize-jumps\fR option
 after it has previously been enabled then use
 \&\fBvisualize\-jumps=off\fR.
-.IP "\fB\-W[lLiaprmfFsoRtUuTgAckK]\fR" 4
-.IX Item "-W[lLiaprmfFsoRtUuTgAckK]"
+.IP "\fB\-W[lLiaprmfFsoORtUuTgAckK]\fR" 4
+.IX Item "-W[lLiaprmfFsoORtUuTgAckK]"
 .PD 0
-.IP "\fB\-\-dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames\-interp,=str,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow\-links]\fR" 4
-.IX Item "--dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames-interp,=str,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow-links]"
+.IP "\fB\-\-dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames\-interp,=str,=str\-offsets,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow\-links]\fR" 4
+.IX Item "--dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames-interp,=str,=str-offsets,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow-links]"
 .PD
 Displays the contents of the \s-1DWARF\s0 debug sections in the file, if any
 are present.  Compressed debug sections are automatically decompressed
@@ -975,6 +975,15 @@ Displays the contents of the \fB.debug_macro\fR and/or
 .PD
 Displays the contents of the \fB.debug_loc\fR and/or
 \&\fB.debug_loclists\fR sections.
+.ie n .IP """O""" 4
+.el .IP "\f(CWO\fR" 4
+.IX Item "O"
+.PD 0
+.ie n .IP """=str\-offsets""" 4
+.el .IP "\f(CW=str\-offsets\fR" 4
+.IX Item "=str-offsets"
+.PD
+Displays the contents of the \fB.debug_str_offsets\fR section.
 .ie n .IP """p""" 4
 .el .IP "\f(CWp\fR" 4
 .IX Item "p"

@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "READELF 1"
-.TH READELF 1 "2020-06-15" "binutils-2.34.50" "GNU Development Tools"
+.TH READELF 1 "2020-06-24" "binutils-2.34.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -160,8 +160,8 @@ readelf [\fB\-a\fR|\fB\-\-all\fR]
         [\fB\-R\fR <number or name>|\fB\-\-relocated\-dump=\fR<number or name>]
         [\fB\-z\fR|\fB\-\-decompress\fR]
         [\fB\-c\fR|\fB\-\-archive\-index\fR]
-        [\fB\-w[lLiaprmfFsoRtUuTgAckK]\fR|
-         \fB\-\-debug\-dump\fR[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames\-interp,=str,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow\-links]]
+        [\fB\-w[lLiaprmfFsoORtUuTgAckK]\fR|
+         \fB\-\-debug\-dump\fR[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames\-interp,=str,=str\-offsets,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow\-links]]
         [\fB\-\-dwarf\-depth=\fR\fIn\fR]
         [\fB\-\-dwarf\-start=\fR\fIn\fR]
         [\fB\-\-ctf=\fR\fIsection\fR]
@@ -398,11 +398,11 @@ section(s) are not compressed then they are displayed as is.
 Displays the file symbol index information contained in the header part
 of binary archives.  Performs the same function as the \fBt\fR
 command to \fBar\fR, but without using the \s-1BFD\s0 library.
-.IP "\fB\-w[lLiaprmfFsoRtUuTgAckK]\fR" 4
-.IX Item "-w[lLiaprmfFsoRtUuTgAckK]"
+.IP "\fB\-w[lLiaprmfFsOoRtUuTgAckK]\fR" 4
+.IX Item "-w[lLiaprmfFsOoRtUuTgAckK]"
 .PD 0
-.IP "\fB\-\-debug\-dump[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames\-interp,=str,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow\-links]\fR" 4
-.IX Item "--debug-dump[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames-interp,=str,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow-links]"
+.IP "\fB\-\-debug\-dump[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames\-interp,=str,=str\-offsets,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow\-links]\fR" 4
+.IX Item "--debug-dump[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,=frames-interp,=str,=str-offsets,=loc,=Ranges,=pubtypes,=trace_info,=trace_abbrev,=trace_aranges,=gdb_index,=addr,=cu_index,=links,=follow-links]"
 .PD
 Displays the contents of the \s-1DWARF\s0 debug sections in the file, if any
 are present.  Compressed debug sections are automatically decompressed
@@ -546,6 +546,15 @@ Displays the contents of the \fB.debug_macro\fR and/or
 .PD
 Displays the contents of the \fB.debug_loc\fR and/or
 \&\fB.debug_loclists\fR sections.
+.ie n .IP """O""" 4
+.el .IP "\f(CWO\fR" 4
+.IX Item "O"
+.PD 0
+.ie n .IP """=str\-offsets""" 4
+.el .IP "\f(CW=str\-offsets\fR" 4
+.IX Item "=str-offsets"
+.PD
+Displays the contents of the \fB.debug_str_offsets\fR section.
 .ie n .IP """p""" 4
 .el .IP "\f(CWp\fR" 4
 .IX Item "p"
