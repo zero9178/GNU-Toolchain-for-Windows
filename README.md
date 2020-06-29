@@ -28,6 +28,7 @@ Features compiled in are:
     * OpenMP support
     * Quad Precision Math support
     * C++11 Threading using pthreads
+    * Support for GCC Plugins
     * Version specific runtimes: Allows multiple GCC installations to live next to each other. This is done using version
     prefixes to runtime folders as well as version suffixes for each program. E.g. Executable of GCC 9 is called gcc-9.
     To create a symlink for the default version of gcc you want to use run one of the **make-gcc-\*-\*-default.bat** 

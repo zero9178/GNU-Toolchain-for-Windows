@@ -215,7 +215,7 @@ select an extended version of the C language explicitly with
 GNU extensions) or '-std=gnu11' (for C11 with GNU extensions).
 
  The default, if no C language dialect options are given, is
-'-std=gnu11'.
+'-std=gnu17'.
 
  The ISO C standard defines (in clause 4) two classes of conforming
 implementation.  A "conforming hosted implementation" supports the whole
@@ -323,7 +323,7 @@ or '-std=gnu++14' (for C++14 with GNU extensions), or '-std=gnu++17'
 (for C++17 with GNU extensions).
 
  The default, if no C++ language dialect options are given, is
-'-std=gnu++14'.
+'-std=gnu++17'.
 
 2.3 Objective-C and Objective-C++ Languages
 ===========================================
@@ -2594,8 +2594,8 @@ accepts:
 
      'gnu++14'
      'gnu++1y'
-          GNU dialect of '-std=c++14'.  This is the default for C++
-          code.  The name 'gnu++1y' is deprecated.
+          GNU dialect of '-std=c++14'.  The name 'gnu++1y' is
+          deprecated.
 
      'c++17'
      'c++1z'
@@ -2604,8 +2604,8 @@ accepts:
 
      'gnu++17'
      'gnu++1z'
-          GNU dialect of '-std=c++17'.  The name 'gnu++1z' is
-          deprecated.
+          GNU dialect of '-std=c++17'.  This is the default for C++
+          code.  The name 'gnu++1z' is deprecated.
 
      'c++20'
      'c++2a'
@@ -46868,7 +46868,7 @@ File: gcc.info,  Node: Basic PowerPC Built-in Functions,  Next: PowerPC AltiVec/
 * Basic PowerPC Built-in Functions Available on ISA 2.06::
 * Basic PowerPC Built-in Functions Available on ISA 2.07::
 * Basic PowerPC Built-in Functions Available on ISA 3.0::
-* Basic PowerPC Built-in Functions Available for a Future Architecture::
+* Basic PowerPC Built-in Functions Available on ISA 3.1::
 
 This section describes PowerPC built-in functions that do not require
 the inclusion of any special header files to declare prototypes or
@@ -46900,6 +46900,8 @@ File: gcc.info,  Node: Basic PowerPC Built-in Functions Available on all Configu
 
      The following CPU names can be detected:
 
+     'power10'
+          IBM POWER10 Server CPU.
      'power9'
           IBM POWER9 Server CPU.
      'power8'
@@ -46970,6 +46972,8 @@ File: gcc.info,  Node: Basic PowerPC Built-in Functions Available on all Configu
           CPU supports ISA 2.07 (eg, POWER8)
      'arch_3_00'
           CPU supports ISA 3.0 (eg, POWER9)
+     'arch_3_1'
+          CPU supports ISA 3.1 (eg, POWER10)
      'archpmu'
           CPU supports the set of compatible performance monitoring
           events.
@@ -47004,6 +47008,8 @@ File: gcc.info,  Node: Basic PowerPC Built-in Functions Available on all Configu
           CPU supports 128-bit IEEE binary floating point instructions.
      'isel'
           CPU supports the integer select instruction.
+     'mma'
+          CPU supports the matrix-multiply assist instructions.
      'mmu'
           CPU has a memory management unit.
      'notb'
@@ -47250,7 +47256,7 @@ options as for '-mcpu=power7' in addition to the '-mpower8-fusion',
  This section intentionally empty.
 
 
-File: gcc.info,  Node: Basic PowerPC Built-in Functions Available on ISA 3.0,  Next: Basic PowerPC Built-in Functions Available for a Future Architecture,  Prev: Basic PowerPC Built-in Functions Available on ISA 2.07,  Up: Basic PowerPC Built-in Functions
+File: gcc.info,  Node: Basic PowerPC Built-in Functions Available on ISA 3.0,  Next: Basic PowerPC Built-in Functions Available on ISA 3.1,  Prev: Basic PowerPC Built-in Functions Available on ISA 2.07,  Up: Basic PowerPC Built-in Functions
 
 6.60.23.5 Basic PowerPC Built-in Functions Available on ISA 3.0
 ...............................................................
@@ -47384,45 +47390,44 @@ instruction.  If the 'mffsl' instruction is not available, then the
 builtin uses the older 'mffs' instruction to read the FPSCR.
 
 
-File: gcc.info,  Node: Basic PowerPC Built-in Functions Available for a Future Architecture,  Prev: Basic PowerPC Built-in Functions Available on ISA 3.0,  Up: Basic PowerPC Built-in Functions
+File: gcc.info,  Node: Basic PowerPC Built-in Functions Available on ISA 3.1,  Prev: Basic PowerPC Built-in Functions Available on ISA 3.0,  Up: Basic PowerPC Built-in Functions
 
-6.60.23.6 Basic PowerPC Built-in Functions Available for a Future Architecture
-..............................................................................
+6.60.23.6 Basic PowerPC Built-in Functions Available on ISA 3.1
+...............................................................
 
 The basic built-in functions described in this section are available on
-the PowerPC family of processors starting with a hypothetical CPU which
-may or may not be available in the future, as requested by specifying
-'-mcpu=future' on the command line.  Unless explicitly disabled on the
-command line, specifying '-mcpu=future' has the effect of enabling all
-the same options as for '-mcpu=power9'.
+the PowerPC family of processors starting with ISA 3.1.  Unless specific
+options are explicitly disabled on the command line, specifying option
+'-mcpu=power10' has the effect of enabling all the same options as for
+'-mcpu=power9'.
 
  The following built-in functions are available on Linux 64-bit systems
-that use a future architecture instruction set ('-mcpu=future'):
+that use a future architecture instruction set ('-mcpu=power10'):
 
 unsigned long long int
 __builtin_cfuged (unsigned long long int, unsigned long long int)
- Perform a 64-bit centrifuge operation, as if implemented by the Future
+ Perform a 64-bit centrifuge operation, as if implemented by the
 'cfuged' instruction.
 
 unsigned long long int
 __builtin_cntlzdm (unsigned long long int, unsigned long long int)
  Perform a 64-bit count leading zeros operation under mask, as if
-implemented by the future 'cntlzdm' instruction.
+implemented by the 'cntlzdm' instruction.
 
 unsigned long long int
 __builtin_cnttzdm (unsigned long long int, unsigned long long int)
  Perform a 64-bit count trailing zeros operation under mask, as if
-implemented by the future 'cnttzdm' instruction.
+implemented by the 'cnttzdm' instruction.
 
 unsigned long long int
 __builtin_pdepd (unsigned long long int, unsigned long long int)
  Perform a 64-bit parallel bits deposit operation, as if implemented by
-the Future 'pdepd' instruction.
+the 'pdepd' instruction.
 
 unsigned long long int
 __builtin_pextd (unsigned long long int, unsigned long long int)
  Perform a 64-bit parallel bits extract operation, as if implemented by
-the Future 'pextd' instruction.
+the 'pextd' instruction.
 
 
 File: gcc.info,  Node: PowerPC AltiVec/VSX Built-in Functions,  Next: PowerPC Hardware Transactional Memory Built-in Functions,  Prev: Basic PowerPC Built-in Functions,  Up: Target Builtins
@@ -47518,7 +47523,7 @@ are briefly described below.
 * PowerPC AltiVec Built-in Functions Available on ISA 2.06::
 * PowerPC AltiVec Built-in Functions Available on ISA 2.07::
 * PowerPC AltiVec Built-in Functions Available on ISA 3.0::
-* PowerPC AltiVec Built-in Functions Available for a Future Architecture::
+* PowerPC AltiVec Built-in Functions Available on ISA 3.1::
 
 
 File: gcc.info,  Node: PowerPC AltiVec Built-in Functions on ISA 2.05,  Next: PowerPC AltiVec Built-in Functions Available on ISA 2.06,  Up: PowerPC AltiVec/VSX Built-in Functions
@@ -49880,7 +49885,7 @@ and VECTOR __UINT128 types, but the index value must be 0.
      int __builtin_bcdsub_ov (vector __int128, vector __int128, const int);
 
 
-File: gcc.info,  Node: PowerPC AltiVec Built-in Functions Available on ISA 3.0,  Next: PowerPC AltiVec Built-in Functions Available for a Future Architecture,  Prev: PowerPC AltiVec Built-in Functions Available on ISA 2.07,  Up: PowerPC AltiVec/VSX Built-in Functions
+File: gcc.info,  Node: PowerPC AltiVec Built-in Functions Available on ISA 3.0,  Next: PowerPC AltiVec Built-in Functions Available on ISA 3.1,  Prev: PowerPC AltiVec Built-in Functions Available on ISA 2.07,  Up: PowerPC AltiVec/VSX Built-in Functions
 
 6.60.24.4 PowerPC AltiVec Built-in Functions Available on ISA 3.0
 .................................................................
@@ -50504,29 +50509,28 @@ the following additional functions are available for both 32-bit and
      void vec_xst (vector unsigned char, int, unsigned char *);
 
 
-File: gcc.info,  Node: PowerPC AltiVec Built-in Functions Available for a Future Architecture,  Prev: PowerPC AltiVec Built-in Functions Available on ISA 3.0,  Up: PowerPC AltiVec/VSX Built-in Functions
+File: gcc.info,  Node: PowerPC AltiVec Built-in Functions Available on ISA 3.1,  Prev: PowerPC AltiVec Built-in Functions Available on ISA 3.0,  Up: PowerPC AltiVec/VSX Built-in Functions
 
-6.60.24.5 PowerPC AltiVec Built-in Functions Available for a Future Architecture
-................................................................................
+6.60.24.5 PowerPC AltiVec Built-in Functions Available on ISA 3.1
+.................................................................
 
 The following additional built-in functions are also available for the
-PowerPC family of processors, starting with a hypothetical CPU which may
-or may not be available in the future ('-mcpu=future') or later:
+PowerPC family of processors, starting with ISA 3.1 ('-mcpu=power10'):
 
 vector unsigned long long int
 vec_cfuge (vector unsigned long long int, vector unsigned long long int)
- Perform a vector centrifuge operation, as if implemented by the Future
+ Perform a vector centrifuge operation, as if implemented by the
 'vcfuged' instruction.
 
 vector unsigned long long int
 vec_cntlzm (vector unsigned long long int, vector unsigned long long int)
  Perform a vector count leading zeros under bit mask operation, as if
-implemented by the Future 'vclzdm' instruction.
+implemented by the 'vclzdm' instruction.
 
 vector unsigned long long int
 vec_cnttzm (vector unsigned long long int, vector unsigned long long int)
  Perform a vector count trailing zeros under bit mask operation, as if
-implemented by the Future 'vctzdm' instruction.
+implemented by the 'vctzdm' instruction.
 
 vector signed char
 vec_clrl (vector signed char a, unsigned int n)
@@ -50549,8 +50553,8 @@ is greater than 16 is treated as if it equaled 16.
 vector unsigned long long int
 vec_gnb (vector unsigned __int128, const unsigned char)
  Perform a 128-bit vector gather operation, as if implemented by the
-Future 'vgnb' instruction.  The second argument must be a literal
-integer value between 2 and 7 inclusive.
+'vgnb' instruction.  The second argument must be a literal integer value
+between 2 and 7 inclusive.
 
 vector unsigned long long int
 vec_extractl (vector unsigned char, vector unsigned char, unsigned int)
@@ -50563,15 +50567,15 @@ vec_extractl (vector unsigned long long, vector unsigned long long, unsigned int
  Extract a single element from the vector formed by catenating this
 function's first two arguments at the byte offset specified by this
 function's third argument.  On big-endian targets, this function behaves
-as if implemented by the Future 'vextdubvlx', 'vextduhvlx',
-'vextduwvlx', or 'vextddvlx' instructions, depending on the types of the
-function's first two arguments.  On little-endian targets, this function
-behaves as if implemented by the Future 'vextdubvrx', 'vextduhvrx',
-'vextduwvrx', or 'vextddvrx' instructions.  The byte offset of the
-element to be extracted is calculated by computing the remainder of
-dividing the third argument by 32.  If this reminader value is not a
-multiple of the vector element size, or if its value added to the vector
-element size exceeds 32, the result is undefined.
+as if implemented by the 'vextdubvlx', 'vextduhvlx', 'vextduwvlx', or
+'vextddvlx' instructions, depending on the types of the function's first
+two arguments.  On little-endian targets, this function behaves as if
+implemented by the 'vextdubvrx', 'vextduhvrx', 'vextduwvrx', or
+'vextddvrx' instructions.  The byte offset of the element to be
+extracted is calculated by computing the remainder of dividing the third
+argument by 32.  If this reminader value is not a multiple of the vector
+element size, or if its value added to the vector element size exceeds
+32, the result is undefined.
 
 vector unsigned long long int
 vec_extractr (vector unsigned char, vector unsigned char, unsigned int)
@@ -50584,27 +50588,26 @@ vec_extractr (vector unsigned long long, vector unsigned long long, unsigned int
  Extract a single element from the vector formed by catenating this
 function's first two arguments at the byte offset calculated by
 subtracting this function's third argument from 31.  On big-endian
-targets, this function behaves as if implemented by the Future
-'vextdubvrx', 'vextduhvrx', 'vextduwvrx', or 'vextddvrx' instructions,
-depending on the types of the function's first two arguments.  On
-little-endian targets, this function behaves as if implemented by the
-Future 'vextdubvlx', 'vextduhvlx', 'vextduwvlx', or 'vextddvlx'
-instructions.  The byte offset of the element to be extracted, measured
-from the right end of the catenation of the two vector arguments, is
-calculated by computing the remainder of dividing the third argument by
-32.  If this reminader value is not a multiple of the vector element
-size, or if its value added to the vector element size exceeds 32, the
-result is undefined.
+targets, this function behaves as if implemented by the 'vextdubvrx',
+'vextduhvrx', 'vextduwvrx', or 'vextddvrx' instructions, depending on
+the types of the function's first two arguments.  On little-endian
+targets, this function behaves as if implemented by the 'vextdubvlx',
+'vextduhvlx', 'vextduwvlx', or 'vextddvlx' instructions.  The byte
+offset of the element to be extracted, measured from the right end of
+the catenation of the two vector arguments, is calculated by computing
+the remainder of dividing the third argument by 32.  If this reminader
+value is not a multiple of the vector element size, or if its value
+added to the vector element size exceeds 32, the result is undefined.
 
 vector unsigned long long int
 vec_pdep (vector unsigned long long int, vector unsigned long long int)
  Perform a vector parallel bits deposit operation, as if implemented by
-the Future 'vpdepd' instruction.
+the 'vpdepd' instruction.
 
 vector unsigned long long int
 vec_pext (vector unsigned long long int, vector unsigned long long int)
  Perform a vector parallel bit extract operation, as if implemented by
-the Future 'vpextd' instruction.
+the 'vpextd' instruction.
 
 vector unsigned char vec_stril (vector unsigned char)
 vector signed char vec_stril (vector signed char)
@@ -50664,15 +50667,15 @@ vector unsigned __int128
 vec_ternarylogic (vector unsigned __int128, vector unsigned __int128,
                  vector unsigned __int128, const unsigned int)
  Perform a 128-bit vector evaluate operation, as if implemented by the
-Future 'xxeval' instruction.  The fourth argument must be a literal
-integer value between 0 and 255 inclusive.
+'xxeval' instruction.  The fourth argument must be a literal integer
+value between 0 and 255 inclusive.
 
 vector unsigned char vec_genpcvm (vector unsigned char, const int)
 vector unsigned short vec_genpcvm (vector unsigned short, const int)
 vector unsigned int vec_genpcvm (vector unsigned int, const int)
 vector unsigned int vec_genpcvm (vector unsigned long long int,
                                               const int)
- Generate PCV from specified Mask size, as if implemented by the Future
+ Generate PCV from specified Mask size, as if implemented by the
 'xxgenpcvbm', 'xxgenpcvhm', 'xxgenpcvwm' instructions, where immediate
 value is either 0, 1, 2 or 3.
 
@@ -65156,8 +65159,8 @@ Keyword Index
 * __builtin_bswap64:                     Other Builtins.     (line  991)
 * __builtin_call_with_static_chain:      Other Builtins.     (line    6)
 * __builtin_call_with_static_chain <1>:  Other Builtins.     (line  385)
-* __builtin_cfuged:                      Basic PowerPC Built-in Functions Available for a Future Architecture.
-                                                             (line   19)
+* __builtin_cfuged:                      Basic PowerPC Built-in Functions Available on ISA 3.1.
+                                                             (line   18)
 * __builtin_choose_expr:                 Other Builtins.     (line  396)
 * __builtin_clrsb:                       Other Builtins.     (line  913)
 * __builtin_clrsbl:                      Other Builtins.     (line  935)
@@ -65165,10 +65168,10 @@ Keyword Index
 * __builtin_clz:                         Other Builtins.     (line  905)
 * __builtin_clzl:                        Other Builtins.     (line  927)
 * __builtin_clzll:                       Other Builtins.     (line  950)
-* __builtin_cntlzdm:                     Basic PowerPC Built-in Functions Available for a Future Architecture.
-                                                             (line   24)
-* __builtin_cnttzdm:                     Basic PowerPC Built-in Functions Available for a Future Architecture.
-                                                             (line   29)
+* __builtin_cntlzdm:                     Basic PowerPC Built-in Functions Available on ISA 3.1.
+                                                             (line   23)
+* __builtin_cnttzdm:                     Basic PowerPC Built-in Functions Available on ISA 3.1.
+                                                             (line   28)
 * __builtin_complex:                     Other Builtins.     (line  490)
 * __builtin_constant_p:                  Other Builtins.     (line  499)
 * __builtin_convertvector:               Vector Extensions.  (line  165)
@@ -65181,7 +65184,7 @@ Keyword Index
 * __builtin_cpu_is <1>:                  x86 Built-in Functions.
                                                              (line   96)
 * __builtin_cpu_supports:                Basic PowerPC Built-in Functions Available on all Configurations.
-                                                             (line   68)
+                                                             (line   70)
 * __builtin_cpu_supports <1>:            x86 Built-in Functions.
                                                              (line  234)
 * __builtin_ctz:                         Other Builtins.     (line  909)
@@ -65290,10 +65293,10 @@ Keyword Index
 * __builtin_parity:                      Other Builtins.     (line  921)
 * __builtin_parityl:                     Other Builtins.     (line  942)
 * __builtin_parityll:                    Other Builtins.     (line  966)
-* __builtin_pdepd:                       Basic PowerPC Built-in Functions Available for a Future Architecture.
-                                                             (line   34)
-* __builtin_pextd:                       Basic PowerPC Built-in Functions Available for a Future Architecture.
-                                                             (line   39)
+* __builtin_pdepd:                       Basic PowerPC Built-in Functions Available on ISA 3.1.
+                                                             (line   33)
+* __builtin_pextd:                       Basic PowerPC Built-in Functions Available on ISA 3.1.
+                                                             (line   38)
 * __builtin_popcount:                    Other Builtins.     (line  918)
 * __builtin_popcountl:                   Other Builtins.     (line  938)
 * __builtin_popcountll:                  Other Builtins.     (line  962)
@@ -67588,38 +67591,38 @@ Keyword Index
                                                              (line  419)
 * vector_size variable attribute:        Common Variable Attributes.
                                                              (line  360)
-* vec_cfuge:                             PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line   13)
-* vec_clrl:                              PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line   32)
-* vec_clrr:                              PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line   41)
-* vec_cntlzm:                            PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line   18)
-* vec_cnttzm:                            PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line   23)
-* vec_extractl:                          PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line   68)
-* vec_extractr:                          PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line   91)
-* vec_genpcvm:                           PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line  171)
-* vec_gnb:                               PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line   47)
-* vec_pdep:                              PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line   96)
-* vec_pext:                              PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line  101)
-* vec_stril:                             PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line  111)
-* vec_stril_p:                           PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line  122)
-* vec_strir:                             PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line  132)
-* vec_strir_p:                           PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line  143)
-* vec_ternarylogic:                      PowerPC AltiVec Built-in Functions Available for a Future Architecture.
-                                                             (line  162)
+* vec_cfuge:                             PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line   12)
+* vec_clrl:                              PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line   31)
+* vec_clrr:                              PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line   40)
+* vec_cntlzm:                            PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line   17)
+* vec_cnttzm:                            PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line   22)
+* vec_extractl:                          PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line   67)
+* vec_extractr:                          PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line   89)
+* vec_genpcvm:                           PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line  169)
+* vec_gnb:                               PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line   46)
+* vec_pdep:                              PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line   94)
+* vec_pext:                              PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line   99)
+* vec_stril:                             PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line  109)
+* vec_stril_p:                           PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line  120)
+* vec_strir:                             PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line  130)
+* vec_strir_p:                           PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line  141)
+* vec_ternarylogic:                      PowerPC AltiVec Built-in Functions Available on ISA 3.1.
+                                                             (line  160)
 * version_id function attribute, IA-64:  IA-64 Function Attributes.
                                                              (line   16)
 * vfprintf:                              Other Builtins.     (line    6)
@@ -68008,136 +68011,136 @@ Node: MSP430 Built-in Functions1957144
 Node: NDS32 Built-in Functions1958545
 Node: picoChip Built-in Functions1959838
 Node: Basic PowerPC Built-in Functions1961187
-Node: Basic PowerPC Built-in Functions Available on all Configurations1962060
-Node: Basic PowerPC Built-in Functions Available on ISA 2.051970384
-Node: Basic PowerPC Built-in Functions Available on ISA 2.061975219
-Node: Basic PowerPC Built-in Functions Available on ISA 2.071977299
-Node: Basic PowerPC Built-in Functions Available on ISA 3.01978153
-Node: Basic PowerPC Built-in Functions Available for a Future Architecture1985146
-Node: PowerPC AltiVec/VSX Built-in Functions1987019
-Node: PowerPC AltiVec Built-in Functions on ISA 2.051990776
-Node: PowerPC AltiVec Built-in Functions Available on ISA 2.062080014
-Node: PowerPC AltiVec Built-in Functions Available on ISA 2.072104459
-Node: PowerPC AltiVec Built-in Functions Available on ISA 3.02125663
-Node: PowerPC AltiVec Built-in Functions Available for a Future Architecture2160457
-Node: PowerPC Hardware Transactional Memory Built-in Functions2169322
-Node: PowerPC Atomic Memory Operation Functions2177837
-Node: PowerPC Matrix-Multiply Assist Built-in Functions2180400
-Node: RX Built-in Functions2186395
-Node: S/390 System z Built-in Functions2190421
-Node: SH Built-in Functions2195651
-Node: SPARC VIS Built-in Functions2197379
-Node: TI C6X Built-in Functions2205910
-Node: TILE-Gx Built-in Functions2206941
-Node: TILEPro Built-in Functions2208060
-Node: x86 Built-in Functions2209160
-Node: x86 transactional memory intrinsics2272966
-Node: x86 control-flow protection intrinsics2276233
-Node: Target Format Checks2278004
-Node: Solaris Format Checks2278436
-Node: Darwin Format Checks2278862
-Node: Pragmas2279825
-Node: AArch64 Pragmas2280766
-Node: ARM Pragmas2281223
-Node: M32C Pragmas2281850
-Node: MeP Pragmas2282922
-Node: PRU Pragmas2284974
-Node: RS/6000 and PowerPC Pragmas2285552
-Node: S/390 Pragmas2286292
-Node: Darwin Pragmas2286858
-Node: Solaris Pragmas2287911
-Node: Symbol-Renaming Pragmas2289075
-Node: Structure-Layout Pragmas2290712
-Node: Weak Pragmas2292992
-Node: Diagnostic Pragmas2293727
-Node: Visibility Pragmas2297918
-Node: Push/Pop Macro Pragmas2298603
-Node: Function Specific Option Pragmas2299576
-Node: Loop-Specific Pragmas2301542
-Node: Unnamed Fields2303142
-Node: Thread-Local2305339
-Node: C99 Thread-Local Edits2307445
-Node: C++98 Thread-Local Edits2309443
-Node: Binary constants2312888
-Node: C++ Extensions2313559
-Node: C++ Volatiles2315189
-Node: Restricted Pointers2317537
-Node: Vague Linkage2319128
-Node: C++ Interface2322751
-Ref: C++ Interface-Footnote-12326548
-Node: Template Instantiation2326686
-Node: Bound member functions2332777
-Node: C++ Attributes2334309
-Node: Function Multiversioning2338381
-Node: Type Traits2340188
-Node: C++ Concepts2347138
-Node: Deprecated Features2348644
-Node: Backwards Compatibility2350469
-Node: Objective-C2351541
-Node: GNU Objective-C runtime API2352148
-Node: Modern GNU Objective-C runtime API2353155
-Node: Traditional GNU Objective-C runtime API2355591
-Node: Executing code before main2356318
-Node: What you can and what you cannot do in +load2359062
-Node: Type encoding2361432
-Node: Legacy type encoding2366573
-Node: @encode2367663
-Node: Method signatures2368208
-Node: Garbage Collection2370200
-Node: Constant string objects2372890
-Node: compatibility_alias2375399
-Node: Exceptions2376124
-Node: Synchronization2378834
-Node: Fast enumeration2380018
-Node: Using fast enumeration2380330
-Node: c99-like fast enumeration syntax2381541
-Node: Fast enumeration details2382244
-Node: Fast enumeration protocol2384584
-Node: Messaging with the GNU Objective-C runtime2387736
-Node: Dynamically registering methods2389108
-Node: Forwarding hook2390799
-Node: Compatibility2393839
-Node: Gcov2400395
-Node: Gcov Intro2400930
-Node: Invoking Gcov2403648
-Node: Gcov and Optimization2426514
-Node: Gcov Data Files2430257
-Node: Cross-profiling2431666
-Node: Gcov-tool2433520
-Node: Gcov-tool Intro2433945
-Node: Invoking Gcov-tool2435915
-Node: Gcov-dump2438493
-Node: Gcov-dump Intro2438816
-Node: Invoking Gcov-dump2439083
-Node: lto-dump2439740
-Node: lto-dump Intro2440039
-Node: Invoking lto-dump2440289
-Node: Trouble2441385
-Node: Actual Bugs2442802
-Node: Interoperation2443249
-Node: Incompatibilities2450140
-Node: Fixed Headers2458292
-Node: Standard Libraries2459950
-Node: Disappointments2461322
-Node: C++ Misunderstandings2465681
-Node: Static Definitions2466492
-Node: Name lookup2467545
-Ref: Name lookup-Footnote-12472326
-Node: Temporaries2472515
-Node: Copy Assignment2474491
-Node: Non-bugs2476298
-Node: Warnings and Errors2486804
-Node: Bugs2488566
-Node: Bug Criteria2489033
-Node: Bug Reporting2491243
-Node: Service2491461
-Node: Contributing2492281
-Node: Funding2493022
-Node: GNU Project2495512
-Node: Copying2496158
-Node: GNU Free Documentation License2533666
-Node: Contributors2558784
-Node: Option Index2599757
-Node: Keyword Index2879956
+Node: Basic PowerPC Built-in Functions Available on all Configurations1962045
+Node: Basic PowerPC Built-in Functions Available on ISA 2.051970554
+Node: Basic PowerPC Built-in Functions Available on ISA 2.061975389
+Node: Basic PowerPC Built-in Functions Available on ISA 2.071977469
+Node: Basic PowerPC Built-in Functions Available on ISA 3.01978323
+Node: Basic PowerPC Built-in Functions Available on ISA 3.11985301
+Node: PowerPC AltiVec/VSX Built-in Functions1987002
+Node: PowerPC AltiVec Built-in Functions on ISA 2.051990744
+Node: PowerPC AltiVec Built-in Functions Available on ISA 2.062079982
+Node: PowerPC AltiVec Built-in Functions Available on ISA 2.072104427
+Node: PowerPC AltiVec Built-in Functions Available on ISA 3.02125631
+Node: PowerPC AltiVec Built-in Functions Available on ISA 3.12160410
+Node: PowerPC Hardware Transactional Memory Built-in Functions2169079
+Node: PowerPC Atomic Memory Operation Functions2177594
+Node: PowerPC Matrix-Multiply Assist Built-in Functions2180157
+Node: RX Built-in Functions2186152
+Node: S/390 System z Built-in Functions2190178
+Node: SH Built-in Functions2195408
+Node: SPARC VIS Built-in Functions2197136
+Node: TI C6X Built-in Functions2205667
+Node: TILE-Gx Built-in Functions2206698
+Node: TILEPro Built-in Functions2207817
+Node: x86 Built-in Functions2208917
+Node: x86 transactional memory intrinsics2272723
+Node: x86 control-flow protection intrinsics2275990
+Node: Target Format Checks2277761
+Node: Solaris Format Checks2278193
+Node: Darwin Format Checks2278619
+Node: Pragmas2279582
+Node: AArch64 Pragmas2280523
+Node: ARM Pragmas2280980
+Node: M32C Pragmas2281607
+Node: MeP Pragmas2282679
+Node: PRU Pragmas2284731
+Node: RS/6000 and PowerPC Pragmas2285309
+Node: S/390 Pragmas2286049
+Node: Darwin Pragmas2286615
+Node: Solaris Pragmas2287668
+Node: Symbol-Renaming Pragmas2288832
+Node: Structure-Layout Pragmas2290469
+Node: Weak Pragmas2292749
+Node: Diagnostic Pragmas2293484
+Node: Visibility Pragmas2297675
+Node: Push/Pop Macro Pragmas2298360
+Node: Function Specific Option Pragmas2299333
+Node: Loop-Specific Pragmas2301299
+Node: Unnamed Fields2302899
+Node: Thread-Local2305096
+Node: C99 Thread-Local Edits2307202
+Node: C++98 Thread-Local Edits2309200
+Node: Binary constants2312645
+Node: C++ Extensions2313316
+Node: C++ Volatiles2314946
+Node: Restricted Pointers2317294
+Node: Vague Linkage2318885
+Node: C++ Interface2322508
+Ref: C++ Interface-Footnote-12326305
+Node: Template Instantiation2326443
+Node: Bound member functions2332534
+Node: C++ Attributes2334066
+Node: Function Multiversioning2338138
+Node: Type Traits2339945
+Node: C++ Concepts2346895
+Node: Deprecated Features2348401
+Node: Backwards Compatibility2350226
+Node: Objective-C2351298
+Node: GNU Objective-C runtime API2351905
+Node: Modern GNU Objective-C runtime API2352912
+Node: Traditional GNU Objective-C runtime API2355348
+Node: Executing code before main2356075
+Node: What you can and what you cannot do in +load2358819
+Node: Type encoding2361189
+Node: Legacy type encoding2366330
+Node: @encode2367420
+Node: Method signatures2367965
+Node: Garbage Collection2369957
+Node: Constant string objects2372647
+Node: compatibility_alias2375156
+Node: Exceptions2375881
+Node: Synchronization2378591
+Node: Fast enumeration2379775
+Node: Using fast enumeration2380087
+Node: c99-like fast enumeration syntax2381298
+Node: Fast enumeration details2382001
+Node: Fast enumeration protocol2384341
+Node: Messaging with the GNU Objective-C runtime2387493
+Node: Dynamically registering methods2388865
+Node: Forwarding hook2390556
+Node: Compatibility2393596
+Node: Gcov2400152
+Node: Gcov Intro2400687
+Node: Invoking Gcov2403405
+Node: Gcov and Optimization2426271
+Node: Gcov Data Files2430014
+Node: Cross-profiling2431423
+Node: Gcov-tool2433277
+Node: Gcov-tool Intro2433702
+Node: Invoking Gcov-tool2435672
+Node: Gcov-dump2438250
+Node: Gcov-dump Intro2438573
+Node: Invoking Gcov-dump2438840
+Node: lto-dump2439497
+Node: lto-dump Intro2439796
+Node: Invoking lto-dump2440046
+Node: Trouble2441142
+Node: Actual Bugs2442559
+Node: Interoperation2443006
+Node: Incompatibilities2449897
+Node: Fixed Headers2458049
+Node: Standard Libraries2459707
+Node: Disappointments2461079
+Node: C++ Misunderstandings2465438
+Node: Static Definitions2466249
+Node: Name lookup2467302
+Ref: Name lookup-Footnote-12472083
+Node: Temporaries2472272
+Node: Copy Assignment2474248
+Node: Non-bugs2476055
+Node: Warnings and Errors2486561
+Node: Bugs2488323
+Node: Bug Criteria2488790
+Node: Bug Reporting2491000
+Node: Service2491218
+Node: Contributing2492038
+Node: Funding2492779
+Node: GNU Project2495269
+Node: Copying2495915
+Node: GNU Free Documentation License2533423
+Node: Contributors2558541
+Node: Option Index2599514
+Node: Keyword Index2879713
 
 End Tag Table
