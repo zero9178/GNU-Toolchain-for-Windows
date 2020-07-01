@@ -56337,7 +56337,7 @@ File: gcc.info,  Node: Invoking Gcov,  Next: Gcov and Optimization,  Prev: Gcov 
      Display help about using 'gcov' (on the standard output), and exit
      without doing any further processing.
 
-'-i'
+'-j'
 '--json-format'
      Output gcov file in an easy-to-parse JSON intermediate format which
      does not require source code for generation.  The JSON file is
@@ -56456,7 +56456,7 @@ File: gcc.info,  Node: Invoking Gcov,  Next: Gcov and Optimization,  Prev: Gcov 
 
         * THROW: true when the branch is an exceptional branch
 
-'-j'
+'-H'
 '--human-readable'
      Write counts in human readable format (like 24.6k).
 

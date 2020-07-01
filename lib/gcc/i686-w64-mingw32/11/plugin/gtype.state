@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "11.0.0 20200629 (experimental)")
+(!version  "11.0.0 20200701 (experimental)")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 225
@@ -33709,11 +33709,11 @@
   nil )
  (!pair  "dvirt_fn"
   (!type already_seen 23)
-  (!srcfileloc  "cp/class.c" 9621)
+  (!srcfileloc  "cp/class.c" 9629)
   nil )
  (!pair  "abort_fndecl_addr"
   (!type already_seen 23)
-  (!srcfileloc  "cp/class.c" 9620)
+  (!srcfileloc  "cp/class.c" 9628)
   nil )
  (!pair  "enum_to_min_precision"
   (!type already_seen 1911)

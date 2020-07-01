@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "OBJDUMP 1"
-.TH OBJDUMP 1 "2020-06-24" "binutils-2.34.50" "GNU Development Tools"
+.TH OBJDUMP 1 "2020-07-01" "binutils-2.34.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -513,8 +513,7 @@ option or whether instruction notes should be generated as comments in the
 disasssembly using \fB\-M notes\fR.
 .Sp
 For the x86, some of the options duplicate functions of the \fB\-m\fR
-switch, but allow finer grained control.  Multiple selections from the
-following may be specified as a comma separated string.
+switch, but allow finer grained control.
 .RS 4
 .ie n .IP """x86\-64""" 4
 .el .IP "\f(CWx86\-64\fR" 4
@@ -580,8 +579,10 @@ appear later in the option string.
 .ie n .IP """suffix""" 4
 .el .IP "\f(CWsuffix\fR" 4
 .IX Item "suffix"
-When in \s-1AT&T\s0 mode, instructs the disassembler to print a mnemonic
-suffix even when the suffix could be inferred by the operands.
+When in \s-1AT&T\s0 mode and also for a limited set of instructions when in Intel
+mode, instructs the disassembler to print a mnemonic suffix even when the
+suffix could be inferred by the operands or, for certain instructions, the
+execution mode's defaults.
 .RE
 .RS 4
 .Sp

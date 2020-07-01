@@ -29,6 +29,8 @@ Features compiled in are:
     * Quad Precision Math support
     * C++11 Threading using pthreads
     * Support for GCC Plugins
+    * zstd LTO compression
+    * iconv charset support
     * Version specific runtimes: Allows multiple GCC installations to live next to each other. This is done using version
     prefixes to runtime folders as well as version suffixes for each program. E.g. Executable of GCC 9 is called gcc-9.
     To create a symlink for the default version of gcc you want to use run one of the **make-gcc-\*-\*-default.bat** 
@@ -40,6 +42,9 @@ Features compiled in are:
     from pythons official website and add it to the PATH or it will fail to run.**
     * gdbserver
     * multi-arch support allowing debugging any target supported by gdb when remote debugging
+    * iconv charset support
+    * Minidebuginfo support with lzma compression
+    * Precise floating point emulation with MPFR and GMP
 * MinGW:
     * Posix Threading
     * Default windows version of 0x601 (Windows 7)
