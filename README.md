@@ -19,6 +19,17 @@ All binaries are 64 bit but the toolchain and debugger can produce and debug 32 
 Executable without a prefix produce and handle 64 Bit Code.
 Executables with the prefix i686-w64-mingw32 produce and handle 32 Bit Code.
 
+**Only need particular GCC version for your toolchain?**
+
+Checkout the branches:
+* GCC-7
+* GCC-8
+* GCC-9
+* GCC-10
+* GCC-11
+
+for smaller readily available toolchains.
+
 Features compiled in are:
 * GCC:
     * Shared and static versions of runtime libraries such as libstdc++. By default programs are linked against shared 
@@ -34,7 +45,7 @@ Features compiled in are:
     * Version specific runtimes: Allows multiple GCC installations to live next to each other. This is done using version
     prefixes to runtime folders as well as version suffixes for each program. E.g. Executable of GCC 9 is called gcc-9.
     To create a symlink for the default version of gcc you want to use run one of the **make-gcc-\*-\*-default.bat** 
-    which will create symlinks such as gcc.exe and others.
+    which will create symlinks such as gcc.exe and others (master branch only).
 * binutils:
     * Plugin support (needed for LTO)
 * gdb:
@@ -49,6 +60,9 @@ Features compiled in are:
     * Default windows version of 0x601 (Windows 7)
     * MSVCRT Runtime instead of ucrt (Needed by e.g. Golang compiler)
     * Builds of winpthreads and winstorecompat
+
+If you have any problems with the configuration used or are in need of any additional options and settings feel free
+to open an issue.
 
 All binaries are either fully relocatable or only have a dependency on libwinpthread-1.dll.
 For GCC to function it requires the folder it's located in (the bin folder) to be in the system PATH.
