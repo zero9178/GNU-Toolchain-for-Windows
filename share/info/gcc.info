@@ -43955,6 +43955,11 @@ processors.
      unsigned int __builtin_aarch64_get_fpsr ()
      void __builtin_aarch64_set_fpsr (unsigned int)
 
+     unsigned long long __builtin_aarch64_get_fpcr64 ()
+     void __builtin_aarch64_set_fpcr64 (unsigned long long)
+     unsigned long long __builtin_aarch64_get_fpsr64 ()
+     void __builtin_aarch64_set_fpsr64 (unsigned long long)
+
 
 File: gcc.info,  Node: Alpha Built-in Functions,  Next: Altera Nios II Built-in Functions,  Prev: AArch64 Built-in Functions,  Up: Target Builtins
 
@@ -49920,6 +49925,13 @@ later:
      bool scalar_test_neg (double source);
      bool scalar_test_neg (__ieee128 source);
 
+     vector _uint128_t vec_msum (vector unsigned long long,
+     			    vector unsigned long long,
+     			    vector _uint128_t);
+     vector _int128_t vec_msum (vector signed long long,
+     			   vector signed long long,
+     			   vector _int128_t);
+
  The 'scalar_extract_exp' and 'scalar_extract_sig' functions require a
 64-bit environment supporting ISA 3.0 or later.  The
 'scalar_extract_exp' and 'scalar_extract_sig' built-in functions return
@@ -49932,7 +49944,9 @@ argument, the '0x00010000000000000000000000000000' bit of the result is
 treated similarly.  Note that the sign of the significand is not
 represented in the result returned from the 'scalar_extract_sig'
 function.  Use the 'scalar_test_neg' function to test the sign of its
-'double' argument.
+'double' argument.  The 'vec_msum' functions perform a vector
+multiply-sum, returning the result of arg1*arg2+arg3.  ISA 3.0 adds
+support for vec_msum returning a vector int128 result.
 
  The 'scalar_insert_exp' functions require a 64-bit environment
 supporting ISA 3.0 or later.  When supplied with a 64-bit first
@@ -67980,167 +67994,167 @@ Node: Object Size Checking1778097
 Node: Other Builtins1784353
 Node: Target Builtins1834029
 Node: AArch64 Built-in Functions1835770
-Node: Alpha Built-in Functions1836225
-Node: Altera Nios II Built-in Functions1839273
-Node: ARC Built-in Functions1843642
-Node: ARC SIMD Built-in Functions1848854
-Node: ARM iWMMXt Built-in Functions1857750
-Node: ARM C Language Extensions (ACLE)1864746
-Node: ARM Floating Point Status and Control Intrinsics1866085
-Node: ARM ARMv8-M Security Extensions1866570
-Node: AVR Built-in Functions1867915
-Node: Blackfin Built-in Functions1871676
-Node: BPF Built-in Functions1872294
-Node: BPF Kernel Helpers1873189
-Node: FR-V Built-in Functions1882917
-Node: Argument Types1883776
-Node: Directly-mapped Integer Functions1885530
-Node: Directly-mapped Media Functions1886614
-Node: Raw read/write Functions1894820
-Node: Other Built-in Functions1895728
-Node: MIPS DSP Built-in Functions1896914
-Node: MIPS Paired-Single Support1909411
-Node: MIPS Loongson Built-in Functions1910910
-Node: Paired-Single Arithmetic1917432
-Node: Paired-Single Built-in Functions1918380
-Node: MIPS-3D Built-in Functions1921047
-Node: MIPS SIMD Architecture (MSA) Support1926441
-Node: MIPS SIMD Architecture Built-in Functions1929281
-Node: Other MIPS Built-in Functions1956135
-Node: MSP430 Built-in Functions1957144
-Node: NDS32 Built-in Functions1958545
-Node: picoChip Built-in Functions1959838
-Node: Basic PowerPC Built-in Functions1961187
-Node: Basic PowerPC Built-in Functions Available on all Configurations1962045
-Node: Basic PowerPC Built-in Functions Available on ISA 2.051970554
-Node: Basic PowerPC Built-in Functions Available on ISA 2.061975389
-Node: Basic PowerPC Built-in Functions Available on ISA 2.071977469
-Node: Basic PowerPC Built-in Functions Available on ISA 3.01978323
-Node: Basic PowerPC Built-in Functions Available on ISA 3.11985301
-Node: PowerPC AltiVec/VSX Built-in Functions1987002
-Node: PowerPC AltiVec Built-in Functions on ISA 2.051990744
-Node: PowerPC AltiVec Built-in Functions Available on ISA 2.062079982
-Node: PowerPC AltiVec Built-in Functions Available on ISA 2.072104427
-Node: PowerPC AltiVec Built-in Functions Available on ISA 3.02125631
-Node: PowerPC AltiVec Built-in Functions Available on ISA 3.12160410
-Node: PowerPC Hardware Transactional Memory Built-in Functions2169079
-Node: PowerPC Atomic Memory Operation Functions2177594
-Node: PowerPC Matrix-Multiply Assist Built-in Functions2180157
-Node: RX Built-in Functions2186152
-Node: S/390 System z Built-in Functions2190178
-Node: SH Built-in Functions2195408
-Node: SPARC VIS Built-in Functions2197136
-Node: TI C6X Built-in Functions2205667
-Node: TILE-Gx Built-in Functions2206698
-Node: TILEPro Built-in Functions2207817
-Node: x86 Built-in Functions2208917
-Node: x86 transactional memory intrinsics2272723
-Node: x86 control-flow protection intrinsics2275990
-Node: Target Format Checks2277761
-Node: Solaris Format Checks2278193
-Node: Darwin Format Checks2278619
-Node: Pragmas2279582
-Node: AArch64 Pragmas2280523
-Node: ARM Pragmas2280980
-Node: M32C Pragmas2281607
-Node: MeP Pragmas2282679
-Node: PRU Pragmas2284731
-Node: RS/6000 and PowerPC Pragmas2285309
-Node: S/390 Pragmas2286049
-Node: Darwin Pragmas2286615
-Node: Solaris Pragmas2287668
-Node: Symbol-Renaming Pragmas2288832
-Node: Structure-Layout Pragmas2290469
-Node: Weak Pragmas2292749
-Node: Diagnostic Pragmas2293484
-Node: Visibility Pragmas2297675
-Node: Push/Pop Macro Pragmas2298360
-Node: Function Specific Option Pragmas2299333
-Node: Loop-Specific Pragmas2301299
-Node: Unnamed Fields2302899
-Node: Thread-Local2305096
-Node: C99 Thread-Local Edits2307202
-Node: C++98 Thread-Local Edits2309200
-Node: Binary constants2312645
-Node: C++ Extensions2313316
-Node: C++ Volatiles2314946
-Node: Restricted Pointers2317294
-Node: Vague Linkage2318885
-Node: C++ Interface2322508
-Ref: C++ Interface-Footnote-12326305
-Node: Template Instantiation2326443
-Node: Bound member functions2332534
-Node: C++ Attributes2334066
-Node: Function Multiversioning2338138
-Node: Type Traits2339945
-Node: C++ Concepts2346895
-Node: Deprecated Features2348401
-Node: Backwards Compatibility2350226
-Node: Objective-C2351298
-Node: GNU Objective-C runtime API2351905
-Node: Modern GNU Objective-C runtime API2352912
-Node: Traditional GNU Objective-C runtime API2355348
-Node: Executing code before main2356075
-Node: What you can and what you cannot do in +load2358819
-Node: Type encoding2361189
-Node: Legacy type encoding2366330
-Node: @encode2367420
-Node: Method signatures2367965
-Node: Garbage Collection2369957
-Node: Constant string objects2372647
-Node: compatibility_alias2375156
-Node: Exceptions2375881
-Node: Synchronization2378591
-Node: Fast enumeration2379775
-Node: Using fast enumeration2380087
-Node: c99-like fast enumeration syntax2381298
-Node: Fast enumeration details2382001
-Node: Fast enumeration protocol2384341
-Node: Messaging with the GNU Objective-C runtime2387493
-Node: Dynamically registering methods2388865
-Node: Forwarding hook2390556
-Node: Compatibility2393596
-Node: Gcov2400152
-Node: Gcov Intro2400687
-Node: Invoking Gcov2403405
-Node: Gcov and Optimization2426271
-Node: Gcov Data Files2430014
-Node: Cross-profiling2431423
-Node: Gcov-tool2433277
-Node: Gcov-tool Intro2433702
-Node: Invoking Gcov-tool2435672
-Node: Gcov-dump2438250
-Node: Gcov-dump Intro2438573
-Node: Invoking Gcov-dump2438840
-Node: lto-dump2439497
-Node: lto-dump Intro2439796
-Node: Invoking lto-dump2440046
-Node: Trouble2441142
-Node: Actual Bugs2442559
-Node: Interoperation2443006
-Node: Incompatibilities2449897
-Node: Fixed Headers2458049
-Node: Standard Libraries2459707
-Node: Disappointments2461079
-Node: C++ Misunderstandings2465438
-Node: Static Definitions2466249
-Node: Name lookup2467302
-Ref: Name lookup-Footnote-12472083
-Node: Temporaries2472272
-Node: Copy Assignment2474248
-Node: Non-bugs2476055
-Node: Warnings and Errors2486561
-Node: Bugs2488323
-Node: Bug Criteria2488790
-Node: Bug Reporting2491000
-Node: Service2491218
-Node: Contributing2492038
-Node: Funding2492779
-Node: GNU Project2495269
-Node: Copying2495915
-Node: GNU Free Documentation License2533423
-Node: Contributors2558541
-Node: Option Index2599514
-Node: Keyword Index2879713
+Node: Alpha Built-in Functions1836458
+Node: Altera Nios II Built-in Functions1839506
+Node: ARC Built-in Functions1843875
+Node: ARC SIMD Built-in Functions1849087
+Node: ARM iWMMXt Built-in Functions1857983
+Node: ARM C Language Extensions (ACLE)1864979
+Node: ARM Floating Point Status and Control Intrinsics1866318
+Node: ARM ARMv8-M Security Extensions1866803
+Node: AVR Built-in Functions1868148
+Node: Blackfin Built-in Functions1871909
+Node: BPF Built-in Functions1872527
+Node: BPF Kernel Helpers1873422
+Node: FR-V Built-in Functions1883150
+Node: Argument Types1884009
+Node: Directly-mapped Integer Functions1885763
+Node: Directly-mapped Media Functions1886847
+Node: Raw read/write Functions1895053
+Node: Other Built-in Functions1895961
+Node: MIPS DSP Built-in Functions1897147
+Node: MIPS Paired-Single Support1909644
+Node: MIPS Loongson Built-in Functions1911143
+Node: Paired-Single Arithmetic1917665
+Node: Paired-Single Built-in Functions1918613
+Node: MIPS-3D Built-in Functions1921280
+Node: MIPS SIMD Architecture (MSA) Support1926674
+Node: MIPS SIMD Architecture Built-in Functions1929514
+Node: Other MIPS Built-in Functions1956368
+Node: MSP430 Built-in Functions1957377
+Node: NDS32 Built-in Functions1958778
+Node: picoChip Built-in Functions1960071
+Node: Basic PowerPC Built-in Functions1961420
+Node: Basic PowerPC Built-in Functions Available on all Configurations1962278
+Node: Basic PowerPC Built-in Functions Available on ISA 2.051970787
+Node: Basic PowerPC Built-in Functions Available on ISA 2.061975622
+Node: Basic PowerPC Built-in Functions Available on ISA 2.071977702
+Node: Basic PowerPC Built-in Functions Available on ISA 3.01978556
+Node: Basic PowerPC Built-in Functions Available on ISA 3.11985534
+Node: PowerPC AltiVec/VSX Built-in Functions1987235
+Node: PowerPC AltiVec Built-in Functions on ISA 2.051990977
+Node: PowerPC AltiVec Built-in Functions Available on ISA 2.062080215
+Node: PowerPC AltiVec Built-in Functions Available on ISA 2.072104660
+Node: PowerPC AltiVec Built-in Functions Available on ISA 3.02125864
+Node: PowerPC AltiVec Built-in Functions Available on ISA 3.12161064
+Node: PowerPC Hardware Transactional Memory Built-in Functions2169733
+Node: PowerPC Atomic Memory Operation Functions2178248
+Node: PowerPC Matrix-Multiply Assist Built-in Functions2180811
+Node: RX Built-in Functions2186806
+Node: S/390 System z Built-in Functions2190832
+Node: SH Built-in Functions2196062
+Node: SPARC VIS Built-in Functions2197790
+Node: TI C6X Built-in Functions2206321
+Node: TILE-Gx Built-in Functions2207352
+Node: TILEPro Built-in Functions2208471
+Node: x86 Built-in Functions2209571
+Node: x86 transactional memory intrinsics2273377
+Node: x86 control-flow protection intrinsics2276644
+Node: Target Format Checks2278415
+Node: Solaris Format Checks2278847
+Node: Darwin Format Checks2279273
+Node: Pragmas2280236
+Node: AArch64 Pragmas2281177
+Node: ARM Pragmas2281634
+Node: M32C Pragmas2282261
+Node: MeP Pragmas2283333
+Node: PRU Pragmas2285385
+Node: RS/6000 and PowerPC Pragmas2285963
+Node: S/390 Pragmas2286703
+Node: Darwin Pragmas2287269
+Node: Solaris Pragmas2288322
+Node: Symbol-Renaming Pragmas2289486
+Node: Structure-Layout Pragmas2291123
+Node: Weak Pragmas2293403
+Node: Diagnostic Pragmas2294138
+Node: Visibility Pragmas2298329
+Node: Push/Pop Macro Pragmas2299014
+Node: Function Specific Option Pragmas2299987
+Node: Loop-Specific Pragmas2301953
+Node: Unnamed Fields2303553
+Node: Thread-Local2305750
+Node: C99 Thread-Local Edits2307856
+Node: C++98 Thread-Local Edits2309854
+Node: Binary constants2313299
+Node: C++ Extensions2313970
+Node: C++ Volatiles2315600
+Node: Restricted Pointers2317948
+Node: Vague Linkage2319539
+Node: C++ Interface2323162
+Ref: C++ Interface-Footnote-12326959
+Node: Template Instantiation2327097
+Node: Bound member functions2333188
+Node: C++ Attributes2334720
+Node: Function Multiversioning2338792
+Node: Type Traits2340599
+Node: C++ Concepts2347549
+Node: Deprecated Features2349055
+Node: Backwards Compatibility2350880
+Node: Objective-C2351952
+Node: GNU Objective-C runtime API2352559
+Node: Modern GNU Objective-C runtime API2353566
+Node: Traditional GNU Objective-C runtime API2356002
+Node: Executing code before main2356729
+Node: What you can and what you cannot do in +load2359473
+Node: Type encoding2361843
+Node: Legacy type encoding2366984
+Node: @encode2368074
+Node: Method signatures2368619
+Node: Garbage Collection2370611
+Node: Constant string objects2373301
+Node: compatibility_alias2375810
+Node: Exceptions2376535
+Node: Synchronization2379245
+Node: Fast enumeration2380429
+Node: Using fast enumeration2380741
+Node: c99-like fast enumeration syntax2381952
+Node: Fast enumeration details2382655
+Node: Fast enumeration protocol2384995
+Node: Messaging with the GNU Objective-C runtime2388147
+Node: Dynamically registering methods2389519
+Node: Forwarding hook2391210
+Node: Compatibility2394250
+Node: Gcov2400806
+Node: Gcov Intro2401341
+Node: Invoking Gcov2404059
+Node: Gcov and Optimization2426925
+Node: Gcov Data Files2430668
+Node: Cross-profiling2432077
+Node: Gcov-tool2433931
+Node: Gcov-tool Intro2434356
+Node: Invoking Gcov-tool2436326
+Node: Gcov-dump2438904
+Node: Gcov-dump Intro2439227
+Node: Invoking Gcov-dump2439494
+Node: lto-dump2440151
+Node: lto-dump Intro2440450
+Node: Invoking lto-dump2440700
+Node: Trouble2441796
+Node: Actual Bugs2443213
+Node: Interoperation2443660
+Node: Incompatibilities2450551
+Node: Fixed Headers2458703
+Node: Standard Libraries2460361
+Node: Disappointments2461733
+Node: C++ Misunderstandings2466092
+Node: Static Definitions2466903
+Node: Name lookup2467956
+Ref: Name lookup-Footnote-12472737
+Node: Temporaries2472926
+Node: Copy Assignment2474902
+Node: Non-bugs2476709
+Node: Warnings and Errors2487215
+Node: Bugs2488977
+Node: Bug Criteria2489444
+Node: Bug Reporting2491654
+Node: Service2491872
+Node: Contributing2492692
+Node: Funding2493433
+Node: GNU Project2495923
+Node: Copying2496569
+Node: GNU Free Documentation License2534077
+Node: Contributors2559195
+Node: Option Index2600168
+Node: Keyword Index2880367
 
 End Tag Table

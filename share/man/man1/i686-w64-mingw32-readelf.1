@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "READELF 1"
-.TH READELF 1 "2020-07-01" "binutils-2.34.50" "GNU Development Tools"
+.TH READELF 1 "2020-07-09" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -171,6 +171,7 @@ readelf [\fB\-a\fR|\fB\-\-all\fR]
         [\fB\-I\fR|\fB\-\-histogram\fR]
         [\fB\-v\fR|\fB\-\-version\fR]
         [\fB\-W\fR|\fB\-\-wide\fR]
+        [\fB\-T\fR|\fB\-\-silent\-truncation\fR]
         [\fB\-H\fR|\fB\-\-help\fR]
         \fIelffile\fR...
 .SH "DESCRIPTION"
@@ -704,6 +705,18 @@ Don't break output lines to fit into 80 columns. By default
 64\-bit \s-1ELF\s0 files, so that they fit into 80 columns. This option causes
 \&\fBreadelf\fR to print each section header resp. each segment one a
 single line, which is far more readable on terminals wider than 80 columns.
+.IP "\fB\-T\fR" 4
+.IX Item "-T"
+.PD 0
+.IP "\fB\-\-silent\-truncation\fR" 4
+.IX Item "--silent-truncation"
+.PD
+Normally when readelf is displaying a symbol name, and it has to
+truncate the name to fit into an 80 column display, it will add a
+suffix of \f(CW\*(C`[...]\*(C'\fR to the name.  This command line option
+disables this behaviour, allowing 5 more characters of the name to be
+displayed and restoring the old behaviour of readelf (prior to release
+2.35).
 .IP "\fB\-H\fR" 4
 .IX Item "-H"
 .PD 0

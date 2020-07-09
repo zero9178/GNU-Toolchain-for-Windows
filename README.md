@@ -38,8 +38,7 @@ Features compiled in are:
 * binutils:
     * Plugin support (needed for LTO)
 * gdb:
-    * Support for Python 2.7 required for pretty printers. **To use gdb please download a 64 Bit version of Python 2.7
-    from pythons official website and add it to the PATH or it will fail to run.**
+    * Pretty Printer support thanks to Python 2.7 statically linked into the binary
     * gdbserver
     * multi-arch support allowing debugging any target supported by gdb when remote debugging
     * iconv charset support
