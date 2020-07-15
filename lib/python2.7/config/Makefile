@@ -21,7 +21,7 @@
 
 # === Variables set by makesetup ===
 
-MODOBJS=          Modules/posixmodule.o  Modules/threadmodule.o  Modules/signalmodule.o  Modules/_winreg.o  Modules/_functoolsmodule.o  Modules/operator.o  Modules/_localemodule.o  Modules/timemodule.o  Modules/msvcrtmodule.o  Modules/arraymodule.o  Modules/cmathmodule.o Modules/_math.o  Modules/_struct.o  Modules/_testcapimodule.o  Modules/_randommodule.o  Modules/_collectionsmodule.o  Modules/_heapqmodule.o  Modules/itertoolsmodule.o  Modules/stropmodule.o  Modules/datetimemodule.o  Modules/_bisectmodule.o  Modules/unicodedata.o  Modules/bufferedio.o Modules/bytesio.o Modules/fileio.o Modules/iobase.o Modules/_iomodule.o Modules/stringio.o Modules/textio.o  Modules/mmapmodule.o  Modules/md5module.o Modules/md5.o  Modules/shamodule.o  Modules/sha256module.o  Modules/sha512module.o  Modules/multibytecodec.o  Modules/_codecs_cn.o  Modules/_codecs_hk.o  Modules/_codecs_iso2022.o  Modules/_codecs_jp.o  Modules/_codecs_kr.o  Modules/_codecs_tw.o  Modules/errnomodule.o  Modules/_sre.o  Modules/_codecsmodule.o  Modules/_weakref.o  Modules/zipimport.o  Modules/symtablemodule.o  Modules/xxsubtype.o
+MODOBJS=          Modules/posixmodule.o  Modules/threadmodule.o  Modules/signalmodule.o  Modules/_winreg.o  Modules/_functoolsmodule.o  Modules/operator.o  Modules/_localemodule.o  Modules/timemodule.o  Modules/msvcrtmodule.o  Modules/arraymodule.o  Modules/cmathmodule.o Modules/_math.o  Modules/mathmodule.o Modules/_math.o  Modules/_struct.o  Modules/_testcapimodule.o  Modules/_randommodule.o  Modules/_collectionsmodule.o  Modules/_heapqmodule.o  Modules/itertoolsmodule.o  Modules/stropmodule.o  Modules/datetimemodule.o  Modules/_bisectmodule.o  Modules/unicodedata.o  Modules/bufferedio.o Modules/bytesio.o Modules/fileio.o Modules/iobase.o Modules/_iomodule.o Modules/stringio.o Modules/textio.o  Modules/mmapmodule.o  Modules/_csv.o  Modules/audioop.o  Modules/binascii.o  Modules/cStringIO.o  Modules/cPickle.o  Modules/parsermodule.o  Modules/selectmodule.o  Modules/_ctypes_test.o  Modules/future_builtins.o  Modules/_json.o  Modules/_hotshot.o  Modules/_lsprof.o Modules/rotatingtree.o  Modules/socketmodule.o Modules/timemodule.o  Modules/_msi.o  Modules/_subprocess.o  Modules/winsound.o  Modules/pyexpat.o  Modules/_elementtree.o  Modules/multiprocessing.o Modules/semaphore.o Modules/pipe_connection.o Modules/socket_connection.o Modules/win32_functions.o  Modules/md5module.o Modules/md5.o  Modules/shamodule.o  Modules/sha256module.o  Modules/sha512module.o  Modules/multibytecodec.o  Modules/_codecs_cn.o  Modules/_codecs_hk.o  Modules/_codecs_iso2022.o  Modules/_codecs_jp.o  Modules/_codecs_kr.o  Modules/_codecs_tw.o  Modules/errnomodule.o  Modules/_sre.o  Modules/_codecsmodule.o  Modules/_weakref.o  Modules/zipimport.o  Modules/symtablemodule.o  Modules/xxsubtype.o
 MODLIBS=        $(LOCALMODLIBS) $(BASEMODLIBS)
 
 # === Variables set by configure
@@ -77,8 +77,8 @@ CFLAGS=		$(BASECFLAGS) -g -O2 $(OPT) $(EXTRA_CFLAGS)
 # Both CPPFLAGS and LDFLAGS need to contain the shell's value for setup.py to
 # be able to build extension modules using the directories specified in the
 # environment variables
-CPPFLAGS=	-I. -IInclude -I$(srcdir)/Include -I$(srcdir)/Python -I$(srcdir)/PC -static
-LDFLAGS=	-static
+CPPFLAGS=	-I. -IInclude -I$(srcdir)/Include -I$(srcdir)/Python -I$(srcdir)/PC -static -I/mnt/c/GDB-Build/python2/Python-2.7.18/build/../../../libexpat/install/include 
+LDFLAGS=	-static -lws2_32 -L/mnt/c/GDB-Build/python2/Python-2.7.18/build/../../../libexpat/install/lib
 LDLAST=		
 SGI_ABI=	
 CCSHARED=	
@@ -167,7 +167,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--host=x86_64-w64-mingw32' '--build=x86_64-pc-linux-gnu' '--disable-shared' '--prefix=/mnt/c/GDB-Build/python2/Python-2.7.18/build/install' 'build_alias=x86_64-pc-linux-gnu' 'host_alias=x86_64-w64-mingw32' 'CC=/mnt/c/GCC-Build/NewestLinux/bin/x86_64-w64-mingw32-gcc-10' 'LDFLAGS=-static' 'CPPFLAGS=-static'
+CONFIG_ARGS=	 '--host=x86_64-w64-mingw32' '--build=x86_64-pc-linux-gnu' '--disable-shared' '--prefix=/mnt/c/GDB-Build/python2/Python-2.7.18/build/install' '--with-system-expat' 'build_alias=x86_64-pc-linux-gnu' 'host_alias=x86_64-w64-mingw32' 'CC=/mnt/c/GCC-Build/NewestLinux/bin/x86_64-w64-mingw32-gcc-10' 'LDFLAGS=-static -lws2_32 -L/mnt/c/GDB-Build/python2/Python-2.7.18/build/../../../libexpat/install/lib' 'CPPFLAGS=-static -I/mnt/c/GDB-Build/python2/Python-2.7.18/build/../../../libexpat/install/include '
 
 
 # Subdirectories with code
@@ -229,7 +229,7 @@ COVERAGE_REPORT_OPTIONS=--no-branch-coverage --title "CPython lcov report"
 
 # === Definitions added by makesetup ===
 
-LOCALMODLIBS=                                         
+LOCALMODLIBS=                                -lws2_32  -loleaut32       -lmsi -lcabinet -lrpcrt4   -lwinmm  -lexpat  -lexpat  -lws2_32                  
 BASEMODLIBS=
 GLHACK=-Dclear=__GLclear
 PYTHONPATH=$(COREPYTHONPATH)
@@ -1567,6 +1567,9 @@ Modules/arraymodule$(SO):  Modules/arraymodule.o; $(BLDSHARED)  Modules/arraymod
 Modules/cmathmodule.o: $(srcdir)/Modules/cmathmodule.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/cmathmodule.c -o Modules/cmathmodule.o
 Modules/_math.o: $(srcdir)/Modules/_math.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/_math.c -o Modules/_math.o
 Modules/cmathmodule$(SO):  Modules/cmathmodule.o Modules/_math.o; $(BLDSHARED)  Modules/cmathmodule.o Modules/_math.o   -o Modules/cmathmodule$(SO)
+Modules/mathmodule.o: $(srcdir)/Modules/mathmodule.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/mathmodule.c -o Modules/mathmodule.o
+Modules/_math.o: $(srcdir)/Modules/_math.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/_math.c -o Modules/_math.o
+Modules/math$(SO):  Modules/mathmodule.o Modules/_math.o; $(BLDSHARED)  Modules/mathmodule.o Modules/_math.o   -o Modules/math$(SO)
 Modules/_struct.o: $(srcdir)/Modules/_struct.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/_struct.c -o Modules/_struct.o
 Modules/_struct$(SO):  Modules/_struct.o; $(BLDSHARED)  Modules/_struct.o   -o Modules/_struct$(SO)
 Modules/_testcapimodule.o: $(srcdir)/Modules/_testcapimodule.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/_testcapimodule.c -o Modules/_testcapimodule.o
@@ -1597,6 +1600,50 @@ Modules/textio.o: $(srcdir)/Modules/_io/textio.c; $(CC) $(PY_CFLAGS)  -I$(srcdir
 Modules/_iomodule$(SO):  Modules/bufferedio.o Modules/bytesio.o Modules/fileio.o Modules/iobase.o Modules/_iomodule.o Modules/stringio.o Modules/textio.o; $(BLDSHARED)  Modules/bufferedio.o Modules/bytesio.o Modules/fileio.o Modules/iobase.o Modules/_iomodule.o Modules/stringio.o Modules/textio.o   -o Modules/_iomodule$(SO)
 Modules/mmapmodule.o: $(srcdir)/Modules/mmapmodule.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/mmapmodule.c -o Modules/mmapmodule.o
 Modules/mmapmodule$(SO):  Modules/mmapmodule.o; $(BLDSHARED)  Modules/mmapmodule.o   -o Modules/mmapmodule$(SO)
+Modules/_csv.o: $(srcdir)/Modules/_csv.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/_csv.c -o Modules/_csv.o
+Modules/_csv$(SO):  Modules/_csv.o; $(BLDSHARED)  Modules/_csv.o   -o Modules/_csv$(SO)
+Modules/audioop.o: $(srcdir)/Modules/audioop.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/audioop.c -o Modules/audioop.o
+Modules/audioop$(SO):  Modules/audioop.o; $(BLDSHARED)  Modules/audioop.o   -o Modules/audioop$(SO)
+Modules/binascii.o: $(srcdir)/Modules/binascii.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/binascii.c -o Modules/binascii.o
+Modules/binascii$(SO):  Modules/binascii.o; $(BLDSHARED)  Modules/binascii.o   -o Modules/binascii$(SO)
+Modules/cStringIO.o: $(srcdir)/Modules/cStringIO.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/cStringIO.c -o Modules/cStringIO.o
+Modules/cStringIO$(SO):  Modules/cStringIO.o; $(BLDSHARED)  Modules/cStringIO.o   -o Modules/cStringIO$(SO)
+Modules/cPickle.o: $(srcdir)/Modules/cPickle.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/cPickle.c -o Modules/cPickle.o
+Modules/cPickle$(SO):  Modules/cPickle.o; $(BLDSHARED)  Modules/cPickle.o   -o Modules/cPickle$(SO)
+Modules/parsermodule.o: $(srcdir)/Modules/parsermodule.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/parsermodule.c -o Modules/parsermodule.o
+Modules/parsermodule$(SO):  Modules/parsermodule.o; $(BLDSHARED)  Modules/parsermodule.o   -o Modules/parsermodule$(SO)
+Modules/selectmodule.o: $(srcdir)/Modules/selectmodule.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/selectmodule.c -o Modules/selectmodule.o
+Modules/selectmodule$(SO):  Modules/selectmodule.o; $(BLDSHARED)  Modules/selectmodule.o  -lws2_32  -o Modules/selectmodule$(SO)
+Modules/_ctypes_test.o: $(srcdir)/Modules/_ctypes/_ctypes_test.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/_ctypes/_ctypes_test.c -o Modules/_ctypes_test.o
+Modules/_ctypes_test$(SO):  Modules/_ctypes_test.o; $(BLDSHARED)  Modules/_ctypes_test.o  -loleaut32  -o Modules/_ctypes_test$(SO)
+Modules/future_builtins.o: $(srcdir)/Modules/future_builtins.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/future_builtins.c -o Modules/future_builtins.o
+Modules/future_builtins$(SO):  Modules/future_builtins.o; $(BLDSHARED)  Modules/future_builtins.o   -o Modules/future_builtins$(SO)
+Modules/_json.o: $(srcdir)/Modules/_json.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/_json.c -o Modules/_json.o
+Modules/_json$(SO):  Modules/_json.o; $(BLDSHARED)  Modules/_json.o   -o Modules/_json$(SO)
+Modules/_hotshot.o: $(srcdir)/Modules/_hotshot.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/_hotshot.c -o Modules/_hotshot.o
+Modules/_hotshot$(SO):  Modules/_hotshot.o; $(BLDSHARED)  Modules/_hotshot.o   -o Modules/_hotshot$(SO)
+Modules/_lsprof.o: $(srcdir)/Modules/_lsprof.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/_lsprof.c -o Modules/_lsprof.o
+Modules/rotatingtree.o: $(srcdir)/Modules/rotatingtree.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/rotatingtree.c -o Modules/rotatingtree.o
+Modules/_lsprof$(SO):  Modules/_lsprof.o Modules/rotatingtree.o; $(BLDSHARED)  Modules/_lsprof.o Modules/rotatingtree.o   -o Modules/_lsprof$(SO)
+Modules/socketmodule.o: $(srcdir)/Modules/socketmodule.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/socketmodule.c -o Modules/socketmodule.o
+Modules/timemodule.o: $(srcdir)/Modules/timemodule.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/timemodule.c -o Modules/timemodule.o
+Modules/_socketmodule$(SO):  Modules/socketmodule.o Modules/timemodule.o; $(BLDSHARED)  Modules/socketmodule.o Modules/timemodule.o   -o Modules/_socketmodule$(SO)
+Modules/_msi.o: $(srcdir)/Modules/../PC/_msi.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/../PC/_msi.c -o Modules/_msi.o
+Modules/_msi$(SO):  Modules/_msi.o; $(BLDSHARED)  Modules/_msi.o  -lmsi -lcabinet -lrpcrt4  -o Modules/_msi$(SO)
+Modules/_subprocess.o: $(srcdir)/Modules/../PC/_subprocess.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/../PC/_subprocess.c -o Modules/_subprocess.o
+Modules/_subprocess$(SO):  Modules/_subprocess.o; $(BLDSHARED)  Modules/_subprocess.o   -o Modules/_subprocess$(SO)
+Modules/winsound.o: $(srcdir)/Modules/../PC/winsound.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/../PC/winsound.c -o Modules/winsound.o
+Modules/winsound$(SO):  Modules/winsound.o; $(BLDSHARED)  Modules/winsound.o  -lwinmm  -o Modules/winsound$(SO)
+Modules/pyexpat.o: $(srcdir)/Modules/pyexpat.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/pyexpat.c -o Modules/pyexpat.o
+Modules/pyexpat$(SO):  Modules/pyexpat.o; $(BLDSHARED)  Modules/pyexpat.o  -lexpat  -o Modules/pyexpat$(SO)
+Modules/_elementtree.o: $(srcdir)/Modules/_elementtree.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/_elementtree.c -o Modules/_elementtree.o
+Modules/_elementtree$(SO):  Modules/_elementtree.o; $(BLDSHARED)  Modules/_elementtree.o  -lexpat  -o Modules/_elementtree$(SO)
+Modules/multiprocessing.o: $(srcdir)/Modules/_multiprocessing/multiprocessing.c; $(CC) $(PY_CFLAGS)  -I$(srcdir)/Modules/_multiprocessing -c $(srcdir)/Modules/_multiprocessing/multiprocessing.c -o Modules/multiprocessing.o
+Modules/semaphore.o: $(srcdir)/Modules/_multiprocessing/semaphore.c; $(CC) $(PY_CFLAGS)  -I$(srcdir)/Modules/_multiprocessing -c $(srcdir)/Modules/_multiprocessing/semaphore.c -o Modules/semaphore.o
+Modules/pipe_connection.o: $(srcdir)/Modules/_multiprocessing/pipe_connection.c; $(CC) $(PY_CFLAGS)  -I$(srcdir)/Modules/_multiprocessing -c $(srcdir)/Modules/_multiprocessing/pipe_connection.c -o Modules/pipe_connection.o
+Modules/socket_connection.o: $(srcdir)/Modules/_multiprocessing/socket_connection.c; $(CC) $(PY_CFLAGS)  -I$(srcdir)/Modules/_multiprocessing -c $(srcdir)/Modules/_multiprocessing/socket_connection.c -o Modules/socket_connection.o
+Modules/win32_functions.o: $(srcdir)/Modules/_multiprocessing/win32_functions.c; $(CC) $(PY_CFLAGS)  -I$(srcdir)/Modules/_multiprocessing -c $(srcdir)/Modules/_multiprocessing/win32_functions.c -o Modules/win32_functions.o
+Modules/_multiprocessingmodule$(SO):  Modules/multiprocessing.o Modules/semaphore.o Modules/pipe_connection.o Modules/socket_connection.o Modules/win32_functions.o; $(BLDSHARED)  Modules/multiprocessing.o Modules/semaphore.o Modules/pipe_connection.o Modules/socket_connection.o Modules/win32_functions.o  -lws2_32  -o Modules/_multiprocessingmodule$(SO)
 Modules/md5module.o: $(srcdir)/Modules/md5module.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/md5module.c -o Modules/md5module.o
 Modules/md5.o: $(srcdir)/Modules/md5.c; $(CC) $(PY_CFLAGS)  -c $(srcdir)/Modules/md5.c -o Modules/md5.o
 Modules/_md5module$(SO):  Modules/md5module.o Modules/md5.o; $(BLDSHARED)  Modules/md5module.o Modules/md5.o   -o Modules/_md5module$(SO)
