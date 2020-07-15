@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-07-08" "gcc-11" "GNU"
+.TH GCC 1 "2020-07-15" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -314,7 +314,9 @@ in the following sections.
 \&\-fdiagnostics\-show\-template\-tree  \-fno\-elide\-type 
 \&\-fdiagnostics\-path\-format=\fR[\fBnone\fR|\fBseparate-events\fR|\fBinline-events\fR] 
 \&\fB\-fdiagnostics\-show\-path\-depths 
-\&\-fno\-show\-column\fR
+\&\-fno\-show\-column 
+\&\-fdiagnostics\-column\-unit=\fR[\fBdisplay\fR|\fBbyte\fR] 
+\&\fB\-fdiagnostics\-column\-origin=\fR\fIorigin\fR
 .IP "\fIWarning Options\fR" 4
 .IX Item "Warning Options"
 \&\fB\-fsyntax\-only  \-fmax\-errors=\fR\fIn\fR  \fB\-Wpedantic 
@@ -703,6 +705,7 @@ in the following sections.
 \&\-msign\-return\-address=\fR\fIscope\fR 
 \&\fB\-mbranch\-protection=\fR\fInone\fR\fB|\fR\fIstandard\fR\fB|\fR\fIpac-ret\fR\fB[+\fR\fIleaf\fR
 \&\fB+\fR\fIb\-key\fR\fB]|\fR\fIbti\fR 
+\&\fB\-mharden\-sls=\fR\fIopts\fR 
 \&\fB\-march=\fR\fIname\fR  \fB\-mcpu=\fR\fIname\fR  \fB\-mtune=\fR\fIname\fR  
 \&\fB\-moverride=\fR\fIstring\fR  \fB\-mverbose\-cost\-dump 
 \&\-mstack\-protector\-guard=\fR\fIguard\fR \fB\-mstack\-protector\-guard\-reg=\fR\fIsysreg\fR 
@@ -4503,6 +4506,29 @@ debugging diagnostics that report interprocedural control flow.
 Do not print column numbers in diagnostics.  This may be necessary if
 diagnostics are being scanned by a program that does not understand the
 column numbers, such as \fBdejagnu\fR.
+.IP "\fB\-fdiagnostics\-column\-unit=\fR\fI\s-1UNIT\s0\fR" 4
+.IX Item "-fdiagnostics-column-unit=UNIT"
+Select the units for the column number.  This affects traditional diagnostics
+(in the absence of \fB\-fno\-show\-column\fR), as well as \s-1JSON\s0 format
+diagnostics if requested.
+.Sp
+The default \fI\s-1UNIT\s0\fR, \fBdisplay\fR, considers the number of display
+columns occupied by each character.  This may be larger than the number
+of bytes required to encode the character, in the case of tab
+characters, or it may be smaller, in the case of multibyte characters.
+For example, the character \*(L"\s-1GREEK SMALL LETTER PI\s0 (U+03C0)\*(R" occupies one
+display column, and its \s-1UTF\-8\s0 encoding requires two bytes; the character
+\&\*(L"\s-1SLIGHTLY SMILING FACE\s0 (U+1F642)\*(R" occupies two display columns, and
+its \s-1UTF\-8\s0 encoding requires four bytes.
+.Sp
+Setting \fI\s-1UNIT\s0\fR to \fBbyte\fR changes the column number to the raw byte
+count in all cases, as was traditionally output by \s-1GCC\s0 prior to version 11.1.0.
+.IP "\fB\-fdiagnostics\-column\-origin=\fR\fI\s-1ORIGIN\s0\fR" 4
+.IX Item "-fdiagnostics-column-origin=ORIGIN"
+Select the origin for column numbers, i.e. the column number assigned to the
+first column.  The default value of 1 corresponds to traditional \s-1GCC\s0
+behavior and to the \s-1GNU\s0 style guide.  Some utilities may perform better with an
+origin of 0; any non-negative value may be specified.
 .IP "\fB\-fdiagnostics\-format=\fR\fI\s-1FORMAT\s0\fR" 4
 .IX Item "-fdiagnostics-format=FORMAT"
 Select a different format for printing diagnostics.
@@ -4537,11 +4563,15 @@ might be printed in \s-1JSON\s0 form (after formatting) like this:
 \&                "locations": [
 \&                    {
 \&                        "caret": {
+\&                            "display\-column": 3,
+\&                            "byte\-column": 3,
 \&                            "column": 3,
 \&                            "file": "misleading\-indentation.c",
 \&                            "line": 15
 \&                        },
 \&                        "finish": {
+\&                            "display\-column": 4,
+\&                            "byte\-column": 4,
 \&                            "column": 4,
 \&                            "file": "misleading\-indentation.c",
 \&                            "line": 15
@@ -4557,6 +4587,8 @@ might be printed in \s-1JSON\s0 form (after formatting) like this:
 \&                        "locations": [
 \&                            {
 \&                                "caret": {
+\&                                    "display\-column": 5,
+\&                                    "byte\-column": 5,
 \&                                    "column": 5,
 \&                                    "file": "misleading\-indentation.c",
 \&                                    "line": 17
@@ -4566,6 +4598,7 @@ might be printed in \s-1JSON\s0 form (after formatting) like this:
 \&                        "message": "...this statement, but the latter is ..."
 \&                    }
 \&                ]
+\&                "column\-origin": 1,
 \&            },
 \&            ...
 \&        ]
@@ -4577,10 +4610,32 @@ A diagnostic has a \f(CW\*(C`kind\*(C'\fR.  If this is \f(CW\*(C`warning\*(C'\fR
 an \f(CW\*(C`option\*(C'\fR key describing the command-line option controlling the
 warning.
 .Sp
-A diagnostic can contain zero or more locations.  Each location has up
-to three positions within it: a \f(CW\*(C`caret\*(C'\fR position and optional
-\&\f(CW\*(C`start\*(C'\fR and \f(CW\*(C`finish\*(C'\fR positions.  A location can also have
-an optional \f(CW\*(C`label\*(C'\fR string.  For example, this error:
+A diagnostic can contain zero or more locations.  Each location has an
+optional \f(CW\*(C`label\*(C'\fR string and up to three positions within it: a
+\&\f(CW\*(C`caret\*(C'\fR position and optional \f(CW\*(C`start\*(C'\fR and \f(CW\*(C`finish\*(C'\fR positions.
+A position is described by a \f(CW\*(C`file\*(C'\fR name, a \f(CW\*(C`line\*(C'\fR number, and
+three numbers indicating a column position:
+.RS 4
+.IP "*" 4
+\&\f(CW\*(C`display\-column\*(C'\fR counts display columns, accounting for tabs and
+multibyte characters.
+.IP "*" 4
+\&\f(CW\*(C`byte\-column\*(C'\fR counts raw bytes.
+.IP "*" 4
+\&\f(CW\*(C`column\*(C'\fR is equal to one of
+the previous two, as dictated by the \fB\-fdiagnostics\-column\-unit\fR
+option.
+.RE
+.RS 4
+.Sp
+All three columns are relative to the origin specified by
+\&\fB\-fdiagnostics\-column\-origin\fR, which is typically equal to 1 but may
+be set, for instance, to 0 for compatibility with other utilities that
+number columns from 0.  The column origin is recorded in the \s-1JSON\s0 output in
+the \f(CW\*(C`column\-origin\*(C'\fR tag.  In the remaining examples below, the extra
+column number outputs have been omitted for brevity.
+.Sp
+For example, this error:
 .Sp
 .Vb 7
 \&        bad\-binary\-ops.c:64:23: error: invalid operands to binary + (have \*(AqS\*(Aq {aka
@@ -4732,6 +4787,7 @@ For example, the intraprocedural example shown for
 \&                }
 \&            ]
 .Ve
+.RE
 .SS "Options to Request or Suppress Warnings"
 .IX Subsection "Options to Request or Suppress Warnings"
 Warnings are diagnostic messages that report constructions that
@@ -16667,6 +16723,23 @@ argument \fBleaf\fR can be used to extend the signing to include leaf
 functions.  The optional argument \fBb\-key\fR can be used to sign the functions
 with the B\-key instead of the A\-key.
 \&\fBbti\fR turns on branch target identification mechanism.
+.IP "\fB\-mharden\-sls=\fR\fIopts\fR" 4
+.IX Item "-mharden-sls=opts"
+Enable compiler hardening against straight line speculation (\s-1SLS\s0).
+\&\fIopts\fR is a comma-separated list of the following options:
+.RS 4
+.IP "\fBretbr\fR" 4
+.IX Item "retbr"
+.PD 0
+.IP "\fBblr\fR" 4
+.IX Item "blr"
+.RE
+.RS 4
+.PD
+.Sp
+In addition, \fB\-mharden\-sls=all\fR enables all \s-1SLS\s0 hardening while
+\&\fB\-mharden\-sls=none\fR disables all \s-1SLS\s0 hardening.
+.RE
 .IP "\fB\-msve\-vector\-bits=\fR\fIbits\fR" 4
 .IX Item "-msve-vector-bits=bits"
 Specify the number of bits in an \s-1SVE\s0 vector register.  This option only has
@@ -27988,6 +28061,19 @@ AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI, AVX512IFMA, SHA, CLWB, UMIP,
 RDPID, GFNI, AVX512VBMI2, AVX512VPOPCNTDQ, AVX512BITALG, AVX512VNNI, VPCLMULQDQ,
 VAES, PCONFIG, WBNOINVD, MOVDIRI, MOVDIR64B\s0 and  \s-1AVX512VP2INTERSECT\s0 instruction
 set support.
+.IP "\fBsapphirerapids\fR" 4
+.IX Item "sapphirerapids"
+Intel sapphirerapids \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3,
+SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND,
+FMA, BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES,
+AVX512F, CLWB, AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VNNI, AVX512BF16,
+MOVDIRI, MOVDIR64B, AVX512VP2INTERSECT, ENQCMD, CLDEMOTE, PTWRITE, WAITPKG,
+SERIALIZE\s0 and \s-1TSXLDTRK\s0 instruction set support.
+.IP "\fBalderlake\fR" 4
+.IX Item "alderlake"
+Intel Alderlake \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
+SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, CLDEMOTE,
+PTWRITE, WAITPKG\s0 and \s-1SERIALIZE\s0 instruction set support.
 .IP "\fBk6\fR" 4
 .IX Item "k6"
 \&\s-1AMD K6 CPU\s0 with \s-1MMX\s0 instruction set support.
