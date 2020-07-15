@@ -6370,6 +6370,14 @@ File: ld.info,  Node: PowerPC64 ELF64,  Next: S/390 ELF,  Prev: PowerPC ELF32,  
      assembly code is used to insert TOC entries.  Use this option to
      disable the optimization.
 
+'--no-inline-optimize'
+     PowerPC64 'ld' normally replaces inline PLT call sequences marked
+     with 'R_PPC64_PLTSEQ', 'R_PPC64_PLTCALL', 'R_PPC64_PLT16_HA' and
+     'R_PPC64_PLT16_LO_DS' relocations by a number of 'nop's and a
+     direct call when the function is defined locally and can't be
+     overridden by some other definition.  This option disables that
+     optimization.
+
 '--no-multi-toc'
      If given any toc option besides '-mcmodel=medium' or
      '-mcmodel=large', PowerPC64 GCC generates code for a TOC model
@@ -6436,6 +6444,20 @@ File: ld.info,  Node: PowerPC64 ELF64,  Next: S/390 ELF,  Prev: PowerPC ELF32,  
      This will result in a dynamic loader complaint and failure to run.
      The option is experimental, use with care.  '--no-plt-localentry'
      is the default.
+
+'--power10-stubs'
+'--no-power10-stubs'
+     When PowerPC64 'ld' links input object files containing relocations
+     used on power10 prefixed instructions it normally creates linkage
+     stubs (PLT call and long branch) using power10 instructions.  In
+     particular for '@notoc' PLT calls where 'r2' is not known the
+     power10 stubs are smaller and faster, so are preferred for power10.
+     '--power10-stubs' and '--no-power10-stubs' allow you to override
+     the linker's selection of stub instructions.  For example, when
+     linking a shared library that contains cpu-optimized versions of
+     functions for both power9 and power10, you might use
+     '--no-power10-stubs' so that power9 code making calls doesn't
+     attempt to execute power10 instructions.
 
 
 File: ld.info,  Node: S/390 ELF,  Next: SPU ELF,  Prev: PowerPC64 ELF64,  Up: Machine Dependent
@@ -8159,6 +8181,7 @@ LD Index
 * --no-gc-sections:                      Options.            (line 1243)
 * --no-ignore-branch-isa:                Options.            (line 2532)
 * --no-ignore-branch-isa <1>:            MIPS.               (line   13)
+* --no-inline-optimize:                  PowerPC64 ELF64.    (line  101)
 * --no-insn32:                           Options.            (line 2523)
 * --no-insn32 <1>:                       MIPS.               (line    6)
 * --no-isolation:                        Options.            (line 2413)
@@ -8166,15 +8189,16 @@ LD Index
 * --no-leading-underscore:               Options.            (line 2079)
 * --no-merge-exidx-entries:              Options.            (line 2464)
 * --no-merge-exidx-entries <1>:          ARM.                (line  219)
-* --no-multi-toc:                        PowerPC64 ELF64.    (line  101)
+* --no-multi-toc:                        PowerPC64 ELF64.    (line  109)
 * --no-omagic:                           Options.            (line  515)
 * --no-omagic <1>:                       Options.            (line 2594)
 * --no-opd-optimize:                     PowerPC64 ELF64.    (line   75)
 * --no-overlays:                         SPU ELF.            (line    9)
-* --no-plt-align:                        PowerPC64 ELF64.    (line  123)
-* --no-plt-localentry:                   PowerPC64 ELF64.    (line  152)
-* --no-plt-static-chain:                 PowerPC64 ELF64.    (line  134)
-* --no-plt-thread-safe:                  PowerPC64 ELF64.    (line  140)
+* --no-plt-align:                        PowerPC64 ELF64.    (line  131)
+* --no-plt-localentry:                   PowerPC64 ELF64.    (line  160)
+* --no-plt-static-chain:                 PowerPC64 ELF64.    (line  142)
+* --no-plt-thread-safe:                  PowerPC64 ELF64.    (line  148)
+* --no-power10-stubs:                    PowerPC64 ELF64.    (line  176)
 * --no-print-gc-sections:                Options.            (line 1269)
 * --no-print-map-discarded:              Options.            (line  495)
 * --no-save-restore-funcs:               PowerPC64 ELF64.    (line   44)
@@ -8185,7 +8209,7 @@ LD Index
 * --no-tls-optimize:                     PowerPC ELF32.      (line   51)
 * --no-tls-optimize <1>:                 PowerPC64 ELF64.    (line   51)
 * --no-toc-optimize:                     PowerPC64 ELF64.    (line   87)
-* --no-toc-sort:                         PowerPC64 ELF64.    (line  113)
+* --no-toc-sort:                         PowerPC64 ELF64.    (line  121)
 * --no-trampoline:                       Options.            (line 2492)
 * --no-undefined:                        Options.            (line 1328)
 * --no-undefined-version:                Options.            (line 1371)
@@ -8205,12 +8229,13 @@ LD Index
 * --output=OUTPUT:                       Options.            (line  521)
 * --pic-executable:                      Options.            (line 1434)
 * --pic-veneer:                          ARM.                (line  171)
-* --plt-align:                           PowerPC64 ELF64.    (line  123)
-* --plt-localentry:                      PowerPC64 ELF64.    (line  152)
-* --plt-static-chain:                    PowerPC64 ELF64.    (line  134)
-* --plt-thread-safe:                     PowerPC64 ELF64.    (line  140)
+* --plt-align:                           PowerPC64 ELF64.    (line  131)
+* --plt-localentry:                      PowerPC64 ELF64.    (line  160)
+* --plt-static-chain:                    PowerPC64 ELF64.    (line  142)
+* --plt-thread-safe:                     PowerPC64 ELF64.    (line  148)
 * --plugin:                              SPU ELF.            (line    6)
 * --pop-state:                           Options.            (line  583)
+* --power10-stubs:                       PowerPC64 ELF64.    (line  176)
 * --print-gc-sections:                   Options.            (line 1269)
 * --print-map:                           Options.            (line  440)
 * --print-map-discarded:                 Options.            (line  495)
@@ -8736,20 +8761,22 @@ LD Index
 * PowerPC64 dot symbols:                 PowerPC64 ELF64.    (line   33)
 * PowerPC64 ELF64 options:               PowerPC64 ELF64.    (line    6)
 * PowerPC64 ELFv2 PLT localentry optimization: PowerPC64 ELF64.
-                                                             (line  152)
-* PowerPC64 multi-TOC:                   PowerPC64 ELF64.    (line  101)
+                                                             (line  160)
+* PowerPC64 inline PLT call optimization: PowerPC64 ELF64.   (line  101)
+* PowerPC64 multi-TOC:                   PowerPC64 ELF64.    (line  109)
 * PowerPC64 OPD optimization:            PowerPC64 ELF64.    (line   75)
 * PowerPC64 OPD spacing:                 PowerPC64 ELF64.    (line   81)
-* PowerPC64 PLT call stub static chain:  PowerPC64 ELF64.    (line  134)
-* PowerPC64 PLT call stub thread safety: PowerPC64 ELF64.    (line  140)
-* PowerPC64 PLT stub alignment:          PowerPC64 ELF64.    (line  123)
+* PowerPC64 PLT call stub static chain:  PowerPC64 ELF64.    (line  142)
+* PowerPC64 PLT call stub thread safety: PowerPC64 ELF64.    (line  148)
+* PowerPC64 PLT stub alignment:          PowerPC64 ELF64.    (line  131)
+* PowerPC64 Power10 stubs:               PowerPC64 ELF64.    (line  176)
 * PowerPC64 register save/restore functions: PowerPC64 ELF64.
                                                              (line   44)
 * PowerPC64 stub grouping:               PowerPC64 ELF64.    (line    6)
 * PowerPC64 stub symbols:                PowerPC64 ELF64.    (line   29)
 * PowerPC64 TLS optimization:            PowerPC64 ELF64.    (line   51)
 * PowerPC64 TOC optimization:            PowerPC64 ELF64.    (line   87)
-* PowerPC64 TOC sorting:                 PowerPC64 ELF64.    (line  113)
+* PowerPC64 TOC sorting:                 PowerPC64 ELF64.    (line  121)
 * PowerPC64 __tls_get_addr optimization: PowerPC64 ELF64.    (line   56)
 * precedence in expressions:             Operators.          (line    6)
 * prevent unnecessary loading:           Output Section Type.
@@ -9004,20 +9031,20 @@ Node: NDS32266926
 Node: Nios II267890
 Node: PowerPC ELF32269206
 Node: PowerPC64 ELF64272037
-Node: S/390 ELF280820
-Node: SPU ELF281167
-Node: TI COFF283795
-Node: WIN32284321
-Node: Xtensa304468
-Node: BFD307911
-Node: BFD outline309369
-Node: BFD information loss310657
-Node: Canonical format313183
-Node: Reporting Bugs317511
-Node: Bug Criteria318205
-Node: Bug Reporting318904
-Node: MRI325942
-Node: GNU Free Documentation License330413
-Node: LD Index355550
+Node: S/390 ELF281981
+Node: SPU ELF282328
+Node: TI COFF284956
+Node: WIN32285482
+Node: Xtensa305629
+Node: BFD309072
+Node: BFD outline310530
+Node: BFD information loss311818
+Node: Canonical format314344
+Node: Reporting Bugs318672
+Node: Bug Criteria319366
+Node: Bug Reporting320065
+Node: MRI327103
+Node: GNU Free Documentation License331574
+Node: LD Index356711
 
 End Tag Table

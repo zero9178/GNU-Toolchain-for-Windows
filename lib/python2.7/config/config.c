@@ -34,6 +34,7 @@ extern void inittime(void);
 extern void initmsvcrt(void);
 extern void initarray(void);
 extern void initcmath(void);
+extern void initmath(void);
 extern void init_struct(void);
 extern void init_testcapi(void);
 extern void init_random(void);
@@ -46,6 +47,25 @@ extern void init_bisect(void);
 extern void initunicodedata(void);
 extern void init_io(void);
 extern void initmmap(void);
+extern void init_csv(void);
+extern void initaudioop(void);
+extern void initbinascii(void);
+extern void initcStringIO(void);
+extern void initcPickle(void);
+extern void initparser(void);
+extern void initselect(void);
+extern void init_ctypes_test(void);
+extern void initfuture_builtins(void);
+extern void init_json(void);
+extern void init_hotshot(void);
+extern void init_lsprof(void);
+extern void init_socket(void);
+extern void init_msi(void);
+extern void init_subprocess(void);
+extern void initwinsound(void);
+extern void initpyexpat(void);
+extern void init_elementtree(void);
+extern void init_multiprocessing(void);
 extern void init_md5(void);
 extern void init_sha(void);
 extern void init_sha256(void);
@@ -86,6 +106,7 @@ struct _inittab _PyImport_Inittab[] = {
     {"msvcrt", initmsvcrt},
     {"array", initarray},
     {"cmath", initcmath},
+    {"math", initmath},
     {"_struct", init_struct},
     {"_testcapi", init_testcapi},
     {"_random", init_random},
@@ -98,6 +119,25 @@ struct _inittab _PyImport_Inittab[] = {
     {"unicodedata", initunicodedata},
     {"_io", init_io},
     {"mmap", initmmap},
+    {"_csv", init_csv},
+    {"audioop", initaudioop},
+    {"binascii", initbinascii},
+    {"cStringIO", initcStringIO},
+    {"cPickle", initcPickle},
+    {"parser", initparser},
+    {"select", initselect},
+    {"_ctypes_test", init_ctypes_test},
+    {"future_builtins", initfuture_builtins},
+    {"_json", init_json},
+    {"_hotshot", init_hotshot},
+    {"_lsprof", init_lsprof},
+    {"_socket", init_socket},
+    {"_msi", init_msi},
+    {"_subprocess", init_subprocess},
+    {"winsound", initwinsound},
+    {"pyexpat", initpyexpat},
+    {"_elementtree", init_elementtree},
+    {"_multiprocessing", init_multiprocessing},
     {"_md5", init_md5},
     {"_sha", init_sha},
     {"_sha256", init_sha256},
