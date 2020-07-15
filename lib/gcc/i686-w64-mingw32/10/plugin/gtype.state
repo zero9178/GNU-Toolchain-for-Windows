@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.1.1 20200708")
+(!version  "10.1.1 20200715")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 223
@@ -24959,16 +24959,16 @@
   nil 0 nil nil )
  
  (!type struct 1680 nil  gc_unused "polymorphic_call_target_hasher"
-  (!srcfileloc  "ipa-devirt.c" 2739)
+  (!srcfileloc  "ipa-devirt.c" 2742)
   (!fields 0 )
   nil 2047 nil nil )
  
  (!type user_struct 1681 nil  gc_unused "hash_table<polymorphic_call_target_hasher>"
-  (!srcfileloc  "ipa-devirt.c" 2739)
+  (!srcfileloc  "ipa-devirt.c" 2742)
   (!fields 1 
    (!pair  "polymorphic_call_target_hasher"
     (!type already_seen 1680)
-    (!srcfileloc  "ipa-devirt.c" 2739)
+    (!srcfileloc  "ipa-devirt.c" 2742)
     nil )
   )
  )
@@ -26872,7 +26872,7 @@
    (!type already_seen 1881)
   )
   gc_pointed_to "cp_parser"
-  (!srcfileloc  "cp/parser.c" 43516)
+  (!srcfileloc  "cp/parser.c" 43522)
   (!fields 37 
    (!pair  "lexer"
     (!type already_seen 1867)
@@ -27766,7 +27766,7 @@
   nil 0 nil nil )
  
  (!type undefined 1992 nil  gc_unused "class_to_loc_map_t::iterator"
-  (!srcfileloc  "cp/parser.c" 31471)
+  (!srcfileloc  "cp/parser.c" 31477)
  )
  
  (!type struct 1993 
@@ -29127,15 +29127,15 @@
   nil )
  (!pair  "cp_parser"
   (!type already_seen 1881)
-  (!srcfileloc  "cp/parser.c" 43516)
+  (!srcfileloc  "cp/parser.c" 43522)
   nil )
  (!pair  "iter_t"
   (!type already_seen 1992)
-  (!srcfileloc  "cp/parser.c" 31471)
+  (!srcfileloc  "cp/parser.c" 31477)
   nil )
  (!pair  "class_to_loc_map_t::iterator"
   (!type already_seen 1992)
-  (!srcfileloc  "cp/parser.c" 31471)
+  (!srcfileloc  "cp/parser.c" 31477)
   nil )
  (!pair  "cp_parser_expression_stack"
   (!type array 2123 nil  gc_unused "NUM_PREC_VALUES" 
@@ -29697,15 +29697,15 @@
   nil )
  (!pair  "polymorphic_call_target_hash_type"
   (!type already_seen 1681)
-  (!srcfileloc  "ipa-devirt.c" 2740)
+  (!srcfileloc  "ipa-devirt.c" 2743)
   nil )
  (!pair  "polymorphic_call_target_hasher"
   (!type already_seen 1680)
-  (!srcfileloc  "ipa-devirt.c" 2739)
+  (!srcfileloc  "ipa-devirt.c" 2742)
   nil )
  (!pair  "hash_table<polymorphic_call_target_hasher>"
   (!type already_seen 1681)
-  (!srcfileloc  "ipa-devirt.c" 2739)
+  (!srcfileloc  "ipa-devirt.c" 2742)
   nil )
  (!pair  "vec<odr_type,va_gc>"
   (!type already_seen 1677)
@@ -33213,11 +33213,11 @@
   nil )
  (!pair  "generic_parm_count"
   (!type already_seen 2)
-  (!srcfileloc  "cp/parser.c" 44006)
+  (!srcfileloc  "cp/parser.c" 44012)
   nil )
  (!pair  "the_parser"
   (!type already_seen 1882)
-  (!srcfileloc  "cp/parser.c" 43516)
+  (!srcfileloc  "cp/parser.c" 43522)
   nil )
  (!pair  "cp_parser_context_free_list"
   (!type already_seen 1874)
@@ -33556,11 +33556,11 @@
   nil )
  (!pair  "dvirt_fn"
   (!type already_seen 23)
-  (!srcfileloc  "cp/class.c" 9706)
+  (!srcfileloc  "cp/class.c" 9719)
   nil )
  (!pair  "abort_fndecl_addr"
   (!type already_seen 23)
-  (!srcfileloc  "cp/class.c" 9705)
+  (!srcfileloc  "cp/class.c" 9718)
   nil )
  (!pair  "enum_to_min_precision"
   (!type already_seen 1897)
@@ -33575,7 +33575,7 @@
   nil )
  (!pair  "default_arg_context"
   (!type already_seen 84)
-  (!srcfileloc  "cp/call.c" 8053)
+  (!srcfileloc  "cp/call.c" 8075)
   nil )
  (!pair  "unemitted_tinfo_decls"
   (!type already_seen 84)
