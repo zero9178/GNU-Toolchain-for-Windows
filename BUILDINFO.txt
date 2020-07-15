@@ -5,17 +5,17 @@ MPFR: Version 4.0.2
 LZMA: Version 5.2.5
 libiconv: Version 1.16
 Python: 2.7.18
-zstd: https://github.com/facebook/zstd dev branch at revision 978cea5d5601c239c3e4a37a6d4a5fc9e7fb50d2
+zstd: https://github.com/facebook/zstd dev branch at revision bd21e4b26460a707955e29572cd1110a550a6c5a
 libexpat: https://github.com/libexpat/libexpat master branch at revision 253686453276a045510d29f4eeef778169929b3a
 MinGW-W64: https://github.com/mirror/mingw-w64 master branch at revision 82a466591f4bf62e4b789f30810208ba6b730759
 Make: https://github.com/mirror/make master branch at revision 177054021733fde825184b29f7b9435027d255ef
-Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision 6e2469ff7afa5134cb55154212e10f25b9e7b2dd
+Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision 56c1b507aa8bd8029f63bc78275fab1d815966f5
 GCC 7: https://github.com/gcc-mirror/gcc releases/gcc-7 branch at revision b2d961e7342b5ba4e57adfa81cb189b738d10901
-GCC 8: https://github.com/gcc-mirror/gcc releases/gcc-8 branch at revision 978bacb758ddbbdee71772a5acafa1db4683950a
-GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision 006fda1b17a4d55b6548a1b3bd7efd0d8e40b6c4
-GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision f887a36851af1910145fc63ac67757b5175c535e
-GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision a8b522311beef5e02de15427e924752ea02def2a
-GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision 6e2469ff7afa5134cb55154212e10f25b9e7b2dd
+GCC 8: https://github.com/gcc-mirror/gcc releases/gcc-8 branch at revision ff4a27d225f22b8e3a89957421c126c1cbe10cde
+GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision 92a63f056ca101aa5614b8c849c3ab0522c63ae1
+GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision 932e9140d3268cf2033c1c3e93219541c53fcd29
+GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision e0685fadb6aa7c9cc895bc14cbbe2b9026fa3a94
+GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision 56c1b507aa8bd8029f63bc78275fab1d815966f5
 
 MinGW options used:
 mingw-w64-headers: --enable-idl --with-default-win32-winnt=0x601 --with-default-msvcrt=msvcrt
