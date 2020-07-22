@@ -6449,15 +6449,13 @@ File: ld.info,  Node: PowerPC64 ELF64,  Next: S/390 ELF,  Prev: PowerPC ELF32,  
 '--no-power10-stubs'
      When PowerPC64 'ld' links input object files containing relocations
      used on power10 prefixed instructions it normally creates linkage
-     stubs (PLT call and long branch) using power10 instructions.  In
-     particular for '@notoc' PLT calls where 'r2' is not known the
-     power10 stubs are smaller and faster, so are preferred for power10.
+     stubs (PLT call and long branch) using power10 instructions for
+     '@notoc' PLT calls where 'r2' is not known.  The power10 notoc
+     stubs are smaller and faster, so are preferred for power10.
      '--power10-stubs' and '--no-power10-stubs' allow you to override
-     the linker's selection of stub instructions.  For example, when
-     linking a shared library that contains cpu-optimized versions of
-     functions for both power9 and power10, you might use
-     '--no-power10-stubs' so that power9 code making calls doesn't
-     attempt to execute power10 instructions.
+     the linker's selection of stub instructions.
+     '--power10-stubs=auto' allows the user to select the default auto
+     mode.
 
 
 File: ld.info,  Node: S/390 ELF,  Next: SPU ELF,  Prev: PowerPC64 ELF64,  Up: Machine Dependent
@@ -9031,20 +9029,20 @@ Node: NDS32266926
 Node: Nios II267890
 Node: PowerPC ELF32269206
 Node: PowerPC64 ELF64272037
-Node: S/390 ELF281981
-Node: SPU ELF282328
-Node: TI COFF284956
-Node: WIN32285482
-Node: Xtensa305629
-Node: BFD309072
-Node: BFD outline310530
-Node: BFD information loss311818
-Node: Canonical format314344
-Node: Reporting Bugs318672
-Node: Bug Criteria319366
-Node: Bug Reporting320065
-Node: MRI327103
-Node: GNU Free Documentation License331574
-Node: LD Index356711
+Node: S/390 ELF281795
+Node: SPU ELF282142
+Node: TI COFF284770
+Node: WIN32285296
+Node: Xtensa305443
+Node: BFD308886
+Node: BFD outline310344
+Node: BFD information loss311632
+Node: Canonical format314158
+Node: Reporting Bugs318486
+Node: Bug Criteria319180
+Node: Bug Reporting319879
+Node: MRI326917
+Node: GNU Free Documentation License331388
+Node: LD Index356525
 
 End Tag Table
