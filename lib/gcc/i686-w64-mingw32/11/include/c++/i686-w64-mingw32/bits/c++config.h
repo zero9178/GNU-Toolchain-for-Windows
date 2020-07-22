@@ -34,7 +34,7 @@
 #define _GLIBCXX_RELEASE 11
 
 // The datestamp of the C++ library in compressed ISO date format.
-#define __GLIBCXX__ 20200715
+#define __GLIBCXX__ 20200722
 
 // Macros for various attributes.
 //   _GLIBCXX_PURE
@@ -1219,6 +1219,9 @@ namespace std
 /* Define to 1 if you have the <unistd.h> header file. */
 #define _GLIBCXX_HAVE_UNISTD_H 1
 
+/* Define to 1 if you have the `uselocale' function. */
+/* #undef _GLIBCXX_HAVE_USELOCALE */
+
 /* Defined if usleep exists. */
 #define _GLIBCXX_HAVE_USLEEP 1
 
@@ -1248,6 +1251,9 @@ namespace std
 
 /* Define if writev is available in <sys/uio.h>. */
 /* #undef _GLIBCXX_HAVE_WRITEV */
+
+/* Define to 1 if you have the <xlocale.h> header file. */
+/* #undef _GLIBCXX_HAVE_XLOCALE_H */
 
 /* Define to 1 if you have the `_acosf' function. */
 /* #undef _GLIBCXX_HAVE__ACOSF */

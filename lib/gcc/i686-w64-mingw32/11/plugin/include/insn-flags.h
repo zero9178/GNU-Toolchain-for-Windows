@@ -3742,7 +3742,7 @@
 #define HAVE_avx512f_dpbf16ps_v8sf_mask ((TARGET_AVX512BF16) && (TARGET_AVX512VL))
 #define HAVE_avx512f_dpbf16ps_v4sf_mask ((TARGET_AVX512BF16) && (TARGET_AVX512VL))
 #define HAVE_mfence_sse2 (TARGET_64BIT || TARGET_SSE2)
-#define HAVE_mfence_nosse (!(TARGET_64BIT || TARGET_SSE2))
+#define HAVE_mfence_nosse 1
 #define HAVE_atomic_loaddi_fpu (!TARGET_64BIT && (TARGET_80387 || TARGET_SSE))
 #define HAVE_atomic_storeqi_1 1
 #define HAVE_atomic_storehi_1 1
@@ -4878,12 +4878,9 @@
 #define HAVE_sqrtv16sf2 ((TARGET_SSE) && (TARGET_AVX512F))
 #define HAVE_sqrtv8sf2 ((TARGET_SSE) && (TARGET_AVX))
 #define HAVE_sqrtv4sf2 (TARGET_SSE)
-#define HAVE_rsqrtv16sf2 ((TARGET_SSE && TARGET_SSE_MATH) && (TARGET_AVX512F))
+#define HAVE_rsqrtv16sf2 ((TARGET_SSE && TARGET_SSE_MATH) && (TARGET_AVX512ER))
 #define HAVE_rsqrtv8sf2 ((TARGET_SSE && TARGET_SSE_MATH) && (TARGET_AVX))
 #define HAVE_rsqrtv4sf2 (TARGET_SSE && TARGET_SSE_MATH)
-#define HAVE_rsqrtv8df2 ((TARGET_SSE && TARGET_SSE_MATH) && (TARGET_AVX512F))
-#define HAVE_rsqrtv4df2 ((TARGET_SSE && TARGET_SSE_MATH) && (TARGET_AVX512VL))
-#define HAVE_rsqrtv2df2 ((TARGET_SSE && TARGET_SSE_MATH) && (TARGET_AVX512VL))
 #define HAVE_smaxv16sf3 ((TARGET_SSE && 1 && 1) && (TARGET_AVX512F))
 #define HAVE_smaxv16sf3_round ((TARGET_AVX512F) && ((TARGET_SSE && 1 && (V16SFmode == V16SFmode \
 									      || V16SFmode == V8DFmode \
@@ -13094,9 +13091,6 @@ extern rtx        gen_sqrtv4sf2                                  (rtx, rtx);
 extern rtx        gen_rsqrtv16sf2                                (rtx, rtx);
 extern rtx        gen_rsqrtv8sf2                                 (rtx, rtx);
 extern rtx        gen_rsqrtv4sf2                                 (rtx, rtx);
-extern rtx        gen_rsqrtv8df2                                 (rtx, rtx);
-extern rtx        gen_rsqrtv4df2                                 (rtx, rtx);
-extern rtx        gen_rsqrtv2df2                                 (rtx, rtx);
 extern rtx        gen_smaxv16sf3                                 (rtx, rtx, rtx);
 extern rtx        gen_smaxv16sf3_round                           (rtx, rtx, rtx, rtx);
 extern rtx        gen_smaxv16sf3_mask                            (rtx, rtx, rtx, rtx, rtx);
