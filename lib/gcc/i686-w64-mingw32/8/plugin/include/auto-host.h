@@ -718,6 +718,20 @@
 #endif
 
 
+/* Define if your assembler supports vl/vst/vlm/vstm with an optional
+   alignment hint argument. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_VECTOR_LOADSTORE_ALIGNMENT_HINTS */
+#endif
+
+
+/* Define if your assembler supports vl/vst/vlm/vstm with an optional
+   alignment hint argument on z13. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_VECTOR_LOADSTORE_ALIGNMENT_HINTS_ON_Z13 */
+#endif
+
+
 /* Define if your assembler supports VSX instructions. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_VSX */
