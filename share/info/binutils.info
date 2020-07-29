@@ -917,10 +917,10 @@ equivalent.
 '--with-symbol-versions'
      Enables the display of symbol version information if any exists.
      The version string is displayed as a suffix to the symbol name,
-     preceeded by an @ character.  For example 'foo@VER_1'.  If the
+     preceded by an @ character.  For example 'foo@VER_1'.  If the
      version is the default version to be used when resolving
      unversioned references to the symbol then it is displayed as a
-     suffix preceeded by two @ characters.  For example 'foo@@VER_2'.
+     suffix preceded by two @ characters.  For example 'foo@@VER_2'.
 
 '--target=BFDNAME'
      Specify an object code format other than your system's default
@@ -4300,10 +4300,10 @@ equivalent.  At least one option besides '-v' or '-H' must be given.
      Displays the entries in symbol table section of the file, if it has
      one.  If a symbol has version information associated with it then
      this is displayed as well.  The version string is displayed as a
-     suffix to the symbol name, preceeded by an @ character.  For
-     example 'foo@VER_1'.  If the version is the default version to be
-     used when resolving unversioned references to the symbol then it is
-     displayed as a suffix preceeded by two @ characters.  For example
+     suffix to the symbol name, preceded by an @ character.  For example
+     'foo@VER_1'.  If the version is the default version to be used when
+     resolving unversioned references to the symbol then it is displayed
+     as a suffix preceded by two @ characters.  For example
      'foo@@VER_2'.
 
 '--dyn-syms'
@@ -5731,30 +5731,30 @@ Node: ar3554
 Node: ar cmdline6707
 Node: ar scripts19333
 Node: nm25019
-Node: objcopy37643
-Node: objdump78136
-Node: ranlib111161
-Node: size112760
-Node: strings116729
-Node: strip121101
-Node: c++filt130626
-Ref: c++filt-Footnote-1136488
-Node: addr2line136594
-Node: windmc142273
-Node: windres145932
-Node: dlltool152291
-Node: def file format165288
-Node: readelf167818
-Node: elfedit181332
-Node: Common Options184288
-Node: Selecting the Target System185322
-Node: Target Selection186250
-Node: Architecture Selection188231
-Node: debuginfod189059
-Node: Reporting Bugs189818
-Node: Bug Criteria190580
-Node: Bug Reporting191133
-Node: GNU Free Documentation License198003
-Node: Binutils Index223163
+Node: objcopy37641
+Node: objdump78134
+Node: ranlib111159
+Node: size112758
+Node: strings116727
+Node: strip121099
+Node: c++filt130624
+Ref: c++filt-Footnote-1136486
+Node: addr2line136592
+Node: windmc142271
+Node: windres145930
+Node: dlltool152289
+Node: def file format165286
+Node: readelf167816
+Node: elfedit181328
+Node: Common Options184284
+Node: Selecting the Target System185318
+Node: Target Selection186246
+Node: Architecture Selection188227
+Node: debuginfod189055
+Node: Reporting Bugs189814
+Node: Bug Criteria190576
+Node: Bug Reporting191129
+Node: GNU Free Documentation License197999
+Node: Binutils Index223159
 
 End Tag Table
