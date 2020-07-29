@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-07-22" "gcc-11" "GNU"
+.TH GCC 1 "2020-07-29" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -575,7 +575,7 @@ in the following sections.
 \&\-fsanitize=\fR\fIstyle\fR  \fB\-fsanitize\-recover  \-fsanitize\-recover=\fR\fIstyle\fR 
 \&\fB\-fasan\-shadow\-offset=\fR\fInumber\fR  \fB\-fsanitize\-sections=\fR\fIs1\fR\fB,\fR\fIs2\fR\fB,... 
 \&\-fsanitize\-undefined\-trap\-on\-error  \-fbounds\-check 
-\&\-fcf\-protection=\fR[\fBfull\fR|\fBbranch\fR|\fBreturn\fR|\fBnone\fR] 
+\&\-fcf\-protection=\fR[\fBfull\fR|\fBbranch\fR|\fBreturn\fR|\fBnone\fR|\fBcheck\fR] 
 \&\fB\-fstack\-protector  \-fstack\-protector\-all  \-fstack\-protector\-strong 
 \&\-fstack\-protector\-explicit  \-fstack\-check 
 \&\-fstack\-limit\-register=\fR\fIreg\fR  \fB\-fstack\-limit\-symbol=\fR\fIsym\fR 
@@ -1187,7 +1187,8 @@ See \s-1RS/6000\s0 and PowerPC Options.
 \&\-mblock\-move\-inline\-limit=\fR\fInum\fR 
 \&\fB\-mblock\-compare\-inline\-limit=\fR\fInum\fR 
 \&\fB\-mblock\-compare\-inline\-loop\-limit=\fR\fInum\fR 
-\&\fB\-mstring\-compare\-inline\-limit=\fR\fInum\fR 
+\&\fB\-mno\-block\-ops\-unaligned\-vsx 
+\&\-mstring\-compare\-inline\-limit=\fR\fInum\fR 
 \&\fB\-misel  \-mno\-isel 
 \&\-mvrsave  \-mno\-vrsave 
 \&\-mmulhw  \-mno\-mulhw 
@@ -8458,11 +8459,11 @@ By default, this flag is enabled together with \fB\-fvar\-tracking\fR,
 except when selective scheduling is enabled.
 .IP "\fB\-gsplit\-dwarf\fR" 4
 .IX Item "-gsplit-dwarf"
-Separate as much \s-1DWARF\s0 debugging information as possible into a
-separate output file with the extension \fI.dwo\fR.  This option allows
-the build system to avoid linking files with debug information.  To
-be useful, this option requires a debugger capable of reading \fI.dwo\fR
-files.
+If \s-1DWARF\s0 debugging information is enabled, separate as much debugging
+information as possible into a separate output file with the extension
+\&\fI.dwo\fR.  This option allows the build system to avoid linking files with
+debug information.  To be useful, this option requires a debugger capable of
+reading \fI.dwo\fR files.
 .IP "\fB\-gdescribe\-dies\fR" 4
 .IX Item "-gdescribe-dies"
 Add description attributes to some \s-1DWARF\s0 DIEs that have no name attribute,
@@ -13194,8 +13195,8 @@ variable or \f(CW\*(C`_\|_sanitizer_cov_trace_const_cmp1\*(C'\fR,
 operand constant, \f(CW\*(C`_\|_sanitizer_cov_trace_cmpf\*(C'\fR or
 \&\f(CW\*(C`_\|_sanitizer_cov_trace_cmpd\*(C'\fR for float or double comparisons and
 \&\f(CW\*(C`_\|_sanitizer_cov_trace_switch\*(C'\fR for switch statements.
-.IP "\fB\-fcf\-protection=\fR[\fBfull\fR|\fBbranch\fR|\fBreturn\fR|\fBnone\fR]" 4
-.IX Item "-fcf-protection=[full|branch|return|none]"
+.IP "\fB\-fcf\-protection=\fR[\fBfull\fR|\fBbranch\fR|\fBreturn\fR|\fBnone\fR|\fBcheck\fR]" 4
+.IX Item "-fcf-protection=[full|branch|return|none|check]"
 Enable code instrumentation of control-flow transfers to increase
 program security by checking that target addresses of control-flow
 transfer instructions (such as indirect function call, function return,
@@ -13211,6 +13212,11 @@ implements checking of validity at the point of returning from a
 function.  The value \f(CW\*(C`full\*(C'\fR is an alias for specifying both
 \&\f(CW\*(C`branch\*(C'\fR and \f(CW\*(C`return\*(C'\fR. The value \f(CW\*(C`none\*(C'\fR turns off
 instrumentation.
+.Sp
+The value \f(CW\*(C`check\*(C'\fR is used for the final link with link-time
+optimization (\s-1LTO\s0).  An error is issued if \s-1LTO\s0 object files are
+compiled with different \fB\-fcf\-protection\fR values.  The
+value \f(CW\*(C`check\*(C'\fR is ignored at the compile time.
 .Sp
 The macro \f(CW\*(C`_\|_CET_\|_\*(C'\fR is defined when \fB\-fcf\-protection\fR is
 used.  The first bit of \f(CW\*(C`_\|_CET_\|_\*(C'\fR is set to 1 for the value
@@ -26049,6 +26055,14 @@ store instructions when the option \fB\-mcpu=future\fR is used.
 .PD
 Generate (do not generate) the \s-1MMA\s0 instructions when the option
 \&\fB\-mcpu=future\fR is used.
+.IP "\fB\-mblock\-ops\-unaligned\-vsx\fR" 4
+.IX Item "-mblock-ops-unaligned-vsx"
+.PD 0
+.IP "\fB\-mno\-block\-ops\-unaligned\-vsx\fR" 4
+.IX Item "-mno-block-ops-unaligned-vsx"
+.PD
+Generate (do not generate) unaligned vsx loads and stores for
+inline expansion of \f(CW\*(C`memcpy\*(C'\fR and \f(CW\*(C`memmove\*(C'\fR.
 .PP
 \fI\s-1RX\s0 Options\fR
 .IX Subsection "RX Options"

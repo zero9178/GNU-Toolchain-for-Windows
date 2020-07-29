@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "LD 1"
-.TH LD 1 "2020-07-22" "binutils-2.35.50" "GNU Development Tools"
+.TH LD 1 "2020-07-29" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -1482,6 +1482,40 @@ symbol is defined, the first file listed is the location of the
 definition.  If the symbol is defined as a common value then any files
 where this happens appear next.  Finally any files that reference the
 symbol are listed.
+.IP "\fB\-\-ctf\-variables\fR" 4
+.IX Item "--ctf-variables"
+.PD 0
+.IP "\fB\-\-no\-ctf\-variables\fR" 4
+.IX Item "--no-ctf-variables"
+.PD
+The \s-1CTF\s0 debuginfo format supports a section which encodes the names and
+types of variables found in the program which do not appear in any symbol
+table. These variables clearly cannot be looked up by address by
+conventional debuggers, so the space used for their types and names is
+usually wasted: the types are usually small but the names are often not.
+\&\fB\-\-ctf\-variables\fR causes the generation of such a section.
+The default behaviour can be restored with \fB\-\-no\-ctf\-variables\fR.
+.IP "\fB\-\-ctf\-share\-types=\fR\fImethod\fR" 4
+.IX Item "--ctf-share-types=method"
+Adjust the method used to share types between translation units in \s-1CTF.\s0
+.RS 4
+.IP "\fBshare-unconflicted\fR" 4
+.IX Item "share-unconflicted"
+Put all types that do not have ambiguous definitions into the shared dictionary,
+where debuggers can easily access them, even if they only occur in one
+translation unit.  This is the default.
+.IP "\fBshare-duplicated\fR" 4
+.IX Item "share-duplicated"
+Put only types that occur in multiple translation units into the shared
+dictionary: types with only one definition go into per-translation-unit
+dictionaries.  Types with ambiguous definitions in multiple translation units
+always go into per-translation-unit dictionaries.  This tends to make the \s-1CTF\s0
+larger, but may reduce the amount of \s-1CTF\s0 in the shared dictionary.  For very
+large projects this may speed up opening the \s-1CTF\s0 and save memory in the \s-1CTF\s0
+consumer at runtime.
+.RE
+.RS 4
+.RE
 .IP "\fB\-\-no\-define\-common\fR" 4
 .IX Item "--no-define-common"
 This option inhibits the assignment of addresses to common symbols.
