@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-07-29" "gcc-10" "GNU"
+.TH GCC 1 "2020-08-04" "gcc-10" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -701,6 +701,7 @@ in the following sections.
 \&\-msign\-return\-address=\fR\fIscope\fR 
 \&\fB\-mbranch\-protection=\fR\fInone\fR\fB|\fR\fIstandard\fR\fB|\fR\fIpac-ret\fR\fB[+\fR\fIleaf\fR
 \&\fB+\fR\fIb\-key\fR\fB]|\fR\fIbti\fR 
+\&\fB\-mharden\-sls=\fR\fIopts\fR 
 \&\fB\-march=\fR\fIname\fR  \fB\-mcpu=\fR\fIname\fR  \fB\-mtune=\fR\fIname\fR  
 \&\fB\-moverride=\fR\fIstring\fR  \fB\-mverbose\-cost\-dump 
 \&\-mstack\-protector\-guard=\fR\fIguard\fR \fB\-mstack\-protector\-guard\-reg=\fR\fIsysreg\fR 
@@ -16289,7 +16290,8 @@ performance of the code.  Permissible values for this option are:
 \&\fBocteontx81\fR,  \fBocteontx83\fR,
 \&\fBocteontx2\fR, \fBocteontx2t98\fR, \fBocteontx2t96\fR
 \&\fBocteontx2t93\fR, \fBocteontx2f95\fR, \fBocteontx2f95n\fR,
-\&\fBocteontx2f95mm\fR
+\&\fBocteontx2f95mm\fR,
+\&\fBa64fx\fR,
 \&\fBthunderx\fR, \fBthunderxt88\fR,
 \&\fBthunderxt88p1\fR, \fBthunderxt81\fR, \fBtsv110\fR,
 \&\fBthunderxt83\fR, \fBthunderx2t99\fR, \fBthunderx3t110\fR, \fBzeus\fR,
@@ -16374,6 +16376,23 @@ argument \fBleaf\fR can be used to extend the signing to include leaf
 functions.  The optional argument \fBb\-key\fR can be used to sign the functions
 with the B\-key instead of the A\-key.
 \&\fBbti\fR turns on branch target identification mechanism.
+.IP "\fB\-mharden\-sls=\fR\fIopts\fR" 4
+.IX Item "-mharden-sls=opts"
+Enable compiler hardening against straight line speculation (\s-1SLS\s0).
+\&\fIopts\fR is a comma-separated list of the following options:
+.RS 4
+.IP "\fBretbr\fR" 4
+.IX Item "retbr"
+.PD 0
+.IP "\fBblr\fR" 4
+.IX Item "blr"
+.RE
+.RS 4
+.PD
+.Sp
+In addition, \fB\-mharden\-sls=all\fR enables all \s-1SLS\s0 hardening while
+\&\fB\-mharden\-sls=none\fR disables all \s-1SLS\s0 hardening.
+.RE
 .IP "\fB\-msve\-vector\-bits=\fR\fIbits\fR" 4
 .IX Item "-msve-vector-bits=bits"
 Specify the number of bits in an \s-1SVE\s0 vector register.  This option only has

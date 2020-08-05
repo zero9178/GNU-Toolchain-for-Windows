@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20200729")
+(!version  "10.2.1 20200804")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 223
@@ -19703,7 +19703,7 @@
  (!type already_seen 347)
  
  (!type struct 1039 nil  gc_used "section_name_hasher"
-  (!srcfileloc  "cgraph.h" 2535)
+  (!srcfileloc  "cgraph.h" 2533)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -19718,15 +19718,15 @@
    (!type already_seen 1041)
   )
   gc_used "symbol_priority_map"
-  (!srcfileloc  "cgraph.h" 2541)
+  (!srcfileloc  "cgraph.h" 2539)
   (!fields 2 
    (!pair  "init"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2212)
+    (!srcfileloc  "cgraph.h" 2210)
     nil )
    (!pair  "fini"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2213)
+    (!srcfileloc  "cgraph.h" 2211)
     nil )
   )
   nil 2047 nil nil )
@@ -19832,19 +19832,19 @@
    (!type already_seen 1053)
   )
   gc_pointed_to "asm_node"
-  (!srcfileloc  "cgraph.h" 2176)
+  (!srcfileloc  "cgraph.h" 2174)
   (!fields 3 
    (!pair  "next"
     (!type already_seen 1054)
-    (!srcfileloc  "cgraph.h" 2171)
+    (!srcfileloc  "cgraph.h" 2169)
     nil )
    (!pair  "asm_str"
     (!type already_seen 23)
-    (!srcfileloc  "cgraph.h" 2173)
+    (!srcfileloc  "cgraph.h" 2171)
     nil )
    (!pair  "order"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2175)
+    (!srcfileloc  "cgraph.h" 2173)
     nil )
   )
   nil 2047 nil nil )
@@ -19854,7 +19854,7 @@
    (!type already_seen 1055)
   )
   gc_unused "cgraph_edge_hook_list"
-  (!srcfileloc  "cgraph.h" 2384)
+  (!srcfileloc  "cgraph.h" 2382)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -19863,7 +19863,7 @@
    (!type already_seen 1057)
   )
   gc_unused "cgraph_node_hook_list"
-  (!srcfileloc  "cgraph.h" 2391)
+  (!srcfileloc  "cgraph.h" 2389)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -19872,7 +19872,7 @@
    (!type already_seen 1059)
   )
   gc_unused "varpool_node_hook_list"
-  (!srcfileloc  "cgraph.h" 2398)
+  (!srcfileloc  "cgraph.h" 2396)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -19881,7 +19881,7 @@
    (!type already_seen 1061)
   )
   gc_unused "cgraph_2edge_hook_list"
-  (!srcfileloc  "cgraph.h" 2419)
+  (!srcfileloc  "cgraph.h" 2417)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -19890,12 +19890,12 @@
    (!type already_seen 1063)
   )
   gc_unused "cgraph_2node_hook_list"
-  (!srcfileloc  "cgraph.h" 2425)
+  (!srcfileloc  "cgraph.h" 2423)
   (!fields 0 )
   nil 2047 nil nil )
  
  (!type struct 1065 nil  gc_used "asmname_hasher"
-  (!srcfileloc  "cgraph.h" 2538)
+  (!srcfileloc  "cgraph.h" 2536)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -19904,226 +19904,226 @@
    (!type already_seen 1066)
   )
   gc_pointed_to "symbol_table"
-  (!srcfileloc  "cgraph.h" 2589)
+  (!srcfileloc  "cgraph.h" 2587)
   (!fields 31 
    (!pair  "DEBUG_FUNCTION"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2468)
+    (!srcfileloc  "cgraph.h" 2466)
     nil )
    (!pair  "cgraph_count"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2496)
+    (!srcfileloc  "cgraph.h" 2494)
     nil )
    (!pair  "cgraph_max_uid"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2497)
+    (!srcfileloc  "cgraph.h" 2495)
     nil )
    (!pair  "cgraph_max_summary_id"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2498)
+    (!srcfileloc  "cgraph.h" 2496)
     nil )
    (!pair  "edges_count"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2500)
+    (!srcfileloc  "cgraph.h" 2498)
     nil )
    (!pair  "edges_max_uid"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2501)
+    (!srcfileloc  "cgraph.h" 2499)
     nil )
    (!pair  "edges_max_summary_id"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2502)
+    (!srcfileloc  "cgraph.h" 2500)
     nil )
    (!pair  "cgraph_released_summary_ids"
     (!type user_struct 1068 nil  gc_unused "vec<int>"
-     (!srcfileloc  "cgraph.h" 2505)
+     (!srcfileloc  "cgraph.h" 2503)
      (!fields 1 
       (!pair  "int"
        (!type already_seen 378)
-       (!srcfileloc  "cgraph.h" 2505)
+       (!srcfileloc  "cgraph.h" 2503)
        nil )
      )
     )
-    (!srcfileloc  "cgraph.h" 2505)
+    (!srcfileloc  "cgraph.h" 2503)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "edge_released_summary_ids"
     (!type already_seen 1068)
-    (!srcfileloc  "cgraph.h" 2508)
+    (!srcfileloc  "cgraph.h" 2506)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "nodes"
     (!type already_seen 317)
-    (!srcfileloc  "cgraph.h" 2513)
+    (!srcfileloc  "cgraph.h" 2511)
     nil )
    (!pair  "asmnodes"
     (!type already_seen 1054)
-    (!srcfileloc  "cgraph.h" 2514)
+    (!srcfileloc  "cgraph.h" 2512)
     nil )
    (!pair  "asm_last_node"
     (!type already_seen 1054)
-    (!srcfileloc  "cgraph.h" 2515)
+    (!srcfileloc  "cgraph.h" 2513)
     nil )
    (!pair  "order"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2520)
+    (!srcfileloc  "cgraph.h" 2518)
     nil )
    (!pair  "max_unit"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2523)
+    (!srcfileloc  "cgraph.h" 2521)
     nil )
    (!pair  "global_info_ready"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2526)
+    (!srcfileloc  "cgraph.h" 2524)
     nil )
    (!pair  "state"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2528)
+    (!srcfileloc  "cgraph.h" 2526)
     nil )
    (!pair  "function_flags_ready"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2530)
+    (!srcfileloc  "cgraph.h" 2528)
     nil )
    (!pair  "cpp_implicit_aliases_done"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 2532)
+    (!srcfileloc  "cgraph.h" 2530)
     nil )
    (!pair  "section_hash"
     (!type pointer 1069 nil  gc_used
      (!type user_struct 1070 
       (!type already_seen 1069)
       gc_pointed_to "hash_table<section_name_hasher>"
-      (!srcfileloc  "cgraph.h" 2535)
+      (!srcfileloc  "cgraph.h" 2533)
       (!fields 1 
        (!pair  "section_name_hasher"
         (!type already_seen 1039)
-        (!srcfileloc  "cgraph.h" 2535)
+        (!srcfileloc  "cgraph.h" 2533)
         nil )
       )
      )
     )
-    (!srcfileloc  "cgraph.h" 2535)
+    (!srcfileloc  "cgraph.h" 2533)
     nil )
    (!pair  "assembler_name_hash"
     (!type pointer 1071 nil  gc_used
      (!type user_struct 1072 
       (!type already_seen 1071)
       gc_pointed_to "hash_table<asmname_hasher>"
-      (!srcfileloc  "cgraph.h" 2538)
+      (!srcfileloc  "cgraph.h" 2536)
       (!fields 1 
        (!pair  "asmname_hasher"
         (!type already_seen 1065)
-        (!srcfileloc  "cgraph.h" 2538)
+        (!srcfileloc  "cgraph.h" 2536)
         nil )
       )
      )
     )
-    (!srcfileloc  "cgraph.h" 2538)
+    (!srcfileloc  "cgraph.h" 2536)
     nil )
    (!pair  "init_priority_hash"
     (!type pointer 1073 nil  gc_used
      (!type user_struct 1074 
       (!type already_seen 1073)
       gc_pointed_to "hash_map<symtab_node*,symbol_priority_map>"
-      (!srcfileloc  "cgraph.h" 2541)
+      (!srcfileloc  "cgraph.h" 2539)
       (!fields 2 
        (!pair  "symbol_priority_map"
         (!type already_seen 1041)
-        (!srcfileloc  "cgraph.h" 2541)
+        (!srcfileloc  "cgraph.h" 2539)
         nil )
        (!pair  "symtab_node"
         (!type already_seen 317)
-        (!srcfileloc  "cgraph.h" 2541)
+        (!srcfileloc  "cgraph.h" 2539)
         nil )
       )
      )
     )
-    (!srcfileloc  "cgraph.h" 2541)
+    (!srcfileloc  "cgraph.h" 2539)
     nil )
    (!pair  "dump_file"
     (!type pointer 1075 nil  gc_unused
      (!type undefined 1076 
       (!type already_seen 1075)
       gc_unused "FILE"
-      (!srcfileloc  "cgraph.h" 2543)
+      (!srcfileloc  "cgraph.h" 2541)
      )
     )
-    (!srcfileloc  "cgraph.h" 2543)
+    (!srcfileloc  "cgraph.h" 2541)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "ipa_clones_dump_file"
     (!type already_seen 1075)
-    (!srcfileloc  "cgraph.h" 2545)
+    (!srcfileloc  "cgraph.h" 2543)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "cloned_nodes"
     (!type user_struct 1077 nil  gc_unused "hash_set<cgraph_node*>"
-     (!srcfileloc  "cgraph.h" 2547)
+     (!srcfileloc  "cgraph.h" 2545)
      (!fields 1 
       (!pair  "cgraph_node"
        (!type already_seen 813)
-       (!srcfileloc  "cgraph.h" 2547)
+       (!srcfileloc  "cgraph.h" 2545)
        nil )
      )
     )
-    (!srcfileloc  "cgraph.h" 2547)
+    (!srcfileloc  "cgraph.h" 2545)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "m_first_edge_removal_hook"
     (!type already_seen 1056)
-    (!srcfileloc  "cgraph.h" 2576)
+    (!srcfileloc  "cgraph.h" 2574)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "m_first_cgraph_removal_hook"
     (!type already_seen 1058)
-    (!srcfileloc  "cgraph.h" 2578)
+    (!srcfileloc  "cgraph.h" 2576)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "m_first_edge_duplicated_hook"
     (!type already_seen 1062)
-    (!srcfileloc  "cgraph.h" 2580)
+    (!srcfileloc  "cgraph.h" 2578)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "m_first_cgraph_duplicated_hook"
     (!type already_seen 1064)
-    (!srcfileloc  "cgraph.h" 2582)
+    (!srcfileloc  "cgraph.h" 2580)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "m_first_cgraph_insertion_hook"
     (!type already_seen 1058)
-    (!srcfileloc  "cgraph.h" 2584)
+    (!srcfileloc  "cgraph.h" 2582)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "m_first_varpool_insertion_hook"
     (!type already_seen 1060)
-    (!srcfileloc  "cgraph.h" 2586)
+    (!srcfileloc  "cgraph.h" 2584)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "m_first_varpool_removal_hook"
     (!type already_seen 1060)
-    (!srcfileloc  "cgraph.h" 2588)
+    (!srcfileloc  "cgraph.h" 2586)
     (!options 
      (!option skip string  "")
     )
@@ -20147,19 +20147,19 @@
  (!type already_seen 1077)
  
  (!type struct 1078 nil  gc_pointed_to "constant_descriptor_tree"
-  (!srcfileloc  "cgraph.h" 3127)
+  (!srcfileloc  "cgraph.h" 3125)
   (!fields 3 
    (!pair  "rtl"
     (!type already_seen 100)
-    (!srcfileloc  "cgraph.h" 3118)
+    (!srcfileloc  "cgraph.h" 3116)
     nil )
    (!pair  "value"
     (!type already_seen 23)
-    (!srcfileloc  "cgraph.h" 3121)
+    (!srcfileloc  "cgraph.h" 3119)
     nil )
    (!pair  "hash"
     (!type already_seen 2)
-    (!srcfileloc  "cgraph.h" 3126)
+    (!srcfileloc  "cgraph.h" 3124)
     nil )
   )
   (!options 
@@ -30817,87 +30817,87 @@
   nil )
  (!pair  "hash_set<cgraph_node*>"
   (!type already_seen 1077)
-  (!srcfileloc  "cgraph.h" 2547)
+  (!srcfileloc  "cgraph.h" 2545)
   nil )
  (!pair  "FILE"
   (!type already_seen 1076)
-  (!srcfileloc  "cgraph.h" 2543)
+  (!srcfileloc  "cgraph.h" 2541)
   nil )
  (!pair  "symbol_priority_map"
   (!type already_seen 1041)
-  (!srcfileloc  "cgraph.h" 2541)
+  (!srcfileloc  "cgraph.h" 2539)
   nil )
  (!pair  "hash_map<symtab_node*,symbol_priority_map>"
   (!type already_seen 1074)
-  (!srcfileloc  "cgraph.h" 2541)
+  (!srcfileloc  "cgraph.h" 2539)
   nil )
  (!pair  "asmname_hasher"
   (!type already_seen 1065)
-  (!srcfileloc  "cgraph.h" 2538)
+  (!srcfileloc  "cgraph.h" 2536)
   nil )
  (!pair  "hash_table<asmname_hasher>"
   (!type already_seen 1072)
-  (!srcfileloc  "cgraph.h" 2538)
+  (!srcfileloc  "cgraph.h" 2536)
   nil )
  (!pair  "section_name_hasher"
   (!type already_seen 1039)
-  (!srcfileloc  "cgraph.h" 2535)
+  (!srcfileloc  "cgraph.h" 2533)
   nil )
  (!pair  "hash_table<section_name_hasher>"
   (!type already_seen 1070)
-  (!srcfileloc  "cgraph.h" 2535)
+  (!srcfileloc  "cgraph.h" 2533)
   nil )
  (!pair  "vec<int>"
   (!type already_seen 1068)
-  (!srcfileloc  "cgraph.h" 2505)
+  (!srcfileloc  "cgraph.h" 2503)
   nil )
  (!pair  "cgraph_2node_hook_list"
   (!type already_seen 1063)
-  (!srcfileloc  "cgraph.h" 2425)
+  (!srcfileloc  "cgraph.h" 2423)
   nil )
  (!pair  "cgraph_2edge_hook_list"
   (!type already_seen 1061)
-  (!srcfileloc  "cgraph.h" 2419)
+  (!srcfileloc  "cgraph.h" 2417)
   nil )
  (!pair  "varpool_node_hook_list"
   (!type already_seen 1059)
-  (!srcfileloc  "cgraph.h" 2398)
+  (!srcfileloc  "cgraph.h" 2396)
   nil )
  (!pair  "cgraph_node_hook_list"
   (!type already_seen 1057)
-  (!srcfileloc  "cgraph.h" 2391)
+  (!srcfileloc  "cgraph.h" 2389)
   nil )
  (!pair  "cgraph_edge_hook_list"
   (!type already_seen 1055)
-  (!srcfileloc  "cgraph.h" 2384)
+  (!srcfileloc  "cgraph.h" 2382)
   nil )
  (!pair  "symbol_table"
   (!type already_seen 1066)
-  (!srcfileloc  "cgraph.h" 2252)
+  (!srcfileloc  "cgraph.h" 2250)
   nil )
  (!pair  "cgraph_2node_hook"
   (!type already_seen 2)
-  (!srcfileloc  "cgraph.h" 2202)
+  (!srcfileloc  "cgraph.h" 2200)
   nil )
  (!pair  "cgraph_2edge_hook"
   (!type already_seen 2)
-  (!srcfileloc  "cgraph.h" 2201)
+  (!srcfileloc  "cgraph.h" 2199)
   nil )
  (!pair  "varpool_node_hook"
   (!type already_seen 2)
-  (!srcfileloc  "cgraph.h" 2200)
+  (!srcfileloc  "cgraph.h" 2198)
   nil )
  (!pair  "cgraph_node_hook"
   (!type already_seen 2)
-  (!srcfileloc  "cgraph.h" 2199)
+  (!srcfileloc  "cgraph.h" 2197)
   nil )
  (!pair  "cgraph_edge_hook"
   (!type already_seen 2)
-  (!srcfileloc  "cgraph.h" 2198)
+  (!srcfileloc  "cgraph.h" 2196)
   nil )
  (!pair  "asm_node"
   (!type already_seen 1053)
-  (!srcfileloc  "cgraph.h" 2171)
+  (!srcfileloc  "cgraph.h" 2169)
   nil )
  (!pair  "availability"
   (!type already_seen 1052)
@@ -35118,11 +35118,11 @@
   nil )
  (!pair  "saved_symtab"
   (!type already_seen 1067)
-  (!srcfileloc  "cgraph.h" 3585)
+  (!srcfileloc  "cgraph.h" 3583)
   nil )
  (!pair  "symtab"
   (!type already_seen 1067)
-  (!srcfileloc  "cgraph.h" 2591)
+  (!srcfileloc  "cgraph.h" 2589)
   nil )
  (!pair  "in_cold_section_p"
   (!type already_seen 2)
