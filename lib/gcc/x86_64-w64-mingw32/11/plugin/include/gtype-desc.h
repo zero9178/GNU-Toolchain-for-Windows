@@ -849,10 +849,6 @@ extern void gt_ggc_mx_hash_table_scev_info_hasher_ (void *);
   if (X != NULL) gt_ggc_mx_ssa_operand_memory_d (X);\
   } while (0)
 extern void gt_ggc_mx_ssa_operand_memory_d (void *);
-#define gt_ggc_m_28grid_launch_attributes_trees(X) do { \
-  if (X != NULL) gt_ggc_mx_grid_launch_attributes_trees (X);\
-  } while (0)
-extern void gt_ggc_mx_grid_launch_attributes_trees (void *);
 #define gt_ggc_m_36vec_omp_declare_variant_entry_va_gc_(X) do { \
   if (X != NULL) gt_ggc_mx_vec_omp_declare_variant_entry_va_gc_ (X);\
   } while (0)
@@ -881,6 +877,10 @@ extern void gt_ggc_mx_hash_map_char__unsigned_ (void *);
   if (X != NULL) gt_ggc_mx_vec_gimple__va_gc_ (X);\
   } while (0)
 extern void gt_ggc_mx_vec_gimple__va_gc_ (void *);
+#define gt_ggc_m_12int_range_1_(X) do { \
+  if (X != NULL) gt_ggc_mx_int_range_1_ (X);\
+  } while (0)
+extern void gt_ggc_mx_int_range_1_ (void *);
 #define gt_ggc_m_26vec_ipa_agg_jf_item_va_gc_(X) do { \
   if (X != NULL) gt_ggc_mx_vec_ipa_agg_jf_item_va_gc_ (X);\
   } while (0)
@@ -889,10 +889,6 @@ extern void gt_ggc_mx_vec_ipa_agg_jf_item_va_gc_ (void *);
   if (X != NULL) gt_ggc_mx_ipa_bits (X);\
   } while (0)
 extern void gt_ggc_mx_ipa_bits (void *);
-#define gt_ggc_m_11value_range(X) do { \
-  if (X != NULL) gt_ggc_mx_value_range (X);\
-  } while (0)
-extern void gt_ggc_mx_value_range (void *);
 #define gt_ggc_m_31vec_ipa_param_descriptor_va_gc_(X) do { \
   if (X != NULL) gt_ggc_mx_vec_ipa_param_descriptor_va_gc_ (X);\
   } while (0)
@@ -965,10 +961,6 @@ extern void gt_ggc_mx_hash_table_tree_type_map_cache_hasher_ (void *);
   if (X != NULL) gt_ggc_mx_vec_odr_type_va_gc_ (X);\
   } while (0)
 extern void gt_ggc_mx_vec_odr_type_va_gc_ (void *);
-#define gt_ggc_m_38vec_hsa_decl_kernel_map_element_va_gc_(X) do { \
-  if (X != NULL) gt_ggc_mx_vec_hsa_decl_kernel_map_element_va_gc_ (X);\
-  } while (0)
-extern void gt_ggc_mx_vec_hsa_decl_kernel_map_element_va_gc_ (void *);
 #define gt_ggc_m_11extern_list(X) do { \
   if (X != NULL) gt_ggc_mx_extern_list (X);\
   } while (0)
@@ -2226,10 +2218,6 @@ extern void gt_pch_nx_hash_table_scev_info_hasher_ (void *);
   if (X != NULL) gt_pch_nx_ssa_operand_memory_d (X);\
   } while (0)
 extern void gt_pch_nx_ssa_operand_memory_d (void *);
-#define gt_pch_n_28grid_launch_attributes_trees(X) do { \
-  if (X != NULL) gt_pch_nx_grid_launch_attributes_trees (X);\
-  } while (0)
-extern void gt_pch_nx_grid_launch_attributes_trees (void *);
 #define gt_pch_n_36vec_omp_declare_variant_entry_va_gc_(X) do { \
   if (X != NULL) gt_pch_nx_vec_omp_declare_variant_entry_va_gc_ (X);\
   } while (0)
@@ -2258,6 +2246,10 @@ extern void gt_pch_nx_hash_map_char__unsigned_ (void *);
   if (X != NULL) gt_pch_nx_vec_gimple__va_gc_ (X);\
   } while (0)
 extern void gt_pch_nx_vec_gimple__va_gc_ (void *);
+#define gt_pch_n_12int_range_1_(X) do { \
+  if (X != NULL) gt_pch_nx_int_range_1_ (X);\
+  } while (0)
+extern void gt_pch_nx_int_range_1_ (void *);
 #define gt_pch_n_26vec_ipa_agg_jf_item_va_gc_(X) do { \
   if (X != NULL) gt_pch_nx_vec_ipa_agg_jf_item_va_gc_ (X);\
   } while (0)
@@ -2266,10 +2258,6 @@ extern void gt_pch_nx_vec_ipa_agg_jf_item_va_gc_ (void *);
   if (X != NULL) gt_pch_nx_ipa_bits (X);\
   } while (0)
 extern void gt_pch_nx_ipa_bits (void *);
-#define gt_pch_n_11value_range(X) do { \
-  if (X != NULL) gt_pch_nx_value_range (X);\
-  } while (0)
-extern void gt_pch_nx_value_range (void *);
 #define gt_pch_n_31vec_ipa_param_descriptor_va_gc_(X) do { \
   if (X != NULL) gt_pch_nx_vec_ipa_param_descriptor_va_gc_ (X);\
   } while (0)
@@ -2342,10 +2330,6 @@ extern void gt_pch_nx_hash_table_tree_type_map_cache_hasher_ (void *);
   if (X != NULL) gt_pch_nx_vec_odr_type_va_gc_ (X);\
   } while (0)
 extern void gt_pch_nx_vec_odr_type_va_gc_ (void *);
-#define gt_pch_n_38vec_hsa_decl_kernel_map_element_va_gc_(X) do { \
-  if (X != NULL) gt_pch_nx_vec_hsa_decl_kernel_map_element_va_gc_ (X);\
-  } while (0)
-extern void gt_pch_nx_vec_hsa_decl_kernel_map_element_va_gc_ (void *);
 #define gt_pch_n_11extern_list(X) do { \
   if (X != NULL) gt_pch_nx_extern_list (X);\
   } while (0)
@@ -3307,8 +3291,6 @@ extern void gt_pch_p_28hash_table_scev_info_hasher_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_20ssa_operand_memory_d
     (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_28grid_launch_attributes_trees
-    (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_36vec_omp_declare_variant_entry_va_gc_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_30omp_declare_variant_base_entry
@@ -3323,11 +3305,11 @@ extern void gt_pch_p_24hash_map_char__unsigned_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_18vec_gimple__va_gc_
     (void *, void *, gt_pointer_operator, void *);
+extern void gt_pch_p_12int_range_1_
+    (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_26vec_ipa_agg_jf_item_va_gc_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_8ipa_bits
-    (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_11value_range
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_31vec_ipa_param_descriptor_va_gc_
     (void *, void *, gt_pointer_operator, void *);
@@ -3364,8 +3346,6 @@ extern void gt_pch_p_13tree_type_map
 extern void gt_pch_p_38hash_table_tree_type_map_cache_hasher_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_19vec_odr_type_va_gc_
-    (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_38vec_hsa_decl_kernel_map_element_va_gc_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_11extern_list
     (void *, void *, gt_pointer_operator, void *);

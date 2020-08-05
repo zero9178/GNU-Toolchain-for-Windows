@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-07-29" "gcc-11" "GNU"
+.TH GCC 1 "2020-08-04" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -353,7 +353,7 @@ in the following sections.
 \&\fB\-Wformat\-security  \-Wformat\-signedness  \-Wformat\-truncation=\fR\fIn\fR 
 \&\fB\-Wformat\-y2k  \-Wframe\-address 
 \&\-Wframe\-larger\-than=\fR\fIbyte-size\fR  \fB\-Wno\-free\-nonheap\-object 
-\&\-Wno\-hsa  \-Wno\-if\-not\-aligned  \-Wno\-ignored\-attributes 
+\&\-Wno\-if\-not\-aligned  \-Wno\-ignored\-attributes 
 \&\-Wignored\-qualifiers  \-Wno\-incompatible\-pointer\-types 
 \&\-Wimplicit  \-Wimplicit\-fallthrough  \-Wimplicit\-fallthrough=\fR\fIn\fR 
 \&\fB\-Wno\-implicit\-function\-declaration  \-Wno\-implicit\-int 
@@ -825,7 +825,8 @@ in the following sections.
 \&\fB\-march=\fR\fIarch\fR  \fB\-mcpu=\fR\fIcpu\fR 
 \&\fB\-mbig\-endian  \-EB  \-mlittle\-endian  \-EL 
 \&\-mhard\-float  \-msoft\-float  \-mfpu=\fR\fIfpu\fR  \fB\-mdouble\-float  \-mfdivdu 
-\&\-melrw  \-mistack  \-mmp  \-mcp  \-mcache  \-msecurity  \-mtrust 
+\&\-mfloat\-abi=\fR\fIname\fR 
+\&\fB\-melrw  \-mistack  \-mmp  \-mcp  \-mcache  \-msecurity  \-mtrust 
 \&\-mdsp  \-medsp  \-mvdsp 
 \&\-mdiv  \-msmart  \-mhigh\-registers  \-manchor 
 \&\-mpushpop  \-mmultiple\-stld  \-mconstpool  \-mstack\-size  \-mccrt 
@@ -1145,7 +1146,9 @@ See \s-1RS/6000\s0 and PowerPC Options.
 \&\-mexplicit\-relocs  \-mno\-explicit\-relocs 
 \&\-mrelax  \-mno\-relax 
 \&\-mriscv\-attribute  \-mmo\-riscv\-attribute 
-\&\-malign\-data=\fR\fItype\fR
+\&\-malign\-data=\fR\fItype\fR 
+\&\fB+\-mstack\-protector\-guard=\fR\fIguard\fR \fB\-mstack\-protector\-guard\-reg=\fR\fIreg\fR 
+\&\fB+\-mstack\-protector\-guard\-offset=\fR\fIoffset\fR
 .Sp
 \&\fI\s-1RL78\s0 Options\fR
 \&\fB\-msim  \-mmul=none  \-mmul=g13  \-mmul=g14  \-mallregs 
@@ -2828,7 +2831,7 @@ This flag is enabled by default for \fB\-std=c++17\fR.
 .IP "\fB\-fno\-char8_t\fR" 4
 .IX Item "-fno-char8_t"
 .PD
-Enable support for \f(CW\*(C`char8_t\*(C'\fR as adopted for \*(C+2a.  This includes
+Enable support for \f(CW\*(C`char8_t\*(C'\fR as adopted for \*(C+20.  This includes
 the addition of a new \f(CW\*(C`char8_t\*(C'\fR fundamental type, changes to the
 types of \s-1UTF\-8\s0 string and character literals, new signatures for
 user-defined literals, associated standard library updates, and new
@@ -2892,10 +2895,10 @@ exhaustion is signalled by throwing \f(CW\*(C`std::bad_alloc\*(C'\fR.  See also
 .IP "\fB\-fconcepts\-ts\fR" 4
 .IX Item "-fconcepts-ts"
 .PD
-Below \fB\-std=c++2a\fR, \fB\-fconcepts\fR enables support for the
+Below \fB\-std=c++20\fR, \fB\-fconcepts\fR enables support for the
 \&\*(C+ Extensions for Concepts Technical Specification, \s-1ISO 19217\s0 (2015).
 .Sp
-With \fB\-std=c++2a\fR and above, Concepts are part of the language
+With \fB\-std=c++20\fR and above, Concepts are part of the language
 standard, so \fB\-fconcepts\fR defaults to on.  But the standard
 specification of Concepts differs significantly from the \s-1TS,\s0 so some
 constructs that were allowed in the \s-1TS\s0 but didn't make it into the
@@ -3228,7 +3231,7 @@ about \s-1ABI\s0 tags.
 .IP "\fB\-Wcomma\-subscript\fR (\*(C+ and Objective\-\*(C+ only)" 4
 .IX Item "-Wcomma-subscript ( and Objective- only)"
 Warn about uses of a comma expression within a subscripting expression.
-This usage was deprecated in \*(C+2a.  However, a comma expression wrapped
+This usage was deprecated in \*(C+20.  However, a comma expression wrapped
 in \f(CW\*(C`( )\*(C'\fR is not deprecated.  Example:
 .Sp
 .Vb 4
@@ -3238,7 +3241,7 @@ in \f(CW\*(C`( )\*(C'\fR is not deprecated.  Example:
 \&        }
 .Ve
 .Sp
-Enabled by default with \fB\-std=c++2a\fR.
+Enabled by default with \fB\-std=c++20\fR.
 .IP "\fB\-Wctor\-dtor\-privacy\fR (\*(C+ and Objective\-\*(C+ only)" 4
 .IX Item "-Wctor-dtor-privacy ( and Objective- only)"
 Warn when a class seems unusable because all the constructors or
@@ -3683,7 +3686,7 @@ non-class type, \f(CW\*(C`volatile\*(C'\fR\-qualified function return type,
 \&\f(CW\*(C`volatile\*(C'\fR\-qualified parameter type, and structured bindings of a
 \&\f(CW\*(C`volatile\*(C'\fR\-qualified type.  This usage was deprecated in \*(C+20.
 .Sp
-Enabled by default with \fB\-std=c++2a\fR.
+Enabled by default with \fB\-std=c++20\fR.
 .IP "\fB\-Wzero\-as\-null\-pointer\-constant\fR (\*(C+ and Objective\-\*(C+ only)" 4
 .IX Item "-Wzero-as-null-pointer-constant ( and Objective- only)"
 Warn when a literal \fB0\fR is used as null pointer constant.  This can
@@ -5926,7 +5929,7 @@ This is the warning level of \fB\-Wshift\-overflow\fR and is enabled
 by default in C99 and \*(C+11 modes (and newer).  This warning level does
 not warn about left-shifting 1 into the sign bit.  (However, in C, such
 an overflow is still rejected in contexts where an integer constant expression
-is required.)  No warning is emitted in \*(C+2A mode (and newer), as signed left
+is required.)  No warning is emitted in \*(C+20 mode (and newer), as signed left
 shifts always wrap.
 .IP "\fB\-Wshift\-overflow=2\fR" 4
 .IX Item "-Wshift-overflow=2"
@@ -7964,10 +7967,6 @@ Requires \fB\-flto\fR to be enabled.  Enabled by default.
 Suppress warnings when a positional initializer is used to initialize
 a structure that has been marked with the \f(CW\*(C`designated_init\*(C'\fR
 attribute.
-.IP "\fB\-Wno\-hsa\fR" 4
-.IX Item "-Wno-hsa"
-Do not warn when \s-1HSAIL\s0 cannot be emitted for the compiled function or
-OpenMP construct.  These warnings are enabled by default.
 .SS "Options That Control Static Analysis"
 .IX Subsection "Options That Control Static Analysis"
 .IP "\fB\-fanalyzer\fR" 4
@@ -12462,12 +12461,6 @@ minimum number of iterations of the outermost loop per thread is two.
 Maximum depth of recursion when querying properties of \s-1SSA\s0 names in things
 like fold routines.  One level of recursion corresponds to following a
 use-def chain.
-.IP "\fBhsa-gen-debug-stores\fR" 4
-.IX Item "hsa-gen-debug-stores"
-Enable emission of special debug stores within \s-1HSA\s0 kernels which are
-then read and reported by libgomp plugin.  Generation of these stores
-is disabled by default, use \fB\-\-param hsa\-gen\-debug\-stores=1\fR to
-enable it.
 .IP "\fBmax-speculative-devirt-maydefs\fR" 4
 .IX Item "max-speculative-devirt-maydefs"
 The maximum number of may-defs we analyze when looking for a must-def
@@ -16653,7 +16646,8 @@ performance of the code.  Permissible values for this option are:
 \&\fBocteontx81\fR,  \fBocteontx83\fR,
 \&\fBocteontx2\fR, \fBocteontx2t98\fR, \fBocteontx2t96\fR
 \&\fBocteontx2t93\fR, \fBocteontx2f95\fR, \fBocteontx2f95n\fR,
-\&\fBocteontx2f95mm\fR
+\&\fBocteontx2f95mm\fR,
+\&\fBa64fx\fR,
 \&\fBthunderx\fR, \fBthunderxt88\fR,
 \&\fBthunderxt88p1\fR, \fBthunderxt81\fR, \fBtsv110\fR,
 \&\fBthunderxt83\fR, \fBthunderx2t99\fR, \fBthunderx3t110\fR, \fBzeus\fR,
@@ -19957,6 +19951,22 @@ Specify the C\-SKY target processor.  Valid values for \fIcpu\fR are:
 .IX Item "-EL"
 .PD
 Select big\- or little-endian code.  The default is little-endian.
+.IP "\fB\-mfloat\-abi=\fR\fIname\fR" 4
+.IX Item "-mfloat-abi=name"
+Specifies which floating-point \s-1ABI\s0 to use.  Permissible values
+are: \fBsoft\fR, \fBsoftfp\fR and \fBhard\fR.
+.Sp
+Specifying \fBsoft\fR causes \s-1GCC\s0 to generate output containing
+library calls for floating-point operations.
+\&\fBsoftfp\fR allows the generation of code using hardware floating-point
+instructions, but still uses the soft-float calling conventions.
+\&\fBhard\fR allows generation of floating-point instructions
+and uses FPU-specific calling conventions.
+.Sp
+The default depends on the specific target configuration.  Note that
+the hard-float and soft-float ABIs are not link-compatible; you must
+compile your entire program with the same \s-1ABI,\s0 and link with a
+compatible set of libraries.
 .IP "\fB\-mhard\-float\fR" 4
 .IX Item "-mhard-float"
 .PD 0
@@ -24807,6 +24817,25 @@ Control how \s-1GCC\s0 aligns variables and constants of array, structure, or un
 types.  Supported values for \fItype\fR are \fBxlen\fR which uses x register
 width as the alignment value, and \fBnatural\fR which uses natural alignment.
 \&\fBxlen\fR is the default.
+.IP "\fB\-mstack\-protector\-guard=\fR\fIguard\fR" 4
+.IX Item "-mstack-protector-guard=guard"
+.PD 0
+.IP "\fB\-mstack\-protector\-guard\-reg=\fR\fIreg\fR" 4
+.IX Item "-mstack-protector-guard-reg=reg"
+.IP "\fB\-mstack\-protector\-guard\-offset=\fR\fIoffset\fR" 4
+.IX Item "-mstack-protector-guard-offset=offset"
+.PD
+Generate stack protection code using canary at \fIguard\fR.  Supported
+locations are \fBglobal\fR for a global canary or \fBtls\fR for per-thread
+canary in the \s-1TLS\s0 block.
+.Sp
+With the latter choice the options
+\&\fB\-mstack\-protector\-guard\-reg=\fR\fIreg\fR and
+\&\fB\-mstack\-protector\-guard\-offset=\fR\fIoffset\fR furthermore specify
+which register to use as base register for reading the canary,
+and from what offset from that base register. There is no default
+register or offset as this is entirely for use within the Linux
+kernel.
 .PP
 \fI\s-1RL78\s0 Options\fR
 .IX Subsection "RL78 Options"
