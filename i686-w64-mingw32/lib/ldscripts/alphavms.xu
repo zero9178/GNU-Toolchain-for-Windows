@@ -1,0 +1,30 @@
+/* Script for -Ur */
+/* Copyright (C) 2014-2020 Free Software Foundation, Inc.
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.  */
+OUTPUT_FORMAT("vms-alpha")
+SECTIONS
+{
+  /* RW initialized data.  */
+  $DATA$ ALIGN (0x10000) : {
+    *($DATA$)
+  }
+  /* RW data unmodified (zero-initialized).  */
+  $BSS$ ALIGN (0x10000) : {
+    *($BSS$)
+  }
+  /* RO, executable code.  */
+  $CODE$ ALIGN (0x10000) : {
+    *($CODE$)
+  }
+  /* RO initialized data.  */
+  $LITERAL$ ALIGN (0x10000) : {
+    *($LITERAL$)
+  }
+  $DWARF$ ALIGN (0x10000) : {
+  }
+  $DST$ 0 : {
+    *($DST$)
+  }
+}
