@@ -1571,7 +1571,7 @@ GNU linker:
      II: Nios II. *Note 'ld' and PowerPC 32-bit ELF Support: PowerPC
      ELF32.
 
-     On some platforms the '--relax' option performs target-specific,
+     On some platforms the '--relax' option performs target specific,
      global optimizations that become possible when the linker resolves
      addressing in the program, such as relaxing address modes,
      synthesizing new instructions, selecting shorter version of current
@@ -1582,11 +1582,11 @@ GNU linker:
      known to be the case for the Matsushita MN10200 and MN10300 family
      of processors.
 
-     On platforms where this is not supported, '--relax' is accepted,
-     but ignored.
+     On platforms where the feature is supported, the option
+     '--no-relax' will disable it.
 
-     On platforms where '--relax' is accepted the option '--no-relax'
-     can be used to disable the feature.
+     On platforms where the feature is not supported, both '--relax' and
+     '--no-relax' are accepted, but ignored.
 
 '--retain-symbols-file=FILENAME'
      Retain _only_ the symbols listed in the file FILENAME, discarding
@@ -8998,87 +8998,87 @@ Node: Top706
 Node: Overview1490
 Node: Invocation2606
 Node: Options3014
-Node: Environment123261
-Node: Scripts125022
-Node: Basic Script Concepts126756
-Node: Script Format129464
-Node: Simple Example130327
-Node: Simple Commands133421
-Node: Entry Point133926
-Node: File Commands134855
-Node: Format Commands139164
-Node: REGION_ALIAS141120
-Node: Miscellaneous Commands145947
-Node: Assignments151778
-Node: Simple Assignments152289
-Node: HIDDEN154020
-Node: PROVIDE154647
-Node: PROVIDE_HIDDEN156168
-Node: Source Code Reference156412
-Node: SECTIONS160329
-Node: Output Section Description162217
-Node: Output Section Name163458
-Node: Output Section Address164335
-Node: Input Section166568
-Node: Input Section Basics167369
-Node: Input Section Wildcards172387
-Node: Input Section Common177682
-Node: Input Section Keep179164
-Node: Input Section Example179654
-Node: Output Section Data181065
-Node: Output Section Keywords183844
-Node: Output Section Discarding187411
-Node: Output Section Attributes189141
-Node: Output Section Type190260
-Node: Output Section LMA191330
-Node: Forced Output Alignment194401
-Node: Forced Input Alignment194830
-Node: Output Section Constraint195218
-Node: Output Section Region195646
-Node: Output Section Phdr196079
-Node: Output Section Fill196743
-Node: Overlay Description197885
-Node: MEMORY202330
-Node: PHDRS206936
-Node: VERSION212262
-Node: Expressions220353
-Node: Constants221282
-Node: Symbolic Constants222156
-Node: Symbols222707
-Node: Orphan Sections223454
-Node: Location Counter225039
-Node: Operators229473
-Node: Evaluation230395
-Node: Expression Section231759
-Node: Builtin Functions235729
-Node: Implicit Linker Scripts244080
-Node: Machine Dependent244855
-Node: H8/300245943
-Node: M68HC11/68HC12248016
-Node: ARM249463
-Node: HPPA ELF32261710
-Node: M68K263333
-Node: MIPS264242
-Node: MMIX265358
-Node: MSP430266523
-Node: NDS32268436
-Node: Nios II269400
-Node: PowerPC ELF32270716
-Node: PowerPC64 ELF64273547
-Node: S/390 ELF283305
-Node: SPU ELF283652
-Node: TI COFF286280
-Node: WIN32286806
-Node: Xtensa306953
-Node: BFD310396
-Node: BFD outline311854
-Node: BFD information loss313142
-Node: Canonical format315668
-Node: Reporting Bugs319996
-Node: Bug Criteria320690
-Node: Bug Reporting321389
-Node: MRI328427
-Node: GNU Free Documentation License332898
-Node: LD Index358035
+Node: Environment123276
+Node: Scripts125037
+Node: Basic Script Concepts126771
+Node: Script Format129479
+Node: Simple Example130342
+Node: Simple Commands133436
+Node: Entry Point133941
+Node: File Commands134870
+Node: Format Commands139179
+Node: REGION_ALIAS141135
+Node: Miscellaneous Commands145962
+Node: Assignments151793
+Node: Simple Assignments152304
+Node: HIDDEN154035
+Node: PROVIDE154662
+Node: PROVIDE_HIDDEN156183
+Node: Source Code Reference156427
+Node: SECTIONS160344
+Node: Output Section Description162232
+Node: Output Section Name163473
+Node: Output Section Address164350
+Node: Input Section166583
+Node: Input Section Basics167384
+Node: Input Section Wildcards172402
+Node: Input Section Common177697
+Node: Input Section Keep179179
+Node: Input Section Example179669
+Node: Output Section Data181080
+Node: Output Section Keywords183859
+Node: Output Section Discarding187426
+Node: Output Section Attributes189156
+Node: Output Section Type190275
+Node: Output Section LMA191345
+Node: Forced Output Alignment194416
+Node: Forced Input Alignment194845
+Node: Output Section Constraint195233
+Node: Output Section Region195661
+Node: Output Section Phdr196094
+Node: Output Section Fill196758
+Node: Overlay Description197900
+Node: MEMORY202345
+Node: PHDRS206951
+Node: VERSION212277
+Node: Expressions220368
+Node: Constants221297
+Node: Symbolic Constants222171
+Node: Symbols222722
+Node: Orphan Sections223469
+Node: Location Counter225054
+Node: Operators229488
+Node: Evaluation230410
+Node: Expression Section231774
+Node: Builtin Functions235744
+Node: Implicit Linker Scripts244095
+Node: Machine Dependent244870
+Node: H8/300245958
+Node: M68HC11/68HC12248031
+Node: ARM249478
+Node: HPPA ELF32261725
+Node: M68K263348
+Node: MIPS264257
+Node: MMIX265373
+Node: MSP430266538
+Node: NDS32268451
+Node: Nios II269415
+Node: PowerPC ELF32270731
+Node: PowerPC64 ELF64273562
+Node: S/390 ELF283320
+Node: SPU ELF283667
+Node: TI COFF286295
+Node: WIN32286821
+Node: Xtensa306968
+Node: BFD310411
+Node: BFD outline311869
+Node: BFD information loss313157
+Node: Canonical format315683
+Node: Reporting Bugs320011
+Node: Bug Criteria320705
+Node: Bug Reporting321404
+Node: MRI328442
+Node: GNU Free Documentation License332913
+Node: LD Index358050
 
 End Tag Table
