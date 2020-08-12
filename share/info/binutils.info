@@ -610,7 +610,7 @@ File: binutils.info,  Node: nm,  Next: objcopy,  Prev: ar,  Up: Top
         [--plugin NAME]
         [--no-recurse-limit|--recurse-limit]]
         [--size-sort] [--special-syms]
-        [--synthetic] [--with-symbol-versions] [--target=BFDNAME]
+        [--synthetic] [--target=BFDNAME]
         [OBJFILE...]
 
    GNU 'nm' lists the symbols from object files OBJFILE....  If no
@@ -913,14 +913,6 @@ equivalent.
      created by the linker for various purposes.  They are not shown by
      default since they are not part of the binary's original source
      code.
-
-'--with-symbol-versions'
-     Enables the display of symbol version information if any exists.
-     The version string is displayed as a suffix to the symbol name,
-     preceded by an @ character.  For example 'foo@VER_1'.  If the
-     version is the default version to be used when resolving
-     unversioned references to the symbol then it is displayed as a
-     suffix preceded by two @ characters.  For example 'foo@@VER_2'.
 
 '--target=BFDNAME'
      Specify an object code format other than your system's default
@@ -4216,6 +4208,8 @@ File: binutils.info,  Node: readelf,  Next: elfedit,  Prev: dlltool,  Up: Top
              [-e|--headers]
              [-s|--syms|--symbols]
              [--dyn-syms]
+             [--demangle=STYLE|--no-demangle]
+             [--recurse-limit|--no-recurse-limit]
              [-n|--notes]
              [-r|--relocs]
              [-u|--unwind]
@@ -4310,6 +4304,35 @@ equivalent.  At least one option besides '-v' or '-H' must be given.
      Displays the entries in dynamic symbol table section of the file,
      if it has one.  The output format is the same as the format used by
      the '--syms' option.
+
+'-C'
+'--demangle[=STYLE]'
+     Decode ("demangle") low-level symbol names into user-level names.
+     This makes C++ function names readable.  Different compilers have
+     different mangling styles.  The optional demangling style argument
+     can be used to choose an appropriate demangling style for your
+     compiler.  *Note c++filt::, for more information on demangling.
+
+'--no-demangle'
+     Do not demangle low-level symbol names.  This is the default.
+
+'--recurse-limit'
+'--no-recurse-limit'
+'--recursion-limit'
+'--no-recursion-limit'
+     Enables or disables a limit on the amount of recursion performed
+     whilst demangling strings.  Since the name mangling formats allow
+     for an inifinite level of recursion it is possible to create
+     strings whose decoding will exhaust the amount of stack space
+     available on the host machine, triggering a memory fault.  The
+     limit tries to prevent this from happening by restricting recursion
+     to 2048 levels of nesting.
+
+     The default is for this limit to be enabled, but disabling it may
+     be necessary in order to demangle truly complicated names.  Note
+     however that if the recursion limit is disabled then stack
+     exhaustion is possible and any bug reports about such an event will
+     be rejected.
 
 '-e'
 '--headers'
@@ -5560,7 +5583,7 @@ Binutils Index
 * architecture:                          objdump.             (line 257)
 * architectures available:               objdump.             (line 242)
 * archive contents:                      ranlib.              (line   6)
-* Archive file symbol index information: readelf.             (line 194)
+* Archive file symbol index information: readelf.             (line 225)
 * archive headers:                       objdump.             (line  75)
 * archives:                              ar.                  (line   6)
 * base files:                            dlltool.             (line 124)
@@ -5576,14 +5599,14 @@ Binutils Index
 * changing start address:                objcopy.             (line 396)
 * collections of files:                  ar.                  (line   6)
 * Compact Type Format:                   objdump.             (line 682)
-* Compact Type Format <1>:               readelf.             (line 342)
+* Compact Type Format <1>:               readelf.             (line 373)
 * compatibility, ar:                     ar.                  (line  60)
 * contents of archive:                   ar cmdline.          (line  97)
 * crash:                                 Bug Criteria.        (line   9)
 * creating archives:                     ar cmdline.          (line 144)
 * creating thin archive:                 ar cmdline.          (line 219)
 * CTF:                                   objdump.             (line 682)
-* CTF <1>:                               readelf.             (line 342)
+* CTF <1>:                               readelf.             (line 373)
 * cxxfilt:                               c++filt.             (line  16)
 * dates in archive:                      ar cmdline.          (line 183)
 * debug symbols:                         objdump.             (line 696)
@@ -5591,6 +5614,7 @@ Binutils Index
 * deleting from archive:                 ar cmdline.          (line  26)
 * demangling C++ symbols:                c++filt.             (line   6)
 * demangling in nm:                      nm.                  (line 161)
+* demangling in nm <1>:                  readelf.             (line 114)
 * demangling in objdump:                 objdump.             (line 103)
 * demangling in objdump <1>:             addr2line.           (line  86)
 * deterministic archives:                ar cmdline.          (line 150)
@@ -5612,20 +5636,20 @@ Binutils Index
 * dynamic relocation entries, in object file: objdump.        (line 482)
 * dynamic symbol table entries, printing: objdump.            (line 795)
 * dynamic symbols:                       nm.                  (line 191)
-* ELF dynamic section information:       readelf.             (line 134)
-* ELF dynamic symbol table information:  readelf.             (line 106)
-* ELF file header information:           readelf.             (line  69)
+* ELF dynamic section information:       readelf.             (line 165)
+* ELF dynamic symbol table information:  readelf.             (line 108)
+* ELF file header information:           readelf.             (line  71)
 * ELF file information:                  readelf.             (line   6)
-* ELF notes:                             readelf.             (line 116)
+* ELF notes:                             readelf.             (line 147)
 * ELF object file format:                objdump.             (line 696)
-* ELF program header information:        readelf.             (line  75)
-* ELF reloc information:                 readelf.             (line 120)
-* ELF section group information:         readelf.             (line  86)
-* ELF section information:               readelf.             (line  81)
-* ELF section information <1>:           readelf.             (line  91)
-* ELF segment information:               readelf.             (line  75)
-* ELF symbol table information:          readelf.             (line  96)
-* ELF version sections information:      readelf.             (line 138)
+* ELF program header information:        readelf.             (line  77)
+* ELF reloc information:                 readelf.             (line 151)
+* ELF section group information:         readelf.             (line  88)
+* ELF section information:               readelf.             (line  83)
+* ELF section information <1>:           readelf.             (line  93)
+* ELF segment information:               readelf.             (line  77)
+* ELF symbol table information:          readelf.             (line  98)
+* ELF version sections information:      readelf.             (line 169)
 * elfedit:                               elfedit.             (line   6)
 * endianness:                            objdump.             (line 192)
 * error on valid input:                  Bug Criteria.        (line  12)
@@ -5654,7 +5678,7 @@ Binutils Index
 * not writing archive index:             ar cmdline.          (line 212)
 * objdump:                               objdump.             (line   6)
 * objdump inlines:                       nm.                  (line 219)
-* object code format:                    nm.                  (line 333)
+* object code format:                    nm.                  (line 325)
 * object code format <1>:                objdump.             (line  89)
 * object code format <2>:                size.                (line 103)
 * object code format <3>:                strings.             (line  94)
@@ -5715,7 +5739,7 @@ Binutils Index
 * undefined symbols:                     nm.                  (line 267)
 * undefined symbols <1>:                 nm.                  (line 281)
 * Unix compatibility, ar:                ar cmdline.          (line   8)
-* unwind information:                    readelf.             (line 125)
+* unwind information:                    readelf.             (line 156)
 * Update ELF header:                     elfedit.             (line   6)
 * updating an archive:                   ar cmdline.          (line 224)
 * version:                               Top.                 (line   6)
@@ -5731,30 +5755,30 @@ Node: ar3554
 Node: ar cmdline6707
 Node: ar scripts19333
 Node: nm25019
-Node: objcopy37641
-Node: objdump78134
-Node: ranlib111159
-Node: size112758
-Node: strings116727
-Node: strip121099
-Node: c++filt130624
-Ref: c++filt-Footnote-1136486
-Node: addr2line136592
-Node: windmc142271
-Node: windres145930
-Node: dlltool152289
-Node: def file format165286
-Node: readelf167816
-Node: elfedit181328
-Node: Common Options184284
-Node: Selecting the Target System185318
-Node: Target Selection186246
-Node: Architecture Selection188227
-Node: debuginfod189055
-Node: Reporting Bugs189814
-Node: Bug Criteria190576
-Node: Bug Reporting191129
-Node: GNU Free Documentation License197999
-Node: Binutils Index223159
+Node: objcopy37185
+Node: objdump77678
+Node: ranlib110703
+Node: size112302
+Node: strings116271
+Node: strip120643
+Node: c++filt130168
+Ref: c++filt-Footnote-1136030
+Node: addr2line136136
+Node: windmc141815
+Node: windres145474
+Node: dlltool151833
+Node: def file format164830
+Node: readelf167360
+Node: elfedit182257
+Node: Common Options185213
+Node: Selecting the Target System186247
+Node: Target Selection187175
+Node: Architecture Selection189156
+Node: debuginfod189984
+Node: Reporting Bugs190743
+Node: Bug Criteria191505
+Node: Bug Reporting192058
+Node: GNU Free Documentation License198928
+Node: Binutils Index224088
 
 End Tag Table

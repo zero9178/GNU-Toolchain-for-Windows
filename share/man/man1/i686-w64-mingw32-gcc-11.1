@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-08-04" "gcc-11" "GNU"
+.TH GCC 1 "2020-08-12" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -16456,25 +16456,6 @@ object boundary as described in the architecture specification.
 .PD
 Omit or keep the frame pointer in leaf functions.  The former behavior is the
 default.
-.IP "\fB\-mstack\-protector\-guard=\fR\fIguard\fR" 4
-.IX Item "-mstack-protector-guard=guard"
-.PD 0
-.IP "\fB\-mstack\-protector\-guard\-reg=\fR\fIreg\fR" 4
-.IX Item "-mstack-protector-guard-reg=reg"
-.IP "\fB\-mstack\-protector\-guard\-offset=\fR\fIoffset\fR" 4
-.IX Item "-mstack-protector-guard-offset=offset"
-.PD
-Generate stack protection code using canary at \fIguard\fR.  Supported
-locations are \fBglobal\fR for a global canary or \fBsysreg\fR for a
-canary in an appropriate system register.
-.Sp
-With the latter choice the options
-\&\fB\-mstack\-protector\-guard\-reg=\fR\fIreg\fR and
-\&\fB\-mstack\-protector\-guard\-offset=\fR\fIoffset\fR furthermore specify
-which system register to use as base register for reading the canary,
-and from what offset from that base register. There is no default
-register or offset as this is entirely for use within the Linux
-kernel.
 .IP "\fB\-mstack\-protector\-guard=\fR\fIguard\fR" 4
 .IX Item "-mstack-protector-guard=guard"
 .PD 0

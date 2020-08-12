@@ -18441,7 +18441,7 @@ The following table lists all available RISC-V specific options.
      set.  The read-only CSR can not be written by the CSR instructions.
 
 '-mno-csr-check'
-     Don't do CSR cheching.
+     Don't do CSR checking.
 
 
 File: as.info,  Node: RISC-V-Directives,  Next: RISC-V-Modifiers,  Prev: RISC-V-Options,  Up: RISC-V-Dependent

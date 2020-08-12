@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "11.0.0 20200804 (experimental)")
+(!version  "11.0.0 20200812 (experimental)")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 223
@@ -25102,19 +25102,19 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1704 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8189"nil 
+ (!type struct 1704 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8204"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1705 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8878"nil 
+ (!type struct 1705 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8893"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1706 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10143"nil 
+ (!type struct 1706 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10158"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1707 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10369"nil 
+ (!type struct 1707 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10384"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -25748,31 +25748,31 @@
    (!type already_seen 1785)
   )
   gc_pointed_to "vec<tree_gc_vec,va_gc>"
-  (!srcfileloc  "c-family/c-common.c" 7906)
+  (!srcfileloc  "c-family/c-common.c" 7913)
   (!fields 2 
    (!pair  "va_gc"
     (!type already_seen 79)
-    (!srcfileloc  "c-family/c-common.c" 7906)
+    (!srcfileloc  "c-family/c-common.c" 7913)
     nil )
    (!pair  "tree_gc_vec"
     (!type already_seen 84)
-    (!srcfileloc  "c-family/c-common.c" 7906)
+    (!srcfileloc  "c-family/c-common.c" 7913)
     nil )
   )
  )
  
  (!type user_struct 1787 nil  gc_unused "hash_set<char*,false,nofree_string_hash>"
-  (!srcfileloc  "c-family/c-common.c" 8858)
+  (!srcfileloc  "c-family/c-common.c" 8865)
   (!fields 2 
    (!pair  "nofree_string_hash"
     (!type undefined 1788 nil  gc_unused "nofree_string_hash"
-     (!srcfileloc  "c-family/c-common.c" 8858)
+     (!srcfileloc  "c-family/c-common.c" 8865)
     )
-    (!srcfileloc  "c-family/c-common.c" 8858)
+    (!srcfileloc  "c-family/c-common.c" 8865)
     nil )
    (!pair  "false"
     (!type already_seen 884)
-    (!srcfileloc  "c-family/c-common.c" 8858)
+    (!srcfileloc  "c-family/c-common.c" 8865)
     nil )
   )
  )
@@ -25780,7 +25780,7 @@
  (!type already_seen 1788)
  
  (!type user_struct 1789 nil  gc_unused "hash_map<char*,per_file_includes_t*>"
-  (!srcfileloc  "c-family/c-common.c" 8863)
+  (!srcfileloc  "c-family/c-common.c" 8870)
   (!fields 1 
    (!pair  "per_file_includes_t"
     (!type pointer 1790 nil  gc_unused
@@ -25790,7 +25790,7 @@
       (!fields 0 )
       nil 0 nil nil )
     )
-    (!srcfileloc  "c-family/c-common.c" 8863)
+    (!srcfileloc  "c-family/c-common.c" 8870)
     nil )
   )
  )
@@ -27937,15 +27937,15 @@
    (!type already_seen 2018)
   )
   gc_pointed_to "hash_map<tree,tree_pair_p>"
-  (!srcfileloc  "cp/pt.c" 28706)
+  (!srcfileloc  "cp/pt.c" 28709)
   (!fields 2 
    (!pair  "tree_pair_p"
     (!type already_seen 544)
-    (!srcfileloc  "cp/pt.c" 28706)
+    (!srcfileloc  "cp/pt.c" 28709)
     nil )
    (!pair  "tree"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28706)
+    (!srcfileloc  "cp/pt.c" 28709)
     nil )
   )
  )
@@ -29001,7 +29001,7 @@
   nil )
  (!pair  "go_char_p"
   (!type already_seen 9)
-  (!srcfileloc  "go/go-lang.c" 185)
+  (!srcfileloc  "go/go-lang.c" 186)
   nil )
  (!pair  "gfc_interface_mapping"
   (!type already_seen 2089)
@@ -29185,7 +29185,7 @@
   nil )
  (!pair  "hash_map<tree,tree_pair_p>"
   (!type already_seen 2018)
-  (!srcfileloc  "cp/pt.c" 28706)
+  (!srcfileloc  "cp/pt.c" 28709)
   nil )
  (!pair  "pending_template"
   (!type already_seen 2004)
@@ -29615,31 +29615,31 @@
   nil )
  (!pair  "added_includes_t"
   (!type already_seen 1789)
-  (!srcfileloc  "c-family/c-common.c" 8863)
+  (!srcfileloc  "c-family/c-common.c" 8870)
   nil )
  (!pair  "hash_map<char*,per_file_includes_t*>"
   (!type already_seen 1789)
-  (!srcfileloc  "c-family/c-common.c" 8863)
+  (!srcfileloc  "c-family/c-common.c" 8870)
   nil )
  (!pair  "per_file_includes_t"
   (!type already_seen 1787)
-  (!srcfileloc  "c-family/c-common.c" 8858)
+  (!srcfileloc  "c-family/c-common.c" 8865)
   nil )
  (!pair  "nofree_string_hash"
   (!type already_seen 1788)
-  (!srcfileloc  "c-family/c-common.c" 8858)
+  (!srcfileloc  "c-family/c-common.c" 8865)
   nil )
  (!pair  "hash_set<char*,false,nofree_string_hash>"
   (!type already_seen 1787)
-  (!srcfileloc  "c-family/c-common.c" 8858)
+  (!srcfileloc  "c-family/c-common.c" 8865)
   nil )
  (!pair  "vec<tree_gc_vec,va_gc>"
   (!type already_seen 1785)
-  (!srcfileloc  "c-family/c-common.c" 7906)
+  (!srcfileloc  "c-family/c-common.c" 7913)
   nil )
  (!pair  "tree_gc_vec"
   (!type already_seen 84)
-  (!srcfileloc  "c-family/c-common.c" 7905)
+  (!srcfileloc  "c-family/c-common.c" 7912)
   nil )
  (!pair  "vec<const_char_p,va_gc>"
   (!type already_seen 1783)
@@ -32454,11 +32454,11 @@
   nil )
  (!pair  "go_non_zero_struct"
   (!type already_seen 23)
-  (!srcfileloc  "go/go-c.h" 79)
+  (!srcfileloc  "go/go-c.h" 80)
   nil )
  (!pair  "go_gc_root"
   (!type already_seen 23)
-  (!srcfileloc  "go/go-lang.c" 563)
+  (!srcfileloc  "go/go-lang.c" 564)
   nil )
  (!pair  "gfc_rank_cst"
   (!type array 2144 nil  gc_used "GFC_MAX_DIMENSIONS + 1" 
@@ -33234,7 +33234,7 @@
   nil )
  (!pair  "dguide_cache"
   (!type already_seen 2019)
-  (!srcfileloc  "cp/pt.c" 28706)
+  (!srcfileloc  "cp/pt.c" 28709)
   (!options 
    (!option deletable string  "")
   )
@@ -33647,7 +33647,7 @@
  )
  (!pair  "cv_cache"
   (!type already_seen 398)
-  (!srcfileloc  "cp/constexpr.c" 6992)
+  (!srcfileloc  "cp/constexpr.c" 7008)
   (!options 
    (!option deletable string  "")
   )
@@ -33826,7 +33826,7 @@
  )
  (!pair  "tree_vector_cache"
   (!type already_seen 1786)
-  (!srcfileloc  "c-family/c-common.c" 7906)
+  (!srcfileloc  "c-family/c-common.c" 7913)
   (!options 
    (!option deletable string  "")
   )
@@ -34126,7 +34126,7 @@
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 295)
-  (!srcfileloc  "config/i386/i386-expand.c" 16227)
+  (!srcfileloc  "config/i386/i386-expand.c" 16242)
   nil )
  (!pair  "ix86_builtins"
   (!type array 2185 nil  gc_used "(int) IX86_BUILTIN_MAX" 
@@ -34265,7 +34265,7 @@
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 21245)
+  (!srcfileloc  "config/i386/i386.c" 21210)
   nil )
  (!pair  "dllimport_map"
   (!type already_seen 1563)
