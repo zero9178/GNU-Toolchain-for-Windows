@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-08-04" "gcc-10" "GNU"
+.TH GCC 1 "2020-08-12" "gcc-10" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -868,7 +868,7 @@ in the following sections.
 .Sp
 \&\fIeBPF Options\fR
 \&\fB\-mbig\-endian \-mlittle\-endian \-mkernel=\fR\fIversion\fR
-\&\fB\-mframe\-limit=\fR\fIbytes\fR
+\&\fB\-mframe\-limit=\fR\fIbytes\fR \fB\-mxbpf\fR
 .Sp
 \&\fI\s-1FR30\s0 Options\fR
 \&\fB\-msmall\-model  \-mno\-lsim\fR
@@ -20396,6 +20396,17 @@ Generate code for a big-endian target.
 .IP "\fB\-mlittle\-endian\fR" 4
 .IX Item "-mlittle-endian"
 Generate code for a little-endian target.  This is the default.
+.IP "\fB\-mxbpf\fR" 4
+.IX Item "-mxbpf"
+Generate code for an expanded version of \s-1BPF,\s0 which relaxes some of
+the restrictions imposed by the \s-1BPF\s0 architecture:
+.RS 4
+.IP "\-<Save and restore callee-saved registers at function entry and>" 4
+.IX Item "-<Save and restore callee-saved registers at function entry and>"
+exit, respectively.
+.RE
+.RS 4
+.RE
 .PP
 \fI\s-1FR30\s0 Options\fR
 .IX Subsection "FR30 Options"

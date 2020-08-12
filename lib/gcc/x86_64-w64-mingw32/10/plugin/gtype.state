@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20200804")
+(!version  "10.2.1 20200812")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 224
@@ -25088,19 +25088,19 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1700 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8203"nil 
+ (!type struct 1700 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8208"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1701 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8892"nil 
+ (!type struct 1701 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8897"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1702 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10157"nil 
+ (!type struct 1702 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10162"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1703 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10383"nil 
+ (!type struct 1703 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10388"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -26603,7 +26603,7 @@
    (!type already_seen 1855)
   )
   gc_pointed_to "tinst_level"
-  (!srcfileloc  "cp/pt.c" 9369)
+  (!srcfileloc  "cp/pt.c" 9370)
   (!fields 6 
    (!pair  "next"
     (!type already_seen 1856)
@@ -27779,7 +27779,7 @@
    (!type already_seen 1994)
   )
   gc_pointed_to "pending_template"
-  (!srcfileloc  "cp/pt.c" 9378)
+  (!srcfileloc  "cp/pt.c" 9379)
   (!fields 2 
    (!pair  "next"
     (!type already_seen 1995)
@@ -29112,11 +29112,11 @@
   nil )
  (!pair  "pending_template"
   (!type already_seen 1994)
-  (!srcfileloc  "cp/pt.c" 9378)
+  (!srcfileloc  "cp/pt.c" 9379)
   nil )
  (!pair  "tinst_level"
   (!type already_seen 1855)
-  (!srcfileloc  "cp/pt.c" 9369)
+  (!srcfileloc  "cp/pt.c" 9370)
   nil )
  (!pair  "spec_hasher"
   (!type already_seen 1997)
@@ -33136,53 +33136,53 @@
  )
  (!pair  "explicit_specifier_map"
   (!type already_seen 947)
-  (!srcfileloc  "cp/pt.c" 13527)
+  (!srcfileloc  "cp/pt.c" 13528)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "defarg_inst"
   (!type already_seen 947)
-  (!srcfileloc  "cp/pt.c" 13416)
+  (!srcfileloc  "cp/pt.c" 13417)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "last_error_tinst_level"
   (!type already_seen 1856)
-  (!srcfileloc  "cp/pt.c" 10726)
+  (!srcfileloc  "cp/pt.c" 10727)
   nil )
  (!pair  "pending_template_freelist_head"
   (!type already_seen 1995)
-  (!srcfileloc  "cp/pt.c" 9378)
+  (!srcfileloc  "cp/pt.c" 9379)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "tinst_level_freelist_head"
   (!type already_seen 1856)
-  (!srcfileloc  "cp/pt.c" 9369)
+  (!srcfileloc  "cp/pt.c" 9370)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "tree_list_freelist_head"
   (!type already_seen 23)
-  (!srcfileloc  "cp/pt.c" 9360)
+  (!srcfileloc  "cp/pt.c" 9361)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "defaulted_ttp_cache"
   (!type already_seen 398)
-  (!srcfileloc  "cp/pt.c" 7673)
+  (!srcfileloc  "cp/pt.c" 7674)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "tparm_obj_values"
   (!type already_seen 398)
-  (!srcfileloc  "cp/pt.c" 7026)
+  (!srcfileloc  "cp/pt.c" 7027)
   nil )
  (!pair  "canonical_template_parms"
   (!type already_seen 84)
@@ -34014,7 +34014,7 @@
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 295)
-  (!srcfileloc  "config/i386/i386-expand.c" 16230)
+  (!srcfileloc  "config/i386/i386-expand.c" 16235)
   nil )
  (!pair  "ix86_builtins"
   (!type array 2174 nil  gc_used "(int) IX86_BUILTIN_MAX" 
@@ -34159,7 +34159,7 @@
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 21319)
+  (!srcfileloc  "config/i386/i386.c" 21285)
   nil )
  (!pair  "dllimport_map"
   (!type already_seen 1556)

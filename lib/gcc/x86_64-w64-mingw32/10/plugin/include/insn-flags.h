@@ -995,12 +995,6 @@
 #define HAVE_avx512f_vmcmpv4sf3_mask_round (TARGET_AVX512F)
 #define HAVE_avx512f_vmcmpv2df3_mask ((TARGET_AVX512F) && (TARGET_SSE2))
 #define HAVE_avx512f_vmcmpv2df3_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_SSE2)))
-#define HAVE_avx512f_maskcmpv16sf3 (TARGET_AVX512F)
-#define HAVE_avx512f_maskcmpv8sf3 ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_maskcmpv4sf3 ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_maskcmpv8df3 (TARGET_AVX512F)
-#define HAVE_avx512f_maskcmpv4df3 ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_maskcmpv2df3 ((TARGET_AVX512F) && (TARGET_AVX512VL))
 #define HAVE_sse_comi (SSE_FLOAT_MODE_P (SFmode))
 #define HAVE_sse_comi_round ((TARGET_AVX512F) && (SSE_FLOAT_MODE_P (SFmode)))
 #define HAVE_sse_ucomi (SSE_FLOAT_MODE_P (SFmode))
@@ -8242,12 +8236,6 @@ extern rtx        gen_avx512f_vmcmpv4sf3_mask                    (rtx, rtx, rtx,
 extern rtx        gen_avx512f_vmcmpv4sf3_mask_round              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_vmcmpv2df3_mask                    (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_vmcmpv2df3_mask_round              (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv16sf3                      (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv8sf3                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv4sf3                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv8df3                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv4df3                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv2df3                       (rtx, rtx, rtx, rtx);
 extern rtx        gen_sse_comi                                   (rtx, rtx);
 extern rtx        gen_sse_comi_round                             (rtx, rtx, rtx);
 extern rtx        gen_sse_ucomi                                  (rtx, rtx);

@@ -1000,12 +1000,6 @@
 #define HAVE_avx512f_vmcmpv4sf3_mask_round (TARGET_AVX512F)
 #define HAVE_avx512f_vmcmpv2df3_mask ((TARGET_AVX512F) && (TARGET_SSE2))
 #define HAVE_avx512f_vmcmpv2df3_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_SSE2)))
-#define HAVE_avx512f_maskcmpv16sf3 (TARGET_AVX512F)
-#define HAVE_avx512f_maskcmpv8sf3 ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_maskcmpv4sf3 ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_maskcmpv8df3 (TARGET_AVX512F)
-#define HAVE_avx512f_maskcmpv4df3 ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_maskcmpv2df3 ((TARGET_AVX512F) && (TARGET_AVX512VL))
 #define HAVE_sse_comi (SSE_FLOAT_MODE_P (SFmode))
 #define HAVE_sse_comi_round ((TARGET_AVX512F) && (SSE_FLOAT_MODE_P (SFmode)))
 #define HAVE_sse_ucomi (SSE_FLOAT_MODE_P (SFmode))
@@ -4781,14 +4775,18 @@
 #define HAVE_addhicc 1
 #define HAVE_addsicc 1
 #define HAVE_adddicc (TARGET_64BIT)
-#define HAVE_smaxsi3 ((TARGET_STV) && (TARGET_SSE4_1))
-#define HAVE_sminsi3 ((TARGET_STV) && (TARGET_SSE4_1))
-#define HAVE_umaxsi3 ((TARGET_STV) && (TARGET_SSE4_1))
-#define HAVE_uminsi3 ((TARGET_STV) && (TARGET_SSE4_1))
-#define HAVE_smaxdi3 ((TARGET_STV) && (TARGET_AVX512VL))
-#define HAVE_smindi3 ((TARGET_STV) && (TARGET_AVX512VL))
-#define HAVE_umaxdi3 ((TARGET_STV) && (TARGET_AVX512VL))
-#define HAVE_umindi3 ((TARGET_STV) && (TARGET_AVX512VL))
+#define HAVE_smaxhi3 (TARGET_CMOVE)
+#define HAVE_sminhi3 (TARGET_CMOVE)
+#define HAVE_umaxhi3 (TARGET_CMOVE)
+#define HAVE_uminhi3 (TARGET_CMOVE)
+#define HAVE_smaxsi3 (TARGET_CMOVE)
+#define HAVE_sminsi3 (TARGET_CMOVE)
+#define HAVE_umaxsi3 (TARGET_CMOVE)
+#define HAVE_uminsi3 (TARGET_CMOVE)
+#define HAVE_smaxdi3 ((TARGET_CMOVE) && (TARGET_64BIT))
+#define HAVE_smindi3 ((TARGET_CMOVE) && (TARGET_64BIT))
+#define HAVE_umaxdi3 ((TARGET_CMOVE) && (TARGET_64BIT))
+#define HAVE_umindi3 ((TARGET_CMOVE) && (TARGET_64BIT))
 #define HAVE_allocate_stack (ix86_target_stack_probe ())
 #define HAVE_probe_stack 1
 #define HAVE_builtin_setjmp_receiver (!TARGET_64BIT && flag_pic)
@@ -8330,12 +8328,6 @@ extern rtx        gen_avx512f_vmcmpv4sf3_mask                    (rtx, rtx, rtx,
 extern rtx        gen_avx512f_vmcmpv4sf3_mask_round              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_vmcmpv2df3_mask                    (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_vmcmpv2df3_mask_round              (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv16sf3                      (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv8sf3                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv4sf3                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv8df3                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv4df3                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_maskcmpv2df3                       (rtx, rtx, rtx, rtx);
 extern rtx        gen_sse_comi                                   (rtx, rtx);
 extern rtx        gen_sse_comi_round                             (rtx, rtx, rtx);
 extern rtx        gen_sse_ucomi                                  (rtx, rtx);
@@ -11758,6 +11750,10 @@ extern rtx        gen_addqicc                                    (rtx, rtx, rtx,
 extern rtx        gen_addhicc                                    (rtx, rtx, rtx, rtx);
 extern rtx        gen_addsicc                                    (rtx, rtx, rtx, rtx);
 extern rtx        gen_adddicc                                    (rtx, rtx, rtx, rtx);
+extern rtx        gen_smaxhi3                                    (rtx, rtx, rtx);
+extern rtx        gen_sminhi3                                    (rtx, rtx, rtx);
+extern rtx        gen_umaxhi3                                    (rtx, rtx, rtx);
+extern rtx        gen_uminhi3                                    (rtx, rtx, rtx);
 extern rtx        gen_smaxsi3                                    (rtx, rtx, rtx);
 extern rtx        gen_sminsi3                                    (rtx, rtx, rtx);
 extern rtx        gen_umaxsi3                                    (rtx, rtx, rtx);

@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "9.3.1 20200804")
+(!version  "9.3.1 20200812")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 211
@@ -23463,16 +23463,16 @@
   nil 0 nil nil )
  
  (!type struct 1636 nil  gc_unused "polymorphic_call_target_hasher"
-  (!srcfileloc  "ipa-devirt.c" 2853)
+  (!srcfileloc  "ipa-devirt.c" 2856)
   (!fields 0 )
   nil 2047 nil nil )
  
  (!type user_struct 1637 nil  gc_unused "hash_table<polymorphic_call_target_hasher>"
-  (!srcfileloc  "ipa-devirt.c" 2853)
+  (!srcfileloc  "ipa-devirt.c" 2856)
   (!fields 1 
    (!pair  "polymorphic_call_target_hasher"
     (!type already_seen 1636)
-    (!srcfileloc  "ipa-devirt.c" 2853)
+    (!srcfileloc  "ipa-devirt.c" 2856)
     nil )
   )
  )
@@ -27838,15 +27838,15 @@
   nil )
  (!pair  "polymorphic_call_target_hash_type"
   (!type already_seen 1637)
-  (!srcfileloc  "ipa-devirt.c" 2854)
+  (!srcfileloc  "ipa-devirt.c" 2857)
   nil )
  (!pair  "polymorphic_call_target_hasher"
   (!type already_seen 1636)
-  (!srcfileloc  "ipa-devirt.c" 2853)
+  (!srcfileloc  "ipa-devirt.c" 2856)
   nil )
  (!pair  "hash_table<polymorphic_call_target_hasher>"
   (!type already_seen 1637)
-  (!srcfileloc  "ipa-devirt.c" 2853)
+  (!srcfileloc  "ipa-devirt.c" 2856)
   nil )
  (!pair  "vec<odr_type,va_gc>"
   (!type already_seen 1633)
