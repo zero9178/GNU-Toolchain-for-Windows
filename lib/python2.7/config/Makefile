@@ -33,12 +33,12 @@ abs_builddir=	/mnt/c/GDB-Build/python2/Python-2.7.18/build
 build=		x86_64-pc-linux-gnu
 host=		x86_64-w64-mingw32
 
-CC=		/mnt/c/GCC-Build/NewestLinux/bin/x86_64-w64-mingw32-gcc-10
-CXX=		/mnt/c/GCC-Build/NewestLinux/bin/x86_64-w64-mingw32-g++-10
+CC=		x86_64-w64-mingw32-gcc-10
+CXX=		x86_64-w64-mingw32-g++-10
 MAINCC=		$(CC)
 LINKCC=		$(PURIFY) $(MAINCC)
-AR=		/mnt/c/GCC-Build/NewestLinux/bin/x86_64-w64-mingw32-gcc-ar-10
-RANLIB=		/mnt/c/GCC-Build/NewestLinux/bin/x86_64-w64-mingw32-gcc-ranlib-10
+AR=		x86_64-w64-mingw32-ar
+RANLIB=		x86_64-w64-mingw32-ranlib
 GITVERSION=	
 GITTAG=		
 GITBRANCH=	
@@ -77,8 +77,8 @@ CFLAGS=		$(BASECFLAGS) -g -O2 $(OPT) $(EXTRA_CFLAGS)
 # Both CPPFLAGS and LDFLAGS need to contain the shell's value for setup.py to
 # be able to build extension modules using the directories specified in the
 # environment variables
-CPPFLAGS=	-I. -IInclude -I$(srcdir)/Include -I$(srcdir)/Python -I$(srcdir)/PC -static -I/mnt/c/GDB-Build/python2/Python-2.7.18/build/../../../libexpat/install/include 
-LDFLAGS=	-static -lws2_32 -L/mnt/c/GDB-Build/python2/Python-2.7.18/build/../../../libexpat/install/lib
+CPPFLAGS=	-I. -IInclude -I$(srcdir)/Include -I$(srcdir)/Python -I$(srcdir)/PC -static -I/mnt/c/GDB-Build/libexpat/install/include 
+LDFLAGS=	-static -lws2_32 -L/mnt/c/GDB-Build/libexpat/install/lib
 LDLAST=		
 SGI_ABI=	
 CCSHARED=	
@@ -98,7 +98,7 @@ MACHDEP=	win32
 MULTIARCH=	
 
 # Install prefix for architecture-independent files
-prefix=		/mnt/c/GDB-Build/python2/Python-2.7.18/build/install
+prefix=		/mnt/c/GCC-Build/NewestLinux/Libraries
 
 # Install prefix for architecture-dependent files
 exec_prefix=	${prefix}
@@ -111,7 +111,7 @@ srcdir_b2h=		/mnt/c/GDB-Build/python2/Python-2.7.18
 VPATH_b2h=		/mnt/c/GDB-Build/python2/Python-2.7.18
 abs_srcdir_b2h=		/mnt/c/GDB-Build/python2/Python-2.7.18
 abs_builddir_b2h=	/mnt/c/GDB-Build/python2/Python-2.7.18/build
-prefix_b2h=		/mnt/c/GDB-Build/python2/Python-2.7.18/build/install
+prefix_b2h=		/mnt/c/GCC-Build/NewestLinux/Libraries
 
 # Expanded directories
 BINDIR=		${exec_prefix}/bin
@@ -167,7 +167,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--host=x86_64-w64-mingw32' '--build=x86_64-pc-linux-gnu' '--disable-shared' '--prefix=/mnt/c/GDB-Build/python2/Python-2.7.18/build/install' '--with-system-expat' 'build_alias=x86_64-pc-linux-gnu' 'host_alias=x86_64-w64-mingw32' 'CC=/mnt/c/GCC-Build/NewestLinux/bin/x86_64-w64-mingw32-gcc-10' 'LDFLAGS=-static -lws2_32 -L/mnt/c/GDB-Build/python2/Python-2.7.18/build/../../../libexpat/install/lib' 'CPPFLAGS=-static -I/mnt/c/GDB-Build/python2/Python-2.7.18/build/../../../libexpat/install/include '
+CONFIG_ARGS=	 '--host=x86_64-w64-mingw32' '--build=x86_64-pc-linux-gnu' '--disable-shared' '--prefix=/mnt/c/GCC-Build/NewestLinux/Libraries' '--with-system-expat' 'build_alias=x86_64-pc-linux-gnu' 'host_alias=x86_64-w64-mingw32' 'CC=x86_64-w64-mingw32-gcc-10' 'LDFLAGS=-static -lws2_32 -L/mnt/c/GDB-Build/libexpat/install/lib' 'CPPFLAGS=-static -I/mnt/c/GDB-Build/libexpat/install/include '
 
 
 # Subdirectories with code

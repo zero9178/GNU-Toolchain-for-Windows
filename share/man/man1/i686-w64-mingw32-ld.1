@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "LD 1"
-.TH LD 1 "2020-08-04" "binutils-2.35.50" "GNU Development Tools"
+.TH LD 1 "2020-08-12" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -1846,7 +1846,7 @@ This option is ignored for \s-1SVR4\s0 compatibility.
 An option with machine dependent effects.
 This option is only supported on a few targets.
 .Sp
-On some platforms the \fB\-\-relax\fR option performs target-specific,
+On some platforms the \fB\-\-relax\fR option performs target specific,
 global optimizations that become possible when the linker resolves
 addressing in the program, such as relaxing address modes,
 synthesizing new instructions, selecting shorter version of current
@@ -1857,11 +1857,11 @@ debugging of the resulting executable impossible.
 This is known to be the case for the Matsushita \s-1MN10200\s0 and \s-1MN10300\s0
 family of processors.
 .Sp
-On platforms where this is not supported, \fB\-\-relax\fR is accepted,
-but ignored.
+On platforms where the feature is supported, the option
+\&\fB\-\-no\-relax\fR will disable it.
 .Sp
-On platforms where \fB\-\-relax\fR is accepted the option
-\&\fB\-\-no\-relax\fR can be used to disable the feature.
+On platforms where the feature is not supported, both \fB\-\-relax\fR
+and \fB\-\-no\-relax\fR are accepted, but ignored.
 .IP "\fB\-\-retain\-symbols\-file=\fR\fIfilename\fR" 4
 .IX Item "--retain-symbols-file=filename"
 Retain \fIonly\fR the symbols listed in the file \fIfilename\fR,
