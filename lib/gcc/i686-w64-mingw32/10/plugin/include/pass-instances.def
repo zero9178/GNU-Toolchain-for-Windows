@@ -147,6 +147,7 @@ along with GCC; see the file COPYING3.  If not see
 
   INSERT_PASSES_AFTER (all_regular_ipa_passes)
   NEXT_PASS (pass_analyzer, 1);
+  NEXT_PASS (pass_ipa_odr, 1);
   NEXT_PASS (pass_ipa_whole_program_visibility, 1);
   NEXT_PASS (pass_ipa_profile, 1);
   NEXT_PASS (pass_ipa_icf, 1);
