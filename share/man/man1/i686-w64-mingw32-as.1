@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "AS 1"
-.TH AS 1 "2020-08-12" "binutils-2.35.50" "GNU Development Tools"
+.TH AS 1 "2020-08-20" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -150,7 +150,6 @@ as [\fB\-a\fR[\fBcdghlns\fR][=\fIfile\fR]] [\fB\-\-alternate\fR] [\fB\-D\fR]
  [\fB\-\-listing\-cont\-lines\fR=\fI\s-1NUM\s0\fR] [\fB\-\-keep\-locals\fR]
  [\fB\-\-no\-pad\-sections\fR]
  [\fB\-o\fR \fIobjfile\fR] [\fB\-R\fR]
- [\fB\-\-hash\-size\fR=\fI\s-1NUM\s0\fR] [\fB\-\-reduce\-memory\-overheads\fR]
  [\fB\-\-statistics\fR]
  [\fB\-v\fR] [\fB\-version\fR] [\fB\-\-version\fR]
  [\fB\-W\fR] [\fB\-\-warn\fR] [\fB\-\-fatal\-warnings\fR] [\fB\-w\fR] [\fB\-x\fR]
@@ -754,18 +753,6 @@ Name the object-file output from \fBas\fR \fIobjfile\fR.
 .IP "\fB\-R\fR" 4
 .IX Item "-R"
 Fold the data section into the text section.
-.IP "\fB\-\-hash\-size=\fR\fInumber\fR" 4
-.IX Item "--hash-size=number"
-Set the default size of \s-1GAS\s0's hash tables to a prime number close to
-\&\fInumber\fR.  Increasing this value can reduce the length of time it takes the
-assembler to perform its tasks, at the expense of increasing the assembler's
-memory requirements.  Similarly reducing this value can reduce the memory
-requirements at the expense of speed.
-.IP "\fB\-\-reduce\-memory\-overheads\fR" 4
-.IX Item "--reduce-memory-overheads"
-This option reduces \s-1GAS\s0's memory requirements, at the expense of making the
-assembly processes slower.  Currently this switch is a synonym for
-\&\fB\-\-hash\-size=4051\fR, but in the future it may have other effects as well.
 .IP "\fB\-\-sectname\-subst\fR" 4
 .IX Item "--sectname-subst"
 Honor substitution sequences in section names.
