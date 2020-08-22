@@ -19,7 +19,7 @@ All binaries are 64 bit but the toolchain and debugger can produce and debug 32 
 Executable without a prefix produce and handle 64 Bit Code.
 Executables with the prefix i686-w64-mingw32 produce and handle 32 Bit Code.
 
-**Only need particular GCC version for your toolchain?**
+**Only need a particular GCC version for your toolchain?**
 
 Checkout the branches:
 * GCC-7
@@ -68,14 +68,14 @@ All binaries are either fully relocatable or only have a dependency on libwinpth
 For GCC to function it requires the folder it's located in (the bin folder) to be in the system PATH.
 
 Trunk version of this repository currently contains following versions:
-GCC 7.5.0
-GCC 8.4.1
-GCC 9.3.1
-GCC 10.1.1
-GCC Trunk (11.0.0)
-GDB Trunk (10.0.50)
-Binutils Trunk (2.34.50)
-MinGW Trunk (8.0.0)
-Make Trunk (4.3.90)
+- GCC 7.5.0
+- GCC 8.4.1
+- GCC 9.3.1
+- GCC 10.2.1
+- GCC Trunk (11.0.0)
+- GDB Trunk (10.0.50)
+- Binutils Trunk (2.35.50)
+- MinGW Trunk (8.0.0)
+- Make Trunk (4.3.90)
 
 For repositories, configure options and commit revisions see BUILDINFO.txt
