@@ -6948,6 +6948,8 @@
 #define HAVE_vpdpwssds_v16si_maskz (TARGET_AVX512VNNI)
 #define HAVE_vpdpwssds_v8si_maskz ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpwssds_v4si_maskz ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
+#define HAVE_movp2qi (TARGET_AVX512VP2INTERSECT)
+#define HAVE_movp2hi (TARGET_AVX512VP2INTERSECT)
 #define HAVE_avx512f_cvtne2ps2bf16_v32hi_maskz (TARGET_AVX512BF16)
 #define HAVE_avx512f_cvtne2ps2bf16_v16hi_maskz ((TARGET_AVX512BF16) && (TARGET_AVX512VL))
 #define HAVE_avx512f_cvtne2ps2bf16_v8hi_maskz ((TARGET_AVX512BF16) && (TARGET_AVX512VL))
@@ -14662,6 +14664,8 @@ extern rtx        gen_vpdpwssd_v4si_maskz                        (rtx, rtx, rtx,
 extern rtx        gen_vpdpwssds_v16si_maskz                      (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vpdpwssds_v8si_maskz                       (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vpdpwssds_v4si_maskz                       (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_movp2qi                                    (rtx, rtx);
+extern rtx        gen_movp2hi                                    (rtx, rtx);
 extern rtx        gen_avx512f_cvtne2ps2bf16_v32hi_maskz          (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_cvtne2ps2bf16_v16hi_maskz          (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_cvtne2ps2bf16_v8hi_maskz           (rtx, rtx, rtx, rtx);
