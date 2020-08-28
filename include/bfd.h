@@ -1811,6 +1811,7 @@ enum bfd_architecture
 #define bfd_mach_iq10          2
   bfd_arch_bpf,       /* Linux eBPF.  */
 #define bfd_mach_bpf           1
+#define bfd_mach_xbpf          2
   bfd_arch_epiphany,  /* Adapteva EPIPHANY.  */
 #define bfd_mach_epiphany16    1
 #define bfd_mach_epiphany32    2
@@ -1952,6 +1953,7 @@ enum bfd_architecture
 #define bfd_mach_ck803         5
 #define bfd_mach_ck807         6
 #define bfd_mach_ck810         7
+#define bfd_mach_ck860         8
   bfd_arch_last
   };
 

@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20200822")
+(!version  "10.2.1 20200828")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 224
@@ -25100,19 +25100,19 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1703 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8208"nil 
+ (!type struct 1703 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8214"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1704 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8897"nil 
+ (!type struct 1704 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8903"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1705 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10162"nil 
+ (!type struct 1705 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10168"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1706 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10388"nil 
+ (!type struct 1706 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10394"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -25710,31 +25710,31 @@
    (!type already_seen 1780)
   )
   gc_pointed_to "vec<tree_gc_vec,va_gc>"
-  (!srcfileloc  "c-family/c-common.c" 7804)
+  (!srcfileloc  "c-family/c-common.c" 7811)
   (!fields 2 
    (!pair  "va_gc"
     (!type already_seen 79)
-    (!srcfileloc  "c-family/c-common.c" 7804)
+    (!srcfileloc  "c-family/c-common.c" 7811)
     nil )
    (!pair  "tree_gc_vec"
     (!type already_seen 84)
-    (!srcfileloc  "c-family/c-common.c" 7804)
+    (!srcfileloc  "c-family/c-common.c" 7811)
     nil )
   )
  )
  
  (!type user_struct 1782 nil  gc_unused "hash_set<char*,false,nofree_string_hash>"
-  (!srcfileloc  "c-family/c-common.c" 8753)
+  (!srcfileloc  "c-family/c-common.c" 8760)
   (!fields 2 
    (!pair  "nofree_string_hash"
     (!type undefined 1783 nil  gc_unused "nofree_string_hash"
-     (!srcfileloc  "c-family/c-common.c" 8753)
+     (!srcfileloc  "c-family/c-common.c" 8760)
     )
-    (!srcfileloc  "c-family/c-common.c" 8753)
+    (!srcfileloc  "c-family/c-common.c" 8760)
     nil )
    (!pair  "false"
     (!type already_seen 884)
-    (!srcfileloc  "c-family/c-common.c" 8753)
+    (!srcfileloc  "c-family/c-common.c" 8760)
     nil )
   )
  )
@@ -25742,7 +25742,7 @@
  (!type already_seen 1783)
  
  (!type user_struct 1784 nil  gc_unused "hash_map<char*,per_file_includes_t*>"
-  (!srcfileloc  "c-family/c-common.c" 8758)
+  (!srcfileloc  "c-family/c-common.c" 8765)
   (!fields 1 
    (!pair  "per_file_includes_t"
     (!type pointer 1785 nil  gc_unused
@@ -25752,7 +25752,7 @@
       (!fields 0 )
       nil 0 nil nil )
     )
-    (!srcfileloc  "c-family/c-common.c" 8758)
+    (!srcfileloc  "c-family/c-common.c" 8765)
     nil )
   )
  )
@@ -29550,31 +29550,31 @@
   nil )
  (!pair  "added_includes_t"
   (!type already_seen 1784)
-  (!srcfileloc  "c-family/c-common.c" 8758)
+  (!srcfileloc  "c-family/c-common.c" 8765)
   nil )
  (!pair  "hash_map<char*,per_file_includes_t*>"
   (!type already_seen 1784)
-  (!srcfileloc  "c-family/c-common.c" 8758)
+  (!srcfileloc  "c-family/c-common.c" 8765)
   nil )
  (!pair  "per_file_includes_t"
   (!type already_seen 1782)
-  (!srcfileloc  "c-family/c-common.c" 8753)
+  (!srcfileloc  "c-family/c-common.c" 8760)
   nil )
  (!pair  "nofree_string_hash"
   (!type already_seen 1783)
-  (!srcfileloc  "c-family/c-common.c" 8753)
+  (!srcfileloc  "c-family/c-common.c" 8760)
   nil )
  (!pair  "hash_set<char*,false,nofree_string_hash>"
   (!type already_seen 1782)
-  (!srcfileloc  "c-family/c-common.c" 8753)
+  (!srcfileloc  "c-family/c-common.c" 8760)
   nil )
  (!pair  "vec<tree_gc_vec,va_gc>"
   (!type already_seen 1780)
-  (!srcfileloc  "c-family/c-common.c" 7804)
+  (!srcfileloc  "c-family/c-common.c" 7811)
   nil )
  (!pair  "tree_gc_vec"
   (!type already_seen 84)
-  (!srcfileloc  "c-family/c-common.c" 7803)
+  (!srcfileloc  "c-family/c-common.c" 7810)
   nil )
  (!pair  "vec<const_char_p,va_gc>"
   (!type already_seen 1778)
@@ -33733,7 +33733,7 @@
  )
  (!pair  "tree_vector_cache"
   (!type already_seen 1781)
-  (!srcfileloc  "c-family/c-common.c" 7804)
+  (!srcfileloc  "c-family/c-common.c" 7811)
   (!options 
    (!option deletable string  "")
   )
@@ -34026,7 +34026,7 @@
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 295)
-  (!srcfileloc  "config/i386/i386-expand.c" 16235)
+  (!srcfileloc  "config/i386/i386-expand.c" 16241)
   nil )
  (!pair  "ix86_builtins"
   (!type array 2177 nil  gc_used "(int) IX86_BUILTIN_MAX" 
