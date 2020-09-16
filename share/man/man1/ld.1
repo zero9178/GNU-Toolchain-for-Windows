@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "LD 1"
-.TH LD 1 "2020-09-06" "binutils-2.35.50" "GNU Development Tools"
+.TH LD 1 "2020-09-16" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -1248,6 +1248,15 @@ Create separate code \f(CW\*(C`PT_LOAD\*(C'\fR segment header in the object.  Th
 specifies a memory segment that should contain only instructions and must
 be in wholly disjoint pages from any other data.  Don't create separate
 code \f(CW\*(C`PT_LOAD\*(C'\fR segment if \fBnoseparate-code\fR is used.
+.IP "\fBunique-symbol\fR" 4
+.IX Item "unique-symbol"
+.PD 0
+.IP "\fBnounique-symbol\fR" 4
+.IX Item "nounique-symbol"
+.PD
+Avoid duplicated local symbol names in the symbol string table.  Append
+".\f(CW\*(C`number\*(C'\fR" to duplicated local symbol names if \fBunique-symbol\fR
+is used.  \fBnounique-symbol\fR is the default.
 .IP "\fBshstk\fR" 4
 .IX Item "shstk"
 Generate \s-1GNU_PROPERTY_X86_FEATURE_1_SHSTK\s0 in .note.gnu.property section
@@ -2869,39 +2878,82 @@ of the \s-1PE\s0 file header:
 [These options are specific to \s-1PE\s0 targeted ports of the linker]
 .IP "\fB\-\-high\-entropy\-va\fR" 4
 .IX Item "--high-entropy-va"
+.PD 0
+.IP "\fB\-\-disable\-high\-entropy\-va\fR" 4
+.IX Item "--disable-high-entropy-va"
+.PD
 Image is compatible with 64\-bit address space layout randomization
-(\s-1ASLR\s0).
+(\s-1ASLR\s0).  This option is enabled by default for 64\-bit \s-1PE\s0 images.
+.Sp
 This option also implies \fB\-\-dynamicbase\fR and
 \&\fB\-\-enable\-reloc\-section\fR.
 .IP "\fB\-\-dynamicbase\fR" 4
 .IX Item "--dynamicbase"
+.PD 0
+.IP "\fB\-\-disable\-dynamicbase\fR" 4
+.IX Item "--disable-dynamicbase"
+.PD
 The image base address may be relocated using address space layout
 randomization (\s-1ASLR\s0).  This feature was introduced with \s-1MS\s0 Windows
-Vista for i386 \s-1PE\s0 targets.
+Vista for i386 \s-1PE\s0 targets.  This option is enabled by default but
+can be disabled via the \fB\-\-disable\-dynamicbase\fR option.
 This option also implies \fB\-\-enable\-reloc\-section\fR.
 .IP "\fB\-\-forceinteg\fR" 4
 .IX Item "--forceinteg"
-Code integrity checks are enforced.
+.PD 0
+.IP "\fB\-\-disable\-forceinteg\fR" 4
+.IX Item "--disable-forceinteg"
+.PD
+Code integrity checks are enforced.  This option is disabled by
+default.
 .IP "\fB\-\-nxcompat\fR" 4
 .IX Item "--nxcompat"
+.PD 0
+.IP "\fB\-\-disable\-nxcompat\fR" 4
+.IX Item "--disable-nxcompat"
+.PD
 The image is compatible with the Data Execution Prevention.
-This feature was introduced with \s-1MS\s0 Windows \s-1XP SP2\s0 for i386 \s-1PE\s0 targets.
+This feature was introduced with \s-1MS\s0 Windows \s-1XP SP2\s0 for i386 \s-1PE\s0
+targets.  The option is enabled by default.
 .IP "\fB\-\-no\-isolation\fR" 4
 .IX Item "--no-isolation"
+.PD 0
+.IP "\fB\-\-disable\-no\-isolation\fR" 4
+.IX Item "--disable-no-isolation"
+.PD
 Although the image understands isolation, do not isolate the image.
+This option is disabled by default.
 .IP "\fB\-\-no\-seh\fR" 4
 .IX Item "--no-seh"
+.PD 0
+.IP "\fB\-\-disable\-no\-seh\fR" 4
+.IX Item "--disable-no-seh"
+.PD
 The image does not use \s-1SEH.\s0 No \s-1SE\s0 handler may be called from
-this image.
+this image.  This option is disabled by default.
 .IP "\fB\-\-no\-bind\fR" 4
 .IX Item "--no-bind"
-Do not bind this image.
+.PD 0
+.IP "\fB\-\-disable\-no\-bind\fR" 4
+.IX Item "--disable-no-bind"
+.PD
+Do not bind this image.  This option is disabled by default.
 .IP "\fB\-\-wdmdriver\fR" 4
 .IX Item "--wdmdriver"
-The driver uses the \s-1MS\s0 Windows Driver Model.
+.PD 0
+.IP "\fB\-\-disable\-wdmdriver\fR" 4
+.IX Item "--disable-wdmdriver"
+.PD
+The driver uses the \s-1MS\s0 Windows Driver Model.  This option is disabled
+by default.
 .IP "\fB\-\-tsaware\fR" 4
 .IX Item "--tsaware"
-The image is Terminal Server aware.
+.PD 0
+.IP "\fB\-\-disable\-tsaware\fR" 4
+.IX Item "--disable-tsaware"
+.PD
+The image is Terminal Server aware.  This option is disabled by
+default.
 .IP "\fB\-\-insert\-timestamp\fR" 4
 .IX Item "--insert-timestamp"
 .PD 0
@@ -2918,8 +2970,13 @@ that binaries produced from identical sources will compare
 identically.
 .IP "\fB\-\-enable\-reloc\-section\fR" 4
 .IX Item "--enable-reloc-section"
+.PD 0
+.IP "\fB\-\-disable\-reloc\-section\fR" 4
+.IX Item "--disable-reloc-section"
+.PD
 Create the base relocation table, which is necessary if the image
 is loaded at a different image base than specified in the \s-1PE\s0 header.
+This option is enabled by default.
 .PP
 The C6X uClinux target uses a binary format called \s-1DSBT\s0 to support shared
 libraries.  Each shared library in the system needs to have a unique index;
