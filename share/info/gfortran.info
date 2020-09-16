@@ -12114,17 +12114,18 @@ File: gfortran.info,  Node: FINDLOC,  Next: FLOOR,  Prev: FGETC,  Up: Intrinsic 
 _Description_:
      Determines the location of the element in the array with the value
      given in the VALUE argument, or, if the DIM argument is supplied,
-     determines the locations of the maximum element along each row of
-     the array in the DIM direction.  If MASK is present, only the
-     elements for which MASK is '.TRUE.' are considered.  If more than
-     one element in the array has the value VALUE, the location returned
-     is that of the first such element in array element order if the
-     BACK is not present or if it is '.FALSE.'.  If BACK is true, the
-     location returned is that of the last such element.  If the array
-     has zero size, or all of the elements of MASK are '.FALSE.', then
-     the result is an array of zeroes.  Similarly, if DIM is supplied
-     and all of the elements of MASK along a given row are zero, the
-     result value for that row is zero.
+     determines the locations of the elements equal to the VALUE
+     argument element along each row of the array in the DIM direction.
+     If MASK is present, only the elements for which MASK is '.TRUE.'
+     are considered.  If more than one element in the array has the
+     value VALUE, the location returned is that of the first such
+     element in array element order if the BACK is not present or if it
+     is '.FALSE.'.  If BACK is true, the location returned is that of
+     the last such element.  If the array has zero size, or all of the
+     elements of MASK are '.FALSE.', then the result is an array of
+     zeroes.  Similarly, if DIM is supplied and all of the elements of
+     MASK along a given row are zero, the result value for that row is
+     zero.
 
 _Standard_:
      Fortran 2008 and later.
@@ -23270,196 +23271,196 @@ Node: FDATE463496
 Node: FGET464982
 Node: FGETC466809
 Node: FINDLOC468619
-Node: FLOOR471079
-Node: FLUSH472070
-Node: FNUM473949
-Node: FPUT474674
-Node: FPUTC476308
-Node: FRACTION478089
-Node: FREE478993
-Node: FSEEK479836
-Node: FSTAT482142
-Node: FTELL483229
-Node: GAMMA484211
-Node: GERROR485265
-Node: GETARG485987
-Node: GET_COMMAND487759
-Node: GET_COMMAND_ARGUMENT489133
-Node: GETCWD491180
-Node: GETENV492160
-Node: GET_ENVIRONMENT_VARIABLE493592
-Node: GETGID495755
-Node: GETLOG496292
-Node: GETPID497154
-Node: GETUID497884
-Node: GMTIME498400
-Node: HOSTNM500160
-Node: HUGE501081
-Node: HYPOT501803
-Node: IACHAR502629
-Node: IALL503797
-Node: IAND505282
-Node: IANY507009
-Node: IARGC508503
-Node: IBCLR509524
-Node: IBITS510772
-Node: IBSET512276
-Node: ICHAR513519
-Node: IDATE515689
-Node: IEOR516989
-Node: IERRNO518609
-Node: IMAGE_INDEX519158
-Node: INDEX intrinsic520186
-Node: INT521712
-Node: INT2523471
-Node: INT8524239
-Node: IOR524954
-Node: IPARITY526550
-Node: IRAND528082
-Node: IS_CONTIGUOUS529441
-Node: IS_IOSTAT_END530607
-Node: IS_IOSTAT_EOR531714
-Node: ISATTY532843
-Node: ISHFT533626
-Node: ISHFTC535195
-Node: ISNAN537002
-Node: ITIME537769
-Node: KILL539067
-Node: KIND540152
-Node: LBOUND540998
-Node: LCOBOUND542336
-Node: LEADZ543471
-Node: LEN544332
-Node: LEN_TRIM545628
-Node: LGE546616
-Node: LGT548129
-Node: LINK549607
-Node: LLE550646
-Node: LLT552146
-Node: LNBLNK553617
-Node: LOC554395
-Node: LOG555127
-Node: LOG10556472
-Node: LOG_GAMMA557462
-Node: LOGICAL558564
-Node: LONG559376
-Node: LSHIFT560134
-Node: LSTAT561243
-Node: LTIME562443
-Node: MALLOC564125
-Node: MASKL565587
-Node: MASKR566354
-Node: MATMUL567124
-Node: MAX568297
-Node: MAXEXPONENT569832
-Node: MAXLOC570649
-Node: MAXVAL573266
-Node: MCLOCK574906
-Node: MCLOCK8575929
-Node: MERGE577159
-Node: MERGE_BITS577911
-Node: MIN578950
-Node: MINEXPONENT580488
-Node: MINLOC581119
-Node: MINVAL583767
-Node: MOD585420
-Node: MODULO587584
-Node: MOVE_ALLOC588887
-Node: MVBITS589920
-Node: NEAREST591572
-Node: NEW_LINE592672
-Node: NINT593445
-Node: NORM2594866
-Node: NOT596008
-Node: NULL597178
-Node: NUM_IMAGES598086
-Node: OR599787
-Node: PACK601510
-Node: PARITY603518
-Node: PERROR604739
-Node: POPCNT605364
-Node: POPPAR606236
-Node: PRECISION607290
-Node: PRESENT608177
-Node: PRODUCT609289
-Node: RADIX610823
-Node: RAN611635
-Node: RAND612091
-Node: RANDOM_INIT613424
-Node: RANDOM_NUMBER615380
-Node: RANDOM_SEED616622
-Node: RANGE619092
-Node: RANK619773
-Node: REAL620554
-Node: RENAME622543
-Node: REPEAT623565
-Node: RESHAPE624293
-Node: RRSPACING625760
-Node: RSHIFT626453
-Node: SAME_TYPE_AS627621
-Node: SCALE628453
-Node: SCAN629234
-Node: SECNDS630792
-Node: SECOND631884
-Node: SELECTED_CHAR_KIND632760
-Node: SELECTED_INT_KIND634355
-Node: SELECTED_REAL_KIND635532
-Node: SET_EXPONENT638209
-Node: SHAPE639206
-Node: SHIFTA640630
-Node: SHIFTL641621
-Node: SHIFTR642481
-Node: SIGN643342
-Node: SIGNAL644568
-Node: SIN646074
-Node: SIND647165
-Node: SINH648494
-Node: SIZE649507
-Node: SIZEOF650826
-Node: SLEEP652481
-Node: SPACING653042
-Node: SPREAD654056
-Node: SQRT655207
-Node: SRAND656539
-Node: STAT657773
-Node: STORAGE_SIZE660941
-Node: SUM661820
-Node: SYMLNK663312
-Node: SYSTEM664447
-Node: SYSTEM_CLOCK665702
-Node: TAN668532
-Node: TAND669603
-Node: TANH670687
-Node: THIS_IMAGE671862
-Node: TIME674162
-Node: TIME8675333
-Node: TINY676532
-Node: TRAILZ677133
-Node: TRANSFER677951
-Node: TRANSPOSE679987
-Node: TRIM680677
-Node: TTYNAM681535
-Node: UBOUND682453
-Node: UCOBOUND683843
-Node: UMASK684980
-Node: UNLINK685662
-Node: UNPACK686642
-Node: VERIFY687937
-Node: XOR689666
-Node: Intrinsic Modules691476
-Node: ISO_FORTRAN_ENV691765
-Node: ISO_C_BINDING696168
-Node: IEEE modules699874
-Node: OpenMP Modules OMP_LIB and OMP_LIB_KINDS701017
-Node: OpenACC Module OPENACC703033
-Node: Contributing703960
-Node: Contributors704814
-Node: Projects706445
-Node: Proposed Extensions707252
-Node: Copying709262
-Node: GNU Free Documentation License746808
-Node: Funding771932
-Node: Option Index774458
-Node: Keyword Index792751
+Node: FLOOR471112
+Node: FLUSH472103
+Node: FNUM473982
+Node: FPUT474707
+Node: FPUTC476341
+Node: FRACTION478122
+Node: FREE479026
+Node: FSEEK479869
+Node: FSTAT482175
+Node: FTELL483262
+Node: GAMMA484244
+Node: GERROR485298
+Node: GETARG486020
+Node: GET_COMMAND487792
+Node: GET_COMMAND_ARGUMENT489166
+Node: GETCWD491213
+Node: GETENV492193
+Node: GET_ENVIRONMENT_VARIABLE493625
+Node: GETGID495788
+Node: GETLOG496325
+Node: GETPID497187
+Node: GETUID497917
+Node: GMTIME498433
+Node: HOSTNM500193
+Node: HUGE501114
+Node: HYPOT501836
+Node: IACHAR502662
+Node: IALL503830
+Node: IAND505315
+Node: IANY507042
+Node: IARGC508536
+Node: IBCLR509557
+Node: IBITS510805
+Node: IBSET512309
+Node: ICHAR513552
+Node: IDATE515722
+Node: IEOR517022
+Node: IERRNO518642
+Node: IMAGE_INDEX519191
+Node: INDEX intrinsic520219
+Node: INT521745
+Node: INT2523504
+Node: INT8524272
+Node: IOR524987
+Node: IPARITY526583
+Node: IRAND528115
+Node: IS_CONTIGUOUS529474
+Node: IS_IOSTAT_END530640
+Node: IS_IOSTAT_EOR531747
+Node: ISATTY532876
+Node: ISHFT533659
+Node: ISHFTC535228
+Node: ISNAN537035
+Node: ITIME537802
+Node: KILL539100
+Node: KIND540185
+Node: LBOUND541031
+Node: LCOBOUND542369
+Node: LEADZ543504
+Node: LEN544365
+Node: LEN_TRIM545661
+Node: LGE546649
+Node: LGT548162
+Node: LINK549640
+Node: LLE550679
+Node: LLT552179
+Node: LNBLNK553650
+Node: LOC554428
+Node: LOG555160
+Node: LOG10556505
+Node: LOG_GAMMA557495
+Node: LOGICAL558597
+Node: LONG559409
+Node: LSHIFT560167
+Node: LSTAT561276
+Node: LTIME562476
+Node: MALLOC564158
+Node: MASKL565620
+Node: MASKR566387
+Node: MATMUL567157
+Node: MAX568330
+Node: MAXEXPONENT569865
+Node: MAXLOC570682
+Node: MAXVAL573299
+Node: MCLOCK574939
+Node: MCLOCK8575962
+Node: MERGE577192
+Node: MERGE_BITS577944
+Node: MIN578983
+Node: MINEXPONENT580521
+Node: MINLOC581152
+Node: MINVAL583800
+Node: MOD585453
+Node: MODULO587617
+Node: MOVE_ALLOC588920
+Node: MVBITS589953
+Node: NEAREST591605
+Node: NEW_LINE592705
+Node: NINT593478
+Node: NORM2594899
+Node: NOT596041
+Node: NULL597211
+Node: NUM_IMAGES598119
+Node: OR599820
+Node: PACK601543
+Node: PARITY603551
+Node: PERROR604772
+Node: POPCNT605397
+Node: POPPAR606269
+Node: PRECISION607323
+Node: PRESENT608210
+Node: PRODUCT609322
+Node: RADIX610856
+Node: RAN611668
+Node: RAND612124
+Node: RANDOM_INIT613457
+Node: RANDOM_NUMBER615413
+Node: RANDOM_SEED616655
+Node: RANGE619125
+Node: RANK619806
+Node: REAL620587
+Node: RENAME622576
+Node: REPEAT623598
+Node: RESHAPE624326
+Node: RRSPACING625793
+Node: RSHIFT626486
+Node: SAME_TYPE_AS627654
+Node: SCALE628486
+Node: SCAN629267
+Node: SECNDS630825
+Node: SECOND631917
+Node: SELECTED_CHAR_KIND632793
+Node: SELECTED_INT_KIND634388
+Node: SELECTED_REAL_KIND635565
+Node: SET_EXPONENT638242
+Node: SHAPE639239
+Node: SHIFTA640663
+Node: SHIFTL641654
+Node: SHIFTR642514
+Node: SIGN643375
+Node: SIGNAL644601
+Node: SIN646107
+Node: SIND647198
+Node: SINH648527
+Node: SIZE649540
+Node: SIZEOF650859
+Node: SLEEP652514
+Node: SPACING653075
+Node: SPREAD654089
+Node: SQRT655240
+Node: SRAND656572
+Node: STAT657806
+Node: STORAGE_SIZE660974
+Node: SUM661853
+Node: SYMLNK663345
+Node: SYSTEM664480
+Node: SYSTEM_CLOCK665735
+Node: TAN668565
+Node: TAND669636
+Node: TANH670720
+Node: THIS_IMAGE671895
+Node: TIME674195
+Node: TIME8675366
+Node: TINY676565
+Node: TRAILZ677166
+Node: TRANSFER677984
+Node: TRANSPOSE680020
+Node: TRIM680710
+Node: TTYNAM681568
+Node: UBOUND682486
+Node: UCOBOUND683876
+Node: UMASK685013
+Node: UNLINK685695
+Node: UNPACK686675
+Node: VERIFY687970
+Node: XOR689699
+Node: Intrinsic Modules691509
+Node: ISO_FORTRAN_ENV691798
+Node: ISO_C_BINDING696201
+Node: IEEE modules699907
+Node: OpenMP Modules OMP_LIB and OMP_LIB_KINDS701050
+Node: OpenACC Module OPENACC703066
+Node: Contributing703993
+Node: Contributors704847
+Node: Projects706478
+Node: Proposed Extensions707285
+Node: Copying709295
+Node: GNU Free Documentation License746841
+Node: Funding771965
+Node: Option Index774491
+Node: Keyword Index792784
 
 End Tag Table
