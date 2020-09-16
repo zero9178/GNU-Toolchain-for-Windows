@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-08-21" "gcc-10" "GNU"
+.TH GCC 1 "2020-09-16" "gcc-10" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -567,11 +567,12 @@ in the following sections.
 \&\-fprofile\-dir=\fR\fIpath\fR  \fB\-fprofile\-generate  \-fprofile\-generate=\fR\fIpath\fR 
 \&\fB\-fprofile\-note=\fR\fIpath\fR \fB\-fprofile\-prefix\-path=\fR\fIpath\fR 
 \&\fB\-fprofile\-update=\fR\fImethod\fR \fB\-fprofile\-filter\-files=\fR\fIregex\fR 
-\&\fB\-fprofile\-exclude\-files=\fR\fIregex\fR \fB\-fprofile\-reproducibility 
-\&\-fsanitize=\fR\fIstyle\fR  \fB\-fsanitize\-recover  \-fsanitize\-recover=\fR\fIstyle\fR 
+\&\fB\-fprofile\-exclude\-files=\fR\fIregex\fR 
+\&\fB\-fprofile\-reproducible=\fR[\fBmultithreaded\fR|\fBparallel-runs\fR|\fBserial\fR] 
+\&\fB\-fsanitize=\fR\fIstyle\fR  \fB\-fsanitize\-recover  \-fsanitize\-recover=\fR\fIstyle\fR 
 \&\fB\-fasan\-shadow\-offset=\fR\fInumber\fR  \fB\-fsanitize\-sections=\fR\fIs1\fR\fB,\fR\fIs2\fR\fB,... 
 \&\-fsanitize\-undefined\-trap\-on\-error  \-fbounds\-check 
-\&\-fcf\-protection=\fR[\fBfull\fR|\fBbranch\fR|\fBreturn\fR|\fBnone\fR] 
+\&\-fcf\-protection=\fR[\fBfull\fR|\fBbranch\fR|\fBreturn\fR|\fBnone\fR|\fBcheck\fR] 
 \&\fB\-fstack\-protector  \-fstack\-protector\-all  \-fstack\-protector\-strong 
 \&\-fstack\-protector\-explicit  \-fstack\-check 
 \&\-fstack\-limit\-register=\fR\fIreg\fR  \fB\-fstack\-limit\-symbol=\fR\fIsym\fR 
@@ -12518,14 +12519,14 @@ all the regular expressions (separated by a semi-colon).
 .Sp
 For example, \fB\-fprofile\-exclude\-files=/usr/*\fR will prevent instrumentation
 of all files that are located in \fI/usr/\fR folder.
-.IP "\fB\-fprofile\-reproducible\fR" 4
-.IX Item "-fprofile-reproducible"
+.IP "\fB\-fprofile\-reproducible=\fR[\fBmultithreaded\fR|\fBparallel-runs\fR|\fBserial\fR]" 4
+.IX Item "-fprofile-reproducible=[multithreaded|parallel-runs|serial]"
 Control level of reproducibility of profile gathered by
 \&\f(CW\*(C`\-fprofile\-generate\*(C'\fR.  This makes it possible to rebuild program
 with same outcome which is useful, for example, for distribution
 packages.
 .Sp
-With \fB\-fprofile\-reproducibility=serial\fR the profile gathered by
+With \fB\-fprofile\-reproducible=serial\fR the profile gathered by
 \&\fB\-fprofile\-generate\fR is reproducible provided the trained program
 behaves the same at each invocation of the train run, it is not
 multi-threaded and profile data streaming is always done in the same
@@ -12540,7 +12541,7 @@ Such non-reproducible part of programs may be annotated by
 \&\fB\-l\fR can be used to dump gathered data and verify that they are
 indeed reproducible.
 .Sp
-With \fB\-fprofile\-reproducibility=parallel\-runs\fR collected profile
+With \fB\-fprofile\-reproducible=parallel\-runs\fR collected profile
 stays reproducible regardless the order of streaming of the data into
 gcda files.  This setting makes it possible to run multiple instances of
 instrumented program in parallel (such as with \f(CW\*(C`make \-j\*(C'\fR). This
@@ -12824,8 +12825,8 @@ variable or \f(CW\*(C`_\|_sanitizer_cov_trace_const_cmp1\*(C'\fR,
 operand constant, \f(CW\*(C`_\|_sanitizer_cov_trace_cmpf\*(C'\fR or
 \&\f(CW\*(C`_\|_sanitizer_cov_trace_cmpd\*(C'\fR for float or double comparisons and
 \&\f(CW\*(C`_\|_sanitizer_cov_trace_switch\*(C'\fR for switch statements.
-.IP "\fB\-fcf\-protection=\fR[\fBfull\fR|\fBbranch\fR|\fBreturn\fR|\fBnone\fR]" 4
-.IX Item "-fcf-protection=[full|branch|return|none]"
+.IP "\fB\-fcf\-protection=\fR[\fBfull\fR|\fBbranch\fR|\fBreturn\fR|\fBnone\fR|\fBcheck\fR]" 4
+.IX Item "-fcf-protection=[full|branch|return|none|check]"
 Enable code instrumentation of control-flow transfers to increase
 program security by checking that target addresses of control-flow
 transfer instructions (such as indirect function call, function return,
@@ -12841,6 +12842,11 @@ implements checking of validity at the point of returning from a
 function.  The value \f(CW\*(C`full\*(C'\fR is an alias for specifying both
 \&\f(CW\*(C`branch\*(C'\fR and \f(CW\*(C`return\*(C'\fR. The value \f(CW\*(C`none\*(C'\fR turns off
 instrumentation.
+.Sp
+The value \f(CW\*(C`check\*(C'\fR is used for the final link with link-time
+optimization (\s-1LTO\s0).  An error is issued if \s-1LTO\s0 object files are
+compiled with different \fB\-fcf\-protection\fR values.  The
+value \f(CW\*(C`check\*(C'\fR is ignored at the compile time.
 .Sp
 The macro \f(CW\*(C`_\|_CET_\|_\*(C'\fR is defined when \fB\-fcf\-protection\fR is
 used.  The first bit of \f(CW\*(C`_\|_CET_\|_\*(C'\fR is set to 1 for the value

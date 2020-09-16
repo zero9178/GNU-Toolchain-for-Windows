@@ -161,6 +161,10 @@ extern void gt_ggc_mx_hash_map_tree_tree_decl_tree_cache_traits_ (void *);
   if (X != NULL) gt_ggc_mx_hash_map_tree_tree_type_tree_cache_traits_ (X);\
   } while (0)
 extern void gt_ggc_mx_hash_map_tree_tree_type_tree_cache_traits_ (void *);
+#define gt_ggc_m_36hash_map_tree_tree_decl_tree_traits_(X) do { \
+  if (X != NULL) gt_ggc_mx_hash_map_tree_tree_decl_tree_traits_ (X);\
+  } while (0)
+extern void gt_ggc_mx_hash_map_tree_tree_decl_tree_traits_ (void *);
 #define gt_ggc_m_12ptr_info_def(X) do { \
   if (X != NULL) gt_ggc_mx_ptr_info_def (X);\
   } while (0)
@@ -1518,6 +1522,10 @@ extern void gt_pch_nx_hash_map_tree_tree_decl_tree_cache_traits_ (void *);
   if (X != NULL) gt_pch_nx_hash_map_tree_tree_type_tree_cache_traits_ (X);\
   } while (0)
 extern void gt_pch_nx_hash_map_tree_tree_type_tree_cache_traits_ (void *);
+#define gt_pch_n_36hash_map_tree_tree_decl_tree_traits_(X) do { \
+  if (X != NULL) gt_pch_nx_hash_map_tree_tree_decl_tree_traits_ (X);\
+  } while (0)
+extern void gt_pch_nx_hash_map_tree_tree_decl_tree_traits_ (void *);
 #define gt_pch_n_12ptr_info_def(X) do { \
   if (X != NULL) gt_pch_nx_ptr_info_def (X);\
   } while (0)
@@ -2892,6 +2900,8 @@ extern void gt_pch_p_15cgraph_rtl_info
 extern void gt_pch_p_42hash_map_tree_tree_decl_tree_cache_traits_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_42hash_map_tree_tree_type_tree_cache_traits_
+    (void *, void *, gt_pointer_operator, void *);
+extern void gt_pch_p_36hash_map_tree_tree_decl_tree_traits_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_12ptr_info_def
     (void *, void *, gt_pointer_operator, void *);
