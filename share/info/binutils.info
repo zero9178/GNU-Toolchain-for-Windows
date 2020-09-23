@@ -1160,13 +1160,16 @@ the '--reverse-bytes' option.)
 '-S'
 '--strip-all'
      Do not copy relocation and symbol information from the source file.
+     Also deletes debug sections.
 
 '-g'
 '--strip-debug'
      Do not copy debugging symbols or sections from the source file.
 
 '--strip-unneeded'
-     Strip all symbols that are not needed for relocation processing.
+     Remove all symbols that are not needed for relocation processing in
+     addition to debugging symbols and sections stripped by
+     '--strip-debug'.
 
 '-K SYMBOLNAME'
 '--keep-symbol=SYMBOLNAME'
@@ -3072,7 +3075,9 @@ modified copies under different names.
      information.
 
 '--strip-unneeded'
-     Remove all symbols that are not needed for relocation processing.
+     Remove all symbols that are not needed for relocation processing in
+     addition to debugging symbols and sections stripped by
+     '--strip-debug'.
 
 '-K SYMBOLNAME'
 '--keep-symbol=SYMBOLNAME'
@@ -5574,12 +5579,12 @@ Binutils Index
 
 * -enable-deterministic-archives:        ar cmdline.          (line 150)
 * -enable-deterministic-archives <1>:    ar cmdline.          (line 233)
-* -enable-deterministic-archives <2>:    objcopy.             (line 355)
-* -enable-deterministic-archives <3>:    objcopy.             (line 365)
+* -enable-deterministic-archives <2>:    objcopy.             (line 358)
+* -enable-deterministic-archives <3>:    objcopy.             (line 368)
 * -enable-deterministic-archives <4>:    ranlib.              (line  32)
 * -enable-deterministic-archives <5>:    ranlib.              (line  44)
-* -enable-deterministic-archives <6>:    strip.               (line 155)
-* -enable-deterministic-archives <7>:    strip.               (line 165)
+* -enable-deterministic-archives <6>:    strip.               (line 157)
+* -enable-deterministic-archives <7>:    strip.               (line 167)
 * .stab:                                 objdump.             (line 696)
 * Add prefix to absolute paths:          objdump.             (line 505)
 * addr2line:                             addr2line.           (line   6)
@@ -5599,11 +5604,11 @@ Binutils Index
 * bugs:                                  Reporting Bugs.      (line   6)
 * bugs, reporting:                       Bug Reporting.       (line   6)
 * c++filt:                               c++filt.             (line   6)
-* changing object addresses:             objcopy.             (line 402)
-* changing section address:              objcopy.             (line 412)
-* changing section LMA:                  objcopy.             (line 421)
-* changing section VMA:                  objcopy.             (line 434)
-* changing start address:                objcopy.             (line 396)
+* changing object addresses:             objcopy.             (line 405)
+* changing section address:              objcopy.             (line 415)
+* changing section LMA:                  objcopy.             (line 424)
+* changing section VMA:                  objcopy.             (line 437)
+* changing start address:                objcopy.             (line 399)
 * collections of files:                  ar.                  (line   6)
 * Compact Type Format:                   objdump.             (line 682)
 * Compact Type Format <1>:               readelf.             (line 373)
@@ -5626,12 +5631,12 @@ Binutils Index
 * demangling in objdump <1>:             addr2line.           (line  86)
 * deterministic archives:                ar cmdline.          (line 150)
 * deterministic archives <1>:            ar cmdline.          (line 233)
-* deterministic archives <2>:            objcopy.             (line 355)
-* deterministic archives <3>:            objcopy.             (line 365)
+* deterministic archives <2>:            objcopy.             (line 358)
+* deterministic archives <3>:            objcopy.             (line 368)
 * deterministic archives <4>:            ranlib.              (line  32)
 * deterministic archives <5>:            ranlib.              (line  44)
-* deterministic archives <6>:            strip.               (line 155)
-* deterministic archives <7>:            strip.               (line 165)
+* deterministic archives <6>:            strip.               (line 157)
+* deterministic archives <7>:            strip.               (line 167)
 * disassembling object code:             objdump.             (line 144)
 * disassembly architecture:              objdump.             (line 257)
 * disassembly endianness:                objdump.             (line 192)
@@ -5763,29 +5768,29 @@ Node: ar cmdline6707
 Node: ar scripts19333
 Node: nm25019
 Node: objcopy37700
-Node: objdump78193
-Node: ranlib111218
-Node: size112817
-Node: strings116786
-Node: strip121158
-Node: c++filt130683
-Ref: c++filt-Footnote-1136545
-Node: addr2line136651
-Node: windmc142330
-Node: windres145989
-Node: dlltool152348
-Node: def file format165345
-Node: readelf167875
-Node: elfedit182772
-Node: Common Options185728
-Node: Selecting the Target System186762
-Node: Target Selection187690
-Node: Architecture Selection189671
-Node: debuginfod190499
-Node: Reporting Bugs191258
-Node: Bug Criteria192020
-Node: Bug Reporting192573
-Node: GNU Free Documentation License199443
-Node: Binutils Index224603
+Node: objdump78312
+Node: ranlib111337
+Node: size112936
+Node: strings116905
+Node: strip121277
+Node: c++filt130886
+Ref: c++filt-Footnote-1136748
+Node: addr2line136854
+Node: windmc142533
+Node: windres146192
+Node: dlltool152551
+Node: def file format165548
+Node: readelf168078
+Node: elfedit182975
+Node: Common Options185931
+Node: Selecting the Target System186965
+Node: Target Selection187893
+Node: Architecture Selection189874
+Node: debuginfod190702
+Node: Reporting Bugs191461
+Node: Bug Criteria192223
+Node: Bug Reporting192776
+Node: GNU Free Documentation License199646
+Node: Binutils Index224806
 
 End Tag Table
