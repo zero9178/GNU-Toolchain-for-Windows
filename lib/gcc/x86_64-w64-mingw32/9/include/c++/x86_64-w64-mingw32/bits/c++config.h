@@ -34,7 +34,7 @@
 #define _GLIBCXX_RELEASE 9
 
 // The datestamp of the C++ library in compressed ISO date format.
-#define __GLIBCXX__ 20200916
+#define __GLIBCXX__ 20200923
 
 // Macros for various attributes.
 //   _GLIBCXX_PURE
@@ -1217,7 +1217,7 @@ namespace std
 /* #undef _GLIBCXX_HAVE_TLS */
 
 /* Define if truncate is available in <unistd.h>. */
-/* #undef _GLIBCXX_HAVE_TRUNCATE */
+#define _GLIBCXX_HAVE_TRUNCATE 1
 
 /* Define to 1 if you have the <uchar.h> header file. */
 #define _GLIBCXX_HAVE_UCHAR_H 1
@@ -1729,7 +1729,7 @@ namespace std
 #define _GLIBCXX_USE_TMPNAM 1
 
 /* Define if utime is available in <utime.h>. */
-/* #undef _GLIBCXX_USE_UTIME */
+#define _GLIBCXX_USE_UTIME 1
 
 /* Define if utimensat and UTIME_OMIT are available in <sys/stat.h> and
    AT_FDCWD in <fcntl.h>. */
