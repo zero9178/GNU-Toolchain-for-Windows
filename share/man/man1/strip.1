@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "STRIP 1"
-.TH STRIP 1 "2020-09-06" "binutils-2.35.50" "GNU Development Tools"
+.TH STRIP 1 "2020-09-23" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -281,7 +281,9 @@ See the description of this option in the \fBobjcopy\fR section
 for more information.
 .IP "\fB\-\-strip\-unneeded\fR" 4
 .IX Item "--strip-unneeded"
-Remove all symbols that are not needed for relocation processing.
+Remove all symbols that are not needed for relocation processing in
+addition to debugging symbols and sections stripped by
+\&\fB\-\-strip\-debug\fR.
 .IP "\fB\-K\fR \fIsymbolname\fR" 4
 .IX Item "-K symbolname"
 .PD 0
