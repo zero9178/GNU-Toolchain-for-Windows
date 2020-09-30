@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20200923")
+(!version  "10.2.1 20200930")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 224
@@ -22534,8 +22534,8 @@
  )
  
  (!type struct 1319 nil  gc_used "rtl_data"
-  (!srcfileloc  "emit-rtl.h" 306)
-  (!fields 61 
+  (!srcfileloc  "emit-rtl.h" 309)
+  (!fields 62 
    (!pair  "expr"
     (!type already_seen 1005)
     (!srcfileloc  "emit-rtl.h" 61)
@@ -22759,29 +22759,33 @@
     (!type already_seen 2)
     (!srcfileloc  "emit-rtl.h" 276)
     nil )
+   (!pair  "sp_is_clobbered_by_asm"
+    (!type already_seen 2)
+    (!srcfileloc  "emit-rtl.h" 279)
+    nil )
    (!pair  "is_leaf"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 282)
+    (!srcfileloc  "emit-rtl.h" 285)
     nil )
    (!pair  "uses_only_leaf_regs"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 287)
+    (!srcfileloc  "emit-rtl.h" 290)
     nil )
    (!pair  "has_bb_partition"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 292)
+    (!srcfileloc  "emit-rtl.h" 295)
     nil )
    (!pair  "bb_reorder_complete"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 296)
+    (!srcfileloc  "emit-rtl.h" 299)
     nil )
    (!pair  "asm_clobbers"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 302)
+    (!srcfileloc  "emit-rtl.h" 305)
     nil )
    (!pair  "max_insn_address"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 305)
+    (!srcfileloc  "emit-rtl.h" 308)
     nil )
   )
   nil 2047 nil nil )
@@ -24249,7 +24253,7 @@
   nil 0 nil nil )
  
  (!type struct 1557 nil  gc_used "dllimport_hasher"
-  (!srcfileloc  "config/i386/i386.c" 11331)
+  (!srcfileloc  "config/i386/i386.c" 11333)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -24258,11 +24262,11 @@
    (!type already_seen 1558)
   )
   gc_pointed_to "hash_table<dllimport_hasher>"
-  (!srcfileloc  "config/i386/i386.c" 11331)
+  (!srcfileloc  "config/i386/i386.c" 11333)
   (!fields 1 
    (!pair  "dllimport_hasher"
     (!type already_seen 1557)
-    (!srcfileloc  "config/i386/i386.c" 11331)
+    (!srcfileloc  "config/i386/i386.c" 11333)
     nil )
   )
  )
@@ -29669,7 +29673,7 @@
   nil )
  (!pair  "vinfo_t"
   (!type already_seen 1742)
-  (!srcfileloc  "ada/gcc-interface/decl.c" 7584)
+  (!srcfileloc  "ada/gcc-interface/decl.c" 7590)
   nil )
  (!pair  "intrin_binding_t"
   (!type already_seen 1740)
@@ -30045,11 +30049,11 @@
   nil )
  (!pair  "dllimport_hasher"
   (!type already_seen 1557)
-  (!srcfileloc  "config/i386/i386.c" 11331)
+  (!srcfileloc  "config/i386/i386.c" 11333)
   nil )
  (!pair  "hash_table<dllimport_hasher>"
   (!type already_seen 1558)
-  (!srcfileloc  "config/i386/i386.c" 11331)
+  (!srcfileloc  "config/i386/i386.c" 11333)
   nil )
  (!pair  "use_optype_p"
   (!type already_seen 407)
@@ -34214,30 +34218,30 @@
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 21285)
+  (!srcfileloc  "config/i386/i386.c" 21287)
   nil )
  (!pair  "dllimport_map"
   (!type already_seen 1559)
-  (!srcfileloc  "config/i386/i386.c" 11331)
+  (!srcfileloc  "config/i386/i386.c" 11333)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "ix86_tls_module_base_symbol"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 10964)
+  (!srcfileloc  "config/i386/i386.c" 10966)
   nil )
  (!pair  "ix86_tls_symbol"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 10937)
+  (!srcfileloc  "config/i386/i386.c" 10939)
   nil )
  (!pair  "split_stack_fn_large"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 9446)
+  (!srcfileloc  "config/i386/i386.c" 9448)
   nil )
  (!pair  "split_stack_fn"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 9441)
+  (!srcfileloc  "config/i386/i386.c" 9443)
   nil )
  (!pair  "queued_cfa_restores"
   (!type already_seen 100)
@@ -34715,7 +34719,7 @@
   nil )
  (!pair  "x_rtl"
   (!type already_seen 1319)
-  (!srcfileloc  "emit-rtl.h" 323)
+  (!srcfileloc  "emit-rtl.h" 326)
   nil )
  (!pair  "shift_test"
   (!type already_seen 100)
