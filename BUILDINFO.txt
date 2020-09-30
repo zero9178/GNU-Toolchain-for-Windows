@@ -5,17 +5,17 @@ MPFR: Version 4.0.2
 LZMA: Version 5.2.5
 libiconv: Version 1.16
 Python: 2.7.18
-zstd: https://github.com/facebook/zstd dev branch at revision 8170e3ca6d9ea4ea0d68008710a343eae2f6de1a
-libexpat: https://github.com/libexpat/libexpat master branch at revision d8daead33ee76a29f5184d35b13672b6ce14b4a2
-MinGW-W64: https://github.com/mirror/mingw-w64 master branch at revision 2732d54d8c91fd6a993c8b3aa37b671fe9391743
+zstd: https://github.com/facebook/zstd dev branch at revision d69d08ed6c83563b57d98132e1e3f2487880781e
+libexpat: https://github.com/libexpat/libexpat master branch at revision 2e63ab0782800e9c9d4ff851d1a903dded083d1d
+MinGW-W64: https://github.com/mirror/mingw-w64 master branch at revision f86c5060ad8f2300271df204c24f017e1744a194
 Make: https://github.com/mirror/make master branch at revision a80b0096f501b0e9a3349858396841d493cc45a4
-Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision c4694f172b51a2168b8cc15109ab1b97fc0bcb9c
+Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision e37c930f9e4ad20901493608f276011999efdf8f
 GCC 7: https://github.com/gcc-mirror/gcc releases/gcc-7 branch at revision b2d961e7342b5ba4e57adfa81cb189b738d10901
-GCC 8: https://github.com/gcc-mirror/gcc releases/gcc-8 branch at revision 04b5e64e6440bfccaee60921e9df1cfa653dad04
-GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision c189842fef7f5fa87edcba271af4cb6796a03492
-GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision 8a2f3019cec2af375dda151ffea933403c677b68
-GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision 32c69a56981bd72a52b7d234a2936020f97909d1
-GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision c4694f172b51a2168b8cc15109ab1b97fc0bcb9c
+GCC 8: https://github.com/gcc-mirror/gcc releases/gcc-8 branch at revision 1b4dc1d09eda31f2a8b5238df36d270830e3e3a0
+GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision a8ee77ee592d3afa023d06740a337c0320499d8c
+GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision fabe50f0f993245ac33a0ffc47158898f7f0030a
+GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision de2c1d00f27bfaa1f917a2e3a933a45e3b8ba95a
+GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision e37c930f9e4ad20901493608f276011999efdf8f
 
 MinGW options used:
 mingw-w64-headers: --enable-idl --with-default-win32-winnt=0x601 --with-default-msvcrt=msvcrt
