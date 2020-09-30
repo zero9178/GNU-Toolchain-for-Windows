@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-08-12" "gcc-11" "GNU"
+.TH GCC 1 "2020-09-30" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -261,7 +261,8 @@ in the following sections.
 \&\-Wabi\-tag  \-Wcatch\-value  \-Wcatch\-value=\fR\fIn\fR 
 \&\fB\-Wno\-class\-conversion  \-Wclass\-memaccess 
 \&\-Wcomma\-subscript  \-Wconditionally\-supported 
-\&\-Wno\-conversion\-null  \-Wctor\-dtor\-privacy  \-Wno\-delete\-incomplete 
+\&\-Wno\-conversion\-null  \-Wctad\-maybe\-unsupported 
+\&\-Wctor\-dtor\-privacy  \-Wno\-delete\-incomplete 
 \&\-Wdelete\-non\-virtual\-dtor  \-Wdeprecated\-copy  \-Wdeprecated\-copy\-dtor 
 \&\-Weffc++  \-Wextra\-semi  \-Wno\-inaccessible\-base 
 \&\-Wno\-inherited\-variadic\-ctor  \-Wno\-init\-list\-lifetime 
@@ -269,7 +270,7 @@ in the following sections.
 \&\-Wmultiple\-inheritance  \-Wnamespaces  \-Wnarrowing 
 \&\-Wnoexcept  \-Wnoexcept\-type  \-Wnon\-virtual\-dtor 
 \&\-Wpessimizing\-move  \-Wno\-placement\-new  \-Wplacement\-new=\fR\fIn\fR 
-\&\fB\-Wredundant\-move \-Wredundant\-tags 
+\&\fB\-Wrange\-loop\-construct \-Wredundant\-move \-Wredundant\-tags 
 \&\-Wreorder  \-Wregister 
 \&\-Wstrict\-null\-sentinel  \-Wno\-subobject\-linkage  \-Wtemplates 
 \&\-Wno\-non\-template\-friend  \-Wold\-style\-cast 
@@ -302,7 +303,8 @@ in the following sections.
 .IP "\fIDiagnostic Message Formatting Options\fR" 4
 .IX Item "Diagnostic Message Formatting Options"
 \&\fB\-fmessage\-length=\fR\fIn\fR  
-\&\fB\-fdiagnostics\-show\-location=\fR[\fBonce\fR|\fBevery-line\fR]  
+\&\fB\-fdiagnostics\-plain\-output 
+\&\-fdiagnostics\-show\-location=\fR[\fBonce\fR|\fBevery-line\fR]  
 \&\fB\-fdiagnostics\-color=\fR[\fBauto\fR|\fBnever\fR|\fBalways\fR]  
 \&\fB\-fdiagnostics\-urls=\fR[\fBauto\fR|\fBnever\fR|\fBalways\fR]  
 \&\fB\-fdiagnostics\-format=\fR[\fBtext\fR|\fBjson\fR]  
@@ -386,7 +388,8 @@ in the following sections.
 \&\-Wstack\-protector  \-Wstack\-usage=\fR\fIbyte-size\fR  \fB\-Wstrict\-aliasing 
 \&\-Wstrict\-aliasing=n  \-Wstrict\-overflow  \-Wstrict\-overflow=\fR\fIn\fR 
 \&\fB\-Wstring\-compare 
-\&\-Wstringop\-overflow=\fR\fIn\fR  \fB\-Wno\-stringop\-truncation 
+\&\-Wno\-stringop\-overflow \-Wno\-stringop\-overread 
+\&\-Wno\-stringop\-truncation 
 \&\-Wsuggest\-attribute=\fR[\fBpure\fR|\fBconst\fR|\fBnoreturn\fR|\fBformat\fR|\fBmalloc\fR] 
 \&\fB\-Wswitch  \-Wno\-switch\-bool  \-Wswitch\-default  \-Wswitch\-enum 
 \&\-Wno\-switch\-outside\-range  \-Wno\-switch\-unreachable  \-Wsync\-nand 
@@ -410,7 +413,8 @@ in the following sections.
 \&\fB\-fanalyzer 
 \&\-fanalyzer\-call\-summaries 
 \&\-fanalyzer\-checker=\fR\fIname\fR 
-\&\fB\-fanalyzer\-fine\-grained 
+\&\fB\-fno\-analyzer\-feasibility 
+\&\-fanalyzer\-fine\-grained 
 \&\-fanalyzer\-state\-merge 
 \&\-fanalyzer\-state\-purge 
 \&\-fanalyzer\-transitivity 
@@ -424,6 +428,7 @@ in the following sections.
 \&\-fdump\-analyzer\-exploded\-nodes 
 \&\-fdump\-analyzer\-exploded\-nodes\-2 
 \&\-fdump\-analyzer\-exploded\-nodes\-3 
+\&\-fdump\-analyzer\-json 
 \&\-fdump\-analyzer\-state\-purge 
 \&\-fdump\-analyzer\-supergraph 
 \&\-Wno\-analyzer\-double\-fclose 
@@ -432,6 +437,7 @@ in the following sections.
 \&\-Wno\-analyzer\-file\-leak 
 \&\-Wno\-analyzer\-free\-of\-non\-heap 
 \&\-Wno\-analyzer\-malloc\-leak 
+\&\-Wno\-analyzer\-mismatching\-deallocation 
 \&\-Wno\-analyzer\-null\-argument 
 \&\-Wno\-analyzer\-null\-dereference 
 \&\-Wno\-analyzer\-possible\-null\-argument 
@@ -497,7 +503,7 @@ in the following sections.
 \&\-fgcse\-sm  \-fhoist\-adjacent\-loads  \-fif\-conversion 
 \&\-fif\-conversion2  \-findirect\-inlining 
 \&\-finline\-functions  \-finline\-functions\-called\-once  \-finline\-limit=\fR\fIn\fR 
-\&\fB\-finline\-small\-functions  \-fipa\-cp  \-fipa\-cp\-clone 
+\&\fB\-finline\-small\-functions \-fipa\-modref \-fipa\-cp  \-fipa\-cp\-clone 
 \&\-fipa\-bit\-cp  \-fipa\-vrp  \-fipa\-pta  \-fipa\-profile  \-fipa\-pure\-const 
 \&\-fipa\-reference  \-fipa\-reference\-addressable 
 \&\-fipa\-stack\-alignment  \-fipa\-icf  \-fira\-algorithm=\fR\fIalgorithm\fR 
@@ -571,8 +577,9 @@ in the following sections.
 \&\-fprofile\-dir=\fR\fIpath\fR  \fB\-fprofile\-generate  \-fprofile\-generate=\fR\fIpath\fR 
 \&\fB\-fprofile\-note=\fR\fIpath\fR \fB\-fprofile\-prefix\-path=\fR\fIpath\fR 
 \&\fB\-fprofile\-update=\fR\fImethod\fR \fB\-fprofile\-filter\-files=\fR\fIregex\fR 
-\&\fB\-fprofile\-exclude\-files=\fR\fIregex\fR \fB\-fprofile\-reproducibility 
-\&\-fsanitize=\fR\fIstyle\fR  \fB\-fsanitize\-recover  \-fsanitize\-recover=\fR\fIstyle\fR 
+\&\fB\-fprofile\-exclude\-files=\fR\fIregex\fR 
+\&\fB\-fprofile\-reproducible=\fR[\fBmultithreaded\fR|\fBparallel-runs\fR|\fBserial\fR] 
+\&\fB\-fsanitize=\fR\fIstyle\fR  \fB\-fsanitize\-recover  \-fsanitize\-recover=\fR\fIstyle\fR 
 \&\fB\-fasan\-shadow\-offset=\fR\fInumber\fR  \fB\-fsanitize\-sections=\fR\fIs1\fR\fB,\fR\fIs2\fR\fB,... 
 \&\-fsanitize\-undefined\-trap\-on\-error  \-fbounds\-check 
 \&\-fcf\-protection=\fR[\fBfull\fR|\fBbranch\fR|\fBreturn\fR|\fBnone\fR|\fBcheck\fR] 
@@ -830,7 +837,7 @@ in the following sections.
 \&\-mdsp  \-medsp  \-mvdsp 
 \&\-mdiv  \-msmart  \-mhigh\-registers  \-manchor 
 \&\-mpushpop  \-mmultiple\-stld  \-mconstpool  \-mstack\-size  \-mccrt 
-\&\-mbranch\-cost=\fR\fIn\fR  \fB\-mcse\-cc  \-msched\-prolog\fR
+\&\-mbranch\-cost=\fR\fIn\fR  \fB\-mcse\-cc  \-msched\-prolog \-msim\fR
 .Sp
 \&\fIDarwin Options\fR
 \&\fB\-all_load  \-allowable_client  \-arch  \-arch_errors_fatal 
@@ -1074,7 +1081,7 @@ in the following sections.
 \&\-mwarn\-mcu 
 \&\-mcode\-region=  \-mdata\-region= 
 \&\-msilicon\-errata=  \-msilicon\-errata\-warn= 
-\&\-mhwmult=  \-minrt  \-mtiny\-printf\fR
+\&\-mhwmult=  \-minrt  \-mtiny\-printf  \-mmax\-inline\-shift=\fR
 .Sp
 \&\fI\s-1NDS32\s0 Options\fR
 \&\fB\-mbig\-endian  \-mlittle\-endian 
@@ -1360,6 +1367,7 @@ See \s-1RS/6000\s0 and PowerPC Options.
 \&\-mvpclmulqdq  \-mavx512bitalg  \-mmovdiri  \-mmovdir64b  \-mavx512vpopcntdq 
 \&\-mavx5124fmaps  \-mavx512vnni  \-mavx5124vnniw  \-mprfchw  \-mrdpid 
 \&\-mrdseed  \-msgx \-mavx512vp2intersect \-mserialize \-mtsxldtrk
+\&\-mamx\-tile  \-mamx\-int8  \-mamx\-bf16
 \&\-mcldemote  \-mms\-bitfields  \-mno\-align\-stringops  \-minline\-all\-stringops 
 \&\-minline\-stringops\-dynamically  \-mstringop\-strategy=\fR\fIalg\fR 
 \&\fB\-mmemcpy\-strategy=\fR\fIstrategy\fR  \fB\-mmemset\-strategy=\fR\fIstrategy\fR 
@@ -3242,6 +3250,23 @@ in \f(CW\*(C`( )\*(C'\fR is not deprecated.  Example:
 .Ve
 .Sp
 Enabled by default with \fB\-std=c++20\fR.
+.IP "\fB\-Wctad\-maybe\-unsupported\fR (\*(C+ and Objective\-\*(C+ only)" 4
+.IX Item "-Wctad-maybe-unsupported ( and Objective- only)"
+Warn when performing class template argument deduction (\s-1CTAD\s0) on a type with
+no explicitly written deduction guides.  This warning will point out cases
+where \s-1CTAD\s0 succeeded only because the compiler synthesized the implicit
+deduction guides, which might not be what the programmer intended.  Certain
+style guides allow \s-1CTAD\s0 only on types that specifically \*(L"opt-in\*(R"; i.e., on
+types that are designed to support \s-1CTAD.\s0  This warning can be suppressed with
+the following pattern:
+.Sp
+.Vb 5
+\&        struct allow_ctad_t; // any name works
+\&        template <typename T> struct S {
+\&          S(T) { }
+\&        };
+\&        S(allow_ctad_t) \-> S<void>; // guide with incomplete parameter type will never be considered
+.Ve
 .IP "\fB\-Wctor\-dtor\-privacy\fR (\*(C+ and Objective\-\*(C+ only)" 4
 .IX Item "-Wctor-dtor-privacy ( and Objective- only)"
 Warn when a class seems unusable because all the constructors or
@@ -3488,6 +3513,22 @@ expression being returned and the function return type differ, yet G++
 treats the return value as if it were designated by an rvalue.
 .Sp
 This warning is enabled by \fB\-Wextra\fR.
+.IP "\fB\-Wrange\-loop\-construct\fR (\*(C+ and Objective\-\*(C+ only)" 4
+.IX Item "-Wrange-loop-construct ( and Objective- only)"
+This warning warns when a \*(C+ range-based for-loop is creating an unnecessary
+copy.  This can happen when the range declaration is not a reference, but
+probably should be.  For example:
+.Sp
+.Vb 5
+\&        struct S { char arr[128]; };
+\&        void fn () {
+\&          S arr[5];
+\&          for (const auto x : arr) { ... }
+\&        }
+.Ve
+.Sp
+It does not warn when the type being copied is a trivially-copyable type whose
+size is less than 64 bytes.  This warning is enabled by \fB\-Wall\fR.
 .IP "\fB\-Wredundant\-tags\fR (\*(C+ and Objective\-\*(C+ only)" 4
 .IX Item "-Wredundant-tags ( and Objective- only)"
 Warn about redundant class-key and enum-key in references to class types
@@ -4089,6 +4130,19 @@ Note \- this option also affects the display of the \fB#error\fR and
 \&\fB#warning\fR pre-processor directives, and the \fBdeprecated\fR
 function/type/variable attribute.  It does not however affect the
 \&\fBpragma \s-1GCC\s0 warning\fR and \fBpragma \s-1GCC\s0 error\fR pragmas.
+.IP "\fB\-fdiagnostics\-plain\-output\fR" 4
+.IX Item "-fdiagnostics-plain-output"
+This option requests that diagnostic output look as plain as possible, which
+may be useful when running \fBdejagnu\fR or other utilities that need to
+parse diagnostics output and prefer that it remain more stable over time.
+\&\fB\-fdiagnostics\-plain\-output\fR is currently equivalent to the following
+options:
+\&\fB\-fno\-diagnostics\-show\-caret 
+\&\-fno\-diagnostics\-show\-line\-numbers 
+\&\-fdiagnostics\-color=never 
+\&\-fdiagnostics\-urls=never\fR
+In the future, if \s-1GCC\s0 changes the default appearance of its diagnostics, the
+corresponding option to disable the new behavior will be added to this list.
 .IP "\fB\-fdiagnostics\-show\-location=once\fR" 4
 .IX Item "-fdiagnostics-show-location=once"
 Only meaningful in line-wrapping mode.  Instructs the diagnostic messages
@@ -4939,6 +4993,7 @@ Options\fR and \fBObjective-C and Objective\-\*(C+ Dialect Options\fR.
 .Sp
 \&\fB\-Waddress   
 \&\-Warray\-bounds=1\fR (only with\fB \fR\fB\-O2\fR)  
+\&\fB\-Warray\-parameter=2\fR (C and Objective-C only) 
 \&\fB\-Wbool\-compare  
 \&\-Wbool\-operation  
 \&\-Wc++11\-compat  \-Wc++14\-compat  
@@ -4972,7 +5027,8 @@ Options\fR and \fBObjective-C and Objective\-\*(C+ Dialect Options\fR.
 \&\-Wparentheses  
 \&\-Wpessimizing\-move\fR (only for \*(C+)  
 \&\fB\-Wpointer\-sign  
-\&\-Wreorder   
+\&\-Wrange\-loop\-construct\fR (only for \*(C+)  
+\&\fB\-Wreorder   
 \&\-Wrestrict   
 \&\-Wreturn\-type  
 \&\-Wsequence\-point  
@@ -4990,7 +5046,8 @@ Options\fR and \fBObjective-C and Objective\-\*(C+ Dialect Options\fR.
 \&\-Wunused\-label     
 \&\-Wunused\-value     
 \&\-Wunused\-variable  
-\&\-Wvolatile\-register\-var  
+\&\-Wvla\-parameter\fR (C and Objective-C only) 
+\&\fB\-Wvolatile\-register\-var  
 \&\-Wzero\-length\-bounds\fR
 .Sp
 Note that some warning flags are not implied by \fB\-Wall\fR.  Some of
@@ -6115,9 +6172,15 @@ either specify \fB\-Wextra \-Wunused\fR (note that \fB\-Wall\fR implies
 \&\fB\-Wunused\fR), or separately specify \fB\-Wunused\-parameter\fR.
 .IP "\fB\-Wuninitialized\fR" 4
 .IX Item "-Wuninitialized"
-Warn if an automatic variable is used without first being initialized.
-In \*(C+, warn if a non-static reference or non-static \f(CW\*(C`const\*(C'\fR
-member appears in a class without constructors.
+Warn if an object with automatic or allocated storage duration is used
+without having been initialized.  In \*(C+, also warn if a non-static
+reference or non-static \f(CW\*(C`const\*(C'\fR member appears in a class without
+constructors.
+.Sp
+In addition, passing a pointer (or in \*(C+, a reference) to an uninitialized
+object to a \f(CW\*(C`const\*(C'\fR\-qualified argument of a built-in function known to
+read the object is also diagnosed by this warning.
+(\fB\-Wmaybe\-uninitialized\fR is issued for ordinary functions.)
 .Sp
 If you want to warn about code that uses the uninitialized value of the
 variable in its own initializer, use the \fB\-Winit\-self\fR option.
@@ -6155,11 +6218,18 @@ orders the following code is diagnosed:
 \&\fB\-Winvalid\-memory\-model\fR is enabled by default.
 .IP "\fB\-Wmaybe\-uninitialized\fR" 4
 .IX Item "-Wmaybe-uninitialized"
-For an automatic (i.e. local) variable, if there exists a path from the
-function entry to a use of the variable that is initialized, but there exist
-some other paths for which the variable is not initialized, the compiler
-emits a warning if it cannot prove the uninitialized paths are not
-executed at run time.
+For an object with automatic or allocated storage duration, if there exists
+a path from the function entry to a use of the object that is initialized,
+but there exist some other paths for which the object is not initialized,
+the compiler emits a warning if it cannot prove the uninitialized paths
+are not executed at run time.
+.Sp
+In addition, passing a pointer (or in \*(C+, a reference) to an uninitialized
+object to a \f(CW\*(C`const\*(C'\fR\-qualified function argument is also diagnosed by
+this warning.  (\fB\-Wuninitialized\fR is issued for built-in functions
+known to read the object.)  Annotating the function with attribute
+\&\f(CW\*(C`access (none)\*(C'\fR indicates that the argument isn't used to access
+the object and avoids the warning.
 .Sp
 These warnings are only possible in optimizing compilation, because otherwise
 \&\s-1GCC\s0 does not keep track of the state of variables.
@@ -6338,9 +6408,11 @@ necessarily non-zero irrespective of the contents of the array \f(CW\*(C`a\*(C'\
 .Ve
 .Sp
 \&\fB\-Wstring\-compare\fR is enabled by \fB\-Wextra\fR.
+.IP "\fB\-Wno\-stringop\-overflow\fR" 4
+.IX Item "-Wno-stringop-overflow"
+.PD 0
 .IP "\fB\-Wstringop\-overflow\fR" 4
 .IX Item "-Wstringop-overflow"
-.PD 0
 .IP "\fB\-Wstringop\-overflow=\fR\fItype\fR" 4
 .IX Item "-Wstringop-overflow=type"
 .PD
@@ -6380,6 +6452,13 @@ of size 4.
 .Ve
 .Sp
 Option \fB\-Wstringop\-overflow=2\fR is enabled by default.
+.IP "\fB\-Wno\-stringop\-overread\fR" 4
+.IX Item "-Wno-stringop-overread"
+Warn for calls to string manipulation functions such as \f(CW\*(C`memchr\*(C'\fR,
+\&\f(CW\*(C`strcpy\*(C'\fR that are determined to read past the end of the source
+sequence.
+.Sp
+Option \fB\-Wstringop\-overread\fR is enabled by default.
 .RS 4
 .IP "\fB\-Wstringop\-overflow\fR" 4
 .IX Item "-Wstringop-overflow"
@@ -6670,6 +6749,56 @@ false positives and is deactivated by default.
 .RE
 .RS 4
 .RE
+.IP "\fB\-Warray\-parameter\fR" 4
+.IX Item "-Warray-parameter"
+.PD 0
+.IP "\fB\-Warray\-parameter=\fR\fIn\fR" 4
+.IX Item "-Warray-parameter=n"
+.PD
+Warn about redeclarations of functions involving arguments of array or
+pointer types of inconsistent kinds or forms, and enable the detection
+of out-of-bounds accesses to such parameters by warnings such as
+\&\fB\-Warray\-bounds\fR.
+.Sp
+If the first function declaration uses the array form the bound specified
+in the array is assumed to be the minimum number of elements expected to
+be provided in calls to the function and the maximum number of elements
+accessed by it.  Failing to provide arguments of sufficient size or accessing
+more than the maximum number of elements may be diagnosed by warnings such
+as \fB\-Warray\-bounds\fR.  At level 1 the warning diagnoses inconsistencies
+involving array parameters declared using the \f(CW\*(C`T[static N]\*(C'\fR form.
+.Sp
+For example, the warning triggers for the following redeclarations because
+the first one allows an array of any size to be passed to \f(CW\*(C`f\*(C'\fR while
+the second one with the keyword \f(CW\*(C`static\*(C'\fR specifies that the array
+argument must have at least four elements.
+.Sp
+.Vb 2
+\&        void f (int[static 4]);
+\&        void f (int[]);           // warning (inconsistent array form)
+\&        
+\&        void g (void)
+\&        {
+\&          int *p = (int *)malloc (4);
+\&          f (p);                  // warning (array too small)
+\&          ...
+\&        }
+.Ve
+.Sp
+At level 2 the warning also triggers for redeclarations involving any other
+inconsistency in array or pointer argument forms denoting array sizes.
+Pointers and arrays of unspecified bound are considered equivalent and do
+not trigger a warning.
+.Sp
+.Vb 3
+\&        void g (int*);
+\&        void g (int[]);     // no warning
+\&        void g (int[8]);    // warning (inconsistent array bound)
+.Ve
+.Sp
+\&\fB\-Warray\-parameter=2\fR is included in \fB\-Wall\fR.  The
+\&\fB\-Wvla\-parameter\fR option triggers warnings for similar inconsistencies
+involving Variable Length Array arguments.
 .IP "\fB\-Wattribute\-alias=\fR\fIn\fR" 4
 .IX Item "-Wattribute-alias=n"
 .PD 0
@@ -7012,8 +7141,12 @@ This warning is also enabled by \fB\-Wshadow=local\fR.
 Warn whenever an object is defined whose size exceeds \fIbyte-size\fR.
 \&\fB\-Wlarger\-than=\fR\fB\s-1PTRDIFF_MAX\s0\fR is enabled by default.
 Warnings controlled by the option can be disabled either by specifying
-\&\fIbyte-size\fR of \fB\s-1SIZE_MAX\s0\fR or more or by
-\&\fB\-Wno\-larger\-than\fR.
+\&\fIbyte-size\fR of \fB\s-1SIZE_MAX\s0\fR or more or by \fB\-Wno\-larger\-than\fR.
+.Sp
+Also warn for calls to bounded functions such as \f(CW\*(C`memchr\*(C'\fR or
+\&\f(CW\*(C`strnlen\*(C'\fR that specify a bound greater than the largest possible
+object, which is \fB\s-1PTRDIFF_MAX\s0\fR bytes by default.  These warnings
+can only be disabled by \fB\-Wno\-larger\-than\fR.
 .IP "\fB\-Wno\-larger\-than\fR" 4
 .IX Item "-Wno-larger-than"
 Disable \fB\-Wlarger\-than=\fR warnings.  The option is equivalent
@@ -7911,6 +8044,42 @@ See also \fB\-Walloca\-larger\-than=\fR\fIbyte-size\fR.
 .IX Item "-Wno-vla-larger-than"
 Disable \fB\-Wvla\-larger\-than=\fR warnings.  The option is equivalent
 to \fB\-Wvla\-larger\-than=\fR\fB\s-1SIZE_MAX\s0\fR or larger.
+.IP "\fB\-Wvla\-parameter\fR" 4
+.IX Item "-Wvla-parameter"
+Warn about redeclarations of functions involving arguments of Variable
+Length Array types of inconsistent kinds or forms, and enable the detection
+of out-of-bounds accesses to such parameters by warnings such as
+\&\fB\-Warray\-bounds\fR.
+.Sp
+If the first function declaration uses the \s-1VLA\s0 form the bound specified
+in the array is assumed to be the minimum number of elements expected to
+be provided in calls to the function and the maximum number of elements
+accessed by it.  Failing to provide arguments of sufficient size or
+accessing more than the maximum number of elements may be diagnosed.
+.Sp
+For example, the warning triggers for the following redeclarations because
+the first one allows an array of any size to be passed to \f(CW\*(C`f\*(C'\fR while
+the second one specifies that the array argument must have at least \f(CW\*(C`n\*(C'\fR
+elements.  In addition, calling \f(CW\*(C`f\*(C'\fR with the assotiated \s-1VLA\s0 bound
+parameter in excess of the actual \s-1VLA\s0 bound triggers a warning as well.
+.Sp
+.Vb 2
+\&        void f (int n, int[n]);
+\&        void f (int, int[]);     // warning: argument 2 previously declared as a VLA
+\&        
+\&        void g (int n)
+\&        {
+\&            if (n > 4)
+\&              return;
+\&            int a[n];
+\&            f (sizeof a, a);     // warning: access to a by f may be out of bounds
+\&          ...
+\&        }
+.Ve
+.Sp
+\&\fB\-Wvla\-parameter\fR is included in \fB\-Wall\fR.  The
+\&\fB\-Warray\-parameter\fR option triggers warnings for similar problems
+involving ordinary array arguments.
 .IP "\fB\-Wvolatile\-register\-var\fR" 4
 .IX Item "-Wvolatile-register-var"
 Warn if a register variable is declared volatile.  The volatile
@@ -7985,6 +8154,7 @@ Enabling this option effectively enables the following warnings:
 \&\-Wanalyzer\-file\-leak 
 \&\-Wanalyzer\-free\-of\-non\-heap 
 \&\-Wanalyzer\-malloc\-leak 
+\&\-Wanalyzer\-mismatching\-deallocation 
 \&\-Wanalyzer\-possible\-null\-argument 
 \&\-Wanalyzer\-possible\-null\-dereference 
 \&\-Wanalyzer\-null\-argument 
@@ -8053,6 +8223,15 @@ to disable it.
 .Sp
 This diagnostic warns for paths through the code in which a
 pointer allocated via \f(CW\*(C`malloc\*(C'\fR is leaked.
+.IP "\fB\-Wno\-analyzer\-mismatching\-deallocation\fR" 4
+.IX Item "-Wno-analyzer-mismatching-deallocation"
+This warning requires \fB\-fanalyzer\fR, which enables it; use
+\&\fB\-Wno\-analyzer\-mismatching\-deallocation\fR
+to disable it.
+.Sp
+This diagnostic warns for paths through the code in which the
+wrong deallocation function is called on a pointer value, based on
+which function was used to allocate the pointer value.
 .IP "\fB\-Wno\-analyzer\-possible\-null\-argument\fR" 4
 .IX Item "-Wno-analyzer-possible-null-argument"
 This warning requires \fB\-fanalyzer\fR, which enables it; use
@@ -8156,6 +8335,15 @@ Some checkers are disabled by default (even with \fB\-fanalyzer\fR),
 such as the \f(CW\*(C`taint\*(C'\fR checker that implements
 \&\fB\-Wanalyzer\-tainted\-array\-index\fR, and this option is required
 to enable them.
+.IP "\fB\-fno\-analyzer\-feasibility\fR" 4
+.IX Item "-fno-analyzer-feasibility"
+This option is intended for analyzer developers.
+.Sp
+By default the analyzer verifies that there is a feasible control flow path
+for each diagnostic it emits: that the conditions that hold are not mutually
+exclusive.  Diagnostics for which no feasible path can be found are rejected.
+This filtering can be suppressed with \fB\-fno\-analyzer\-feasibility\fR, for
+debugging issues in this code.
 .IP "\fB\-fanalyzer\-fine\-grained\fR" 4
 .IX Item "-fanalyzer-fine-grained"
 This option is intended for analyzer developers.
@@ -8271,6 +8459,11 @@ Dump a textual representation of the \*(L"exploded graph\*(R" to
 Dump a textual representation of the \*(L"exploded graph\*(R" to
 one dump file per node, to \fI\fIfile\fI.eg\-\fIid\fI.txt\fR.
 This is typically a large number of dump files.
+.IP "\fB\-fdump\-analyzer\-json\fR" 4
+.IX Item "-fdump-analyzer-json"
+Dump a compressed \s-1JSON\s0 representation of analyzer internals to
+\&\fI\fIfile\fI.analyzer.json.gz\fR.  The precise format is subject
+to change.
 .IP "\fB\-fdump\-analyzer\-state\-purge\fR" 4
 .IX Item "-fdump-analyzer-state-purge"
 As per \fB\-fdump\-analyzer\-supergraph\fR, dump a representation of the
@@ -8776,6 +8969,7 @@ compilation time.
 \&\-fif\-conversion 
 \&\-fif\-conversion2 
 \&\-finline\-functions\-called\-once 
+\&\-fipa\-modref 
 \&\-fipa\-profile 
 \&\-fipa\-pure\-const 
 \&\-fipa\-reference 
@@ -9753,10 +9947,16 @@ default at any optimization level.
 .IX Item "-fipa-profile"
 Perform interprocedural profile propagation.  The functions called only from
 cold functions are marked as cold. Also functions executed once (such as
-\&\f(CW\*(C`cold\*(C'\fR, \f(CW\*(C`noreturn\*(C'\fR, static constructors or destructors) are identified. Cold
-functions and loop less parts of functions executed once are then optimized for
-size.
+\&\f(CW\*(C`cold\*(C'\fR, \f(CW\*(C`noreturn\*(C'\fR, static constructors or destructors) are
+identified. Cold functions and loop less parts of functions executed once are
+then optimized for size.
 Enabled by default at \fB\-O\fR and higher.
+.IP "\fB\-fipa\-modref\fR" 4
+.IX Item "-fipa-modref"
+Perform interprocedural mod/ref analysis.  This optimization analyzes the side
+effects of functions (memory locations that are modified or referenced) and
+enables better optimization across the function call boundary.  This flag is
+enabled by default at \fB\-O\fR and higher.
 .IP "\fB\-fipa\-cp\fR" 4
 .IX Item "-fipa-cp"
 Perform interprocedural constant propagation.
@@ -9833,7 +10033,7 @@ callers are impacted, therefore need to be patched as well.
 \&\fB\-fwhole\-program  \-fipa\-pta  \-fipa\-reference  \-fipa\-ra 
 \&\-fipa\-icf  \-fipa\-icf\-functions  \-fipa\-icf\-variables 
 \&\-fipa\-bit\-cp  \-fipa\-vrp  \-fipa\-pure\-const  \-fipa\-reference\-addressable 
-\&\-fipa\-stack\-alignment\fR
+\&\-fipa\-stack\-alignment \-fipa\-modref\fR
 .IP "\fBinline-only-static\fR" 4
 .IX Item "inline-only-static"
 Only enable inlining of static functions.
@@ -10670,9 +10870,20 @@ There are some code generation flags preserved by \s-1GCC\s0 when
 generating bytecodes, as they need to be used during the final link.
 Currently, the following options and their settings are taken from
 the first object file that explicitly specifies them: 
-\&\fB\-fPIC\fR, \fB\-fpic\fR, \fB\-fpie\fR, \fB\-fcommon\fR,
-\&\fB\-fexceptions\fR, \fB\-fnon\-call\-exceptions\fR, \fB\-fgnu\-tm\fR
-and all the \fB\-m\fR target flags.
+\&\fB\-fcommon\fR, \fB\-fexceptions\fR, \fB\-fnon\-call\-exceptions\fR,
+\&\fB\-fgnu\-tm\fR and all the \fB\-m\fR target flags.
+.Sp
+The following options \fB\-fPIC\fR, \fB\-fpic\fR, \fB\-fpie\fR and
+\&\fB\-fPIE\fR are combined based on the following scheme:
+.Sp
+.Vb 6
+\&        B<\-fPIC> + B<\-fpic> = B<\-fpic>
+\&        B<\-fPIC> + B<\-fno\-pic> = B<\-fno\-pic>
+\&        B<\-fpic/\-fPIC> + (no option) = (no option)
+\&        B<\-fPIC> + B<\-fPIE> = B<\-fPIE>
+\&        B<\-fpic> + B<\-fPIE> = B<\-fpie>
+\&        B<\-fPIC/\-fpic> + B<\-fpie> = B<\-fpie>
+.Ve
 .Sp
 Certain ABI-changing flags are required to match in all compilation units,
 and trying to override this at link time with a conflicting value
@@ -11643,6 +11854,22 @@ Deeper chains are still handled by late inlining.
 .IX Item "comdat-sharing-probability"
 Probability (in percent) that \*(C+ inline function with comdat visibility
 are shared across multiple compilation units.
+.IP "\fBipa-modref-max-bases\fR" 4
+.IX Item "ipa-modref-max-bases"
+.PD 0
+.IP "\fBipa-modref-max-refs\fR" 4
+.IX Item "ipa-modref-max-refs"
+.IP "\fBipa-modref-max-accesses\fR" 4
+.IX Item "ipa-modref-max-accesses"
+.PD
+Specifies the maximal number of base pointers, referneces and accesses stored
+for a single function by mod/ref analysis.
+.IP "\fBipa-modref-max-tests\fR" 4
+.IX Item "ipa-modref-max-tests"
+Specifies the maxmal number of tests alias oracle can perform to disambiguate
+memory locations using the mod/ref information.  This parameter ought to be
+bigger than \fB\-\-param ipa-modref-max-bases\fR and \fB\-\-param
+ipa-modref-max-refs\fR.
 .IP "\fBprofile-func-internal-id\fR" 4
 .IX Item "profile-func-internal-id"
 A parameter to control whether to use function internal id in profile
@@ -12870,26 +13097,26 @@ automatically selects \fBprefer-atomic\fR when \fB\-pthread\fR
 is present in the command line.
 .IP "\fB\-fprofile\-filter\-files=\fR\fIregex\fR" 4
 .IX Item "-fprofile-filter-files=regex"
-Instrument only functions from files where names match
-any regular expression (separated by a semi-colon).
+Instrument only functions from files whose name matches
+any of the regular expressions (separated by semi-colons).
 .Sp
-For example, \fB\-fprofile\-filter\-files=main.c;module.*.c\fR will instrument
+For example, \fB\-fprofile\-filter\-files=main\e.c;module.*\e.c\fR will instrument
 only \fImain.c\fR and all C files starting with 'module'.
 .IP "\fB\-fprofile\-exclude\-files=\fR\fIregex\fR" 4
 .IX Item "-fprofile-exclude-files=regex"
-Instrument only functions from files where names do not match
-all the regular expressions (separated by a semi-colon).
+Instrument only functions from files whose name does not match
+any of the regular expressions (separated by semi-colons).
 .Sp
-For example, \fB\-fprofile\-exclude\-files=/usr/*\fR will prevent instrumentation
-of all files that are located in \fI/usr/\fR folder.
-.IP "\fB\-fprofile\-reproducible\fR" 4
-.IX Item "-fprofile-reproducible"
+For example, \fB\-fprofile\-exclude\-files=/usr/.*\fR will prevent instrumentation
+of all files that are located in the \fI/usr/\fR folder.
+.IP "\fB\-fprofile\-reproducible=\fR[\fBmultithreaded\fR|\fBparallel-runs\fR|\fBserial\fR]" 4
+.IX Item "-fprofile-reproducible=[multithreaded|parallel-runs|serial]"
 Control level of reproducibility of profile gathered by
 \&\f(CW\*(C`\-fprofile\-generate\*(C'\fR.  This makes it possible to rebuild program
 with same outcome which is useful, for example, for distribution
 packages.
 .Sp
-With \fB\-fprofile\-reproducibility=serial\fR the profile gathered by
+With \fB\-fprofile\-reproducible=serial\fR the profile gathered by
 \&\fB\-fprofile\-generate\fR is reproducible provided the trained program
 behaves the same at each invocation of the train run, it is not
 multi-threaded and profile data streaming is always done in the same
@@ -12904,7 +13131,7 @@ Such non-reproducible part of programs may be annotated by
 \&\fB\-l\fR can be used to dump gathered data and verify that they are
 indeed reproducible.
 .Sp
-With \fB\-fprofile\-reproducibility=parallel\-runs\fR collected profile
+With \fB\-fprofile\-reproducible=parallel\-runs\fR collected profile
 stays reproducible regardless the order of streaming of the data into
 gcda files.  This setting makes it possible to run multiple instances of
 instrumented program in parallel (such as with \f(CW\*(C`make \-j\*(C'\fR). This
@@ -16593,6 +16820,8 @@ and the features that they enable by default:
 .IX Item "armv8.5-a : Armv8.5-A : armv8.4-a, +sb, +ssbs, +predres"
 .IP "\fBarmv8.6\-a\fR : Armv8.6\-A : \fBarmv8.5\-a\fR, \fB+bf16\fR, \fB+i8mm\fR" 4
 .IX Item "armv8.6-a : Armv8.6-A : armv8.5-a, +bf16, +i8mm"
+.IP "\fBarmv8\-r\fR : Armv8\-R : \fBarmv8\-r\fR" 4
+.IX Item "armv8-r : Armv8-R : armv8-r"
 .RE
 .RS 4
 .PD
@@ -16622,7 +16851,8 @@ performance of the code.  Permissible values for this option are:
 \&\fBcortex\-a76\fR, \fBcortex\-a76ae\fR, \fBcortex\-a77\fR,
 \&\fBcortex\-a65\fR, \fBcortex\-a65ae\fR, \fBcortex\-a34\fR,
 \&\fBares\fR, \fBexynos\-m1\fR, \fBemag\fR, \fBfalkor\fR,
-\&\fBneoverse\-e1\fR,\fBneoverse\-n1\fR,\fBqdf24xx\fR, \fBsaphira\fR,
+\&\fBneoverse\-e1\fR, \fBneoverse\-n1\fR, \fBneoverse\-n2\fR,
+\&\fBneoverse\-v1\fR, \fBqdf24xx\fR, \fBsaphira\fR,
 \&\fBphecda\fR, \fBxgene1\fR, \fBvulcan\fR, \fBocteontx\fR,
 \&\fBocteontx81\fR,  \fBocteontx83\fR,
 \&\fBocteontx2\fR, \fBocteontx2t98\fR, \fBocteontx2t96\fR
@@ -16634,8 +16864,8 @@ performance of the code.  Permissible values for this option are:
 \&\fBthunderxt83\fR, \fBthunderx2t99\fR, \fBthunderx3t110\fR, \fBzeus\fR,
 \&\fBcortex\-a57.cortex\-a53\fR, \fBcortex\-a72.cortex\-a53\fR,
 \&\fBcortex\-a73.cortex\-a35\fR, \fBcortex\-a73.cortex\-a53\fR,
-\&\fBcortex\-a75.cortex\-a55\fR, \fBcortex\-a76.cortex\-a55\fR
-\&\fBnative\fR.
+\&\fBcortex\-a75.cortex\-a55\fR, \fBcortex\-a76.cortex\-a55\fR,
+\&\fBcortex\-r82\fR, \fBcortex\-x1\fR, \fBnative\fR.
 .Sp
 The values \fBcortex\-a57.cortex\-a53\fR, \fBcortex\-a72.cortex\-a53\fR,
 \&\fBcortex\-a73.cortex\-a35\fR, \fBcortex\-a73.cortex\-a53\fR,
@@ -18439,12 +18669,12 @@ Permissible names are: \fBarm7tdmi\fR, \fBarm7tdmi\-s\fR, \fBarm710t\fR,
 \&\fBcortex\-r5\fR, \fBcortex\-r7\fR, \fBcortex\-r8\fR, \fBcortex\-r52\fR,
 \&\fBcortex\-m0\fR, \fBcortex\-m0plus\fR, \fBcortex\-m1\fR, \fBcortex\-m3\fR,
 \&\fBcortex\-m4\fR, \fBcortex\-m7\fR, \fBcortex\-m23\fR, \fBcortex\-m33\fR,
-\&\fBcortex\-m35p\fR, \fBcortex\-m55\fR,
+\&\fBcortex\-m35p\fR, \fBcortex\-m55\fR, \fBcortex\-x1\fR,
 \&\fBcortex\-m1.small\-multiply\fR, \fBcortex\-m0.small\-multiply\fR,
 \&\fBcortex\-m0plus.small\-multiply\fR, \fBexynos\-m1\fR, \fBmarvell\-pj4\fR,
-\&\fBneoverse\-n1\fR, \fBxscale\fR, \fBiwmmxt\fR, \fBiwmmxt2\fR,
-\&\fBep9312\fR, \fBfa526\fR, \fBfa626\fR, \fBfa606te\fR, \fBfa626te\fR,
-\&\fBfmp626\fR, \fBfa726te\fR, \fBxgene1\fR.
+\&\fBneoverse\-n1\fR, \fBneoverse\-n2\fR, \fBneoverse\-v1\fR, \fBxscale\fR,
+\&\fBiwmmxt\fR, \fBiwmmxt2\fR, \fBep9312\fR, \fBfa526\fR, \fBfa626\fR,
+\&\fBfa606te\fR, \fBfa626te\fR, \fBfmp626\fR, \fBfa726te\fR, \fBxgene1\fR.
 .Sp
 Additionally, this option can specify that \s-1GCC\s0 should tune the performance
 of the code for a big.LITTLE system.  Permissible names are:
@@ -18811,7 +19041,7 @@ is only available when generating non-pic code for M\-profile targets.
 .IX Item "-mcmse"
 Generate secure code as per the \*(L"ARMv8\-M Security Extensions: Requirements on
 Development Tools Engineering Specification\*(R", which can be found on
-<\fBhttp://infocenter.arm.com/help/topic/com.arm.doc.ecm0359818/ECM0359818_armv8m_security_extensions_reqs_on_dev_tools_1_0.pdf\fR>.
+<\fBhttps://developer.arm.com/documentation/ecm0359818/latest/\fR>.
 .IP "\fB\-mfdpic\fR" 4
 .IX Item "-mfdpic"
 .PD 0
@@ -20116,6 +20346,10 @@ Permit scheduling of function prologue and epilogue sequences.  Using
 this option can result in code that is not compliant with the C\-SKY V2 \s-1ABI\s0
 prologue requirements and that cannot be debugged or backtraced.
 It is disabled by default.
+.IP "\fB\-msim\fR" 4
+.IX Item "-msim"
+Links the library libsemi.a which is in compatible with simulator. Applicable
+to \s-1ELF\s0 compiler only.
 .PP
 \fIDarwin Options\fR
 .IX Subsection "Darwin Options"
@@ -23832,7 +24066,7 @@ Link to the simulator runtime libraries and linker script.  Overrides
 any scripts that would be selected by the \fB\-mmcu=\fR option.
 .IP "\fB\-mlarge\fR" 4
 .IX Item "-mlarge"
-Use large-model addressing (20\-bit pointers, 32\-bit \f(CW\*(C`size_t\*(C'\fR).
+Use large-model addressing (20\-bit pointers, 20\-bit \f(CW\*(C`size_t\*(C'\fR).
 .IP "\fB\-msmall\fR" 4
 .IX Item "-msmall"
 Use small-model addressing (16\-bit pointers, 16\-bit \f(CW\*(C`size_t\*(C'\fR).
@@ -23880,6 +24114,18 @@ buffered before it is sent to write.
 .Sp
 This option requires Newlib Nano \s-1IO,\s0 so \s-1GCC\s0 must be configured with
 \&\fB\-\-enable\-newlib\-nano\-formatted\-io\fR.
+.IP "\fB\-mmax\-inline\-shift=\fR" 4
+.IX Item "-mmax-inline-shift="
+This option takes an integer between 0 and 64 inclusive, and sets
+the maximum number of inline shift instructions which should be emitted to
+perform a shift operation by a constant amount.  When this value needs to be
+exceeded, an mspabi helper function is used instead.  The default value is 4.
+.Sp
+This only affects cases where a shift by multiple positions cannot be
+completed with a single instruction (e.g. all shifts >1 on the 430 \s-1ISA\s0).
+.Sp
+Shifts of a 32\-bit value are at least twice as costly, so the value passed for
+this option is divided by 2 and the resulting value used instead.
 .IP "\fB\-mcode\-region=\fR" 4
 .IX Item "-mcode-region="
 .PD 0
@@ -28827,6 +29073,12 @@ preferred alignment to \fB\-mpreferred\-stack\-boundary=2\fR.
 .IX Item "-mcldemote"
 .IP "\fB\-mserialize\fR" 4
 .IX Item "-mserialize"
+.IP "\fB\-mamx\-tile\fR" 4
+.IX Item "-mamx-tile"
+.IP "\fB\-mamx\-int8\fR" 4
+.IX Item "-mamx-int8"
+.IP "\fB\-mamx\-bf16\fR" 4
+.IX Item "-mamx-bf16"
 .PD
 These switches enable the use of instructions in the \s-1MMX, SSE,
 SSE2, SSE3, SSSE3, SSE4, SSE4A, SSE4.1, SSE4.2, AVX, AVX2, AVX512F, AVX512PF,
@@ -29946,7 +30198,7 @@ reproducible.
 The value of \fB\s-1SOURCE_DATE_EPOCH\s0\fR must be a \s-1UNIX\s0 timestamp,
 defined as the number of seconds (excluding leap seconds) since
 01 Jan 1970 00:00:00 represented in \s-1ASCII\s0; identical to the output of
-\&\fB\f(CB@command\fB{date +%s\fR} on GNU/Linux and other systems that support the
+\&\f(CW\*(C`date +%s\*(C'\fR on GNU/Linux and other systems that support the
 \&\f(CW%s\fR extension in the \f(CW\*(C`date\*(C'\fR command.
 .Sp
 The value should be a known timestamp such as the last modification

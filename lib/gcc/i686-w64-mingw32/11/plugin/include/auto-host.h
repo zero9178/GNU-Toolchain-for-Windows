@@ -991,6 +991,13 @@
 #endif
 
 
+/* Define to 1 if we found a declaration for 'mallinfo2', otherwise define to
+   0. */
+#ifndef USED_FOR_TARGET
+#define HAVE_DECL_MALLINFO2 0
+#endif
+
+
 /* Define to 1 if we found a declaration for 'malloc', otherwise define to 0.
    */
 #ifndef USED_FOR_TARGET
@@ -1666,6 +1673,12 @@
 #endif
 
 
+/* Define to 1 if you have the `mallinfo2' function. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_MALLINFO2 */
+#endif
+
+
 /* Define to 1 if you have the <malloc.h> header file. */
 #ifndef USED_FOR_TARGET
 #define HAVE_MALLOC_H 1
@@ -2059,7 +2072,7 @@
 /* Define to the name of the LTO plugin DSO that must be passed to the
    linker's -plugin=LIB option. */
 #ifndef USED_FOR_TARGET
-#define LTOPLUGINSONAME "liblto_plugin-0.dll"
+#define LTOPLUGINSONAME "liblto_plugin.dll"
 #endif
 
 

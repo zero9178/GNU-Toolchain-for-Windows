@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "NM 1"
-.TH NM 1 "2020-09-23" "binutils-2.35.50" "GNU Development Tools"
+.TH NM 1 "2020-09-29" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -190,10 +190,17 @@ behavior is system dependent.
 .ie n .IP """C""" 4
 .el .IP "\f(CWC\fR" 4
 .IX Item "C"
+.PD 0
+.ie n .IP """c""" 4
+.el .IP "\f(CWc\fR" 4
+.IX Item "c"
+.PD
 The symbol is common.  Common symbols are uninitialized data.  When
 linking, multiple common symbols may appear with the same name.  If the
 symbol is defined anywhere, the common symbols are treated as undefined
 references.
+The lower case \fIc\fR character is used when the symbol is in a
+special section for small commons.
 .ie n .IP """D""" 4
 .el .IP "\f(CWD\fR" 4
 .IX Item "D"
