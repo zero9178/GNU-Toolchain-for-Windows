@@ -33,6 +33,7 @@
 #if __cplusplus > 201703L
 
 #include <bits/ranges_algobase.h>
+#include <bits/ranges_util.h>
 #include <bits/uniform_int_dist.h> // concept uniform_random_bit_generator
 
 #if __cpp_lib_concepts
@@ -3475,10 +3476,7 @@ namespace ranges
 		// This condition is consistent with the one in
 		// __lexicographical_compare_aux in <bits/stl_algobase.h>.
 		constexpr bool __use_memcmp
-		  = (__is_byte<_ValueType1>::__value
-		     && __is_byte<_ValueType2>::__value
-		     && !__gnu_cxx::__numeric_traits<_ValueType1>::__is_signed
-		     && !__gnu_cxx::__numeric_traits<_ValueType2>::__is_signed
+		  = (__is_memcmp_ordered_with<_ValueType1, _ValueType2>::__value
 		     && __ptr_to_nonvolatile<_Iter1>
 		     && __ptr_to_nonvolatile<_Iter2>
 		     && (is_same_v<_Comp, ranges::less>

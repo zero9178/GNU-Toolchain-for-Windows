@@ -464,7 +464,6 @@ extern GTY(()) tree cp_global_trees[CPTI_MAX];
       SWITCH_STMT_NO_BREAK_P (in SWITCH_STMT)
       LAMBDA_EXPR_CAPTURE_OPTIMIZED (in LAMBDA_EXPR)
       IMPLICIT_CONV_EXPR_BRACED_INIT (in IMPLICIT_CONV_EXPR)
-      TINFO_VAR_DECLARED_CONSTINIT (in TEMPLATE_INFO)
       CALL_FROM_NEW_OR_DELETE_P (in CALL_EXPR)
    3: IMPLICIT_RVALUE_P (in NON_LVALUE_EXPR or STATIC_CAST_EXPR)
       ICS_BAD_FLAG (in _CONV)
@@ -506,7 +505,7 @@ extern GTY(()) tree cp_global_trees[CPTI_MAX];
 
    Usage of DECL_LANG_FLAG_?:
    0: DECL_TEMPLATE_PARM_P (in PARM_DECL, CONST_DECL, TYPE_DECL, or TEMPLATE_DECL)
-      DECL_LOCAL_FUNCTION_P (in FUNCTION_DECL)
+      DECL_LOCAL_DECL_P (in FUNCTION_DECL, VAR_DECL)
       DECL_MUTABLE_P (in FIELD_DECL)
       DECL_DEPENDENT_P (in USING_DECL)
       LABEL_DECL_BREAK (in LABEL_DECL)
@@ -534,6 +533,7 @@ extern GTY(()) tree cp_global_trees[CPTI_MAX];
       TYPE_DECL_ALIAS_P (in TYPE_DECL)
    7: DECL_THUNK_P (in a member FUNCTION_DECL)
       DECL_NORMAL_CAPTURE_P (in FIELD_DECL)
+      DECL_DECLARED_CONSTINIT_P (in VAR_DECL)
    8: DECL_DECLARED_CONSTEXPR_P (in VAR_DECL, FUNCTION_DECL)
 
    Usage of language-independent fields in a language-dependent manner:
@@ -1462,11 +1462,6 @@ struct GTY (()) tree_lambda_expr
 #define TINFO_USED_TEMPLATE_ID(NODE) \
   (TREE_LANG_FLAG_1 (TEMPLATE_INFO_CHECK (NODE)))
 
-/* Non-zero if this variable template specialization was declared with the
-   `constinit' specifier.  */
-#define TINFO_VAR_DECLARED_CONSTINIT(NODE) \
-  (TREE_LANG_FLAG_2 (TEMPLATE_INFO_CHECK (NODE)))
-
 /* The representation of a deferred access check.  */
 
 struct GTY(()) deferred_access_check {
@@ -1622,6 +1617,21 @@ check_constraint_info (tree t)
    attached for convenience.  */
 #define CONSTRAINED_PARM_PROTOTYPE(NODE) \
   DECL_INITIAL (TYPE_DECL_CHECK (NODE))
+
+/* The list of local parameters introduced by this requires-expression,
+   in the form of a chain of PARM_DECLs.  */
+#define REQUIRES_EXPR_PARMS(NODE) \
+  TREE_OPERAND (TREE_CHECK (NODE, REQUIRES_EXPR), 0)
+
+/* A TREE_LIST of the requirements for this requires-expression.
+   The requirements are stored in lexical order within the TREE_VALUE
+   of each TREE_LIST node.  The TREE_PURPOSE of each node is unused.  */
+#define REQUIRES_EXPR_REQS(NODE) \
+  TREE_OPERAND (TREE_CHECK (NODE, REQUIRES_EXPR), 1)
+
+/* Like PACK_EXPANSION_EXTRA_ARGS, for requires-expressions.  */
+#define REQUIRES_EXPR_EXTRA_ARGS(NODE) \
+  TREE_OPERAND (TREE_CHECK (NODE, REQUIRES_EXPR), 2)
 
 enum cp_tree_node_structure_enum {
   TS_CP_GENERIC,
@@ -3224,6 +3234,10 @@ struct GTY(()) lang_decl {
 #define DECL_EXTERN_C_FUNCTION_P(NODE) \
   (DECL_NON_THUNK_FUNCTION_P (NODE) && DECL_EXTERN_C_P (NODE))
 
+/* Non-zero if this variable is declared `constinit' specifier.  */
+#define DECL_DECLARED_CONSTINIT_P(NODE)		\
+  (DECL_LANG_FLAG_7 (VAR_DECL_CHECK (NODE)))
+
 /* True if DECL is declared 'constexpr'.  */
 #define DECL_DECLARED_CONSTEXPR_P(DECL) \
   DECL_LANG_FLAG_8 (VAR_OR_FUNCTION_DECL_CHECK (STRIP_TEMPLATE (DECL)))
@@ -3485,13 +3499,12 @@ struct GTY(()) lang_decl {
    ? TYPE_ALIAS_TEMPLATE_INFO (NODE)					\
    : TYPE_TEMPLATE_INFO (NODE))
 
-/* Set the template information for an ENUMERAL_, RECORD_, or
-   UNION_TYPE to VAL.  */
+/* Set the template information for a non-alias n ENUMERAL_, RECORD_,
+   or UNION_TYPE to VAL.  ALIAS's are dealt with separately.  */
 #define SET_TYPE_TEMPLATE_INFO(NODE, VAL)				\
-  (TREE_CODE (NODE) == ENUMERAL_TYPE					\
-   || (CLASS_TYPE_P (NODE) && !TYPE_ALIAS_P (NODE))			\
-   ? (TYPE_LANG_SLOT_1 (NODE) = (VAL))				\
-   : (DECL_TEMPLATE_INFO (TYPE_NAME (NODE)) = (VAL)))
+  (gcc_checking_assert (TREE_CODE (NODE) == ENUMERAL_TYPE		\
+			|| (CLASS_TYPE_P (NODE) && !TYPE_ALIAS_P (NODE))), \
+   (TYPE_LANG_SLOT_1 (NODE) = (VAL)))					\
 
 #define TI_TEMPLATE(NODE) \
   ((struct tree_template_info*)TEMPLATE_INFO_CHECK (NODE))->tmpl
@@ -4010,18 +4023,10 @@ more_aggr_init_expr_args_p (const aggr_init_expr_arg_iterator *iter)
 #define TYPE_CONTAINS_VPTR_P(NODE)		\
   (TYPE_POLYMORPHIC_P (NODE) || CLASSTYPE_VBASECLASSES (NODE))
 
-/* Nonzero if NODE is a FUNCTION_DECL (for a function with global
-   scope) declared in a local scope.  */
-#define DECL_LOCAL_FUNCTION_P(NODE) \
-  DECL_LANG_FLAG_0 (FUNCTION_DECL_CHECK (NODE))
-
-/* Nonzero if NODE is the target for genericization of 'break' stmts.  */
-#define LABEL_DECL_BREAK(NODE) \
-  DECL_LANG_FLAG_0 (LABEL_DECL_CHECK (NODE))
-
-/* Nonzero if NODE is the target for genericization of 'continue' stmts.  */
-#define LABEL_DECL_CONTINUE(NODE) \
-  DECL_LANG_FLAG_1 (LABEL_DECL_CHECK (NODE))
+/* Nonzero if NODE is a FUNCTION_DECL or VARIABLE_DECL (for a decl
+   with namespace scope) declared in a local scope.  */
+#define DECL_LOCAL_DECL_P(NODE) \
+  DECL_LANG_FLAG_0 (VAR_OR_FUNCTION_DECL_CHECK (NODE))
 
 /* Nonzero if NODE is the target for genericization of 'return' stmts
    in constructors/destructors of targetm.cxx.cdtor_returns_this targets.  */
@@ -4034,6 +4039,10 @@ more_aggr_init_expr_args_p (const aggr_init_expr_arg_iterator *iter)
    DECL_SAVED_AUTO_RETURN_TYPE (NODE).   */
 #define FNDECL_USED_AUTO(NODE) \
   TREE_LANG_FLAG_2 (FUNCTION_DECL_CHECK (NODE))
+
+/* True if NODE is a builtin decl.  */
+#define DECL_BUILTIN_P(NODE) \
+  (DECL_SOURCE_LOCATION(NODE) == BUILTINS_LOCATION)
 
 /* Nonzero if NODE is a DECL which we know about but which has not
    been explicitly declared, such as a built-in function or a friend
@@ -5075,25 +5084,6 @@ more_aggr_init_expr_args_p (const aggr_init_expr_arg_iterator *iter)
    building an IF_STMT; IF_STMT_EXTRA_ARGS is used after it is complete.  */
 #define IF_STMT_EXTRA_ARGS(NODE) IF_SCOPE (NODE)
 
-/* WHILE_STMT accessors. These give access to the condition of the
-   while statement and the body of the while statement, respectively.  */
-#define WHILE_COND(NODE)	TREE_OPERAND (WHILE_STMT_CHECK (NODE), 0)
-#define WHILE_BODY(NODE)	TREE_OPERAND (WHILE_STMT_CHECK (NODE), 1)
-
-/* DO_STMT accessors. These give access to the condition of the do
-   statement and the body of the do statement, respectively.  */
-#define DO_COND(NODE)		TREE_OPERAND (DO_STMT_CHECK (NODE), 0)
-#define DO_BODY(NODE)		TREE_OPERAND (DO_STMT_CHECK (NODE), 1)
-
-/* FOR_STMT accessors. These give access to the init statement,
-   condition, update expression, and body of the for statement,
-   respectively.  */
-#define FOR_INIT_STMT(NODE)	TREE_OPERAND (FOR_STMT_CHECK (NODE), 0)
-#define FOR_COND(NODE)		TREE_OPERAND (FOR_STMT_CHECK (NODE), 1)
-#define FOR_EXPR(NODE)		TREE_OPERAND (FOR_STMT_CHECK (NODE), 2)
-#define FOR_BODY(NODE)		TREE_OPERAND (FOR_STMT_CHECK (NODE), 3)
-#define FOR_SCOPE(NODE)		TREE_OPERAND (FOR_STMT_CHECK (NODE), 4)
-
 /* RANGE_FOR_STMT accessors. These give access to the declarator,
    expression, body, and scope of the statement, respectively.  */
 #define RANGE_FOR_DECL(NODE)	TREE_OPERAND (RANGE_FOR_STMT_CHECK (NODE), 0)
@@ -5103,19 +5093,6 @@ more_aggr_init_expr_args_p (const aggr_init_expr_arg_iterator *iter)
 #define RANGE_FOR_UNROLL(NODE)	TREE_OPERAND (RANGE_FOR_STMT_CHECK (NODE), 4)
 #define RANGE_FOR_INIT_STMT(NODE) TREE_OPERAND (RANGE_FOR_STMT_CHECK (NODE), 5)
 #define RANGE_FOR_IVDEP(NODE)	TREE_LANG_FLAG_6 (RANGE_FOR_STMT_CHECK (NODE))
-
-#define SWITCH_STMT_COND(NODE)	TREE_OPERAND (SWITCH_STMT_CHECK (NODE), 0)
-#define SWITCH_STMT_BODY(NODE)	TREE_OPERAND (SWITCH_STMT_CHECK (NODE), 1)
-#define SWITCH_STMT_TYPE(NODE)	TREE_OPERAND (SWITCH_STMT_CHECK (NODE), 2)
-#define SWITCH_STMT_SCOPE(NODE)	TREE_OPERAND (SWITCH_STMT_CHECK (NODE), 3)
-/* True if there are case labels for all possible values of switch cond, either
-   because there is a default: case label or because the case label ranges cover
-   all values.  */
-#define SWITCH_STMT_ALL_CASES_P(NODE) \
-  TREE_LANG_FLAG_0 (SWITCH_STMT_CHECK (NODE))
-/* True if the body of a switch stmt contains no BREAK_STMTs.  */
-#define SWITCH_STMT_NO_BREAK_P(NODE) \
-  TREE_LANG_FLAG_2 (SWITCH_STMT_CHECK (NODE))
 
 /* STMT_EXPR accessor.  */
 #define STMT_EXPR_STMT(NODE)	TREE_OPERAND (STMT_EXPR_CHECK (NODE), 0)
@@ -5567,20 +5544,10 @@ enum overload_flags { NO_SPECIAL = 0, DTOR_FLAG, TYPENAME_FLAG };
 #define LOOKUP_DESTRUCTOR (1 << 5)
 /* Do not permit references to bind to temporaries.  */
 #define LOOKUP_NO_TEMP_BIND (1 << 6)
-/* Do not accept objects, and possibly namespaces.  */
-#define LOOKUP_PREFER_TYPES (1 << 7)
-/* Do not accept objects, and possibly types.   */
-#define LOOKUP_PREFER_NAMESPACES (1 << 8)
-/* Accept types or namespaces.  */
-#define LOOKUP_PREFER_BOTH (LOOKUP_PREFER_TYPES | LOOKUP_PREFER_NAMESPACES)
-/* Return friend declarations and un-declared builtin functions.
-   (Normally, these entities are registered in the symbol table, but
-   not found by lookup.)  */
-#define LOOKUP_HIDDEN (LOOKUP_PREFER_NAMESPACES << 1)
 /* We're trying to treat an lvalue as an rvalue.  */
 /* FIXME remove when we extend the P1825 semantics to all standard modes, the
    C++20 approach uses IMPLICIT_RVALUE_P instead.  */
-#define LOOKUP_PREFER_RVALUE (LOOKUP_HIDDEN << 1)
+#define LOOKUP_PREFER_RVALUE (LOOKUP_NO_TEMP_BIND << 1)
 /* We're inside an init-list, so narrowing conversions are ill-formed.  */
 #define LOOKUP_NO_NARROWING (LOOKUP_PREFER_RVALUE << 1)
 /* We're looking up a constructor for list-initialization.  */
@@ -5610,13 +5577,11 @@ enum overload_flags { NO_SPECIAL = 0, DTOR_FLAG, TYPENAME_FLAG };
 #define LOOKUP_DELEGATING_CONS (LOOKUP_NO_NON_INTEGRAL << 1)
 /* Allow initialization of a flexible array members.  */
 #define LOOKUP_ALLOW_FLEXARRAY_INIT (LOOKUP_DELEGATING_CONS << 1)
-/* Require constant initialization of a non-constant variable.  */
-#define LOOKUP_CONSTINIT (LOOKUP_ALLOW_FLEXARRAY_INIT << 1)
 /* We're looking for either a rewritten comparison operator candidate or the
    operator to use on the former's result.  We distinguish between the two by
    knowing that comparisons other than == and <=> must be the latter, as must
    a <=> expression trying to rewrite to <=> without reversing.  */
-#define LOOKUP_REWRITTEN (LOOKUP_CONSTINIT << 1)
+#define LOOKUP_REWRITTEN (LOOKUP_ALLOW_FLEXARRAY_INIT << 1)
 /* Reverse the order of the two arguments for comparison rewriting.  First we
    swap the arguments in add_operator_candidates, then we swap the conversions
    in add_candidate (so that they correspond to the original order of the
@@ -5625,13 +5590,6 @@ enum overload_flags { NO_SPECIAL = 0, DTOR_FLAG, TYPENAME_FLAG };
 #define LOOKUP_REVERSED (LOOKUP_REWRITTEN << 1)
 /* We're initializing an aggregate from a parenthesized list of values.  */
 #define LOOKUP_AGGREGATE_PAREN_INIT (LOOKUP_REVERSED << 1)
-
-#define LOOKUP_NAMESPACES_ONLY(F)  \
-  (((F) & LOOKUP_PREFER_NAMESPACES) && !((F) & LOOKUP_PREFER_TYPES))
-#define LOOKUP_TYPES_ONLY(F)  \
-  (!((F) & LOOKUP_PREFER_NAMESPACES) && ((F) & LOOKUP_PREFER_TYPES))
-#define LOOKUP_QUALIFIERS_ONLY(F)     ((F) & LOOKUP_PREFER_BOTH)
-
 
 /* These flags are used by the conversion code.
    CONV_IMPLICIT   :  Perform implicit conversions (standard and user-defined).
@@ -6266,7 +6224,8 @@ extern bool null_member_pointer_value_p		(tree);
 extern bool sufficient_parms_p			(const_tree);
 extern tree type_decays_to			(tree);
 extern tree extract_call_expr			(tree);
-extern tree build_trivial_dtor_call		(tree);
+extern tree build_trivial_dtor_call		(tree, bool = false);
+extern bool ref_conv_binds_directly_p		(tree, tree);
 extern tree build_user_type_conversion		(tree, tree, int,
 						 tsubst_flags_t);
 extern tree build_new_function_call		(tree, vec<tree, va_gc> **,
@@ -6372,6 +6331,7 @@ extern bool is_std_init_list			(tree);
 extern bool is_list_ctor			(tree);
 extern void validate_conversion_obstack		(void);
 extern void mark_versions_used			(tree);
+extern bool unsafe_return_slot_p		(tree);
 extern bool cp_warn_deprecated_use		(tree, tsubst_flags_t = tf_warning_or_error);
 extern void cp_warn_deprecated_use_scopes	(tree);
 extern tree get_function_version_dispatcher	(tree);
@@ -6506,7 +6466,9 @@ extern void note_iteration_stmt_body_end	(bool);
 extern void determine_local_discriminator	(tree);
 extern int decls_match				(tree, tree, bool = true);
 extern bool maybe_version_functions		(tree, tree, bool);
-extern tree duplicate_decls			(tree, tree, bool);
+extern tree duplicate_decls			(tree, tree,
+						 bool hiding = false,
+						 bool was_hidden = false);
 extern tree declare_local_label			(tree);
 extern tree define_label			(location_t, tree);
 extern void check_goto				(tree);
@@ -6546,8 +6508,9 @@ extern tree get_scope_of_declarator		(const cp_declarator *);
 extern void grok_special_member_properties	(tree);
 extern bool grok_ctor_properties		(const_tree, const_tree);
 extern bool grok_op_properties			(tree, bool);
-extern tree xref_tag				(enum tag_types, tree, tag_scope, bool);
-extern tree xref_tag_from_type			(tree, tree, tag_scope);
+extern tree xref_tag				(tag_types, tree,
+						 TAG_how = TAG_how::CURRENT_ONLY,
+						 bool tpl_header_p = false);
 extern void xref_basetypes			(tree, tree);
 extern tree start_enum				(tree, tree, tree, tree, bool, bool *);
 extern void finish_enum_value_list		(tree);
@@ -6599,6 +6562,7 @@ extern bool check_array_designated_initializer  (constructor_elt *,
 extern bool check_for_uninitialized_const_var   (tree, bool, tsubst_flags_t);
 extern tree build_explicit_specifier		(tree, tsubst_flags_t);
 extern void do_push_parm_decls			(tree, tree, tree *);
+extern tree do_aggregate_paren_init		(tree, tree);
 
 /* in decl2.c */
 extern void record_mangling			(tree, bool);
@@ -6894,8 +6858,7 @@ extern void end_template_parm_list		(void);
 extern void end_template_decl			(void);
 extern tree maybe_update_decl_type		(tree, tree);
 extern bool check_default_tmpl_args             (tree, tree, bool, bool, int);
-extern tree push_template_decl			(tree);
-extern tree push_template_decl_real		(tree, bool);
+extern tree push_template_decl			(tree, bool is_friend = false);
 extern tree add_inherited_template_parms	(tree, tree);
 extern void template_parm_level_and_index	(tree, int*, int*);
 extern bool redeclare_class_template		(tree, tree, tree);
@@ -6921,6 +6884,7 @@ extern void do_type_instantiation		(tree, tree, tsubst_flags_t);
 extern bool always_instantiate_p		(tree);
 extern bool maybe_instantiate_noexcept		(tree, tsubst_flags_t = tf_warning_or_error);
 extern tree instantiate_decl			(tree, bool, bool);
+extern void maybe_instantiate_decl		(tree);
 extern int comp_template_parms			(const_tree, const_tree);
 extern bool template_heads_equivalent_p		(const_tree, const_tree);
 extern bool builtin_pack_fn_p			(tree);
@@ -6998,7 +6962,9 @@ extern bool template_parm_object_p		(const_tree);
 extern tree tparm_object_argument		(tree);
 extern bool explicit_class_specialization_p     (tree);
 extern bool push_tinst_level                    (tree);
+extern bool push_tinst_level                    (tree, tree);
 extern bool push_tinst_level_loc                (tree, location_t);
+extern bool push_tinst_level_loc                (tree, tree, location_t);
 extern void pop_tinst_level                     (void);
 extern struct tinst_level *outermost_tinst_level(void);
 extern void init_template_processing		(void);
@@ -7029,6 +6995,8 @@ extern bool template_guide_p			(const_tree);
 extern bool builtin_guide_p			(const_tree);
 extern void store_explicit_specifier		(tree, tree);
 extern tree add_outermost_template_args		(tree, tree);
+extern tree add_extra_args			(tree, tree);
+extern tree build_extra_args			(tree, tree, tsubst_flags_t);
 
 /* in rtti.c */
 /* A vector of all tinfo decls that haven't been emitted yet.  */
@@ -7244,7 +7212,7 @@ extern void simplify_aggr_init_expr		(tree *);
 extern void finalize_nrv			(tree *, tree, tree);
 extern tree omp_reduction_id			(enum tree_code, tree, tree);
 extern tree cp_remove_omp_priv_cleanup_stmt	(tree *, int *, void *);
-extern void cp_check_omp_declare_reduction	(tree);
+extern bool cp_check_omp_declare_reduction	(tree);
 extern void finish_omp_declare_simd_methods	(tree);
 extern tree finish_omp_clauses			(tree, enum c_omp_region_type);
 extern tree push_omp_privatization_clauses	(bool);
@@ -7404,7 +7372,7 @@ inline tree ovl_first				(tree) ATTRIBUTE_PURE;
 extern tree ovl_make				(tree fn,
 						 tree next = NULL_TREE);
 extern tree ovl_insert				(tree fn, tree maybe_ovl,
-						 bool using_p = false);
+						 int using_or_hidden = 0);
 extern tree ovl_skip_hidden			(tree) ATTRIBUTE_PURE;
 extern void lookup_mark				(tree lookup, bool val);
 extern tree lookup_add				(tree fns, tree lookup);
@@ -7765,7 +7733,7 @@ extern tree cxx_omp_clause_default_ctor		(tree, tree, tree);
 extern tree cxx_omp_clause_copy_ctor		(tree, tree, tree);
 extern tree cxx_omp_clause_assign_op		(tree, tree, tree);
 extern tree cxx_omp_clause_dtor			(tree, tree);
-extern void cxx_omp_finish_clause		(tree, gimple_seq *);
+extern void cxx_omp_finish_clause		(tree, gimple_seq *, bool);
 extern bool cxx_omp_privatize_by_reference	(const_tree);
 extern bool cxx_omp_disregard_value_expr	(tree, bool);
 extern void cp_fold_function			(tree);
@@ -8152,6 +8120,24 @@ is_constrained_auto (const_tree t)
 {
   return is_auto (t) && PLACEHOLDER_TYPE_CONSTRAINTS (t);
 }
+
+/* RAII class to push/pop class scope T; if T is not a class, do nothing.  */
+
+struct push_nested_class_guard
+{
+  bool push;
+  push_nested_class_guard (tree t)
+    : push (t && CLASS_TYPE_P (t))
+  {
+    if (push)
+      push_nested_class (t);
+  }
+  ~push_nested_class_guard ()
+  {
+    if (push)
+      pop_nested_class ();
+  }
+};
 
 #if CHECKING_P
 namespace selftest {
