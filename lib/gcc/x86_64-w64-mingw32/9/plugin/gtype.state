@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "9.3.1 20200923")
+(!version  "9.3.1 20200930")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 212
@@ -20941,8 +20941,8 @@
  )
  
  (!type struct 1251 nil  gc_used "rtl_data"
-  (!srcfileloc  "emit-rtl.h" 297)
-  (!fields 60 
+  (!srcfileloc  "emit-rtl.h" 300)
+  (!fields 61 
    (!pair  "expr"
     (!type already_seen 969)
     (!srcfileloc  "emit-rtl.h" 60)
@@ -21159,29 +21159,33 @@
     (!type already_seen 2)
     (!srcfileloc  "emit-rtl.h" 267)
     nil )
+   (!pair  "sp_is_clobbered_by_asm"
+    (!type already_seen 2)
+    (!srcfileloc  "emit-rtl.h" 270)
+    nil )
    (!pair  "is_leaf"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 273)
+    (!srcfileloc  "emit-rtl.h" 276)
     nil )
    (!pair  "uses_only_leaf_regs"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 278)
+    (!srcfileloc  "emit-rtl.h" 281)
     nil )
    (!pair  "has_bb_partition"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 283)
+    (!srcfileloc  "emit-rtl.h" 286)
     nil )
    (!pair  "bb_reorder_complete"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 287)
+    (!srcfileloc  "emit-rtl.h" 290)
     nil )
    (!pair  "asm_clobbers"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 293)
+    (!srcfileloc  "emit-rtl.h" 296)
     nil )
    (!pair  "max_insn_address"
     (!type already_seen 2)
-    (!srcfileloc  "emit-rtl.h" 296)
+    (!srcfileloc  "emit-rtl.h" 299)
     nil )
   )
   nil 2047 nil nil )
@@ -22683,7 +22687,7 @@
   nil 0 nil nil )
  
  (!type struct 1499 nil  gc_used "dllimport_hasher"
-  (!srcfileloc  "config/i386/i386.c" 16624)
+  (!srcfileloc  "config/i386/i386.c" 16626)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -22692,11 +22696,11 @@
    (!type already_seen 1500)
   )
   gc_pointed_to "hash_table<dllimport_hasher>"
-  (!srcfileloc  "config/i386/i386.c" 16624)
+  (!srcfileloc  "config/i386/i386.c" 16626)
   (!fields 1 
    (!pair  "dllimport_hasher"
     (!type already_seen 1499)
-    (!srcfileloc  "config/i386/i386.c" 16624)
+    (!srcfileloc  "config/i386/i386.c" 16626)
     nil )
   )
  )
@@ -22725,19 +22729,19 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1508 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34097"nil 
+ (!type struct 1508 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34099"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1509 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34776"nil 
+ (!type struct 1509 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34778"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1510 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:35909"nil 
+ (!type struct 1510 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:35911"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1511 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:36135"nil 
+ (!type struct 1511 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:36137"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -28143,15 +28147,15 @@
   nil )
  (!pair  "function_version_info"
   (!type already_seen 1507)
-  (!srcfileloc  "config/i386/i386.c" 32400)
+  (!srcfileloc  "config/i386/i386.c" 32402)
   nil )
  (!pair  "dllimport_hasher"
   (!type already_seen 1499)
-  (!srcfileloc  "config/i386/i386.c" 16624)
+  (!srcfileloc  "config/i386/i386.c" 16626)
   nil )
  (!pair  "hash_table<dllimport_hasher>"
   (!type already_seen 1500)
-  (!srcfileloc  "config/i386/i386.c" 16624)
+  (!srcfileloc  "config/i386/i386.c" 16626)
   nil )
  (!pair  "use_optype_p"
   (!type already_seen 450)
@@ -32059,52 +32063,52 @@
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 346)
-  (!srcfileloc  "config/i386/i386.c" 46131)
+  (!srcfileloc  "config/i386/i386.c" 46133)
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 45169)
+  (!srcfileloc  "config/i386/i386.c" 45171)
   nil )
  (!pair  "ix86_builtins"
   (!type array 2080 nil  gc_used "(int) IX86_BUILTIN_MAX" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30643)
+  (!srcfileloc  "config/i386/i386.c" 30645)
   nil )
  (!pair  "ix86_builtin_func_type_tab"
   (!type array 2081 nil  gc_used "(int) IX86_BT_LAST_ALIAS + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30400)
+  (!srcfileloc  "config/i386/i386.c" 30402)
   nil )
  (!pair  "ix86_builtin_type_tab"
   (!type array 2082 nil  gc_used "(int) IX86_BT_LAST_CPTR + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30350)
+  (!srcfileloc  "config/i386/i386.c" 30352)
   nil )
  (!pair  "dllimport_map"
   (!type already_seen 1501)
-  (!srcfileloc  "config/i386/i386.c" 16624)
+  (!srcfileloc  "config/i386/i386.c" 16626)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "ix86_tls_module_base_symbol"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 16269)
+  (!srcfileloc  "config/i386/i386.c" 16271)
   nil )
  (!pair  "ix86_tls_symbol"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 16242)
+  (!srcfileloc  "config/i386/i386.c" 16244)
   nil )
  (!pair  "split_stack_fn_large"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 14750)
+  (!srcfileloc  "config/i386/i386.c" 14752)
   nil )
  (!pair  "split_stack_fn"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 14745)
+  (!srcfileloc  "config/i386/i386.c" 14747)
   nil )
  (!pair  "queued_cfa_restores"
   (!type already_seen 150)
@@ -32609,7 +32613,7 @@
   nil )
  (!pair  "x_rtl"
   (!type already_seen 1251)
-  (!srcfileloc  "emit-rtl.h" 314)
+  (!srcfileloc  "emit-rtl.h" 317)
   nil )
  (!pair  "shift_test"
   (!type already_seen 150)
