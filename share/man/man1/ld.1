@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "LD 1"
-.TH LD 1 "2020-09-16" "binutils-2.35.50" "GNU Development Tools"
+.TH LD 1 "2020-10-12" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -1293,6 +1293,19 @@ report an error if \fBnotext\fR or \fBtextoff\fR.
 Do not report unresolved symbol references from regular object files,
 either when creating an executable, or when creating a shared library.
 This option is the inverse of \fB\-z defs\fR.
+.IP "\fBx86\-64\-v2\fR" 4
+.IX Item "x86-64-v2"
+.PD 0
+.IP "\fBx86\-64\-v3\fR" 4
+.IX Item "x86-64-v3"
+.IP "\fBx86\-64\-v4\fR" 4
+.IX Item "x86-64-v4"
+.PD
+Specify the x86\-64 \s-1ISA\s0 level needed in .note.gnu.property section.
+\&\fBx86\-64\-v2\fR generates \f(CW\*(C`GNU_PROPERTY_X86_ISA_1_V2\*(C'\fR.
+\&\fBx86\-64\-v3\fR generates \f(CW\*(C`GNU_PROPERTY_X86_ISA_1_V3\*(C'\fR.
+\&\fBx86\-64\-v4\fR generates \f(CW\*(C`GNU_PROPERTY_X86_ISA_1_V4\*(C'\fR.
+Supported for Linux/i386 and Linux/x86_64.
 .RE
 .RS 4
 .Sp
