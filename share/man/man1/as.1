@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "AS 1"
-.TH AS 1 "2020-09-29" "binutils-2.35.50" "GNU Development Tools"
+.TH AS 1 "2020-10-12" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -834,10 +834,13 @@ on the target processor.  The following processor names are recognized:
 \&\f(CW\*(C`cortex\-a76\*(C'\fR,
 \&\f(CW\*(C`cortex\-a76ae\*(C'\fR,
 \&\f(CW\*(C`cortex\-a77\*(C'\fR,
+\&\f(CW\*(C`cortex\-a78\*(C'\fR,
+\&\f(CW\*(C`cortex\-a78ae\*(C'\fR,
 \&\f(CW\*(C`ares\*(C'\fR,
 \&\f(CW\*(C`exynos\-m1\*(C'\fR,
 \&\f(CW\*(C`falkor\*(C'\fR,
 \&\f(CW\*(C`neoverse\-n1\*(C'\fR,
+\&\f(CW\*(C`neoverse\-n2\*(C'\fR,
 \&\f(CW\*(C`neoverse\-e1\*(C'\fR,
 \&\f(CW\*(C`neoverse\-v1\*(C'\fR,
 \&\f(CW\*(C`qdf24xx\*(C'\fR,
@@ -975,7 +978,7 @@ This option selects the core processor variant.
 Select either big-endian (\-EB) or little-endian (\-EL) output.
 .IP "\fB\-mcode\-density\fR" 4
 .IX Item "-mcode-density"
-Enable Code Density extenssion instructions.
+Enable Code Density extension instructions.
 .PP
 The following options are available when as is configured for the \s-1ARM\s0
 processor family.
