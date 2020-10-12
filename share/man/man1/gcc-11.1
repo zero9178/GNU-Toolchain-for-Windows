@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-09-30" "gcc-11" "GNU"
+.TH GCC 1 "2020-10-12" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -4140,7 +4140,8 @@ options:
 \&\fB\-fno\-diagnostics\-show\-caret 
 \&\-fno\-diagnostics\-show\-line\-numbers 
 \&\-fdiagnostics\-color=never 
-\&\-fdiagnostics\-urls=never\fR
+\&\-fdiagnostics\-urls=never 
+\&\-fdiagnostics\-path\-format=separate\-events\fR
 In the future, if \s-1GCC\s0 changes the default appearance of its diagnostics, the
 corresponding option to disable the new behavior will be added to this list.
 .IP "\fB\-fdiagnostics\-show\-location=once\fR" 4
@@ -10731,7 +10732,18 @@ Enabled at levels \fB\-O2\fR, \fB\-O3\fR.
 Do not remove unused \*(C+ allocations in dead code elimination.
 .IP "\fB\-fallow\-store\-data\-races\fR" 4
 .IX Item "-fallow-store-data-races"
-Allow the compiler to introduce new data races on stores.
+Allow the compiler to perform optimizations that may introduce new data races
+on stores, without proving that the variable cannot be concurrently accessed
+by other threads.  Does not affect optimization of local data.  It is safe to
+use this option if it is known that global data will not be accessed by
+multiple threads.
+.Sp
+Examples of optimizations enabled by \fB\-fallow\-store\-data\-races\fR include
+hoisting or if-conversions that may cause a value that was already in memory
+to be re-written with that same value.  Such re-writing is safe in a single
+threaded context but may be unsafe in a multi-threaded context.  Note that on
+some processors, if-conversions may be required in order to enable
+vectorization.
 .Sp
 Enabled at level \fB\-Ofast\fR.
 .IP "\fB\-funit\-at\-a\-time\fR" 4
@@ -12520,6 +12532,10 @@ When IPA-CP determines that a cloning candidate would make the number
 of iterations of a loop known, it adds a bonus of
 \&\fBipa-cp-loop-hint-bonus\fR to the profitability score of
 the candidate.
+.IP "\fBipa-max-loop-predicates\fR" 4
+.IX Item "ipa-max-loop-predicates"
+The maximum number of different predicates \s-1IPA\s0 will use to describe when
+loops in a function have known properties.
 .IP "\fBipa-max-aa-steps\fR" 4
 .IX Item "ipa-max-aa-steps"
 During its analysis of function bodies, IPA-CP employs alias analysis
@@ -16850,6 +16866,7 @@ performance of the code.  Permissible values for this option are:
 \&\fBcortex\-a57\fR, \fBcortex\-a72\fR, \fBcortex\-a73\fR, \fBcortex\-a75\fR,
 \&\fBcortex\-a76\fR, \fBcortex\-a76ae\fR, \fBcortex\-a77\fR,
 \&\fBcortex\-a65\fR, \fBcortex\-a65ae\fR, \fBcortex\-a34\fR,
+\&\fBcortex\-a78\fR, \fBcortex\-a78ae\fR,
 \&\fBares\fR, \fBexynos\-m1\fR, \fBemag\fR, \fBfalkor\fR,
 \&\fBneoverse\-e1\fR, \fBneoverse\-n1\fR, \fBneoverse\-n2\fR,
 \&\fBneoverse\-v1\fR, \fBqdf24xx\fR, \fBsaphira\fR,
@@ -18665,6 +18682,7 @@ Permissible names are: \fBarm7tdmi\fR, \fBarm7tdmi\-s\fR, \fBarm710t\fR,
 \&\fBcortex\-a32\fR, \fBcortex\-a35\fR, \fBcortex\-a53\fR, \fBcortex\-a55\fR,
 \&\fBcortex\-a57\fR, \fBcortex\-a72\fR, \fBcortex\-a73\fR, \fBcortex\-a75\fR,
 \&\fBcortex\-a76\fR, \fBcortex\-a76ae\fR, \fBcortex\-a77\fR,
+\&\fBcortex\-a78\fR, \fBcortex\-a78ae\fR,
 \&\fBares\fR, \fBcortex\-r4\fR, \fBcortex\-r4f\fR,
 \&\fBcortex\-r5\fR, \fBcortex\-r7\fR, \fBcortex\-r8\fR, \fBcortex\-r52\fR,
 \&\fBcortex\-m0\fR, \fBcortex\-m0plus\fR, \fBcortex\-m1\fR, \fBcortex\-m3\fR,
@@ -24617,7 +24635,7 @@ Generate code for 32\-bit or 64\-bit \s-1ABI.\s0
 .IX Item "-misa=ISA-string"
 Generate code for given the specified \s-1PTX ISA\s0 (e.g. \fBsm_35\fR).  \s-1ISA\s0
 strings must be lower-case.  Valid \s-1ISA\s0 strings include \fBsm_30\fR and
-\&\fBsm_35\fR.  The default \s-1ISA\s0 is sm_30.
+\&\fBsm_35\fR.  The default \s-1ISA\s0 is sm_35.
 .IP "\fB\-mmainkernel\fR" 4
 .IX Item "-mmainkernel"
 Link in code for a _\|_main kernel.  This is for stand-alone instead of
@@ -26721,7 +26739,7 @@ system representing a certain processor type.  Possible values for
 \&\fIcpu-type\fR are \fBz900\fR/\fBarch5\fR, \fBz990\fR/\fBarch6\fR,
 \&\fBz9\-109\fR, \fBz9\-ec\fR/\fBarch7\fR, \fBz10\fR/\fBarch8\fR,
 \&\fBz196\fR/\fBarch9\fR, \fBzEC12\fR, \fBz13\fR/\fBarch11\fR,
-\&\fBz14\fR/\fBarch12\fR, and \fBnative\fR.
+\&\fBz14\fR/\fBarch12\fR, \fBz15\fR/\fBarch13\fR, and \fBnative\fR.
 .Sp
 The default is \fB\-march=z900\fR.
 .Sp
@@ -28143,7 +28161,7 @@ Generate instructions for the machine type \fIcpu-type\fR.  In contrast to
 for the specified \fIcpu-type\fR, \fB\-march=\fR\fIcpu-type\fR allows \s-1GCC\s0
 to generate code that may not run at all on processors other than the one
 indicated.  Specifying \fB\-march=\fR\fIcpu-type\fR implies 
-\&\fB\-mtune=\fR\fIcpu-type\fR.
+\&\fB\-mtune=\fR\fIcpu-type\fR, except where noted otherwise.
 .Sp
 The choices for \fIcpu-type\fR are:
 .RS 4
@@ -28158,6 +28176,23 @@ of the selected instruction set.
 .IP "\fBx86\-64\fR" 4
 .IX Item "x86-64"
 A generic \s-1CPU\s0 with 64\-bit extensions.
+.IP "\fBx86\-64\-v2\fR" 4
+.IX Item "x86-64-v2"
+.PD 0
+.IP "\fBx86\-64\-v3\fR" 4
+.IX Item "x86-64-v3"
+.IP "\fBx86\-64\-v4\fR" 4
+.IX Item "x86-64-v4"
+.PD
+These choices for \fIcpu-type\fR select the corresponding
+micro-architecture level from the x86\-64 psABI.  They are only available
+when compiling for an x86\-64 target that uses the System V psABI.
+.Sp
+Since these \fIcpu-type\fR values do not have a corresponding
+\&\fB\-mtune\fR setting, using \fB\-march\fR with these values enables
+generic tuning.  Specific tuning can be enabled using the
+\&\fB\-mtune=\fR\fIother-cpu-type\fR option with an appropriate
+\&\fIother-cpu-type\fR value.
 .IP "\fBi386\fR" 4
 .IX Item "i386"
 Original Intel i386 \s-1CPU.\s0
