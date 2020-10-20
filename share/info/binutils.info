@@ -4222,7 +4222,7 @@ File: binutils.info,  Node: readelf,  Next: elfedit,  Prev: dlltool,  Up: Top
              [-t|--section-details]
              [-e|--headers]
              [-s|--syms|--symbols]
-             [--dyn-syms]
+             [--dyn-syms|--lto-syms]
              [--demangle=STYLE|--no-demangle]
              [--recurse-limit|--no-recurse-limit]
              [-n|--notes]
@@ -4319,6 +4319,9 @@ equivalent.  At least one option besides '-v' or '-H' must be given.
      Displays the entries in dynamic symbol table section of the file,
      if it has one.  The output format is the same as the format used by
      the '--syms' option.
+
+'--lto-syms'
+     Displays the contents of any LTO symbol tables in the file.
 
 '-C'
 '--demangle[=STYLE]'
@@ -5598,7 +5601,7 @@ Binutils Index
 * architecture:                          objdump.             (line 257)
 * architectures available:               objdump.             (line 242)
 * archive contents:                      ranlib.              (line   6)
-* Archive file symbol index information: readelf.             (line 225)
+* Archive file symbol index information: readelf.             (line 228)
 * archive headers:                       objdump.             (line  75)
 * archives:                              ar.                  (line   6)
 * base files:                            dlltool.             (line 124)
@@ -5614,14 +5617,14 @@ Binutils Index
 * changing start address:                objcopy.             (line 399)
 * collections of files:                  ar.                  (line   6)
 * Compact Type Format:                   objdump.             (line 682)
-* Compact Type Format <1>:               readelf.             (line 373)
+* Compact Type Format <1>:               readelf.             (line 376)
 * compatibility, ar:                     ar.                  (line  60)
 * contents of archive:                   ar cmdline.          (line  97)
 * crash:                                 Bug Criteria.        (line   9)
 * creating archives:                     ar cmdline.          (line 144)
 * creating thin archive:                 ar cmdline.          (line 219)
 * CTF:                                   objdump.             (line 682)
-* CTF <1>:                               readelf.             (line 373)
+* CTF <1>:                               readelf.             (line 376)
 * cxxfilt:                               c++filt.             (line  16)
 * dates in archive:                      ar cmdline.          (line 183)
 * debug symbols:                         objdump.             (line 696)
@@ -5629,7 +5632,7 @@ Binutils Index
 * deleting from archive:                 ar cmdline.          (line  26)
 * demangling C++ symbols:                c++filt.             (line   6)
 * demangling in nm:                      nm.                  (line 171)
-* demangling in nm <1>:                  readelf.             (line 114)
+* demangling in nm <1>:                  readelf.             (line 117)
 * demangling in objdump:                 objdump.             (line 103)
 * demangling in objdump <1>:             addr2line.           (line  86)
 * deterministic archives:                ar cmdline.          (line 150)
@@ -5651,20 +5654,20 @@ Binutils Index
 * dynamic relocation entries, in object file: objdump.        (line 482)
 * dynamic symbol table entries, printing: objdump.            (line 795)
 * dynamic symbols:                       nm.                  (line 201)
-* ELF dynamic section information:       readelf.             (line 165)
+* ELF dynamic section information:       readelf.             (line 168)
 * ELF dynamic symbol table information:  readelf.             (line 108)
 * ELF file header information:           readelf.             (line  71)
 * ELF file information:                  readelf.             (line   6)
-* ELF notes:                             readelf.             (line 147)
+* ELF notes:                             readelf.             (line 150)
 * ELF object file format:                objdump.             (line 696)
 * ELF program header information:        readelf.             (line  77)
-* ELF reloc information:                 readelf.             (line 151)
+* ELF reloc information:                 readelf.             (line 154)
 * ELF section group information:         readelf.             (line  88)
 * ELF section information:               readelf.             (line  83)
 * ELF section information <1>:           readelf.             (line  93)
 * ELF segment information:               readelf.             (line  77)
 * ELF symbol table information:          readelf.             (line  98)
-* ELF version sections information:      readelf.             (line 169)
+* ELF version sections information:      readelf.             (line 172)
 * elfedit:                               elfedit.             (line   6)
 * endianness:                            objdump.             (line 192)
 * error on valid input:                  Bug Criteria.        (line  12)
@@ -5680,6 +5683,7 @@ Binutils Index
 * Instruction width:                     objdump.             (line 522)
 * libraries:                             ar.                  (line  25)
 * listings strings:                      strings.             (line   6)
+* LTO symbol table:                      readelf.             (line 113)
 * machine instructions:                  objdump.             (line 144)
 * moving in archive:                     ar cmdline.          (line  34)
 * MRI compatibility, ar:                 ar scripts.          (line   8)
@@ -5754,7 +5758,7 @@ Binutils Index
 * undefined symbols:                     nm.                  (line 277)
 * undefined symbols <1>:                 nm.                  (line 291)
 * Unix compatibility, ar:                ar cmdline.          (line   8)
-* unwind information:                    readelf.             (line 156)
+* unwind information:                    readelf.             (line 159)
 * Update ELF header:                     elfedit.             (line   6)
 * updating an archive:                   ar cmdline.          (line 224)
 * version:                               Top.                 (line   6)
@@ -5784,16 +5788,16 @@ Node: windres146315
 Node: dlltool152674
 Node: def file format165671
 Node: readelf168201
-Node: elfedit183097
-Node: Common Options186053
-Node: Selecting the Target System187087
-Node: Target Selection188015
-Node: Architecture Selection189996
-Node: debuginfod190824
-Node: Reporting Bugs191583
-Node: Bug Criteria192345
-Node: Bug Reporting192898
-Node: GNU Free Documentation License199768
-Node: Binutils Index224928
+Node: elfedit183187
+Node: Common Options186143
+Node: Selecting the Target System187177
+Node: Target Selection188105
+Node: Architecture Selection190086
+Node: debuginfod190914
+Node: Reporting Bugs191673
+Node: Bug Criteria192435
+Node: Bug Reporting192988
+Node: GNU Free Documentation License199858
+Node: Binutils Index225018
 
 End Tag Table
