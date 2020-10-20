@@ -35,19 +35,19 @@ SECTIONS
       *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
       *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
       *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
-      *(.rela.iplt)
+      *(.rela.ifunc)
     }
   .rela.plt       :
     {
       *(.rela.plt)
+      *(.rela.iplt)
     }
   . = ALIGN(CONSTANT (MAXPAGESIZE));
   .init           :
   {
     KEEP (*(SORT_NONE(.init)))
   }
-  .plt            : { *(.plt) }
-  .iplt           : { *(.iplt) }
+  .plt            : { *(.plt) *(.iplt) }
   .text           :
   {
     *(.text.unlikely .text.*_unlikely .text.unlikely.*)
