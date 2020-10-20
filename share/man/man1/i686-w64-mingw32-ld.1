@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "LD 1"
-.TH LD 1 "2020-10-12" "binutils-2.35.50" "GNU Development Tools"
+.TH LD 1 "2020-10-19" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -1573,6 +1573,15 @@ constants or symbols.  If you need more elaborate expressions, consider
 using the linker command language from a script.
 \&\fINote:\fR there should be no white space between \fIsymbol\fR, the
 equals sign ("\fB=\fR"), and \fIexpression\fR.
+.Sp
+The linker processes \fB\-\-defsym\fR arguments and \fB\-T\fR arguments
+in order, placing \fB\-\-defsym\fR before \fB\-T\fR will define the
+symbol before the linker script from \fB\-T\fR is processed, while
+placing \fB\-\-defsym\fR after \fB\-T\fR will define the symbol after
+the linker script has been processed.  This difference has
+consequences for expressions within the linker script that use the
+\&\fB\-\-defsym\fR symbols, which order is correct will depend on what
+you are trying to achieve.
 .IP "\fB\-\-demangle[=\fR\fIstyle\fR\fB]\fR" 4
 .IX Item "--demangle[=style]"
 .PD 0
@@ -1778,6 +1787,20 @@ appropriate memset function.
 .RE
 .RS 4
 .RE
+.IP "\fB\-\-error\-handling\-script=\fR\fIscriptname\fR" 4
+.IX Item "--error-handling-script=scriptname"
+If this option is provided then the linker will invoke
+\&\fIscriptname\fR whenever an error is encountered.  Currently however
+only two kinds of error are supported: missing symbols and missing
+libraries.  Two arguments will be passed to script: the keyword
+\&\*(L"missing-symbol\*(R" or `missing\-lib" and the \fIname\fR of the 
+missing symbol or library.  The intention is that the script will
+provide suggestions to the user as to where the symbol or library
+might be found.  After the script has finished then the normal linker
+error message will be displayed.
+.Sp
+The availability of this option is controlled by a configure time
+switch, so it may not be present in specific implementations.
 .IP "\fB\-\-no\-undefined\-version\fR" 4
 .IX Item "--no-undefined-version"
 Normally when a symbol has an undefined version, the linker will ignore

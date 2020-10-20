@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "READELF 1"
-.TH READELF 1 "2020-10-12" "binutils-2.35.50" "GNU Development Tools"
+.TH READELF 1 "2020-10-19" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -146,7 +146,7 @@ readelf [\fB\-a\fR|\fB\-\-all\fR]
         [\fB\-t\fR|\fB\-\-section\-details\fR]
         [\fB\-e\fR|\fB\-\-headers\fR]
         [\fB\-s\fR|\fB\-\-syms\fR|\fB\-\-symbols\fR]
-        [\fB\-\-dyn\-syms\fR]
+        [\fB\-\-dyn\-syms\fR|\fB\-\-lto\-syms\fR]
         [\fB\-\-demangle\fR\fI=style\fR|\fB\-\-no\-demangle\fR]
         [\fB\-\-recurse\-limit\fR|\fB\-\-no\-recurse\-limit\fR]
         [\fB\-n\fR|\fB\-\-notes\fR]
@@ -272,6 +272,9 @@ displayed as a suffix preceded by two @ characters.  For example
 Displays the entries in dynamic symbol table section of the file, if it
 has one.  The output format is the same as the format used by the
 \&\fB\-\-syms\fR option.
+.IP "\fB\-\-lto\-syms\fR" 4
+.IX Item "--lto-syms"
+Displays the contents of any \s-1LTO\s0 symbol tables in the file.
 .IP "\fB\-C\fR" 4
 .IX Item "-C"
 .PD 0
