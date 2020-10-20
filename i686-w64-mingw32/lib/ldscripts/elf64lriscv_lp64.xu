@@ -37,10 +37,7 @@ SECTIONS
   .rela.sdata2  0 : { *(.rela.sdata2) }
   .rela.sbss2   0 : { *(.rela.sbss2) }
   .rela.bss     0 : { *(.rela.bss) }
-  .rela.iplt    0 :
-    {
-      *(.rela.iplt)
-    }
+  .rela.ifunc   0 : { *(.rela.ifunc) }
   .rela.plt     0 :
     {
       *(.rela.plt)
@@ -50,7 +47,6 @@ SECTIONS
     KEEP (*(SORT_NONE(.init)))
   }
   .plt          0 : { *(.plt) }
-  .iplt         0 : { *(.iplt) }
   .text         0 :
   {
     *(.text .stub)

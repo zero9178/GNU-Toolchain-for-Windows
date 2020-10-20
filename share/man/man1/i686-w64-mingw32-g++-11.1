@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-10-12" "gcc-11" "GNU"
+.TH GCC 1 "2020-10-19" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -448,7 +448,9 @@ in the following sections.
 \&\-Wno\-analyzer\-unsafe\-call\-within\-signal\-handler 
 \&\-Wno\-analyzer\-use\-after\-free 
 \&\-Wno\-analyzer\-use\-of\-pointer\-in\-stale\-stack\-frame 
-\&\-Wno\-analyzer\-use\-of\-uninitialized\-value\fR
+\&\-Wno\-analyzer\-use\-of\-uninitialized\-value 
+\&\-Wno\-analyzer\-write\-to\-const 
+\&\-Wno\-analyzer\-write\-to\-string\-literal\fR
 .IP "\fIC and Objective-C-only Warning Options\fR" 4
 .IX Item "C and Objective-C-only Warning Options"
 \&\fB\-Wbad\-function\-cast  \-Wmissing\-declarations 
@@ -1112,7 +1114,7 @@ in the following sections.
 \&\fB\-march=\fR\fIarch\fR  \fB\-mbmx  \-mno\-bmx  \-mcdx  \-mno\-cdx\fR
 .Sp
 \&\fINvidia \s-1PTX\s0 Options\fR
-\&\fB\-m32  \-m64  \-mmainkernel  \-moptimize\fR
+\&\fB\-m64  \-mmainkernel  \-moptimize\fR
 .Sp
 \&\fIOpenRISC Options\fR
 \&\fB\-mboard=\fR\fIname\fR  \fB\-mnewlib  \-mhard\-mul  \-mhard\-div 
@@ -1367,7 +1369,7 @@ See \s-1RS/6000\s0 and PowerPC Options.
 \&\-mvpclmulqdq  \-mavx512bitalg  \-mmovdiri  \-mmovdir64b  \-mavx512vpopcntdq 
 \&\-mavx5124fmaps  \-mavx512vnni  \-mavx5124vnniw  \-mprfchw  \-mrdpid 
 \&\-mrdseed  \-msgx \-mavx512vp2intersect \-mserialize \-mtsxldtrk
-\&\-mamx\-tile  \-mamx\-int8  \-mamx\-bf16
+\&\-mamx\-tile  \-mamx\-int8  \-mamx\-bf16 \-muintr \-mhreset
 \&\-mcldemote  \-mms\-bitfields  \-mno\-align\-stringops  \-minline\-all\-stringops 
 \&\-minline\-stringops\-dynamically  \-mstringop\-strategy=\fR\fIalg\fR 
 \&\fB\-mmemcpy\-strategy=\fR\fIstrategy\fR  \fB\-mmemset\-strategy=\fR\fIstrategy\fR 
@@ -8164,7 +8166,9 @@ Enabling this option effectively enables the following warnings:
 \&\-Wanalyzer\-tainted\-array\-index 
 \&\-Wanalyzer\-unsafe\-call\-within\-signal\-handler 
 \&\-Wanalyzer\-use\-after\-free 
-\&\-Wanalyzer\-use\-of\-pointer\-in\-stale\-stack\-frame\fR
+\&\-Wanalyzer\-use\-of\-pointer\-in\-stale\-stack\-frame 
+\&\-Wanalyzer\-write\-to\-const 
+\&\-Wanalyzer\-write\-to\-string\-literal\fR
 .Sp
 This option is only available if \s-1GCC\s0 was configured with analyzer
 support enabled.
@@ -8311,6 +8315,26 @@ to disable it.
 .Sp
 This diagnostic warns for paths through the code in which a pointer
 is dereferenced that points to a variable in a stale stack frame.
+.IP "\fB\-Wno\-analyzer\-write\-to\-const\fR" 4
+.IX Item "-Wno-analyzer-write-to-const"
+This warning requires \fB\-fanalyzer\fR, which enables it; use
+\&\fB\-Wno\-analyzer\-write\-to\-const\fR
+to disable it.
+.Sp
+This diagnostic warns for paths through the code in which the analyzer
+detects an attempt to write through a pointer to a \f(CW\*(C`const\*(C'\fR object.
+However, the analyzer does not prioritize detection of such paths, so
+false negatives are more likely relative to other warnings.
+.IP "\fB\-Wno\-analyzer\-write\-to\-string\-literal\fR" 4
+.IX Item "-Wno-analyzer-write-to-string-literal"
+This warning requires \fB\-fanalyzer\fR, which enables it; use
+\&\fB\-Wno\-analyzer\-write\-to\-string\-literal\fR
+to disable it.
+.Sp
+This diagnostic warns for paths through the code in which the analyzer
+detects an attempt to write through a pointer to a string literal.
+However, the analyzer does not prioritize detection of such paths, so
+false negatives are more likely relative to other warnings.
 .PP
 Pertinent parameters for controlling the exploration are:
 \&\fB\-\-param analyzer\-bb\-explosion\-factor=\fR\fIvalue\fR,
@@ -10850,7 +10874,7 @@ to more aggressive optimization decisions.
 When a file is compiled with \fB\-flto\fR without
 \&\fB\-fuse\-linker\-plugin\fR, the generated object file is larger than
 a regular object file because it contains \s-1GIMPLE\s0 bytecodes and the usual
-final code (see \fB\-ffat\-lto\-objects\fR.  This means that
+final code (see \fB\-ffat\-lto\-objects\fR).  This means that
 object files with \s-1LTO\s0 information can be linked as normal object
 files; if \fB\-fno\-lto\fR is passed to the linker, no
 interprocedural optimizations are applied.  Note that when
@@ -12495,6 +12519,9 @@ Loop blocking or strip mining transforms, enabled with
 loop in the loop nest by a given number of iterations.  The strip
 length can be changed using the \fBloop-block-tile-size\fR
 parameter.
+.IP "\fBipa-jump-function-lookups\fR" 4
+.IX Item "ipa-jump-function-lookups"
+Specifies number of statements visited during jump function offset discovery.
 .IP "\fBipa-cp-value-list-size\fR" 4
 .IX Item "ipa-cp-value-list-size"
 IPA-CP attempts to track all possible values and types passed to a function's
@@ -24624,13 +24651,10 @@ This option is typically used to link with a library provided by a \s-1HAL BSP.\
 .IX Subsection "Nvidia PTX Options"
 .PP
 These options are defined for Nvidia \s-1PTX:\s0
-.IP "\fB\-m32\fR" 4
-.IX Item "-m32"
-.PD 0
 .IP "\fB\-m64\fR" 4
 .IX Item "-m64"
-.PD
-Generate code for 32\-bit or 64\-bit \s-1ABI.\s0
+Ignored, but preserved for backward compatibility.  Only 64\-bit \s-1ABI\s0 is
+supported.
 .IP "\fB\-misa=\fR\fIISA-string\fR" 4
 .IX Item "-misa=ISA-string"
 Generate code for given the specified \s-1PTX ISA\s0 (e.g. \fBsm_35\fR).  \s-1ISA\s0
@@ -24964,14 +24988,29 @@ these instructions.
 Generate code for given RISC-V \s-1ISA\s0 (e.g. \fBrv64im\fR).  \s-1ISA\s0 strings must be
 lower-case.  Examples include \fBrv64i\fR, \fBrv32g\fR, \fBrv32e\fR, and
 \&\fBrv32imaf\fR.
+.Sp
+When \fB\-march=\fR is not specified, use the setting from \fB\-mcpu\fR.
+.Sp
+If both \fB\-march\fR and \fB\-mcpu=\fR are not specified, the default for
+this argument is system dependent, users who want a specific architecture
+extensions should specify one explicitly.
+.IP "\fB\-mcpu=\fR\fIprocessor-string\fR" 4
+.IX Item "-mcpu=processor-string"
+Use architecture of and optimize the output for the given processor, specified
+by particular \s-1CPU\s0 name.
+Permissible values for this option are: \fBsifive\-e20\fR, \fBsifive\-e21\fR,
+\&\fBsifive\-e24\fR, \fBsifive\-e31\fR, \fBsifive\-e34\fR, \fBsifive\-e76\fR,
+\&\fBsifive\-s21\fR, \fBsifive\-s51\fR, \fBsifive\-s54\fR, \fBsifive\-s76\fR,
+\&\fBsifive\-u54\fR, and \fBsifive\-u74\fR.
 .IP "\fB\-mtune=\fR\fIprocessor-string\fR" 4
 .IX Item "-mtune=processor-string"
-Optimize the output for the given processor, specified by microarchitecture
-name.  Permissible values for this option are: \fBrocket\fR,
+Optimize the output for the given processor, specified by microarchitecture or
+particular \s-1CPU\s0 name.  Permissible values for this option are: \fBrocket\fR,
 \&\fBsifive\-3\-series\fR, \fBsifive\-5\-series\fR, \fBsifive\-7\-series\fR,
-and \fBsize\fR.
+\&\fBsize\fR, and all valid options for \fB\-mcpu=\fR.
 .Sp
-When \fB\-mtune=\fR is not specified, the default is \fBrocket\fR.
+When \fB\-mtune=\fR is not specified, use the setting from \fB\-mcpu\fR,
+the default is \fBrocket\fR if both are not specified.
 .Sp
 The \fBsize\fR choice is not intended for use by end-users.  This is used
 when \fB\-Os\fR is specified.  It overrides the instruction cost info
@@ -29092,6 +29131,8 @@ preferred alignment to \fB\-mpreferred\-stack\-boundary=2\fR.
 .IX Item "-mmovdir64b"
 .IP "\fB\-menqcmd\fR" 4
 .IX Item "-menqcmd"
+.IP "\fB\-muintr\fR" 4
+.IX Item "-muintr"
 .IP "\fB\-mtsxldtrk\fR" 4
 .IX Item "-mtsxldtrk"
 .IP "\fB\-mavx512vpopcntdq\fR" 4
@@ -29114,6 +29155,8 @@ preferred alignment to \fB\-mpreferred\-stack\-boundary=2\fR.
 .IX Item "-mamx-int8"
 .IP "\fB\-mamx\-bf16\fR" 4
 .IX Item "-mamx-bf16"
+.IP "\fB\-mhreset\fR" 4
+.IX Item "-mhreset"
 .PD
 These switches enable the use of instructions in the \s-1MMX, SSE,
 SSE2, SSE3, SSSE3, SSE4, SSE4A, SSE4.1, SSE4.2, AVX, AVX2, AVX512F, AVX512PF,
@@ -29123,8 +29166,8 @@ WBNOINVD, FMA4, PREFETCHW, RDPID, PREFETCHWT1, RDSEED, SGX, XOP, LWP,\s0
 3DNow!, enhanced 3DNow!, \s-1POPCNT, ABM, ADX, BMI, BMI2, LZCNT, FXSR, XSAVE,
 XSAVEOPT, XSAVEC, XSAVES, RTM, HLE, TBM, MWAITX, CLZERO, PKU, AVX512VBMI2,
 GFNI, VAES, WAITPKG, VPCLMULQDQ, AVX512BITALG, MOVDIRI, MOVDIR64B, AVX512BF16,
-ENQCMD, AVX512VPOPCNTDQ, AVX5124FMAPS, AVX512VNNI, AVX5124VNNIW, SERIALIZE\s0
-or \s-1CLDEMOTE\s0 extended instruction sets.  Each has a corresponding
+ENQCMD, AVX512VPOPCNTDQ, AVX5124FMAPS, AVX512VNNI, AVX5124VNNIW, SERIALIZE,
+UINTR, HRESET\s0 or \s-1CLDEMOTE\s0 extended instruction sets.  Each has a corresponding
 \&\fB\-mno\-\fR option to disable use of these instructions.
 .Sp
 These extensions are also available as built-in functions: see
