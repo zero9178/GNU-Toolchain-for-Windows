@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20201012")
+(!version  "10.2.1 20201020")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 223
@@ -20353,7 +20353,7 @@
  )
  
  (!type struct 1106 nil  gc_used "ipa_vr_ggc_hash_traits"
-  (!srcfileloc  "ipa-prop.c" 151)
+  (!srcfileloc  "ipa-prop.c" 152)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -20362,11 +20362,11 @@
    (!type already_seen 1107)
   )
   gc_pointed_to "hash_table<ipa_vr_ggc_hash_traits>"
-  (!srcfileloc  "ipa-prop.c" 151)
+  (!srcfileloc  "ipa-prop.c" 152)
   (!fields 1 
    (!pair  "ipa_vr_ggc_hash_traits"
     (!type already_seen 1106)
-    (!srcfileloc  "ipa-prop.c" 151)
+    (!srcfileloc  "ipa-prop.c" 152)
     nil )
   )
  )
@@ -26645,7 +26645,7 @@
    (!type already_seen 1861)
   )
   gc_pointed_to "tinst_level"
-  (!srcfileloc  "cp/pt.c" 9370)
+  (!srcfileloc  "cp/pt.c" 9371)
   (!fields 6 
    (!pair  "next"
     (!type already_seen 1862)
@@ -27821,7 +27821,7 @@
    (!type already_seen 2000)
   )
   gc_pointed_to "pending_template"
-  (!srcfileloc  "cp/pt.c" 9379)
+  (!srcfileloc  "cp/pt.c" 9380)
   (!fields 2 
    (!pair  "next"
     (!type already_seen 2001)
@@ -27914,15 +27914,15 @@
    (!type already_seen 2014)
   )
   gc_pointed_to "hash_map<tree,tree_pair_p>"
-  (!srcfileloc  "cp/pt.c" 28745)
+  (!srcfileloc  "cp/pt.c" 28746)
   (!fields 2 
    (!pair  "tree_pair_p"
     (!type already_seen 544)
-    (!srcfileloc  "cp/pt.c" 28745)
+    (!srcfileloc  "cp/pt.c" 28746)
     nil )
    (!pair  "tree"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28745)
+    (!srcfileloc  "cp/pt.c" 28746)
     nil )
   )
  )
@@ -29150,15 +29150,15 @@
   nil )
  (!pair  "hash_map<tree,tree_pair_p>"
   (!type already_seen 2014)
-  (!srcfileloc  "cp/pt.c" 28745)
+  (!srcfileloc  "cp/pt.c" 28746)
   nil )
  (!pair  "pending_template"
   (!type already_seen 2000)
-  (!srcfileloc  "cp/pt.c" 9379)
+  (!srcfileloc  "cp/pt.c" 9380)
   nil )
  (!pair  "tinst_level"
   (!type already_seen 1861)
-  (!srcfileloc  "cp/pt.c" 9370)
+  (!srcfileloc  "cp/pt.c" 9371)
   nil )
  (!pair  "spec_hasher"
   (!type already_seen 2003)
@@ -30824,11 +30824,11 @@
   nil )
  (!pair  "ipa_vr_ggc_hash_traits"
   (!type already_seen 1106)
-  (!srcfileloc  "ipa-prop.c" 151)
+  (!srcfileloc  "ipa-prop.c" 152)
   nil )
  (!pair  "hash_table<ipa_vr_ggc_hash_traits>"
   (!type already_seen 1107)
-  (!srcfileloc  "ipa-prop.c" 151)
+  (!srcfileloc  "ipa-prop.c" 152)
   nil )
  (!pair  "ipa_bit_ggc_hash_traits"
   (!type already_seen 1103)
@@ -33183,46 +33183,46 @@
   nil )
  (!pair  "dguide_cache"
   (!type already_seen 2015)
-  (!srcfileloc  "cp/pt.c" 28745)
+  (!srcfileloc  "cp/pt.c" 28746)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "explicit_specifier_map"
   (!type already_seen 947)
-  (!srcfileloc  "cp/pt.c" 13539)
+  (!srcfileloc  "cp/pt.c" 13540)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "defarg_inst"
   (!type already_seen 947)
-  (!srcfileloc  "cp/pt.c" 13428)
+  (!srcfileloc  "cp/pt.c" 13429)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "last_error_tinst_level"
   (!type already_seen 1862)
-  (!srcfileloc  "cp/pt.c" 10727)
+  (!srcfileloc  "cp/pt.c" 10728)
   nil )
  (!pair  "pending_template_freelist_head"
   (!type already_seen 2001)
-  (!srcfileloc  "cp/pt.c" 9379)
+  (!srcfileloc  "cp/pt.c" 9380)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "tinst_level_freelist_head"
   (!type already_seen 1862)
-  (!srcfileloc  "cp/pt.c" 9370)
+  (!srcfileloc  "cp/pt.c" 9371)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "tree_list_freelist_head"
   (!type already_seen 23)
-  (!srcfileloc  "cp/pt.c" 9361)
+  (!srcfileloc  "cp/pt.c" 9362)
   (!options 
    (!option deletable string  "")
   )
@@ -34256,7 +34256,7 @@
   nil )
  (!pair  "critical_name_mutexes"
   (!type already_seen 398)
-  (!srcfileloc  "omp-low.c" 9392)
+  (!srcfileloc  "omp-low.c" 9393)
   nil )
  (!pair  "grid_attr_trees"
   (!type already_seen 1543)
@@ -35089,7 +35089,7 @@
   nil )
  (!pair  "ipa_vr_hash_table"
   (!type already_seen 1108)
-  (!srcfileloc  "ipa-prop.c" 151)
+  (!srcfileloc  "ipa-prop.c" 152)
   (!options 
    (!option cache string  "")
   )

@@ -404,6 +404,10 @@
 #define HAVE_enqcmds_si ((TARGET_ENQCMD) && (Pmode == SImode))
 #define HAVE_enqcmd_di ((TARGET_ENQCMD) && (Pmode == DImode))
 #define HAVE_enqcmds_di ((TARGET_ENQCMD) && (Pmode == DImode))
+#define HAVE_clui (TARGET_UINTR && TARGET_64BIT)
+#define HAVE_stui (TARGET_UINTR && TARGET_64BIT)
+#define HAVE_testui (TARGET_UINTR && TARGET_64BIT)
+#define HAVE_senduipi (TARGET_UINTR && TARGET_64BIT)
 #define HAVE_umwait (!TARGET_64BIT && TARGET_WAITPKG)
 #define HAVE_umwait_rex64 (TARGET_64BIT && TARGET_WAITPKG)
 #define HAVE_umonitor_si ((TARGET_WAITPKG) && (Pmode == SImode))
@@ -414,6 +418,7 @@
 #define HAVE_speculation_barrier 1
 #define HAVE_serialize (TARGET_SERIALIZE)
 #define HAVE_patchable_area 1
+#define HAVE_hreset (TARGET_HRESET)
 #define HAVE_sse_movntq ((TARGET_MMX || TARGET_MMX_WITH_SSE) \
    && (TARGET_SSE || TARGET_3DNOW_A))
 #define HAVE_mmx_ieee_maxv2sf3 (TARGET_3DNOW || TARGET_MMX_WITH_SSE)
@@ -871,15 +876,25 @@
 #define HAVE_sse3_haddv4sf3 (TARGET_SSE3)
 #define HAVE_sse3_hsubv4sf3 (TARGET_SSE3)
 #define HAVE_reducepv16sf_mask ((TARGET_AVX512F) && (TARGET_AVX512DQ))
+#define HAVE_reducepv16sf_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_AVX512DQ)))
 #define HAVE_reducepv8sf_mask ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_AVX512VL)))
+#define HAVE_reducepv8sf_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_AVX512VL))))
 #define HAVE_reducepv4sf_mask ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_AVX512VL)))
+#define HAVE_reducepv4sf_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_AVX512VL))))
 #define HAVE_reducepv8df_mask ((TARGET_AVX512F) && (TARGET_AVX512DQ))
+#define HAVE_reducepv8df_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_AVX512DQ)))
 #define HAVE_reducepv4df_mask ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_AVX512VL)))
+#define HAVE_reducepv4df_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_AVX512VL))))
 #define HAVE_reducepv2df_mask ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_AVX512VL)))
+#define HAVE_reducepv2df_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_AVX512VL))))
 #define HAVE_reducesv4sf (TARGET_AVX512DQ)
 #define HAVE_reducesv4sf_mask ((TARGET_AVX512F) && (TARGET_AVX512DQ))
+#define HAVE_reducesv4sf_round ((TARGET_AVX512F) && (TARGET_AVX512DQ))
+#define HAVE_reducesv4sf_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_AVX512DQ)))
 #define HAVE_reducesv2df ((TARGET_AVX512DQ) && (TARGET_SSE2))
 #define HAVE_reducesv2df_mask ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_SSE2)))
+#define HAVE_reducesv2df_round ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_SSE2)))
+#define HAVE_reducesv2df_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && ((TARGET_AVX512DQ) && (TARGET_SSE2))))
 #define HAVE_avx_cmpv8sf3 (TARGET_AVX)
 #define HAVE_avx_cmpv4sf3 (TARGET_AVX)
 #define HAVE_avx_cmpv4df3 (TARGET_AVX)
@@ -1552,8 +1567,12 @@
 #define HAVE_sse2_cvttpd2dq_mask (TARGET_AVX512VL)
 #define HAVE_sse2_cvtsd2ss (TARGET_SSE2)
 #define HAVE_sse2_cvtsd2ss_round ((TARGET_AVX512F) && (TARGET_SSE2))
+#define HAVE_sse2_cvtsd2ss_mask ((TARGET_AVX512F) && (TARGET_SSE2))
+#define HAVE_sse2_cvtsd2ss_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_SSE2)))
 #define HAVE_sse2_cvtss2sd (TARGET_SSE2)
 #define HAVE_sse2_cvtss2sd_round ((TARGET_AVX512F) && (TARGET_SSE2))
+#define HAVE_sse2_cvtss2sd_mask ((TARGET_AVX512F) && (TARGET_SSE2))
+#define HAVE_sse2_cvtss2sd_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_SSE2)))
 #define HAVE_avx512f_cvtpd2ps512_mask (TARGET_AVX512F)
 #define HAVE_avx512f_cvtpd2ps512_mask_round (TARGET_AVX512F)
 #define HAVE_avx_cvtpd2ps256 (TARGET_AVX && 1)
@@ -2932,16 +2951,24 @@
 #define HAVE_avx512er_rcp28v8df_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_AVX512ER)))
 #define HAVE_avx512er_vmrcp28v4sf (TARGET_AVX512ER)
 #define HAVE_avx512er_vmrcp28v4sf_round ((TARGET_AVX512F) && (TARGET_AVX512ER))
+#define HAVE_avx512er_vmrcp28v4sf_mask ((TARGET_AVX512F) && (TARGET_AVX512ER))
+#define HAVE_avx512er_vmrcp28v4sf_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_AVX512ER)))
 #define HAVE_avx512er_vmrcp28v2df ((TARGET_AVX512ER) && (TARGET_SSE2))
 #define HAVE_avx512er_vmrcp28v2df_round ((TARGET_AVX512F) && ((TARGET_AVX512ER) && (TARGET_SSE2)))
+#define HAVE_avx512er_vmrcp28v2df_mask ((TARGET_AVX512F) && ((TARGET_AVX512ER) && (TARGET_SSE2)))
+#define HAVE_avx512er_vmrcp28v2df_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && ((TARGET_AVX512ER) && (TARGET_SSE2))))
 #define HAVE_avx512er_rsqrt28v16sf_mask ((TARGET_AVX512F) && (TARGET_AVX512ER))
 #define HAVE_avx512er_rsqrt28v16sf_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_AVX512ER)))
 #define HAVE_avx512er_rsqrt28v8df_mask ((TARGET_AVX512F) && (TARGET_AVX512ER))
 #define HAVE_avx512er_rsqrt28v8df_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_AVX512ER)))
 #define HAVE_avx512er_vmrsqrt28v4sf (TARGET_AVX512ER)
 #define HAVE_avx512er_vmrsqrt28v4sf_round ((TARGET_AVX512F) && (TARGET_AVX512ER))
+#define HAVE_avx512er_vmrsqrt28v4sf_mask ((TARGET_AVX512F) && (TARGET_AVX512ER))
+#define HAVE_avx512er_vmrsqrt28v4sf_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_AVX512ER)))
 #define HAVE_avx512er_vmrsqrt28v2df ((TARGET_AVX512ER) && (TARGET_SSE2))
 #define HAVE_avx512er_vmrsqrt28v2df_round ((TARGET_AVX512F) && ((TARGET_AVX512ER) && (TARGET_SSE2)))
+#define HAVE_avx512er_vmrsqrt28v2df_mask ((TARGET_AVX512F) && ((TARGET_AVX512ER) && (TARGET_SSE2)))
+#define HAVE_avx512er_vmrsqrt28v2df_mask_round ((TARGET_AVX512F) && ((TARGET_AVX512F) && ((TARGET_AVX512ER) && (TARGET_SSE2))))
 #define HAVE_xop_pmacsww (TARGET_XOP)
 #define HAVE_xop_pmacssww (TARGET_XOP)
 #define HAVE_xop_pmacsdd (TARGET_XOP)
@@ -7598,6 +7625,10 @@ extern rtx        gen_enqcmd_si                                  (rtx, rtx);
 extern rtx        gen_enqcmds_si                                 (rtx, rtx);
 extern rtx        gen_enqcmd_di                                  (rtx, rtx);
 extern rtx        gen_enqcmds_di                                 (rtx, rtx);
+extern rtx        gen_clui                                       (void);
+extern rtx        gen_stui                                       (void);
+extern rtx        gen_testui                                     (void);
+extern rtx        gen_senduipi                                   (rtx);
 extern rtx        gen_umwait                                     (rtx, rtx);
 extern rtx        gen_umwait_rex64                               (rtx, rtx, rtx);
 extern rtx        gen_umonitor_si                                (rtx);
@@ -7608,6 +7639,7 @@ extern rtx        gen_cldemote                                   (rtx);
 extern rtx        gen_speculation_barrier                        (void);
 extern rtx        gen_serialize                                  (void);
 extern rtx        gen_patchable_area                             (rtx, rtx);
+extern rtx        gen_hreset                                     (rtx);
 extern rtx        gen_sse_movntq                                 (rtx, rtx);
 extern rtx        gen_mmx_ieee_maxv2sf3                          (rtx, rtx, rtx);
 extern rtx        gen_mmx_ieee_minv2sf3                          (rtx, rtx, rtx);
@@ -8131,15 +8163,25 @@ extern rtx        gen_avx_hsubv8sf3                              (rtx, rtx, rtx)
 extern rtx        gen_sse3_haddv4sf3                             (rtx, rtx, rtx);
 extern rtx        gen_sse3_hsubv4sf3                             (rtx, rtx, rtx);
 extern rtx        gen_reducepv16sf_mask                          (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_reducepv16sf_mask_round                    (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_reducepv8sf_mask                           (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_reducepv8sf_mask_round                     (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_reducepv4sf_mask                           (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_reducepv4sf_mask_round                     (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_reducepv8df_mask                           (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_reducepv8df_mask_round                     (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_reducepv4df_mask                           (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_reducepv4df_mask_round                     (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_reducepv2df_mask                           (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_reducepv2df_mask_round                     (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_reducesv4sf                                (rtx, rtx, rtx, rtx);
 extern rtx        gen_reducesv4sf_mask                           (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_reducesv4sf_round                          (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_reducesv4sf_mask_round                     (rtx, rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_reducesv2df                                (rtx, rtx, rtx, rtx);
 extern rtx        gen_reducesv2df_mask                           (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_reducesv2df_round                          (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_reducesv2df_mask_round                     (rtx, rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx_cmpv8sf3                               (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx_cmpv4sf3                               (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx_cmpv4df3                               (rtx, rtx, rtx, rtx);
@@ -9232,8 +9274,12 @@ extern rtx        gen_sse2_cvttpd2dq                             (rtx, rtx);
 extern rtx        gen_sse2_cvttpd2dq_mask                        (rtx, rtx, rtx, rtx);
 extern rtx        gen_sse2_cvtsd2ss                              (rtx, rtx, rtx);
 extern rtx        gen_sse2_cvtsd2ss_round                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_sse2_cvtsd2ss_mask                         (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_sse2_cvtsd2ss_mask_round                   (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_sse2_cvtss2sd                              (rtx, rtx, rtx);
 extern rtx        gen_sse2_cvtss2sd_round                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_sse2_cvtss2sd_mask                         (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_sse2_cvtss2sd_mask_round                   (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_cvtpd2ps512_mask                   (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_cvtpd2ps512_mask_round             (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx_cvtpd2ps256                            (rtx, rtx);
@@ -10340,16 +10386,24 @@ extern rtx        gen_avx512er_rcp28v8df_mask                    (rtx, rtx, rtx,
 extern rtx        gen_avx512er_rcp28v8df_mask_round              (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512er_vmrcp28v4sf                       (rtx, rtx, rtx);
 extern rtx        gen_avx512er_vmrcp28v4sf_round                 (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512er_vmrcp28v4sf_mask                  (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512er_vmrcp28v4sf_mask_round            (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512er_vmrcp28v2df                       (rtx, rtx, rtx);
 extern rtx        gen_avx512er_vmrcp28v2df_round                 (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512er_vmrcp28v2df_mask                  (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512er_vmrcp28v2df_mask_round            (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512er_rsqrt28v16sf_mask                 (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512er_rsqrt28v16sf_mask_round           (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512er_rsqrt28v8df_mask                  (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512er_rsqrt28v8df_mask_round            (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512er_vmrsqrt28v4sf                     (rtx, rtx, rtx);
 extern rtx        gen_avx512er_vmrsqrt28v4sf_round               (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512er_vmrsqrt28v4sf_mask                (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512er_vmrsqrt28v4sf_mask_round          (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512er_vmrsqrt28v2df                     (rtx, rtx, rtx);
 extern rtx        gen_avx512er_vmrsqrt28v2df_round               (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512er_vmrsqrt28v2df_mask                (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512er_vmrsqrt28v2df_mask_round          (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_xop_pmacsww                                (rtx, rtx, rtx, rtx);
 extern rtx        gen_xop_pmacssww                               (rtx, rtx, rtx, rtx);
 extern rtx        gen_xop_pmacsdd                                (rtx, rtx, rtx, rtx);
