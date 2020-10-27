@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20201020")
+(!version  "10.2.1 20201027")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 224
@@ -25131,19 +25131,19 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1706 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8214"nil 
+ (!type struct 1706 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8221"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1707 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8903"nil 
+ (!type struct 1707 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:8910"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1708 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10168"nil 
+ (!type struct 1708 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10175"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1709 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10394"nil 
+ (!type struct 1709 nil  gc_unused "anonymous:../../gcc/config/i386/i386-expand.c:10401"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -27915,15 +27915,15 @@
    (!type already_seen 2014)
   )
   gc_pointed_to "hash_map<tree,tree_pair_p>"
-  (!srcfileloc  "cp/pt.c" 28746)
+  (!srcfileloc  "cp/pt.c" 28765)
   (!fields 2 
    (!pair  "tree_pair_p"
     (!type already_seen 544)
-    (!srcfileloc  "cp/pt.c" 28746)
+    (!srcfileloc  "cp/pt.c" 28765)
     nil )
    (!pair  "tree"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28746)
+    (!srcfileloc  "cp/pt.c" 28765)
     nil )
   )
  )
@@ -29151,7 +29151,7 @@
   nil )
  (!pair  "hash_map<tree,tree_pair_p>"
   (!type already_seen 2014)
-  (!srcfileloc  "cp/pt.c" 28746)
+  (!srcfileloc  "cp/pt.c" 28765)
   nil )
  (!pair  "pending_template"
   (!type already_seen 2000)
@@ -33184,7 +33184,7 @@
   nil )
  (!pair  "dguide_cache"
   (!type already_seen 2015)
-  (!srcfileloc  "cp/pt.c" 28746)
+  (!srcfileloc  "cp/pt.c" 28765)
   (!options 
    (!option deletable string  "")
   )
@@ -33597,7 +33597,7 @@
  )
  (!pair  "cv_cache"
   (!type already_seen 398)
-  (!srcfileloc  "cp/constexpr.c" 6902)
+  (!srcfileloc  "cp/constexpr.c" 6916)
   (!options 
    (!option deletable string  "")
   )
@@ -34069,7 +34069,7 @@
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 295)
-  (!srcfileloc  "config/i386/i386-expand.c" 16241)
+  (!srcfileloc  "config/i386/i386-expand.c" 16248)
   nil )
  (!pair  "ix86_builtins"
   (!type array 2180 nil  gc_used "(int) IX86_BUILTIN_MAX" 
