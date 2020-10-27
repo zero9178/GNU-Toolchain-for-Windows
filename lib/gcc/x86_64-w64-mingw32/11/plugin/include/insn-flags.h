@@ -2098,12 +2098,18 @@
 #define HAVE_avx512bw_pmaddwd512v16hi_mask ((TARGET_AVX512F) && ((TARGET_AVX512BW && (32 == 64 || TARGET_AVX512VL)) && (TARGET_AVX2)))
 #define HAVE_avx512bw_pmaddwd512v8hi (TARGET_AVX512BW && 1)
 #define HAVE_avx512bw_pmaddwd512v8hi_mask ((TARGET_AVX512F) && (TARGET_AVX512BW && (16 == 64 || TARGET_AVX512VL)))
-#define HAVE_avx512dq_mulv8di3 ((TARGET_AVX512DQ && 1) && (TARGET_AVX512F))
-#define HAVE_avx512dq_mulv8di3_mask ((TARGET_AVX512F) && ((TARGET_AVX512DQ && (64 == 64 || TARGET_AVX512VL)) && (TARGET_AVX512F)))
-#define HAVE_avx512dq_mulv4di3 ((TARGET_AVX512DQ && 1) && (TARGET_AVX))
-#define HAVE_avx512dq_mulv4di3_mask ((TARGET_AVX512F) && ((TARGET_AVX512DQ && (32 == 64 || TARGET_AVX512VL)) && (TARGET_AVX)))
-#define HAVE_avx512dq_mulv2di3 (TARGET_AVX512DQ && 1)
-#define HAVE_avx512dq_mulv2di3_mask ((TARGET_AVX512F) && (TARGET_AVX512DQ && (16 == 64 || TARGET_AVX512VL)))
+#define HAVE_avx512dq_mulv8di3 (TARGET_AVX512DQ && 1 \
+  && ix86_binary_operator_ok (MULT, V8DImode, operands))
+#define HAVE_avx512dq_mulv8di3_mask ((TARGET_AVX512F) && (TARGET_AVX512DQ && (64 == 64 || TARGET_AVX512VL) \
+  && ix86_binary_operator_ok (MULT, V8DImode, operands)))
+#define HAVE_avx512dq_mulv4di3 ((TARGET_AVX512DQ && 1 \
+  && ix86_binary_operator_ok (MULT, V4DImode, operands)) && (TARGET_AVX512VL))
+#define HAVE_avx512dq_mulv4di3_mask ((TARGET_AVX512F) && ((TARGET_AVX512DQ && (32 == 64 || TARGET_AVX512VL) \
+  && ix86_binary_operator_ok (MULT, V4DImode, operands)) && (TARGET_AVX512VL)))
+#define HAVE_avx512dq_mulv2di3 ((TARGET_AVX512DQ && 1 \
+  && ix86_binary_operator_ok (MULT, V2DImode, operands)) && (TARGET_AVX512VL))
+#define HAVE_avx512dq_mulv2di3_mask ((TARGET_AVX512F) && ((TARGET_AVX512DQ && (16 == 64 || TARGET_AVX512VL) \
+  && ix86_binary_operator_ok (MULT, V2DImode, operands)) && (TARGET_AVX512VL)))
 #define HAVE_ashrv16hi3_mask ((TARGET_AVX512F) && ((TARGET_AVX512VL) && (TARGET_AVX512BW)))
 #define HAVE_ashrv8hi3_mask ((TARGET_AVX512F) && ((TARGET_AVX512VL) && (TARGET_AVX512BW)))
 #define HAVE_ashrv8si3_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
@@ -2320,41 +2326,41 @@
        || DImode == SImode \
        || DImode == DImode)))
 #define HAVE_andv16si3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (64 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX512F)))
+   && ix86_binary_operator_ok (AND, V16SImode, operands)) && (TARGET_AVX512F)))
 #define HAVE_iorv16si3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (64 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX512F)))
+   && ix86_binary_operator_ok (IOR, V16SImode, operands)) && (TARGET_AVX512F)))
 #define HAVE_xorv16si3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (64 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX512F)))
+   && ix86_binary_operator_ok (XOR, V16SImode, operands)) && (TARGET_AVX512F)))
 #define HAVE_andv8si3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (32 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX)))
+   && ix86_binary_operator_ok (AND, V8SImode, operands)) && (TARGET_AVX)))
 #define HAVE_iorv8si3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (32 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX)))
+   && ix86_binary_operator_ok (IOR, V8SImode, operands)) && (TARGET_AVX)))
 #define HAVE_xorv8si3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (32 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX)))
+   && ix86_binary_operator_ok (XOR, V8SImode, operands)) && (TARGET_AVX)))
 #define HAVE_andv4si3_mask ((TARGET_AVX512F) && (TARGET_SSE && (16 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))))
+   && ix86_binary_operator_ok (AND, V4SImode, operands)))
 #define HAVE_iorv4si3_mask ((TARGET_AVX512F) && (TARGET_SSE && (16 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))))
+   && ix86_binary_operator_ok (IOR, V4SImode, operands)))
 #define HAVE_xorv4si3_mask ((TARGET_AVX512F) && (TARGET_SSE && (16 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))))
+   && ix86_binary_operator_ok (XOR, V4SImode, operands)))
 #define HAVE_andv8di3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (64 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX512F)))
+   && ix86_binary_operator_ok (AND, V8DImode, operands)) && (TARGET_AVX512F)))
 #define HAVE_iorv8di3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (64 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX512F)))
+   && ix86_binary_operator_ok (IOR, V8DImode, operands)) && (TARGET_AVX512F)))
 #define HAVE_xorv8di3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (64 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX512F)))
+   && ix86_binary_operator_ok (XOR, V8DImode, operands)) && (TARGET_AVX512F)))
 #define HAVE_andv4di3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (32 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX)))
+   && ix86_binary_operator_ok (AND, V4DImode, operands)) && (TARGET_AVX)))
 #define HAVE_iorv4di3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (32 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX)))
+   && ix86_binary_operator_ok (IOR, V4DImode, operands)) && (TARGET_AVX)))
 #define HAVE_xorv4di3_mask ((TARGET_AVX512F) && ((TARGET_SSE && (32 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))) && (TARGET_AVX)))
+   && ix86_binary_operator_ok (XOR, V4DImode, operands)) && (TARGET_AVX)))
 #define HAVE_andv2di3_mask ((TARGET_AVX512F) && (TARGET_SSE && (16 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))))
+   && ix86_binary_operator_ok (AND, V2DImode, operands)))
 #define HAVE_iorv2di3_mask ((TARGET_AVX512F) && (TARGET_SSE && (16 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))))
+   && ix86_binary_operator_ok (IOR, V2DImode, operands)))
 #define HAVE_xorv2di3_mask ((TARGET_AVX512F) && (TARGET_SSE && (16 == 64 || TARGET_AVX512VL) \
-   && !(MEM_P (operands[1]) && MEM_P (operands[2]))))
+   && ix86_binary_operator_ok (XOR, V2DImode, operands)))
 #define HAVE_avx512bw_testmv64qi3 ((TARGET_AVX512F) && (TARGET_AVX512BW))
 #define HAVE_avx512bw_testmv64qi3_mask ((TARGET_AVX512F) && ((TARGET_AVX512F) && (TARGET_AVX512BW)))
 #define HAVE_avx512vl_testmv32qi3 ((TARGET_AVX512F) && (TARGET_AVX512VL && TARGET_AVX512BW))
@@ -4771,6 +4777,7 @@
 #define HAVE_strset 1
 #define HAVE_strset_singleop 1
 #define HAVE_rep_stos 1
+#define HAVE_cmpmemsi 1
 #define HAVE_cmpstrnsi 1
 #define HAVE_cmpintqi 1
 #define HAVE_cmpstrnqi_nz_1 1
@@ -11780,6 +11787,7 @@ extern rtx        gen_setmemdi                                   (rtx, rtx, rtx,
 extern rtx        gen_strset                                     (rtx, rtx, rtx);
 extern rtx        gen_strset_singleop                            (rtx, rtx, rtx, rtx);
 extern rtx        gen_rep_stos                                   (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_cmpmemsi                                   (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_cmpstrnsi                                  (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_cmpintqi                                   (rtx);
 extern rtx        gen_cmpstrnqi_nz_1                             (rtx, rtx, rtx, rtx, rtx, rtx);

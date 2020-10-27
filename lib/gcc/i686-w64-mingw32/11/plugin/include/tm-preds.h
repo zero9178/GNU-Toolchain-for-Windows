@@ -125,6 +125,8 @@ extern int zero_extended_scalar_load_operand (rtx, machine_mode);
 extern int vector_all_ones_operand (rtx, machine_mode);
 extern int vector_memory_operand (rtx, machine_mode);
 extern int vector_operand (rtx, machine_mode);
+extern int bcst_mem_operand (rtx, machine_mode);
+extern int bcst_vector_operand (rtx, machine_mode);
 extern int nonimmediate_or_const_vector_operand (rtx, machine_mode);
 extern int nonimmediate_or_sse_const_operand (rtx, machine_mode);
 extern int reg_or_0_operand (rtx, machine_mode);
@@ -220,6 +222,7 @@ enum constraint_num
   CONSTRAINT_Bm,
   CONSTRAINT_Bc,
   CONSTRAINT_Bn,
+  CONSTRAINT_Br,
   CONSTRAINT_p,
   CONSTRAINT_Tv,
   CONSTRAINT_Ts,
@@ -290,7 +293,7 @@ insn_extra_memory_constraint (enum constraint_num c)
 static inline bool
 insn_extra_special_memory_constraint (enum constraint_num c)
 {
-  return c >= CONSTRAINT_Bm && c <= CONSTRAINT_Bn;
+  return c >= CONSTRAINT_Bm && c <= CONSTRAINT_Br;
 }
 
 static inline bool

@@ -401,6 +401,14 @@ extern void gt_ggc_mx_cgraph_indirect_call_info (void *);
   if (X != NULL) gt_ggc_mx_asm_node (X);\
   } while (0)
 extern void gt_ggc_mx_asm_node (void *);
+#define gt_ggc_m_10thunk_info(X) do { \
+  if (X != NULL) gt_ggc_mx_thunk_info (X);\
+  } while (0)
+extern void gt_ggc_mx_thunk_info (void *);
+#define gt_ggc_m_29function_summary_thunk_info__(X) do { \
+  if (X != NULL) gt_ggc_mx_function_summary_thunk_info__ (X);\
+  } while (0)
+extern void gt_ggc_mx_function_summary_thunk_info__ (void *);
 #define gt_ggc_m_12symbol_table(X) do { \
   if (X != NULL) gt_ggc_mx_symbol_table (X);\
   } while (0)
@@ -1798,6 +1806,14 @@ extern void gt_pch_nx_cgraph_indirect_call_info (void *);
   if (X != NULL) gt_pch_nx_asm_node (X);\
   } while (0)
 extern void gt_pch_nx_asm_node (void *);
+#define gt_pch_n_10thunk_info(X) do { \
+  if (X != NULL) gt_pch_nx_thunk_info (X);\
+  } while (0)
+extern void gt_pch_nx_thunk_info (void *);
+#define gt_pch_n_29function_summary_thunk_info__(X) do { \
+  if (X != NULL) gt_pch_nx_function_summary_thunk_info__ (X);\
+  } while (0)
+extern void gt_pch_nx_function_summary_thunk_info__ (void *);
 #define gt_pch_n_12symbol_table(X) do { \
   if (X != NULL) gt_pch_nx_symbol_table (X);\
   } while (0)
@@ -3092,6 +3108,10 @@ extern void gt_pch_p_30hash_table_cgraph_edge_hasher_
 extern void gt_pch_p_25cgraph_indirect_call_info
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_8asm_node
+    (void *, void *, gt_pointer_operator, void *);
+extern void gt_pch_p_10thunk_info
+    (void *, void *, gt_pointer_operator, void *);
+extern void gt_pch_p_29function_summary_thunk_info__
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_12symbol_table
     (void *, void *, gt_pointer_operator, void *);
