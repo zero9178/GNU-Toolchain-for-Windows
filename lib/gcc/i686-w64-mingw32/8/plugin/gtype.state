@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "8.4.1 20201020")
+(!version  "8.4.1 20201027")
 (!srcdir  "../../gcc")
 (!languages 10 ada brig c cp fortran go jit lto objc objcp)
 (!fileslist 207
