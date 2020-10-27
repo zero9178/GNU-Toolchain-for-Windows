@@ -10,7 +10,7 @@ ENTRY(__start)
 SECTIONS
 {
   /* Read-only sections, merged into text segment: */
-  PROVIDE (__executable_start = SEGMENT_START("text-segment", 0x8000)); . = SEGMENT_START("text-segment", 0x8000);
+  PROVIDE (__executable_start = SEGMENT_START("text-segment", 0x60000000)); . = SEGMENT_START("text-segment", 0x60000000);
   .interp         : { *(.interp) }
   .note.gnu.build-id  : { *(.note.gnu.build-id) }
   .hash           : { *(.hash) }
@@ -85,7 +85,7 @@ SECTIONS
   .exception_ranges   : ONLY_IF_RO { *(.exception_ranges*) }
   /* Adjust the address for the data segment.  We want to adjust up to
      the same address within the page on the next page up.  */
-  . = ALIGN(CONSTANT (MAXPAGESIZE)) + (. & (CONSTANT (MAXPAGESIZE) - 1));
+  . = 0x20000000;
   /* Exception handling  */
   .eh_frame       : ONLY_IF_RW { KEEP (*(.eh_frame)) *(.eh_frame.*) }
   .gnu_extab      : ONLY_IF_RW { *(.gnu_extab) }
@@ -167,7 +167,7 @@ SECTIONS
   _edata = .; PROVIDE (edata = .);
   . = .;
   __bss_start = .;
-  __bss_start__ = . ;
+  __sbss__ = . ;
   .sbss           :
   {
     *(.dynsbss)
@@ -186,7 +186,7 @@ SECTIONS
       pad the .data section.  */
    . = ALIGN(. != 0 ? 32 / 8 : 1);
   }
-  __bss_end__ = . ;
+  __ebss__ = . ;
   . = ALIGN(32 / 8);
   . = SEGMENT_START("ldata-segment", .);
   . = ALIGN(32 / 8);
@@ -232,5 +232,9 @@ SECTIONS
   .debug_macro    0 : { *(.debug_macro) }
   .debug_addr     0 : { *(.debug_addr) }
   .csky.attributes 0 : { KEEP (*(.csky.attributes)) KEEP (*(.csky.attributes)) }
+  PROVIDE (__stack =  0x01000000 - 0x8);
+  PROVIDE (__heap_start = 0x00000100);
+  PROVIDE (__heap_end = 0x00900000);
+  PROVIDE (__csky_exit = 0x10002000);
   /DISCARD/ : { *(.note.GNU-stack) *(.gnu_debuglink) *(.gnu.lto_*) }
 }
