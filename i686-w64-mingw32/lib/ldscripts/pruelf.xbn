@@ -142,7 +142,7 @@ SECTIONS
   .noinit   :
   {
      PROVIDE (_noinit_start = .) ;
-    *(.noinit)
+    *(.noinit .noinit.* .gnu.linkonce.n.*)
      PROVIDE (_noinit_end = .) ;
      PROVIDE (_heap_start = .) ;
      . += __HEAP_SIZE ;

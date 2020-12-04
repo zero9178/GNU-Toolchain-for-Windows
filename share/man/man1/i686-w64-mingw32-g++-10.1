@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-10-07" "gcc-10" "GNU"
+.TH GCC 1 "2020-12-04" "gcc-10" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -12315,6 +12315,32 @@ approximation is enabled.  The default value is 1.
 The number of Newton iterations for calculating the reciprocal for double type.
 The precision of division is propotional to this param when division
 approximation is enabled.  The default value is 2.
+.IP "\fBaarch64\-autovec\-preference\fR" 4
+.IX Item "aarch64-autovec-preference"
+Force an \s-1ISA\s0 selection strategy for auto-vectorization.  Accepts values from
+0 to 4, inclusive.
+.RS 4
+.IP "\fB0\fR" 4
+.IX Item "0"
+Use the default heuristics.
+.IP "\fB1\fR" 4
+.IX Item "1"
+Use only Advanced \s-1SIMD\s0 for auto-vectorization.
+.IP "\fB2\fR" 4
+.IX Item "2"
+Use only \s-1SVE\s0 for auto-vectorization.
+.IP "\fB3\fR" 4
+.IX Item "3"
+Use both Advanced \s-1SIMD\s0 and \s-1SVE.\s0  Prefer Advanced \s-1SIMD\s0 when the costs are
+deemed equal.
+.IP "\fB4\fR" 4
+.IX Item "4"
+Use both Advanced \s-1SIMD\s0 and \s-1SVE.\s0  Prefer \s-1SVE\s0 when the costs are deemed equal.
+.RE
+.RS 4
+.Sp
+The default value is 0.
+.RE
 .RE
 .RS 4
 .RE
@@ -27614,14 +27640,14 @@ BMI, BMI2\s0 and F16C instruction set support.
 .IP "\fBbroadwell\fR" 4
 .IX Item "broadwell"
 Intel Broadwell \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
-SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX\s0 and \s-1PREFETCHW\s0 instruction set support.
+SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI, BMI2,
+F16C, RDSEED ADCX\s0 and \s-1PREFETCHW\s0 instruction set support.
 .IP "\fBskylake\fR" 4
 .IX Item "skylake"
 Intel Skylake \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
 SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC\s0 and
-\&\s-1XSAVES\s0 instruction set support.
+BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC\s0 and \s-1XSAVES\s0
+instruction set support.
 .IP "\fBbonnell\fR" 4
 .IX Item "bonnell"
 Intel Bonnell \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3\s0 and \s-1SSSE3\s0
@@ -27629,34 +27655,36 @@ instruction set support.
 .IP "\fBsilvermont\fR" 4
 .IX Item "silvermont"
 Intel Silvermont \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
-SSE4.1, SSE4.2, POPCNT, AES, PCLMUL\s0 and \s-1RDRND\s0 instruction set support.
+SSE4.1, SSE4.2, POPCNT, AES, PREFETCHW, PCLMUL\s0 and \s-1RDRND\s0 instruction set support.
 .IP "\fBgoldmont\fR" 4
 .IX Item "goldmont"
 Intel Goldmont \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
-SSE4.1, SSE4.2, POPCNT, AES, PCLMUL, RDRND, XSAVE, XSAVEOPT\s0 and \s-1FSGSBASE\s0
-instruction set support.
+SSE4.1, SSE4.2, POPCNT, AES, PREFETCHW, PCLMUL, RDRND, XSAVE, XSAVEC, XSAVES,
+XSAVEOPT\s0 and \s-1FSGSBASE\s0 instruction set support.
 .IP "\fBgoldmont-plus\fR" 4
 .IX Item "goldmont-plus"
 Intel Goldmont Plus \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3,
-SSSE3, SSE4.1, SSE4.2, POPCNT, AES, PCLMUL, RDRND, XSAVE, XSAVEOPT, FSGSBASE,
-PTWRITE, RDPID, SGX\s0 and \s-1UMIP\s0 instruction set support.
+SSSE3, SSE4.1, SSE4.2, POPCNT, AES, PREFETCHW, PCLMUL, RDRND, XSAVE, XSAVEC,
+XSAVES, XSAVEOPT, FSGSBASE, PTWRITE, RDPID, SGX\s0 and \s-1UMIP\s0 instruction set support.
 .IP "\fBtremont\fR" 4
 .IX Item "tremont"
 Intel Tremont \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
-SSE4.1, SSE4.2, POPCNT, AES, PCLMUL, RDRND, XSAVE, XSAVEOPT, FSGSBASE, PTWRITE,
-RDPID, SGX, UMIP,\s0 GFNI-SSE, \s-1CLWB\s0 and \s-1ENCLV\s0 instruction set support.
+SSE4.1, SSE4.2, POPCNT, AES, PREFETCHW, PCLMUL, RDRND, XSAVE, XSAVEC, XSAVES,
+XSAVEOPT, FSGSBASE, PTWRITE, RDPID, SGX, UMIP,\s0 GFNI-SSE, \s-1CLWB, MOVDIRI,
+MOVDIR64B, CLDEMOTE\s0 and \s-1WAITPKG\s0 instruction set support.
 .IP "\fBknl\fR" 4
 .IX Item "knl"
 Intel Knight's Landing \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3,
 SSSE3, SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, AVX512F, AVX512PF, AVX512ER\s0 and
-\&\s-1AVX512CD\s0 instruction set support.
+BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, PREFETCHWT1, AVX512F, AVX512PF,
+AVX512ER\s0 and \s-1AVX512CD\s0 instruction set support.
 .IP "\fBknm\fR" 4
 .IX Item "knm"
 Intel Knights Mill \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3,
 SSSE3, SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, AVX512F, AVX512PF, AVX512ER, AVX512CD,
-AVX5124VNNIW, AVX5124FMAPS\s0 and \s-1AVX512VPOPCNTDQ\s0 instruction set support.
+BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, PREFETCHWT1, AVX512F, AVX512PF,
+AVX512ER, AVX512CD, AVX5124VNNIW, AVX5124FMAPS\s0 and \s-1AVX512VPOPCNTDQ\s0 instruction
+set support.
 .IP "\fBskylake\-avx512\fR" 4
 .IX Item "skylake-avx512"
 Intel Skylake Server \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3,
@@ -27707,8 +27735,8 @@ SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI,
 BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F,
 AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI, AVX512IFMA, SHA, CLWB, UMIP,
 RDPID, GFNI, AVX512VBMI2, AVX512VPOPCNTDQ, AVX512BITALG, AVX512VNNI, VPCLMULQDQ,
-VAES, PCONFIG, WBNOINVD, MOVDIRI, MOVDIR64B\s0 and  \s-1AVX512VP2INTERSECT\s0 instruction
-set support.
+VAES, PCONFIG, WBNOINVD, MOVDIRI, MOVDIR64B, AVX512VP2INTERSECT\s0 and \s-1KEYLOCKER\s0
+instruction set support.
 .IP "\fBk6\fR" 4
 .IX Item "k6"
 \&\s-1AMD K6 CPU\s0 with \s-1MMX\s0 instruction set support.

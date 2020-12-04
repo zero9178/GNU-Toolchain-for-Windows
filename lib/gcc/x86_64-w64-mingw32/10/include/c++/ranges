@@ -538,9 +538,11 @@ namespace ranges
       : _M_value(std::move(__t))
       { }
 
+      // _GLIBCXX_RESOLVE_LIB_DEFECTS
+      // 3428. single_view's in place constructor should be explicit
       template<typename... _Args>
 	requires constructible_from<_Tp, _Args...>
-	constexpr
+	constexpr explicit
 	single_view(in_place_t, _Args&&... __args)
 	: _M_value{in_place, std::forward<_Args>(__args)...}
 	{ }
@@ -1993,12 +1995,14 @@ namespace views
     {
     private:
       template<bool _Const>
+	using _CI = counted_iterator<
+	  iterator_t<__detail::__maybe_const_t<_Const, _Vp>>>;
+
+      template<bool _Const>
 	struct _Sentinel
 	{
 	private:
 	  using _Base = __detail::__maybe_const_t<_Const, _Vp>;
-	  using _CI = counted_iterator<iterator_t<_Base>>;
-
 	  sentinel_t<_Base> _M_end = sentinel_t<_Base>();
 
 	public:
@@ -2019,7 +2023,15 @@ namespace views
 	  base() const
 	  { return _M_end; }
 
-	  friend constexpr bool operator==(const _CI& __y, const _Sentinel& __x)
+	  friend constexpr bool
+	  operator==(const _CI<_Const>& __y, const _Sentinel& __x)
+	  { return __y.count() == 0 || __y.base() == __x._M_end; }
+
+	  template<bool _OtherConst = !_Const,
+		   typename _Base2 = __detail::__maybe_const_t<_OtherConst, _Vp>>
+	    requires sentinel_for<sentinel_t<_Base>, iterator_t<_Base2>>
+	  friend constexpr bool
+	  operator==(const _CI<_OtherConst>& __y, const _Sentinel& __x)
 	  { return __y.count() == 0 || __y.base() == __x._M_end; }
 
 	  friend _Sentinel<!_Const>;
@@ -2121,7 +2133,10 @@ namespace views
       }
     };
 
-  template<range _Range>
+  // _GLIBCXX_RESOLVE_LIB_DEFECTS
+  // 3447. Deduction guides for take_view and drop_view have different
+  // constraints
+  template<typename _Range>
     take_view(_Range&&, range_difference_t<_Range>)
       -> take_view<views::all_t<_Range>>;
 
@@ -2167,6 +2182,13 @@ namespace views
 
 	  friend constexpr bool
 	  operator==(const iterator_t<_Base>& __x, const _Sentinel& __y)
+	  { return __y._M_end == __x || !std::__invoke(*__y._M_pred, *__x); }
+
+	  template<bool _OtherConst = !_Const,
+		   typename _Base2 = __detail::__maybe_const_t<_OtherConst, _Vp>>
+	    requires sentinel_for<sentinel_t<_Base>, iterator_t<_Base2>>
+	  friend constexpr bool
+	  operator==(const iterator_t<_Base2>& __x, const _Sentinel& __y)
 	  { return __y._M_end == __x || !std::__invoke(*__y._M_pred, *__x); }
 
 	  friend _Sentinel<!_Const>;
@@ -2416,9 +2438,9 @@ namespace views
 
 	    for (; _M_outer != ranges::end(_M_parent->_M_base); ++_M_outer)
 	      {
-		auto& inner = __update_inner(*_M_outer);
-		_M_inner = ranges::begin(inner);
-		if (_M_inner != ranges::end(inner))
+		auto& __inner = __update_inner(*_M_outer);
+		_M_inner = ranges::begin(__inner);
+		if (_M_inner != ranges::end(__inner))
 		  return;
 	      }
 
@@ -2499,10 +2521,12 @@ namespace views
 	  operator*() const
 	  { return *_M_inner; }
 
-	  constexpr _Outer_iter
+	  // _GLIBCXX_RESOLVE_LIB_DEFECTS
+	  // 3500. join_view::iterator::operator->() is bogus
+	  constexpr _Inner_iter
 	  operator->() const
-	    requires __detail::__has_arrow<_Outer_iter>
-	      && copyable<_Outer_iter>
+	    requires __detail::__has_arrow<_Inner_iter>
+	      && copyable<_Inner_iter>
 	  { return _M_inner; }
 
 	  constexpr _Iterator&
@@ -2699,7 +2723,9 @@ namespace views
     inline constexpr __adaptor::_RangeAdaptorClosure join
       = [] <viewable_range _Range> (_Range&& __r)
       {
-	return join_view{std::forward<_Range>(__r)};
+	// _GLIBCXX_RESOLVE_LIB_DEFECTS
+	// 3474. Nesting join_views is broken because of CTAD
+	return join_view<views::all_t<_Range>>{std::forward<_Range>(__r)};
       };
   } // namespace views
 

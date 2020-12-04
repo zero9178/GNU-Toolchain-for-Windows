@@ -88,10 +88,14 @@ SECTIONS
   {
     *(.bss)
   }
+  /* This section contains data that is not initialized during load,
+     or during the application's initialization sequence.  */
   .noinit 0 :
   {
     *(.noinit)
   }
+  /* This section contains data that is initialized during load,
+     but not during the application's initialization sequence.  */
   .persistent 0 :
   {
     *(.persistent)

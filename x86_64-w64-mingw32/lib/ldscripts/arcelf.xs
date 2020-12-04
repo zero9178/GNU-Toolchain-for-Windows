@@ -8,7 +8,7 @@ ENTRY(__start)
 SECTIONS
 {
   /* Read-only sections, merged into text segment: */
-  . = 0 + SIZEOF_HEADERS;
+  . = SEGMENT_START("text-segment", 0) + SIZEOF_HEADERS;
   .hash           : { *(.hash) }
   .dynsym         : { *(.dynsym) }
   .dynstr         : { *(.dynstr) }
