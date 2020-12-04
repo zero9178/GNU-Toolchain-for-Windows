@@ -174,6 +174,9 @@ extern int general_vector_operand (rtx, machine_mode);
 extern int register_or_constm1_operand (rtx, machine_mode);
 extern int save_multiple (rtx, machine_mode);
 extern int restore_multiple (rtx, machine_mode);
+extern int encodekey128_operation (rtx, machine_mode);
+extern int encodekey256_operation (rtx, machine_mode);
+extern int aeswidekl_operation (rtx, machine_mode);
 #endif /* HAVE_MACHINE_MODES */
 
 #define CONSTRAINT_NUM_DEFINED_P 1
