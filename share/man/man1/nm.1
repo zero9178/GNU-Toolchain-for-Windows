@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "NM 1"
-.TH NM 1 "2020-10-19" "binutils-2.35.50" "GNU Development Tools"
+.TH NM 1 "2020-12-04" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -142,6 +142,7 @@ nm [\fB\-A\fR|\fB\-o\fR|\fB\-\-print\-file\-name\fR] [\fB\-a\fR|\fB\-\-debug\-sy
    [\fB\-B\fR|\fB\-\-format=bsd\fR] [\fB\-C\fR|\fB\-\-demangle\fR[=\fIstyle\fR]]
    [\fB\-D\fR|\fB\-\-dynamic\fR] [\fB\-f\fR\fIformat\fR|\fB\-\-format=\fR\fIformat\fR]
    [\fB\-g\fR|\fB\-\-extern\-only\fR] [\fB\-h\fR|\fB\-\-help\fR]
+   [\fB\-\-ifunc\-chars=\fR\fI\s-1CHARS\s0\fR]
    [\fB\-l\fR|\fB\-\-line\-numbers\fR] [\fB\-\-inlines\fR]
    [\fB\-n\fR|\fB\-v\fR|\fB\-\-numeric\-sort\fR]
    [\fB\-P\fR|\fB\-\-portability\fR] [\fB\-p\fR|\fB\-\-no\-sort\fR]
@@ -225,12 +226,21 @@ such as a global int variable as opposed to a large global array.
 .el .IP "\f(CWi\fR" 4
 .IX Item "i"
 For \s-1PE\s0 format files this indicates that the symbol is in a section
-specific to the implementation of DLLs.  For \s-1ELF\s0 format files this
-indicates that the symbol is an indirect function.  This is a \s-1GNU\s0
-extension to the standard set of \s-1ELF\s0 symbol types.  It indicates a
-symbol which if referenced by a relocation does not evaluate to its
-address, but instead must be invoked at runtime.  The runtime
-execution will then return the value to be used in the relocation.
+specific to the implementation of DLLs.
+.Sp
+For \s-1ELF\s0 format files this indicates that the symbol is an indirect
+function.  This is a \s-1GNU\s0 extension to the standard set of \s-1ELF\s0 symbol
+types.  It indicates a symbol which if referenced by a relocation does
+not evaluate to its address, but instead must be invoked at runtime.
+The runtime execution will then return the value to be used in the
+relocation.
+.Sp
+Note \- the actual symbols display for \s-1GNU\s0 indirect symbols is
+controlled by the \fB\-\-ifunc\-chars\fR command line option.  If this
+option has been provided then the first character in the string will
+be used for global indirect function symbols.  If the string contains
+a second character then that will be used for local indirect function
+symbols.
 .ie n .IP """I""" 4
 .el .IP "\f(CWI\fR" 4
 .IX Item "I"
@@ -429,6 +439,15 @@ Display only external symbols.
 .IX Item "--help"
 .PD
 Show a summary of the options to \fBnm\fR and exit.
+.IP "\fB\-\-ifunc\-chars=\fR\fI\s-1CHARS\s0\fR" 4
+.IX Item "--ifunc-chars=CHARS"
+When display \s-1GNU\s0 indirect function symbols \fBnm\fR will default
+to using the \f(CW\*(C`i\*(C'\fR character for both local indirect functions and
+global indirect functions.  The \fB\-\-ifunc\-chars\fR option allows
+the user to specify a string containing one or two characters. The
+first character will be used for global indirect function symbols and
+the second character, if present, will be used for local indirect
+function symbols.
 .IP "\fB\-l\fR" 4
 .IX Item "-l"
 .PD 0

@@ -179,7 +179,7 @@ SECTIONS
   /* Global data not cleared after reset.  */
   .noinit  :
   {
-    *(.noinit*)
+    *(.noinit .noinit.* .gnu.linkonce.n.*)
     . = ALIGN(32 / 8);
      PROVIDE (__start_heap = .) ;
   }  > DCCM
