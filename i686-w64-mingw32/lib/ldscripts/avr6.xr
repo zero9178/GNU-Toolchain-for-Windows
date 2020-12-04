@@ -68,7 +68,7 @@ SECTIONS
   /* Global data not cleared after reset.  */
   .noinit  0:
   {
-    *(.noinit*)
+    *(.noinit)
   }
   .eeprom 0:
   {

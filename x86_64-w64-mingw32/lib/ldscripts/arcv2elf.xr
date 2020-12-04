@@ -95,7 +95,7 @@ SECTIONS
   /* Global data not cleared after reset.  */
   .noinit 0:
   {
-    *(.noinit*)
+    *(.noinit)
   }
   /* Stabs debugging sections.  */
   .stab          0 : { *(.stab) }
