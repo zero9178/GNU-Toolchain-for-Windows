@@ -196,7 +196,7 @@ SECTIONS
   .noinit  ADDR(.bss) + SIZEOF (.bss)  :  AT (ADDR (.noinit))
   {
      PROVIDE (__noinit_start = .) ;
-    *(.noinit*)
+    *(.noinit .noinit.* .gnu.linkonce.n.*)
      PROVIDE (__noinit_end = .) ;
      _end = . ;
      PROVIDE (__heap_start = .) ;

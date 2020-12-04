@@ -231,16 +231,24 @@ SECTIONS
     PROVIDE (__bss_end = .);
   }  > data
    PROVIDE (__bsssize = SIZEOF(.bss));
+  /* This section contains data that is not initialized during load,
+     or during the application's initialization sequence.  */
   .noinit  SIZEOF(.bss) + ADDR(.bss) :
   {
+    . = ALIGN(2);
      PROVIDE (__noinit_start = .) ;
-    *(.noinit)
+    *(.noinit .noinit.* .gnu.linkonce.n.*)
+    . = ALIGN(2);
      PROVIDE (__noinit_end = .) ;
   }  > data
+  /* This section contains data that is initialized during load,
+     but not during the application's initialization sequence.  */
   .persistent  SIZEOF(.noinit) + ADDR(.noinit) :
   {
+    . = ALIGN(2);
      PROVIDE (__persistent_start = .) ;
-    *(.persistent)
+    *(.persistent .persistent.* .gnu.linkonce.p.*)
+    . = ALIGN(2);
      PROVIDE (__persistent_end = .) ;
   }  > data
    _end = . ;

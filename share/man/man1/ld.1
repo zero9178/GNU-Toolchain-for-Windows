@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "LD 1"
-.TH LD 1 "2020-10-26" "binutils-2.35.50" "GNU Development Tools"
+.TH LD 1 "2020-12-04" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -1293,15 +1293,18 @@ report an error if \fBnotext\fR or \fBtextoff\fR.
 Do not report unresolved symbol references from regular object files,
 either when creating an executable, or when creating a shared library.
 This option is the inverse of \fB\-z defs\fR.
+.IP "\fBx86\-64\-baseline\fR" 4
+.IX Item "x86-64-baseline"
+.PD 0
 .IP "\fBx86\-64\-v2\fR" 4
 .IX Item "x86-64-v2"
-.PD 0
 .IP "\fBx86\-64\-v3\fR" 4
 .IX Item "x86-64-v3"
 .IP "\fBx86\-64\-v4\fR" 4
 .IX Item "x86-64-v4"
 .PD
 Specify the x86\-64 \s-1ISA\s0 level needed in .note.gnu.property section.
+\&\fBx86\-64\-baseline\fR generates \f(CW\*(C`GNU_PROPERTY_X86_ISA_1_BASELINE\*(C'\fR.
 \&\fBx86\-64\-v2\fR generates \f(CW\*(C`GNU_PROPERTY_X86_ISA_1_V2\*(C'\fR.
 \&\fBx86\-64\-v3\fR generates \f(CW\*(C`GNU_PROPERTY_X86_ISA_1_V3\*(C'\fR.
 \&\fBx86\-64\-v4\fR generates \f(CW\*(C`GNU_PROPERTY_X86_ISA_1_V4\*(C'\fR.
@@ -1670,6 +1673,9 @@ This option can be set when doing a partial link (enabled with option
 specified either by one of the options \fB\-\-entry\fR,
 \&\fB\-\-undefined\fR, or \fB\-\-gc\-keep\-exported\fR or by a \f(CW\*(C`ENTRY\*(C'\fR
 command in the linker script.
+.Sp
+As a \s-1GNU\s0 extension, \s-1ELF\s0 input sections marked with the
+\&\f(CW\*(C`SHF_GNU_RETAIN\*(C'\fR flag will not be garbage collected.
 .IP "\fB\-\-print\-gc\-sections\fR" 4
 .IX Item "--print-gc-sections"
 .PD 0
@@ -1719,10 +1725,34 @@ Print a summary of all target-specific options on the standard output and exit.
 .IP "\fB\-Map=\fR\fImapfile\fR" 4
 .IX Item "-Map=mapfile"
 Print a link map to the file \fImapfile\fR.  See the description of the
-\&\fB\-M\fR option, above.  Specifying a directory as \fImapfile\fR
-causes the linker map to be written into a file inside the directory.
-The name of the file is based upon the \fIoutput\fR filename with
-\&\f(CW\*(C`.map\*(C'\fR appended.
+\&\fB\-M\fR option, above.  If \fImapfile\fR is just the character
+\&\f(CW\*(C`\-\*(C'\fR then the map will be written to stdout.
+.Sp
+Specifying a directory as \fImapfile\fR causes the linker map to be
+written as a file inside the directory.  Normally name of the file
+inside the directory is computed as the basename of the \fIoutput\fR
+file with \f(CW\*(C`.map\*(C'\fR appended.   If however the special character
+\&\f(CW\*(C`%\*(C'\fR is used then this will be replaced by the full path of the
+output file.  Additionally if there are any characters after the
+\&\fI%\fR symbol then \f(CW\*(C`.map\*(C'\fR will no longer be appended.
+.Sp
+.Vb 10
+\&         \-o foo.exe \-Map=bar                  [Creates ./bar]
+\&         \-o ../dir/foo.exe \-Map=bar           [Creates ./bar]
+\&         \-o foo.exe \-Map=../dir               [Creates ../dir/foo.exe.map]
+\&         \-o ../dir2/foo.exe \-Map=../dir       [Creates ../dir/foo.exe.map]
+\&         \-o foo.exe \-Map=%                    [Creates ./foo.exe.map]
+\&         \-o ../dir/foo.exe \-Map=%             [Creates ../dir/foo.exe.map]
+\&         \-o foo.exe \-Map=%.bar                [Creates ./foo.exe.bar]
+\&         \-o ../dir/foo.exe \-Map=%.bar         [Creates ../dir/foo.exe.bar]
+\&         \-o ../dir2/foo.exe \-Map=../dir/%     [Creates ../dir/../dir2/foo.exe.map]
+\&         \-o ../dir2/foo.exe \-Map=../dir/%.bar [Creates ../dir/../dir2/foo.exe.bar]
+.Ve
+.Sp
+It is an error to specify more than one \f(CW\*(C`%\*(C'\fR character.
+.Sp
+If the map file already exists then it will be overwritten by this
+operation.
 .IP "\fB\-\-no\-keep\-memory\fR" 4
 .IX Item "--no-keep-memory"
 \&\fBld\fR normally optimizes for speed over memory usage by caching the
