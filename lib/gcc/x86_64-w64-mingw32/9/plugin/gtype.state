@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "9.3.1 20201027")
+(!version  "9.3.1 20201204")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 212
@@ -1504,19 +1504,19 @@
                                                          (!fields 4 
                                                           (!pair  "binfo"
                                                            (!type already_seen 23)
-                                                           (!srcfileloc  "cp/cp-tree.h" 6945)
+                                                           (!srcfileloc  "cp/cp-tree.h" 6946)
                                                            nil )
                                                           (!pair  "decl"
                                                            (!type already_seen 23)
-                                                           (!srcfileloc  "cp/cp-tree.h" 6947)
+                                                           (!srcfileloc  "cp/cp-tree.h" 6948)
                                                            nil )
                                                           (!pair  "diag_decl"
                                                            (!type already_seen 23)
-                                                           (!srcfileloc  "cp/cp-tree.h" 6949)
+                                                           (!srcfileloc  "cp/cp-tree.h" 6950)
                                                            nil )
                                                           (!pair  "loc"
                                                            (!type already_seen 2)
-                                                           (!srcfileloc  "cp/cp-tree.h" 6951)
+                                                           (!srcfileloc  "cp/cp-tree.h" 6952)
                                                            nil )
                                                          )
                                                          nil 1032 nil nil )
@@ -8989,7 +8989,7 @@
                            (!type struct 463 
                             (!type already_seen 462)
                             gc_maybe_pointed_to "machine_function"
-                            (!srcfileloc  "config/i386/i386.h" 2785)
+                            (!srcfileloc  "config/i386/i386.h" 2789)
                             (!fields 27 
                              (!pair  "stack_locals"
                               (!type pointer 464 nil  gc_used
@@ -9017,221 +9017,221 @@
                                 )
                                 nil 2047 nil nil )
                               )
-                              (!srcfileloc  "config/i386/i386.h" 2684)
+                              (!srcfileloc  "config/i386/i386.h" 2688)
                               nil )
                              (!pair  "varargs_gpr_size"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2685)
+                              (!srcfileloc  "config/i386/i386.h" 2689)
                               nil )
                              (!pair  "varargs_fpr_size"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2686)
+                              (!srcfileloc  "config/i386/i386.h" 2690)
                               nil )
                              (!pair  "optimize_mode_switching"
                               (!type array 466 nil  gc_used "MAX_386_ENTITIES" 
                                (!type already_seen 2)
                               )
-                              (!srcfileloc  "config/i386/i386.h" 2687)
+                              (!srcfileloc  "config/i386/i386.h" 2691)
                               nil )
                              (!pair  "frame"
                               (!type struct 467 nil  gc_used "ix86_frame"
-                               (!srcfileloc  "config/i386/i386.h" 2609)
+                               (!srcfileloc  "config/i386/i386.h" 2613)
                                (!fields 14 
                                 (!pair  "nsseregs"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2590)
+                                 (!srcfileloc  "config/i386/i386.h" 2594)
                                  nil )
                                 (!pair  "nregs"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2591)
+                                 (!srcfileloc  "config/i386/i386.h" 2595)
                                  nil )
                                 (!pair  "va_arg_size"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2592)
+                                 (!srcfileloc  "config/i386/i386.h" 2596)
                                  nil )
                                 (!pair  "red_zone_size"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2593)
+                                 (!srcfileloc  "config/i386/i386.h" 2597)
                                  nil )
                                 (!pair  "outgoing_arguments_size"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2594)
+                                 (!srcfileloc  "config/i386/i386.h" 2598)
                                  nil )
                                 (!pair  "frame_pointer_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2597)
+                                 (!srcfileloc  "config/i386/i386.h" 2601)
                                  nil )
                                 (!pair  "hard_frame_pointer_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2598)
+                                 (!srcfileloc  "config/i386/i386.h" 2602)
                                  nil )
                                 (!pair  "stack_pointer_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2599)
+                                 (!srcfileloc  "config/i386/i386.h" 2603)
                                  nil )
                                 (!pair  "hfp_save_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2600)
+                                 (!srcfileloc  "config/i386/i386.h" 2604)
                                  nil )
                                 (!pair  "reg_save_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2601)
+                                 (!srcfileloc  "config/i386/i386.h" 2605)
                                  nil )
                                 (!pair  "stack_realign_allocate"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2602)
+                                 (!srcfileloc  "config/i386/i386.h" 2606)
                                  nil )
                                 (!pair  "stack_realign_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2603)
+                                 (!srcfileloc  "config/i386/i386.h" 2607)
                                  nil )
                                 (!pair  "sse_reg_save_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2604)
+                                 (!srcfileloc  "config/i386/i386.h" 2608)
                                  nil )
                                 (!pair  "save_regs_using_mov"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2608)
+                                 (!srcfileloc  "config/i386/i386.h" 2612)
                                  nil )
                                )
                                nil 2047 nil nil )
-                              (!srcfileloc  "config/i386/i386.h" 2690)
+                              (!srcfileloc  "config/i386/i386.h" 2694)
                               nil )
                              (!pair  "split_stack_varargs_pointer"
                               (!type already_seen 150)
-                              (!srcfileloc  "config/i386/i386.h" 2697)
+                              (!srcfileloc  "config/i386/i386.h" 2701)
                               nil )
                              (!pair  "call_abi"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2701)
+                              (!srcfileloc  "config/i386/i386.h" 2705)
                               nil )
                              (!pair  "accesses_prev_frame"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2704)
+                              (!srcfileloc  "config/i386/i386.h" 2708)
                               nil )
                              (!pair  "use_fast_prologue_epilogue"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2708)
+                              (!srcfileloc  "config/i386/i386.h" 2712)
                               nil )
                              (!pair  "pc_thunk_call_expanded"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2712)
+                              (!srcfileloc  "config/i386/i386.h" 2716)
                               nil )
                              (!pair  "tls_descriptor_call_expanded_p"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2723)
+                              (!srcfileloc  "config/i386/i386.h" 2727)
                               nil )
                              (!pair  "static_chain_on_stack"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2727)
+                              (!srcfileloc  "config/i386/i386.h" 2731)
                               nil )
                              (!pair  "no_drap_save_restore"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2730)
+                              (!srcfileloc  "config/i386/i386.h" 2734)
                               nil )
                              (!pair  "func_type"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2733)
+                              (!srcfileloc  "config/i386/i386.h" 2737)
                               nil )
                              (!pair  "indirect_branch_type"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2736)
+                              (!srcfileloc  "config/i386/i386.h" 2740)
                               nil )
                              (!pair  "has_local_indirect_jump"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2740)
+                              (!srcfileloc  "config/i386/i386.h" 2744)
                               nil )
                              (!pair  "function_return_type"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2743)
+                              (!srcfileloc  "config/i386/i386.h" 2747)
                               nil )
                              (!pair  "no_caller_saved_registers"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2747)
+                              (!srcfileloc  "config/i386/i386.h" 2751)
                               nil )
                              (!pair  "arg_reg_available"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2754)
+                              (!srcfileloc  "config/i386/i386.h" 2758)
                               nil )
                              (!pair  "call_ms2sysv"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2758)
+                              (!srcfileloc  "config/i386/i386.h" 2762)
                               nil )
                              (!pair  "call_ms2sysv_pad_in"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2762)
+                              (!srcfileloc  "config/i386/i386.h" 2766)
                               nil )
                              (!pair  "call_ms2sysv_extra_regs"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2768)
+                              (!srcfileloc  "config/i386/i386.h" 2772)
                               nil )
                              (!pair  "outgoing_args_on_stack"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2771)
+                              (!srcfileloc  "config/i386/i386.h" 2775)
                               nil )
                              (!pair  "endbr_queued_at_entrance"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2774)
+                              (!srcfileloc  "config/i386/i386.h" 2778)
                               nil )
                              (!pair  "max_used_stack_alignment"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2777)
+                              (!srcfileloc  "config/i386/i386.h" 2781)
                               nil )
                              (!pair  "fs"
                               (!type struct 468 nil  gc_used "machine_frame_state"
-                               (!srcfileloc  "config/i386/i386.h" 2665)
+                               (!srcfileloc  "config/i386/i386.h" 2669)
                                (!fields 12 
                                 (!pair  "cfa_reg"
                                  (!type already_seen 150)
-                                 (!srcfileloc  "config/i386/i386.h" 2620)
+                                 (!srcfileloc  "config/i386/i386.h" 2624)
                                  nil )
                                 (!pair  "cfa_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2621)
+                                 (!srcfileloc  "config/i386/i386.h" 2625)
                                  nil )
                                 (!pair  "sp_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2627)
+                                 (!srcfileloc  "config/i386/i386.h" 2631)
                                  nil )
                                 (!pair  "fp_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2628)
+                                 (!srcfileloc  "config/i386/i386.h" 2632)
                                  nil )
                                 (!pair  "red_zone_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2634)
+                                 (!srcfileloc  "config/i386/i386.h" 2638)
                                  nil )
                                 (!pair  "sp_valid"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2640)
+                                 (!srcfileloc  "config/i386/i386.h" 2644)
                                  nil )
                                 (!pair  "fp_valid"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2641)
+                                 (!srcfileloc  "config/i386/i386.h" 2645)
                                  nil )
                                 (!pair  "drap_valid"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2642)
+                                 (!srcfileloc  "config/i386/i386.h" 2646)
                                  nil )
                                 (!pair  "realigned"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2647)
+                                 (!srcfileloc  "config/i386/i386.h" 2651)
                                  nil )
                                 (!pair  "sp_realigned"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2654)
+                                 (!srcfileloc  "config/i386/i386.h" 2658)
                                  nil )
                                 (!pair  "sp_realigned_fp_last"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2658)
+                                 (!srcfileloc  "config/i386/i386.h" 2662)
                                  nil )
                                 (!pair  "sp_realigned_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2664)
+                                 (!srcfileloc  "config/i386/i386.h" 2668)
                                  nil )
                                )
                                nil 2047 nil nil )
-                              (!srcfileloc  "config/i386/i386.h" 2781)
+                              (!srcfileloc  "config/i386/i386.h" 2785)
                               nil )
                              (!pair  "seh"
                               (!type pointer 469 nil  gc_unused
@@ -9241,7 +9241,7 @@
                                 (!fields 0 )
                                 nil 0 nil nil )
                               )
-                              (!srcfileloc  "config/i386/i386.h" 2784)
+                              (!srcfileloc  "config/i386/i386.h" 2788)
                               (!options 
                                (!option skip string  "")
                               )
@@ -22687,7 +22687,7 @@
   nil 0 nil nil )
  
  (!type struct 1499 nil  gc_used "dllimport_hasher"
-  (!srcfileloc  "config/i386/i386.c" 16626)
+  (!srcfileloc  "config/i386/i386.c" 16635)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -22696,11 +22696,11 @@
    (!type already_seen 1500)
   )
   gc_pointed_to "hash_table<dllimport_hasher>"
-  (!srcfileloc  "config/i386/i386.c" 16626)
+  (!srcfileloc  "config/i386/i386.c" 16635)
   (!fields 1 
    (!pair  "dllimport_hasher"
     (!type already_seen 1499)
-    (!srcfileloc  "config/i386/i386.c" 16626)
+    (!srcfileloc  "config/i386/i386.c" 16635)
     nil )
   )
  )
@@ -22729,19 +22729,19 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1508 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34099"nil 
+ (!type struct 1508 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34108"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1509 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34778"nil 
+ (!type struct 1509 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34787"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1510 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:35911"nil 
+ (!type struct 1510 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:35920"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1511 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:36137"nil 
+ (!type struct 1511 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:36146"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -25256,7 +25256,7 @@
    (!type already_seen 1817)
   )
   gc_pointed_to "cp_parser"
-  (!srcfileloc  "cp/parser.c" 40810)
+  (!srcfileloc  "cp/parser.c" 40825)
   (!fields 37 
    (!pair  "lexer"
     (!type already_seen 1803)
@@ -25468,15 +25468,15 @@
    (!type already_seen 1831)
   )
   gc_pointed_to "hash_map<tree,int>"
-  (!srcfileloc  "cp/class.c" 3202)
+  (!srcfileloc  "cp/class.c" 3216)
   (!fields 2 
    (!pair  "int"
     (!type already_seen 428)
-    (!srcfileloc  "cp/class.c" 3202)
+    (!srcfileloc  "cp/class.c" 3216)
     nil )
    (!pair  "tree"
     (!type already_seen 23)
-    (!srcfileloc  "cp/class.c" 3202)
+    (!srcfileloc  "cp/class.c" 3216)
     nil )
   )
  )
@@ -25955,15 +25955,15 @@
   nil 0 nil nil )
  
  (!type struct 1900 nil  gc_pointed_to "constr_entry"
-  (!srcfileloc  "cp/pt.c" 28191)
+  (!srcfileloc  "cp/pt.c" 28193)
   (!fields 2 
    (!pair  "decl"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28189)
+    (!srcfileloc  "cp/pt.c" 28191)
     nil )
    (!pair  "ci"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28190)
+    (!srcfileloc  "cp/pt.c" 28192)
     nil )
   )
   (!options 
@@ -25972,7 +25972,7 @@
   1032 nil nil )
  
  (!type struct 1901 nil  gc_used "constr_hasher"
-  (!srcfileloc  "cp/pt.c" 28214)
+  (!srcfileloc  "cp/pt.c" 28216)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -25981,29 +25981,29 @@
    (!type already_seen 1902)
   )
   gc_pointed_to "hash_table<constr_hasher>"
-  (!srcfileloc  "cp/pt.c" 28214)
+  (!srcfileloc  "cp/pt.c" 28216)
   (!fields 1 
    (!pair  "constr_hasher"
     (!type already_seen 1901)
-    (!srcfileloc  "cp/pt.c" 28214)
+    (!srcfileloc  "cp/pt.c" 28216)
     nil )
   )
  )
  
  (!type struct 1904 nil  gc_pointed_to "constraint_sat_entry"
-  (!srcfileloc  "cp/pt.c" 28281)
+  (!srcfileloc  "cp/pt.c" 28283)
   (!fields 3 
    (!pair  "ci"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28278)
+    (!srcfileloc  "cp/pt.c" 28280)
     nil )
    (!pair  "args"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28279)
+    (!srcfileloc  "cp/pt.c" 28281)
     nil )
    (!pair  "result"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28280)
+    (!srcfileloc  "cp/pt.c" 28282)
     nil )
   )
   (!options 
@@ -26012,24 +26012,24 @@
   1032 nil nil )
  
  (!type struct 1905 nil  gc_used "constraint_sat_hasher"
-  (!srcfileloc  "cp/pt.c" 28326)
+  (!srcfileloc  "cp/pt.c" 28328)
   (!fields 0 )
   nil 1032 nil nil )
  
  (!type struct 1906 nil  gc_pointed_to "concept_spec_entry"
-  (!srcfileloc  "cp/pt.c" 28306)
+  (!srcfileloc  "cp/pt.c" 28308)
   (!fields 3 
    (!pair  "tmpl"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28303)
+    (!srcfileloc  "cp/pt.c" 28305)
     nil )
    (!pair  "args"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28304)
+    (!srcfileloc  "cp/pt.c" 28306)
     nil )
    (!pair  "result"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28305)
+    (!srcfileloc  "cp/pt.c" 28307)
     nil )
   )
   (!options 
@@ -26038,7 +26038,7 @@
   1032 nil nil )
  
  (!type struct 1907 nil  gc_used "concept_spec_hasher"
-  (!srcfileloc  "cp/pt.c" 28327)
+  (!srcfileloc  "cp/pt.c" 28329)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -26047,11 +26047,11 @@
    (!type already_seen 1908)
   )
   gc_pointed_to "hash_table<constraint_sat_hasher>"
-  (!srcfileloc  "cp/pt.c" 28326)
+  (!srcfileloc  "cp/pt.c" 28328)
   (!fields 1 
    (!pair  "constraint_sat_hasher"
     (!type already_seen 1905)
-    (!srcfileloc  "cp/pt.c" 28326)
+    (!srcfileloc  "cp/pt.c" 28328)
     nil )
   )
  )
@@ -26061,29 +26061,29 @@
    (!type already_seen 1910)
   )
   gc_pointed_to "hash_table<concept_spec_hasher>"
-  (!srcfileloc  "cp/pt.c" 28327)
+  (!srcfileloc  "cp/pt.c" 28329)
   (!fields 1 
    (!pair  "concept_spec_hasher"
     (!type already_seen 1907)
-    (!srcfileloc  "cp/pt.c" 28327)
+    (!srcfileloc  "cp/pt.c" 28329)
     nil )
   )
  )
  
  (!type struct 1912 nil  gc_pointed_to "subsumption_entry"
-  (!srcfileloc  "cp/pt.c" 28449)
+  (!srcfileloc  "cp/pt.c" 28451)
   (!fields 3 
    (!pair  "t1"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28446)
+    (!srcfileloc  "cp/pt.c" 28448)
     nil )
    (!pair  "t2"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28447)
+    (!srcfileloc  "cp/pt.c" 28449)
     nil )
    (!pair  "result"
     (!type already_seen 2)
-    (!srcfileloc  "cp/pt.c" 28448)
+    (!srcfileloc  "cp/pt.c" 28450)
     nil )
   )
   (!options 
@@ -26092,7 +26092,7 @@
   1032 nil nil )
  
  (!type struct 1913 nil  gc_used "subsumption_hasher"
-  (!srcfileloc  "cp/pt.c" 28469)
+  (!srcfileloc  "cp/pt.c" 28471)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -26101,11 +26101,11 @@
    (!type already_seen 1914)
   )
   gc_pointed_to "hash_table<subsumption_hasher>"
-  (!srcfileloc  "cp/pt.c" 28469)
+  (!srcfileloc  "cp/pt.c" 28471)
   (!fields 1 
    (!pair  "subsumption_hasher"
     (!type already_seen 1913)
-    (!srcfileloc  "cp/pt.c" 28469)
+    (!srcfileloc  "cp/pt.c" 28471)
     nil )
   )
  )
@@ -27285,35 +27285,35 @@
   nil )
  (!pair  "subsumption_hasher"
   (!type already_seen 1913)
-  (!srcfileloc  "cp/pt.c" 28469)
+  (!srcfileloc  "cp/pt.c" 28471)
   nil )
  (!pair  "hash_table<subsumption_hasher>"
   (!type already_seen 1914)
-  (!srcfileloc  "cp/pt.c" 28469)
+  (!srcfileloc  "cp/pt.c" 28471)
   nil )
  (!pair  "concept_spec_hasher"
   (!type already_seen 1907)
-  (!srcfileloc  "cp/pt.c" 28327)
+  (!srcfileloc  "cp/pt.c" 28329)
   nil )
  (!pair  "hash_table<concept_spec_hasher>"
   (!type already_seen 1910)
-  (!srcfileloc  "cp/pt.c" 28327)
+  (!srcfileloc  "cp/pt.c" 28329)
   nil )
  (!pair  "constraint_sat_hasher"
   (!type already_seen 1905)
-  (!srcfileloc  "cp/pt.c" 28326)
+  (!srcfileloc  "cp/pt.c" 28328)
   nil )
  (!pair  "hash_table<constraint_sat_hasher>"
   (!type already_seen 1908)
-  (!srcfileloc  "cp/pt.c" 28326)
+  (!srcfileloc  "cp/pt.c" 28328)
   nil )
  (!pair  "constr_hasher"
   (!type already_seen 1901)
-  (!srcfileloc  "cp/pt.c" 28214)
+  (!srcfileloc  "cp/pt.c" 28216)
   nil )
  (!pair  "hash_table<constr_hasher>"
   (!type already_seen 1902)
-  (!srcfileloc  "cp/pt.c" 28214)
+  (!srcfileloc  "cp/pt.c" 28216)
   nil )
  (!pair  "pending_template"
   (!type already_seen 1887)
@@ -27337,7 +27337,7 @@
   nil )
  (!pair  "cp_parser"
   (!type already_seen 1817)
-  (!srcfileloc  "cp/parser.c" 40810)
+  (!srcfileloc  "cp/parser.c" 40825)
   nil )
  (!pair  "cp_parser_expression_stack"
   (!type array 2026 nil  gc_unused "NUM_PREC_VALUES" 
@@ -27439,7 +27439,7 @@
   nil )
  (!pair  "hash_map<tree,int>"
   (!type already_seen 1831)
-  (!srcfileloc  "cp/class.c" 3202)
+  (!srcfileloc  "cp/class.c" 3216)
   nil )
  (!pair  "subobject_offset_fn"
   (!type already_seen 2)
@@ -28147,15 +28147,15 @@
   nil )
  (!pair  "function_version_info"
   (!type already_seen 1507)
-  (!srcfileloc  "config/i386/i386.c" 32402)
+  (!srcfileloc  "config/i386/i386.c" 32411)
   nil )
  (!pair  "dllimport_hasher"
   (!type already_seen 1499)
-  (!srcfileloc  "config/i386/i386.c" 16626)
+  (!srcfileloc  "config/i386/i386.c" 16635)
   nil )
  (!pair  "hash_table<dllimport_hasher>"
   (!type already_seen 1500)
-  (!srcfileloc  "config/i386/i386.c" 16626)
+  (!srcfileloc  "config/i386/i386.c" 16635)
   nil )
  (!pair  "use_optype_p"
   (!type already_seen 450)
@@ -31154,7 +31154,7 @@
   nil )
  (!pair  "deleted_copy_types"
   (!type already_seen 471)
-  (!srcfileloc  "cp/tree.c" 3986)
+  (!srcfileloc  "cp/tree.c" 3989)
   nil )
  (!pair  "list_hash_table"
   (!type already_seen 1930)
@@ -31182,23 +31182,23 @@
   nil )
  (!pair  "subsumption_table"
   (!type already_seen 1915)
-  (!srcfileloc  "cp/pt.c" 28469)
+  (!srcfileloc  "cp/pt.c" 28471)
   nil )
  (!pair  "concept_expansions"
   (!type already_seen 1911)
-  (!srcfileloc  "cp/pt.c" 28382)
+  (!srcfileloc  "cp/pt.c" 28384)
   nil )
  (!pair  "concept_memos"
   (!type already_seen 1911)
-  (!srcfileloc  "cp/pt.c" 28327)
+  (!srcfileloc  "cp/pt.c" 28329)
   nil )
  (!pair  "constraint_memos"
   (!type already_seen 1909)
-  (!srcfileloc  "cp/pt.c" 28326)
+  (!srcfileloc  "cp/pt.c" 28328)
   nil )
  (!pair  "decl_constraints"
   (!type already_seen 1903)
-  (!srcfileloc  "cp/pt.c" 28214)
+  (!srcfileloc  "cp/pt.c" 28216)
   nil )
  (!pair  "explicit_specifier_map"
   (!type already_seen 917)
@@ -31284,11 +31284,11 @@
   nil )
  (!pair  "generic_parm_count"
   (!type already_seen 2)
-  (!srcfileloc  "cp/parser.c" 41283)
+  (!srcfileloc  "cp/parser.c" 41298)
   nil )
  (!pair  "the_parser"
   (!type already_seen 1818)
-  (!srcfileloc  "cp/parser.c" 40810)
+  (!srcfileloc  "cp/parser.c" 40825)
   nil )
  (!pair  "cp_parser_context_free_list"
   (!type already_seen 1810)
@@ -31495,15 +31495,15 @@
   nil )
  (!pair  "dvirt_fn"
   (!type already_seen 23)
-  (!srcfileloc  "cp/class.c" 9325)
+  (!srcfileloc  "cp/class.c" 9339)
   nil )
  (!pair  "abort_fndecl_addr"
   (!type already_seen 23)
-  (!srcfileloc  "cp/class.c" 9324)
+  (!srcfileloc  "cp/class.c" 9338)
   nil )
  (!pair  "enum_to_min_precision"
   (!type already_seen 1832)
-  (!srcfileloc  "cp/class.c" 3202)
+  (!srcfileloc  "cp/class.c" 3216)
   (!options 
    (!option deletable string  "")
   )
@@ -31518,7 +31518,7 @@
   nil )
  (!pair  "unemitted_tinfo_decls"
   (!type already_seen 96)
-  (!srcfileloc  "cp/cp-tree.h" 6888)
+  (!srcfileloc  "cp/cp-tree.h" 6889)
   nil )
  (!pair  "ovl_op_alternate"
   (!type array 2056 nil  gc_used "OVL_OP_MAX" 
@@ -31853,7 +31853,7 @@
  )
  (!pair  "thunk_labelno"
   (!type already_seen 2)
-  (!srcfileloc  "ada/gcc-interface/trans.c" 11129)
+  (!srcfileloc  "ada/gcc-interface/trans.c" 11099)
   nil )
  (!pair  "gnu_loop_stack"
   (!type already_seen 1691)
@@ -32063,60 +32063,60 @@
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 346)
-  (!srcfileloc  "config/i386/i386.c" 46133)
+  (!srcfileloc  "config/i386/i386.c" 46120)
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 45171)
+  (!srcfileloc  "config/i386/i386.c" 45158)
   nil )
  (!pair  "ix86_builtins"
   (!type array 2080 nil  gc_used "(int) IX86_BUILTIN_MAX" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30645)
+  (!srcfileloc  "config/i386/i386.c" 30654)
   nil )
  (!pair  "ix86_builtin_func_type_tab"
   (!type array 2081 nil  gc_used "(int) IX86_BT_LAST_ALIAS + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30402)
+  (!srcfileloc  "config/i386/i386.c" 30411)
   nil )
  (!pair  "ix86_builtin_type_tab"
   (!type array 2082 nil  gc_used "(int) IX86_BT_LAST_CPTR + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30352)
+  (!srcfileloc  "config/i386/i386.c" 30361)
   nil )
  (!pair  "dllimport_map"
   (!type already_seen 1501)
-  (!srcfileloc  "config/i386/i386.c" 16626)
+  (!srcfileloc  "config/i386/i386.c" 16635)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "ix86_tls_module_base_symbol"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 16271)
+  (!srcfileloc  "config/i386/i386.c" 16280)
   nil )
  (!pair  "ix86_tls_symbol"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 16244)
+  (!srcfileloc  "config/i386/i386.c" 16253)
   nil )
  (!pair  "split_stack_fn_large"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 14752)
+  (!srcfileloc  "config/i386/i386.c" 14761)
   nil )
  (!pair  "split_stack_fn"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 14747)
+  (!srcfileloc  "config/i386/i386.c" 14756)
   nil )
  (!pair  "queued_cfa_restores"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 11999)
+  (!srcfileloc  "config/i386/i386.c" 12008)
   nil )
  (!pair  "ix86_previous_fndecl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 5708)
+  (!srcfileloc  "config/i386/i386.c" 5717)
   nil )
  (!pair  "ms_va_list_type_node"
   (!type already_seen 23)

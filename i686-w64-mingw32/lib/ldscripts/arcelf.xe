@@ -8,7 +8,7 @@ ENTRY(__start)
 SECTIONS
 {
   /* Read-only sections, merged into text segment: */
-  PROVIDE (__executable_start = 0x100); . = 0x100;
+  PROVIDE (__executable_start = SEGMENT_START("text-segment", 0x100)); . = SEGMENT_START("text-segment", 0x100);
   .interp         : { *(.interp) }
   .hash           : { *(.hash) }
   .dynsym         : { *(.dynsym) }

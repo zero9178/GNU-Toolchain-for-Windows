@@ -3871,6 +3871,11 @@
 #define HAVE_avx512f_dpbf16ps_v16sf_mask (TARGET_AVX512BF16)
 #define HAVE_avx512f_dpbf16ps_v8sf_mask ((TARGET_AVX512BF16) && (TARGET_AVX512VL))
 #define HAVE_avx512f_dpbf16ps_v4sf_mask ((TARGET_AVX512BF16) && (TARGET_AVX512VL))
+#define HAVE_loadiwkey (TARGET_KL)
+#define HAVE_aesdec128klu8 (TARGET_KL)
+#define HAVE_aesdec256klu8 (TARGET_KL)
+#define HAVE_aesenc128klu8 (TARGET_KL)
+#define HAVE_aesenc256klu8 (TARGET_KL)
 #define HAVE_mfence_sse2 (TARGET_64BIT || TARGET_SSE2)
 #define HAVE_mfence_nosse 1
 #define HAVE_atomic_loaddi_fpu (!TARGET_64BIT && (TARGET_80387 || TARGET_SSE))
@@ -4209,7 +4214,7 @@
 #define HAVE_untyped_call 1
 #define HAVE_memory_blockage 1
 #define HAVE_return (ix86_can_use_return_insn_p ())
-#define HAVE_simple_return (!TARGET_SEH && !ix86_static_chain_on_stack)
+#define HAVE_simple_return (!TARGET_SEH && !ix86_static_chain_on_stack && !ix86_function_ms_hook_prologue (cfun->decl))
 #define HAVE_simple_return_indirect_internal 1
 #define HAVE_prologue 1
 #define HAVE_set_got (!TARGET_64BIT)
@@ -7295,6 +7300,12 @@
 #define HAVE_avx512f_dpbf16ps_v16sf_maskz (TARGET_AVX512BF16)
 #define HAVE_avx512f_dpbf16ps_v8sf_maskz ((TARGET_AVX512BF16) && (TARGET_AVX512VL))
 #define HAVE_avx512f_dpbf16ps_v4sf_maskz ((TARGET_AVX512BF16) && (TARGET_AVX512VL))
+#define HAVE_encodekey128u32 (TARGET_KL)
+#define HAVE_encodekey256u32 (TARGET_KL)
+#define HAVE_aesdecwide128klu8 (TARGET_WIDEKL)
+#define HAVE_aesdecwide256klu8 (TARGET_WIDEKL)
+#define HAVE_aesencwide128klu8 (TARGET_WIDEKL)
+#define HAVE_aesencwide256klu8 (TARGET_WIDEKL)
 #define HAVE_sse2_lfence (TARGET_SSE2)
 #define HAVE_sse_sfence (TARGET_SSE || TARGET_3DNOW_A)
 #define HAVE_sse2_mfence (TARGET_SSE2)
@@ -11303,6 +11314,11 @@ extern rtx        gen_avx512f_dpbf16ps_v4sf_maskz_1              (rtx, rtx, rtx,
 extern rtx        gen_avx512f_dpbf16ps_v16sf_mask                (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_dpbf16ps_v8sf_mask                 (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_dpbf16ps_v4sf_mask                 (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_loadiwkey                                  (rtx, rtx, rtx, rtx);
+extern rtx        gen_aesdec128klu8                              (rtx, rtx, rtx);
+extern rtx        gen_aesdec256klu8                              (rtx, rtx, rtx);
+extern rtx        gen_aesenc128klu8                              (rtx, rtx, rtx);
+extern rtx        gen_aesenc256klu8                              (rtx, rtx, rtx);
 extern rtx        gen_mfence_sse2                                (rtx);
 extern rtx        gen_mfence_nosse                               (rtx);
 extern rtx        gen_atomic_loaddi_fpu                          (rtx, rtx, rtx);
@@ -14121,6 +14137,12 @@ extern rtx        gen_avx512f_cvtneps2bf16_v4sf_maskz            (rtx, rtx, rtx)
 extern rtx        gen_avx512f_dpbf16ps_v16sf_maskz               (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_dpbf16ps_v8sf_maskz                (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_dpbf16ps_v4sf_maskz                (rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_encodekey128u32                            (rtx, rtx);
+extern rtx        gen_encodekey256u32                            (rtx, rtx);
+extern rtx        gen_aesdecwide128klu8                          (rtx);
+extern rtx        gen_aesdecwide256klu8                          (rtx);
+extern rtx        gen_aesencwide128klu8                          (rtx);
+extern rtx        gen_aesencwide256klu8                          (rtx);
 extern rtx        gen_sse2_lfence                                (void);
 extern rtx        gen_sse_sfence                                 (void);
 extern rtx        gen_sse2_mfence                                (void);

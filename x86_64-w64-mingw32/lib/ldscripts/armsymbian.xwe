@@ -219,17 +219,7 @@ SECTIONS
   /* DWARF Extension.  */
   .debug_macro    0 : { *(.debug_macro) }
   .debug_addr     0 : { *(.debug_addr) }
-.note.gnu.arm.ident 0 : { KEEP (*(.note.gnu.arm.ident)) }
-/* This section contains data that is not initialised during load
-   *or* application reset.  */
- .noinit (NOLOAD) :
- {
-   . = ALIGN(2);
-   PROVIDE (__noinit_start = .);
-   *(.noinit)
-   . = ALIGN(2);
-   PROVIDE (__noinit_end = .);
- }
+  .note.gnu.arm.ident 0 : { KEEP (*(.note.gnu.arm.ident)) }
   /DISCARD/ : { *(.note.GNU-stack) *(.gnu_debuglink)  *(.gnu.lto_*) }
   .rel.dyn      0 :
     {
