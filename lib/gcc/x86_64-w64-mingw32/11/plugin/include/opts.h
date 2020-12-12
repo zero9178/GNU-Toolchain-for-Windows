@@ -124,6 +124,14 @@ struct cl_option
   int range_max;
 };
 
+struct cl_var
+{
+  /* Name of the variable.  */
+  const char *var_name;
+  /* Offset of field for this var in struct gcc_options.  */
+  unsigned short var_offset;
+};
+
 /* Records that the state of an option consists of SIZE bytes starting
    at DATA.  DATA might point to CH in some cases.  */
 struct cl_option_state {
@@ -134,6 +142,9 @@ struct cl_option_state {
 
 extern const struct cl_option cl_options[];
 extern const unsigned int cl_options_count;
+#ifdef ENABLE_PLUGIN
+extern const struct cl_var cl_vars[];
+#endif
 extern const char *const lang_names[];
 extern const unsigned int cl_lang_count;
 
@@ -470,6 +481,12 @@ extern void parse_options_from_collect_gcc_options (const char *, obstack *,
 						    int *);
 
 extern void prepend_xassembler_to_collect_as_options (const char *, obstack *);
+
+extern char *gen_command_line_string (cl_decoded_option *options,
+				      unsigned int options_count);
+extern char *gen_producer_string (const char *language_string,
+				  cl_decoded_option *options,
+				  unsigned int options_count);
 
 /* Set OPTION in OPTS to VALUE if the option is not set in OPTS_SET.  */
 
