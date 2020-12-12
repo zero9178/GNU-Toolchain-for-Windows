@@ -536,28 +536,28 @@
 #define HAVE_movv2df_internal (TARGET_SSE \
    && (register_operand (operands[0], V2DFmode) \
        || register_operand (operands[1], V2DFmode)))
-#define HAVE_avx512f_loadv16si_mask (TARGET_AVX512F)
-#define HAVE_avx512vl_loadv8si_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_loadv4si_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_loadv8di_mask (TARGET_AVX512F)
-#define HAVE_avx512vl_loadv4di_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_loadv2di_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_loadv16sf_mask (TARGET_AVX512F)
-#define HAVE_avx512vl_loadv8sf_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_loadv4sf_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_loadv8df_mask (TARGET_AVX512F)
-#define HAVE_avx512vl_loadv4df_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_loadv2df_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512bw_loadv64qi_mask (TARGET_AVX512BW)
-#define HAVE_avx512vl_loadv16qi_mask ((TARGET_AVX512BW) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_loadv32qi_mask ((TARGET_AVX512BW) && (TARGET_AVX512VL))
-#define HAVE_avx512bw_loadv32hi_mask (TARGET_AVX512BW)
-#define HAVE_avx512vl_loadv16hi_mask ((TARGET_AVX512BW) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_loadv8hi_mask ((TARGET_AVX512BW) && (TARGET_AVX512VL))
 #define HAVE_avx512f_movsf_mask (TARGET_AVX512F)
 #define HAVE_avx512f_movdf_mask ((TARGET_AVX512F) && (TARGET_SSE2))
 #define HAVE_avx512f_storesf_mask (TARGET_AVX512F)
 #define HAVE_avx512f_storedf_mask (TARGET_AVX512F)
+#define HAVE_avx512f_blendmv16si (TARGET_AVX512F)
+#define HAVE_avx512vl_blendmv8si ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_blendmv4si ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512f_blendmv8di (TARGET_AVX512F)
+#define HAVE_avx512vl_blendmv4di ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_blendmv2di ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512f_blendmv16sf (TARGET_AVX512F)
+#define HAVE_avx512vl_blendmv8sf ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_blendmv4sf ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512f_blendmv8df (TARGET_AVX512F)
+#define HAVE_avx512vl_blendmv4df ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_blendmv2df ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512bw_blendmv64qi (TARGET_AVX512BW)
+#define HAVE_avx512vl_blendmv16qi ((TARGET_AVX512BW) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_blendmv32qi ((TARGET_AVX512BW) && (TARGET_AVX512VL))
+#define HAVE_avx512bw_blendmv32hi (TARGET_AVX512BW)
+#define HAVE_avx512vl_blendmv16hi ((TARGET_AVX512BW) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_blendmv8hi ((TARGET_AVX512BW) && (TARGET_AVX512VL))
 #define HAVE_avx512f_storev16si_mask (TARGET_AVX512F)
 #define HAVE_avx512vl_storev8si_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
 #define HAVE_avx512vl_storev4si_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
@@ -3788,8 +3788,8 @@
 #define HAVE_vpshldv_v4si_maskz_1 ((TARGET_AVX512VBMI2) && (TARGET_AVX512VL))
 #define HAVE_vpshldv_v2di_maskz_1 ((TARGET_AVX512VBMI2) && (TARGET_AVX512VL))
 #define HAVE_vpdpbusd_v16si (TARGET_AVX512VNNI)
-#define HAVE_vpdpbusd_v8si ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
-#define HAVE_vpdpbusd_v4si ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
+#define HAVE_vpdpbusd_v8si ((TARGET_AVXVNNI || (TARGET_AVX512VNNI && TARGET_AVX512VL)) && (TARGET_AVX2))
+#define HAVE_vpdpbusd_v4si (TARGET_AVXVNNI || (TARGET_AVX512VNNI && TARGET_AVX512VL))
 #define HAVE_vpdpbusd_v16si_mask (TARGET_AVX512VNNI)
 #define HAVE_vpdpbusd_v8si_mask ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpbusd_v4si_mask ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
@@ -3797,8 +3797,8 @@
 #define HAVE_vpdpbusd_v8si_maskz_1 ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpbusd_v4si_maskz_1 ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpbusds_v16si (TARGET_AVX512VNNI)
-#define HAVE_vpdpbusds_v8si ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
-#define HAVE_vpdpbusds_v4si ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
+#define HAVE_vpdpbusds_v8si ((TARGET_AVXVNNI || (TARGET_AVX512VNNI && TARGET_AVX512VL)) && (TARGET_AVX2))
+#define HAVE_vpdpbusds_v4si (TARGET_AVXVNNI || (TARGET_AVX512VNNI && TARGET_AVX512VL))
 #define HAVE_vpdpbusds_v16si_mask (TARGET_AVX512VNNI)
 #define HAVE_vpdpbusds_v8si_mask ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpbusds_v4si_mask ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
@@ -3806,8 +3806,8 @@
 #define HAVE_vpdpbusds_v8si_maskz_1 ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpbusds_v4si_maskz_1 ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpwssd_v16si (TARGET_AVX512VNNI)
-#define HAVE_vpdpwssd_v8si ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
-#define HAVE_vpdpwssd_v4si ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
+#define HAVE_vpdpwssd_v8si ((TARGET_AVXVNNI || (TARGET_AVX512VNNI && TARGET_AVX512VL)) && (TARGET_AVX2))
+#define HAVE_vpdpwssd_v4si (TARGET_AVXVNNI || (TARGET_AVX512VNNI && TARGET_AVX512VL))
 #define HAVE_vpdpwssd_v16si_mask (TARGET_AVX512VNNI)
 #define HAVE_vpdpwssd_v8si_mask ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpwssd_v4si_mask ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
@@ -3815,8 +3815,8 @@
 #define HAVE_vpdpwssd_v8si_maskz_1 ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpwssd_v4si_maskz_1 ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpwssds_v16si (TARGET_AVX512VNNI)
-#define HAVE_vpdpwssds_v8si ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
-#define HAVE_vpdpwssds_v4si ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
+#define HAVE_vpdpwssds_v8si ((TARGET_AVXVNNI || (TARGET_AVX512VNNI && TARGET_AVX512VL)) && (TARGET_AVX2))
+#define HAVE_vpdpwssds_v4si (TARGET_AVXVNNI || (TARGET_AVX512VNNI && TARGET_AVX512VL))
 #define HAVE_vpdpwssds_v16si_mask (TARGET_AVX512VNNI)
 #define HAVE_vpdpwssds_v8si_mask ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
 #define HAVE_vpdpwssds_v4si_mask ((TARGET_AVX512VNNI) && (TARGET_AVX512VL))
@@ -4150,8 +4150,16 @@
 #define HAVE_negvhi3 1
 #define HAVE_negvsi3 1
 #define HAVE_negvdi3 (TARGET_64BIT)
-#define HAVE_abssi2 (TARGET_EXPAND_ABS)
-#define HAVE_absdi2 (TARGET_EXPAND_ABS)
+#define HAVE_absqi2 ((TARGET_CMOVE \
+   && (QImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_QIMODE_MATH))
+#define HAVE_abshi2 ((TARGET_CMOVE \
+   && (HImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_HIMODE_MATH))
+#define HAVE_abssi2 (TARGET_CMOVE \
+   && (SImode != QImode || !TARGET_PARTIAL_REG_STALL))
+#define HAVE_absdi2 (TARGET_CMOVE \
+   && (DImode != QImode || !TARGET_PARTIAL_REG_STALL))
+#define HAVE_absti2 ((TARGET_CMOVE \
+   && (TImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_64BIT))
 #define HAVE_abstf2 (TARGET_SSE)
 #define HAVE_negtf2 (TARGET_SSE)
 #define HAVE_abssf2 (TARGET_80387 || (SSE_FLOAT_MODE_P (SFmode) && TARGET_SSE_MATH))
@@ -4806,18 +4814,46 @@
 #define HAVE_addhicc 1
 #define HAVE_addsicc 1
 #define HAVE_adddicc (TARGET_64BIT)
-#define HAVE_smaxhi3 (TARGET_CMOVE)
-#define HAVE_sminhi3 (TARGET_CMOVE)
-#define HAVE_umaxhi3 (TARGET_CMOVE)
-#define HAVE_uminhi3 (TARGET_CMOVE)
-#define HAVE_smaxsi3 (TARGET_CMOVE)
-#define HAVE_sminsi3 (TARGET_CMOVE)
-#define HAVE_umaxsi3 (TARGET_CMOVE)
-#define HAVE_uminsi3 (TARGET_CMOVE)
-#define HAVE_smaxdi3 ((TARGET_CMOVE) && (TARGET_64BIT))
-#define HAVE_smindi3 ((TARGET_CMOVE) && (TARGET_64BIT))
-#define HAVE_umaxdi3 ((TARGET_CMOVE) && (TARGET_64BIT))
-#define HAVE_umindi3 ((TARGET_CMOVE) && (TARGET_64BIT))
+#define HAVE_smaxqi3 ((TARGET_CMOVE \
+   && (QImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_QIMODE_MATH))
+#define HAVE_sminqi3 ((TARGET_CMOVE \
+   && (QImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_QIMODE_MATH))
+#define HAVE_umaxqi3 ((TARGET_CMOVE \
+   && (QImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_QIMODE_MATH))
+#define HAVE_uminqi3 ((TARGET_CMOVE \
+   && (QImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_QIMODE_MATH))
+#define HAVE_smaxhi3 ((TARGET_CMOVE \
+   && (HImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_HIMODE_MATH))
+#define HAVE_sminhi3 ((TARGET_CMOVE \
+   && (HImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_HIMODE_MATH))
+#define HAVE_umaxhi3 ((TARGET_CMOVE \
+   && (HImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_HIMODE_MATH))
+#define HAVE_uminhi3 ((TARGET_CMOVE \
+   && (HImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_HIMODE_MATH))
+#define HAVE_smaxsi3 (TARGET_CMOVE \
+   && (SImode != QImode || !TARGET_PARTIAL_REG_STALL))
+#define HAVE_sminsi3 (TARGET_CMOVE \
+   && (SImode != QImode || !TARGET_PARTIAL_REG_STALL))
+#define HAVE_umaxsi3 (TARGET_CMOVE \
+   && (SImode != QImode || !TARGET_PARTIAL_REG_STALL))
+#define HAVE_uminsi3 (TARGET_CMOVE \
+   && (SImode != QImode || !TARGET_PARTIAL_REG_STALL))
+#define HAVE_smaxdi3 (TARGET_CMOVE \
+   && (DImode != QImode || !TARGET_PARTIAL_REG_STALL))
+#define HAVE_smindi3 (TARGET_CMOVE \
+   && (DImode != QImode || !TARGET_PARTIAL_REG_STALL))
+#define HAVE_umaxdi3 (TARGET_CMOVE \
+   && (DImode != QImode || !TARGET_PARTIAL_REG_STALL))
+#define HAVE_umindi3 (TARGET_CMOVE \
+   && (DImode != QImode || !TARGET_PARTIAL_REG_STALL))
+#define HAVE_smaxti3 ((TARGET_CMOVE \
+   && (TImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_64BIT))
+#define HAVE_sminti3 ((TARGET_CMOVE \
+   && (TImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_64BIT))
+#define HAVE_umaxti3 ((TARGET_CMOVE \
+   && (TImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_64BIT))
+#define HAVE_uminti3 ((TARGET_CMOVE \
+   && (TImode != QImode || !TARGET_PARTIAL_REG_STALL)) && (TARGET_64BIT))
 #define HAVE_allocate_stack (ix86_target_stack_probe ())
 #define HAVE_probe_stack 1
 #define HAVE_builtin_setjmp_receiver (!TARGET_64BIT && flag_pic)
@@ -4984,26 +5020,26 @@
 #define HAVE_movv8df ((TARGET_SSE) && (TARGET_AVX512F))
 #define HAVE_movv4df ((TARGET_SSE) && (TARGET_AVX))
 #define HAVE_movv2df (TARGET_SSE)
+#define HAVE_avx512f_loadv16si_mask (TARGET_AVX512F)
+#define HAVE_avx512vl_loadv8si_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_loadv4si_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512f_loadv8di_mask (TARGET_AVX512F)
+#define HAVE_avx512vl_loadv4di_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_loadv2di_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512f_loadv16sf_mask (TARGET_AVX512F)
+#define HAVE_avx512vl_loadv8sf_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_loadv4sf_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512f_loadv8df_mask (TARGET_AVX512F)
+#define HAVE_avx512vl_loadv4df_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_loadv2df_mask ((TARGET_AVX512F) && (TARGET_AVX512VL))
+#define HAVE_avx512bw_loadv64qi_mask (TARGET_AVX512BW)
+#define HAVE_avx512vl_loadv16qi_mask ((TARGET_AVX512BW) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_loadv32qi_mask ((TARGET_AVX512BW) && (TARGET_AVX512VL))
+#define HAVE_avx512bw_loadv32hi_mask (TARGET_AVX512BW)
+#define HAVE_avx512vl_loadv16hi_mask ((TARGET_AVX512BW) && (TARGET_AVX512VL))
+#define HAVE_avx512vl_loadv8hi_mask ((TARGET_AVX512BW) && (TARGET_AVX512VL))
 #define HAVE_avx512f_loadsf_mask (TARGET_AVX512F)
 #define HAVE_avx512f_loaddf_mask (TARGET_AVX512F)
-#define HAVE_avx512f_blendmv16si (TARGET_AVX512F)
-#define HAVE_avx512vl_blendmv8si ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_blendmv4si ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_blendmv8di (TARGET_AVX512F)
-#define HAVE_avx512vl_blendmv4di ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_blendmv2di ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_blendmv16sf (TARGET_AVX512F)
-#define HAVE_avx512vl_blendmv8sf ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_blendmv4sf ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512f_blendmv8df (TARGET_AVX512F)
-#define HAVE_avx512vl_blendmv4df ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_blendmv2df ((TARGET_AVX512F) && (TARGET_AVX512VL))
-#define HAVE_avx512bw_blendmv64qi (TARGET_AVX512BW)
-#define HAVE_avx512vl_blendmv16qi ((TARGET_AVX512BW) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_blendmv32qi ((TARGET_AVX512BW) && (TARGET_AVX512VL))
-#define HAVE_avx512bw_blendmv32hi (TARGET_AVX512BW)
-#define HAVE_avx512vl_blendmv16hi ((TARGET_AVX512BW) && (TARGET_AVX512VL))
-#define HAVE_avx512vl_blendmv8hi ((TARGET_AVX512BW) && (TARGET_AVX512VL))
 #define HAVE_movmisalignv64qi ((TARGET_SSE) && (TARGET_AVX512F))
 #define HAVE_movmisalignv32qi ((TARGET_SSE) && (TARGET_AVX))
 #define HAVE_movmisalignv16qi (TARGET_SSE)
@@ -7259,6 +7295,18 @@
 #define HAVE_vpamdd52luqv2di_maskz ((TARGET_AVX512IFMA) && (TARGET_AVX512VL))
 #define HAVE_movv64sf ((TARGET_AVX512F) && (TARGET_AVX5124FMAPS))
 #define HAVE_movv64si ((TARGET_AVX512F) && (TARGET_AVX5124VNNIW))
+#define HAVE_popcountv16si2 (TARGET_AVX512VPOPCNTDQ)
+#define HAVE_popcountv8si2 ((TARGET_AVX512VPOPCNTDQ) && (TARGET_AVX512VL))
+#define HAVE_popcountv4si2 ((TARGET_AVX512VPOPCNTDQ) && (TARGET_AVX512VL))
+#define HAVE_popcountv8di2 (TARGET_AVX512VPOPCNTDQ)
+#define HAVE_popcountv4di2 ((TARGET_AVX512VPOPCNTDQ) && (TARGET_AVX512VL))
+#define HAVE_popcountv2di2 ((TARGET_AVX512VPOPCNTDQ) && (TARGET_AVX512VL))
+#define HAVE_popcountv64qi2 (TARGET_AVX512BITALG)
+#define HAVE_popcountv16qi2 ((TARGET_AVX512BITALG) && (TARGET_AVX512VL))
+#define HAVE_popcountv32qi2 ((TARGET_AVX512BITALG) && (TARGET_AVX512VL))
+#define HAVE_popcountv32hi2 (TARGET_AVX512BITALG)
+#define HAVE_popcountv16hi2 ((TARGET_AVX512BITALG) && (TARGET_AVX512VL))
+#define HAVE_popcountv8hi2 ((TARGET_AVX512BITALG) && (TARGET_AVX512VL))
 #define HAVE_vpshrdv_v32hi_maskz (TARGET_AVX512VBMI2)
 #define HAVE_vpshrdv_v16si_maskz (TARGET_AVX512VBMI2)
 #define HAVE_vpshrdv_v8di_maskz (TARGET_AVX512VBMI2)
@@ -7729,28 +7777,28 @@ extern rtx        gen_movv4sf_internal                           (rtx, rtx);
 extern rtx        gen_movv8df_internal                           (rtx, rtx);
 extern rtx        gen_movv4df_internal                           (rtx, rtx);
 extern rtx        gen_movv2df_internal                           (rtx, rtx);
-extern rtx        gen_avx512f_loadv16si_mask                     (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv8si_mask                     (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv4si_mask                     (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_loadv8di_mask                      (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv4di_mask                     (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv2di_mask                     (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_loadv16sf_mask                     (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv8sf_mask                     (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv4sf_mask                     (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_loadv8df_mask                      (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv4df_mask                     (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv2df_mask                     (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512bw_loadv64qi_mask                    (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv16qi_mask                    (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv32qi_mask                    (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512bw_loadv32hi_mask                    (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv16hi_mask                    (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_loadv8hi_mask                     (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_movsf_mask                         (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_movdf_mask                         (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_storesf_mask                       (rtx, rtx, rtx);
 extern rtx        gen_avx512f_storedf_mask                       (rtx, rtx, rtx);
+extern rtx        gen_avx512f_blendmv16si                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv8si                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv4si                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512f_blendmv8di                         (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv4di                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv2di                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512f_blendmv16sf                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv8sf                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv4sf                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512f_blendmv8df                         (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv4df                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv2df                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512bw_blendmv64qi                       (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv16qi                       (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv32qi                       (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512bw_blendmv32hi                       (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv16hi                       (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_blendmv8hi                        (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_storev16si_mask                    (rtx, rtx, rtx);
 extern rtx        gen_avx512vl_storev8si_mask                    (rtx, rtx, rtx);
 extern rtx        gen_avx512vl_storev4si_mask                    (rtx, rtx, rtx);
@@ -11556,8 +11604,11 @@ extern rtx        gen_negvqi3                                    (rtx, rtx, rtx)
 extern rtx        gen_negvhi3                                    (rtx, rtx, rtx);
 extern rtx        gen_negvsi3                                    (rtx, rtx, rtx);
 extern rtx        gen_negvdi3                                    (rtx, rtx, rtx);
+extern rtx        gen_absqi2                                     (rtx, rtx);
+extern rtx        gen_abshi2                                     (rtx, rtx);
 extern rtx        gen_abssi2                                     (rtx, rtx);
 extern rtx        gen_absdi2                                     (rtx, rtx);
+extern rtx        gen_absti2                                     (rtx, rtx);
 extern rtx        gen_abstf2                                     (rtx, rtx);
 extern rtx        gen_negtf2                                     (rtx, rtx);
 extern rtx        gen_abssf2                                     (rtx, rtx);
@@ -11824,6 +11875,10 @@ extern rtx        gen_addqicc                                    (rtx, rtx, rtx,
 extern rtx        gen_addhicc                                    (rtx, rtx, rtx, rtx);
 extern rtx        gen_addsicc                                    (rtx, rtx, rtx, rtx);
 extern rtx        gen_adddicc                                    (rtx, rtx, rtx, rtx);
+extern rtx        gen_smaxqi3                                    (rtx, rtx, rtx);
+extern rtx        gen_sminqi3                                    (rtx, rtx, rtx);
+extern rtx        gen_umaxqi3                                    (rtx, rtx, rtx);
+extern rtx        gen_uminqi3                                    (rtx, rtx, rtx);
 extern rtx        gen_smaxhi3                                    (rtx, rtx, rtx);
 extern rtx        gen_sminhi3                                    (rtx, rtx, rtx);
 extern rtx        gen_umaxhi3                                    (rtx, rtx, rtx);
@@ -11836,6 +11891,10 @@ extern rtx        gen_smaxdi3                                    (rtx, rtx, rtx)
 extern rtx        gen_smindi3                                    (rtx, rtx, rtx);
 extern rtx        gen_umaxdi3                                    (rtx, rtx, rtx);
 extern rtx        gen_umindi3                                    (rtx, rtx, rtx);
+extern rtx        gen_smaxti3                                    (rtx, rtx, rtx);
+extern rtx        gen_sminti3                                    (rtx, rtx, rtx);
+extern rtx        gen_umaxti3                                    (rtx, rtx, rtx);
+extern rtx        gen_uminti3                                    (rtx, rtx, rtx);
 extern rtx        gen_allocate_stack                             (rtx, rtx);
 extern rtx        gen_probe_stack                                (rtx);
 extern rtx        gen_builtin_setjmp_receiver                    (rtx);
@@ -11993,26 +12052,26 @@ extern rtx        gen_movv4sf                                    (rtx, rtx);
 extern rtx        gen_movv8df                                    (rtx, rtx);
 extern rtx        gen_movv4df                                    (rtx, rtx);
 extern rtx        gen_movv2df                                    (rtx, rtx);
+extern rtx        gen_avx512f_loadv16si_mask                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv8si_mask                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv4si_mask                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512f_loadv8di_mask                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv4di_mask                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv2di_mask                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512f_loadv16sf_mask                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv8sf_mask                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv4sf_mask                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512f_loadv8df_mask                      (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv4df_mask                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv2df_mask                     (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512bw_loadv64qi_mask                    (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv16qi_mask                    (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv32qi_mask                    (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512bw_loadv32hi_mask                    (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv16hi_mask                    (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512vl_loadv8hi_mask                     (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_loadsf_mask                        (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_loaddf_mask                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_blendmv16si                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv8si                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv4si                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_blendmv8di                         (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv4di                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv2di                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_blendmv16sf                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv8sf                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv4sf                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512f_blendmv8df                         (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv4df                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv2df                        (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512bw_blendmv64qi                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv16qi                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv32qi                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512bw_blendmv32hi                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv16hi                       (rtx, rtx, rtx, rtx);
-extern rtx        gen_avx512vl_blendmv8hi                        (rtx, rtx, rtx, rtx);
 extern rtx        gen_movmisalignv64qi                           (rtx, rtx);
 extern rtx        gen_movmisalignv32qi                           (rtx, rtx);
 extern rtx        gen_movmisalignv16qi                           (rtx, rtx);
@@ -14096,6 +14155,18 @@ extern rtx        gen_vpamdd52luqv4di_maskz                      (rtx, rtx, rtx,
 extern rtx        gen_vpamdd52luqv2di_maskz                      (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_movv64sf                                   (rtx, rtx);
 extern rtx        gen_movv64si                                   (rtx, rtx);
+extern rtx        gen_popcountv16si2                             (rtx, rtx);
+extern rtx        gen_popcountv8si2                              (rtx, rtx);
+extern rtx        gen_popcountv4si2                              (rtx, rtx);
+extern rtx        gen_popcountv8di2                              (rtx, rtx);
+extern rtx        gen_popcountv4di2                              (rtx, rtx);
+extern rtx        gen_popcountv2di2                              (rtx, rtx);
+extern rtx        gen_popcountv64qi2                             (rtx, rtx);
+extern rtx        gen_popcountv16qi2                             (rtx, rtx);
+extern rtx        gen_popcountv32qi2                             (rtx, rtx);
+extern rtx        gen_popcountv32hi2                             (rtx, rtx);
+extern rtx        gen_popcountv16hi2                             (rtx, rtx);
+extern rtx        gen_popcountv8hi2                              (rtx, rtx);
 extern rtx        gen_vpshrdv_v32hi_maskz                        (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vpshrdv_v16si_maskz                        (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vpshrdv_v8di_maskz                         (rtx, rtx, rtx, rtx, rtx);

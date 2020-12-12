@@ -118,6 +118,7 @@ extern int const_20_to_23_operand (rtx, machine_mode);
 extern int const_24_to_27_operand (rtx, machine_mode);
 extern int const_28_to_31_operand (rtx, machine_mode);
 extern int incdec_operand (rtx, machine_mode);
+extern int vec_setm_operand (rtx, machine_mode);
 extern int reg_or_pm1_operand (rtx, machine_mode);
 extern int shiftdi_operand (rtx, machine_mode);
 extern int ashldi_input_operand (rtx, machine_mode);

@@ -237,6 +237,10 @@
 /* Define if you want runtime assertions enabled. This is a cheap check. */
 #define ENABLE_RUNTIME_CHECKING 1
 
+/* Define to enable evaluating float expressions with double precision in
+   standards-compatible mode on s390 targets. */
+/* #undef ENABLE_S390_EXCESS_FLOAT_PRECISION */
+
 /* Define if you want all operations on trees (the basic data structure of the
    front ends) to be checked for dynamic type safety at runtime. This is
    moderately expensive. */
@@ -300,6 +304,18 @@
 /* mcontext_t fields start with __ */
 #ifndef USED_FOR_TARGET
 /* #undef HAS_MCONTEXT_T_UNDERSCORES */
+#endif
+
+
+/* Define if AF_INET6 supported. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AF_INET6 */
+#endif
+
+
+/* Define if AF_UNIX supported. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AF_UNIX */
 #endif
 
 
@@ -565,9 +581,21 @@
 #endif
 
 
+/* Define if the assembler understands -march=rv*_zifencei. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_MARCH_ZIFENCEI */
+#endif
+
+
 /* Define if your assembler supports mfcr field. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_AS_MFCRF */
+#endif
+
+
+/* Define if the assembler understands -misa-spec=. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_AS_MISA_SPEC */
 #endif
 
 
@@ -1254,6 +1282,12 @@
 #endif
 
 
+/* Define to 1 if you have the `fstatat' function. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_FSTATAT */
+#endif
+
+
 /* Define to 1 if you have the <ftw.h> header file. */
 #ifndef USED_FOR_TARGET
 #define HAVE_FTW_H 1
@@ -1286,7 +1320,7 @@
 #define HAVE_GAS_CFI_PERSONALITY_DIRECTIVE 1
 
 /* Define 0/1 if your assembler supports .cfi_sections. */
-#define HAVE_GAS_CFI_SECTIONS_DIRECTIVE 1
+#define HAVE_GAS_CFI_SECTIONS_DIRECTIVE 0
 
 /* Define if your assembler supports the .loc discriminator sub-directive. */
 #ifndef USED_FOR_TARGET
@@ -1350,6 +1384,19 @@
 /* Define if your assembler supports specifying the exclude section flag. */
 #ifndef USED_FOR_TARGET
 #define HAVE_GAS_SECTION_EXCLUDE 1
+#endif
+
+
+/* Define 0/1 if your assembler supports 'o' flag in .section directive. */
+#ifndef USED_FOR_TARGET
+#define HAVE_GAS_SECTION_LINK_ORDER 0
+#endif
+
+
+/* Define 0/1 if your assembler supports marking sections with SHF_GNU_RETAIN
+   flag. */
+#ifndef USED_FOR_TARGET
+#define HAVE_GAS_SHF_GNU_RETAIN 0
 #endif
 
 
@@ -1560,7 +1607,7 @@
 
 
 /* Define if your linker supports .eh_frame_hdr. */
-/* #undef HAVE_LD_EH_FRAME_HDR */
+#define HAVE_LD_EH_FRAME_HDR 1
 
 /* Define if your linker supports garbage collection of sections in presence
    of EH frames. */
@@ -1759,6 +1806,12 @@
 #endif
 
 
+/* Define to 1 if you have the `posix_fallocate' function. */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_POSIX_FALLOCATE */
+#endif
+
+
 /* Define to 1 if you have the `putchar_unlocked' function. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_PUTCHAR_UNLOCKED */
@@ -1780,6 +1833,12 @@
 /* Define to 1 if you have the `setrlimit' function. */
 #ifndef USED_FOR_TARGET
 /* #undef HAVE_SETRLIMIT */
+#endif
+
+
+/* Define if <sys/signal.h> defines sighandler_t */
+#ifndef USED_FOR_TARGET
+/* #undef HAVE_SIGHANDLER_T */
 #endif
 
 
@@ -2019,6 +2078,12 @@
 /* Define if F_SETLKW supported by fcntl. */
 #ifndef USED_FOR_TARGET
 /* #undef HOST_HAS_F_SETLKW */
+#endif
+
+
+/* Define if O_CLOEXEC supported by fcntl. */
+#ifndef USED_FOR_TARGET
+/* #undef HOST_HAS_O_CLOEXEC */
 #endif
 
 

@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-11-10" "gcc-11" "GNU"
+.TH GCC 1 "2020-12-10" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -227,7 +227,7 @@ in the following sections.
 \&\fB\-aux\-info\fR \fIfilename\fR  \fB\-fallow\-parameterless\-variadic\-functions 
 \&\-fno\-asm  \-fno\-builtin  \-fno\-builtin\-\fR\fIfunction\fR  \fB\-fgimple
 \&\-fhosted  \-ffreestanding 
-\&\-fopenacc  \-fopenacc\-dim=\fR\fIgeom\fR 
+\&\-fopenacc  \-fopenacc\-dim=\fR\fIgeom\fR  \fB\-fopenacc\-kernels=\fR\fImode\fR 
 \&\fB\-fopenmp  \-fopenmp\-simd 
 \&\-fms\-extensions  \-fplan9\-extensions  \-fsso\-struct=\fR\fIendianness\fR 
 \&\fB\-fallow\-single\-precision  \-fcond\-mismatch  \-flax\-vector\-conversions 
@@ -267,7 +267,8 @@ in the following sections.
 \&\-Wno\-deprecated\-enum\-enum\-conversion \-Wno\-deprecated\-enum\-float\-conversion 
 \&\-Weffc++  \-Wno\-exceptions \-Wextra\-semi  \-Wno\-inaccessible\-base 
 \&\-Wno\-inherited\-variadic\-ctor  \-Wno\-init\-list\-lifetime 
-\&\-Wno\-invalid\-offsetof  \-Wno\-literal\-suffix  \-Wmismatched\-tags 
+\&\-Wno\-invalid\-offsetof  \-Wno\-literal\-suffix 
+\&\-Wno\-mismatched\-new\-delete \-Wmismatched\-tags 
 \&\-Wmultiple\-inheritance  \-Wnamespaces  \-Wnarrowing 
 \&\-Wnoexcept  \-Wnoexcept\-type  \-Wnon\-virtual\-dtor 
 \&\-Wpessimizing\-move  \-Wno\-placement\-new  \-Wplacement\-new=\fR\fIn\fR 
@@ -299,7 +300,7 @@ in the following sections.
 \&\-fzero\-link 
 \&\-gen\-decls 
 \&\-Wassign\-intercept  \-Wno\-property\-assign\-default 
-\&\-Wno\-protocol  \-Wselector 
+\&\-Wno\-protocol \-Wobjc\-root\-class \-Wselector 
 \&\-Wstrict\-selector\-match 
 \&\-Wundeclared\-selector\fR
 .IP "\fIDiagnostic Message Formatting Options\fR" 4
@@ -445,6 +446,8 @@ in the following sections.
 \&\-Wno\-analyzer\-null\-dereference 
 \&\-Wno\-analyzer\-possible\-null\-argument 
 \&\-Wno\-analyzer\-possible\-null\-dereference 
+\&\-Wno\-analyzer\-shift\-count\-negative 
+\&\-Wno\-analyzer\-shift\-count\-overflow 
 \&\-Wno\-analyzer\-stale\-setjmp\-buffer 
 \&\-Wno\-analyzer\-tainted\-array\-index 
 \&\-Wanalyzer\-too\-complex 
@@ -468,7 +471,7 @@ in the following sections.
 \&\-gstabs  \-gstabs+  \-gstrict\-dwarf  \-gno\-strict\-dwarf 
 \&\-gas\-loc\-support  \-gno\-as\-loc\-support 
 \&\-gas\-locview\-support  \-gno\-as\-locview\-support 
-\&\-gcolumn\-info  \-gno\-column\-info 
+\&\-gcolumn\-info  \-gno\-column\-info  \-gdwarf32  \-gdwarf64 
 \&\-gstatement\-frontiers  \-gno\-statement\-frontiers 
 \&\-gvariable\-location\-views  \-gno\-variable\-location\-views 
 \&\-ginternal\-reset\-location\-views  \-gno\-internal\-reset\-location\-views 
@@ -580,6 +583,7 @@ in the following sections.
 \&\fB\-p  \-pg  \-fprofile\-arcs  \-\-coverage  \-ftest\-coverage 
 \&\-fprofile\-abs\-path 
 \&\-fprofile\-dir=\fR\fIpath\fR  \fB\-fprofile\-generate  \-fprofile\-generate=\fR\fIpath\fR 
+\&\fB\-fprofile\-info\-section  \-fprofile\-info\-section=\fR\fIname\fR 
 \&\fB\-fprofile\-note=\fR\fIpath\fR \fB\-fprofile\-prefix\-path=\fR\fIpath\fR 
 \&\fB\-fprofile\-update=\fR\fImethod\fR \fB\-fprofile\-filter\-files=\fR\fIregex\fR 
 \&\fB\-fprofile\-exclude\-files=\fR\fIregex\fR 
@@ -1372,7 +1376,7 @@ See \s-1RS/6000\s0 and PowerPC Options.
 \&\-mvpclmulqdq  \-mavx512bitalg  \-mmovdiri  \-mmovdir64b  \-mavx512vpopcntdq 
 \&\-mavx5124fmaps  \-mavx512vnni  \-mavx5124vnniw  \-mprfchw  \-mrdpid 
 \&\-mrdseed  \-msgx \-mavx512vp2intersect \-mserialize \-mtsxldtrk
-\&\-mamx\-tile  \-mamx\-int8  \-mamx\-bf16 \-muintr \-mhreset
+\&\-mamx\-tile  \-mamx\-int8  \-mamx\-bf16 \-muintr \-mhreset \-mavxvnni
 \&\-mcldemote  \-mms\-bitfields  \-mno\-align\-stringops  \-minline\-all\-stringops 
 \&\-minline\-stringops\-dynamically  \-mstringop\-strategy=\fR\fIalg\fR 
 \&\fB\-mkl \-mwidekl 
@@ -1394,7 +1398,7 @@ See \s-1RS/6000\s0 and PowerPC Options.
 \&\fB\-mstack\-protector\-guard\-symbol=\fR\fIsymbol\fR 
 \&\fB\-mgeneral\-regs\-only  \-mcall\-ms2sysv\-xlogues 
 \&\-mindirect\-branch=\fR\fIchoice\fR  \fB\-mfunction\-return=\fR\fIchoice\fR 
-\&\fB\-mindirect\-branch\-register\fR
+\&\fB\-mindirect\-branch\-register \-mneeded\fR
 .Sp
 \&\fIx86 Windows Options\fR
 \&\fB\-mconsole  \-mcygwin  \-mno\-cygwin  \-mdll 
@@ -2614,6 +2618,16 @@ Specify default compute dimensions for parallel offload regions that do
 not explicitly specify.  The \fIgeom\fR value is a triple of
 \&':'\-separated sizes, in order 'gang', 'worker' and, 'vector'.  A size
 can be omitted, to use a target-specific default value.
+.IP "\fB\-fopenacc\-kernels=\fR\fImode\fR" 4
+.IX Item "-fopenacc-kernels=mode"
+Specify mode of OpenACC `kernels' constructs handling.
+With \fB\-fopenacc\-kernels=decompose\fR, OpenACC `kernels'
+constructs are decomposed into parts, a sequence of compute
+constructs, each then handled individually.
+This is work in progress.
+With \fB\-fopenacc\-kernels=parloops\fR, OpenACC `kernels' constructs
+are handled by the \fBparloops\fR pass, en bloc.
+This is the current default.
 .IP "\fB\-fopenmp\fR" 4
 .IX Item "-fopenmp"
 Enable handling of OpenMP directives \f(CW\*(C`#pragma omp\*(C'\fR in C/\*(C+ and
@@ -2807,6 +2821,9 @@ change in version 12.
 .Sp
 Version 14, which first appeared in G++ 10, corrects the mangling of
 the nullptr expression.
+.Sp
+Version 15, which first appeared in G++ 11, changes the mangling of
+\&\f(CW\*(C`_\|_alignof_\|_\*(C'\fR to be distinct from that of \f(CW\*(C`alignof\*(C'\fR.
 .Sp
 See also \fB\-Wabi\fR.
 .IP "\fB\-fabi\-compat\-version=\fR\fIn\fR" 4
@@ -3566,7 +3583,23 @@ probably should be.  For example:
 .Ve
 .Sp
 It does not warn when the type being copied is a trivially-copyable type whose
-size is less than 64 bytes.  This warning is enabled by \fB\-Wall\fR.
+size is less than 64 bytes.
+.Sp
+This warning also warns when a loop variable in a range-based for-loop is
+initialized with a value of a different type resulting in a copy.  For example:
+.Sp
+.Vb 4
+\&        void fn() {
+\&          int arr[10];
+\&          for (const double &x : arr) { ... }
+\&        }
+.Ve
+.Sp
+In the example above, in every iteration of the loop a temporary value of
+type \f(CW\*(C`double\*(C'\fR is created and destroyed, to which the reference
+\&\f(CW\*(C`const double &\*(C'\fR is bound.
+.Sp
+This warning is enabled by \fB\-Wall\fR.
 .IP "\fB\-Wredundant\-tags\fR (\*(C+ and Objective\-\*(C+ only)" 4
 .IX Item "-Wredundant-tags ( and Objective- only)"
 Warn about redundant class-key and enum-key in references to class types
@@ -3696,6 +3729,38 @@ rules disallow templates, and this may be used to enforce that rule.
 The warning is inactive inside a system header file, such as the \s-1STL,\s0 so
 one can still use the \s-1STL.\s0  One may also instantiate or specialize
 templates.
+.IP "\fB\-Wno\-mismatched\-new\-delete\fR (\*(C+ and Objective\-\*(C+ only)" 4
+.IX Item "-Wno-mismatched-new-delete ( and Objective- only)"
+Warn for mismatches between calls to \f(CW\*(C`operator new\*(C'\fR or \f(CW\*(C`operator
+delete\*(C'\fR and the corresponding call to the allocation or deallocation function.
+This includes invocations of \*(C+ \f(CW\*(C`operator delete\*(C'\fR with pointers
+returned from either mismatched forms of \f(CW\*(C`operator new\*(C'\fR, or from other
+functions that allocate objects for which the \f(CW\*(C`operator delete\*(C'\fR isn't
+a suitable deallocator, as well as calls to other deallocation functions
+with pointers returned from \f(CW\*(C`operator new\*(C'\fR for which the deallocation
+function isn't suitable.
+.Sp
+For example, the \f(CW\*(C`delete\*(C'\fR expression in the function below is diagnosed
+because it doesn't match the array form of the \f(CW\*(C`new\*(C'\fR expression
+the pointer argument was returned from.  Similarly, the call to \f(CW\*(C`free\*(C'\fR
+is also diagnosed.
+.Sp
+.Vb 4
+\&        void f ()
+\&        {
+\&          int *a = new int[n];
+\&          delete a;   // warning: mismatch in array forms of expressions
+\&        
+\&          char *p = new char[n];
+\&          free (p);   // warning: mismatch between new and free
+\&        }
+.Ve
+.Sp
+The related option \fB\-Wmismatched\-dealloc\fR diagnoses mismatches
+involving allocation and deallocation functions other than \f(CW\*(C`operator
+new\*(C'\fR and \f(CW\*(C`operator delete\*(C'\fR.
+.Sp
+\&\fB\-Wmismatched\-new\-delete\fR is enabled by default.
 .IP "\fB\-Wmismatched\-tags\fR (\*(C+ and Objective\-\*(C+ only)" 4
 .IX Item "-Wmismatched-tags ( and Objective- only)"
 Warn for declarations of structs, classes, and class templates and their
@@ -4145,6 +4210,12 @@ implemented in the class, even if a method implementation is inherited
 from the superclass.  If you use the \fB\-Wno\-protocol\fR option, then
 methods inherited from the superclass are considered to be implemented,
 and no warning is issued for them.
+.IP "\fB\-Wobjc\-root\-class\fR (Objective-C and Objective\-\*(C+ only)" 4
+.IX Item "-Wobjc-root-class (Objective-C and Objective- only)"
+Warn if a class interface lacks a superclass. Most classes will inherit
+from \f(CW\*(C`NSObject\*(C'\fR (or \f(CW\*(C`Object\*(C'\fR) for example.  When declaring
+classes intended to be root classes, the warning can be suppressed by
+marking their interfaces with \f(CW\*(C`_\|_attribute_\|_((objc_root_class))\*(C'\fR.
 .IP "\fB\-Wselector\fR (Objective-C and Objective\-\*(C+ only)" 4
 .IX Item "-Wselector (Objective-C and Objective- only)"
 Warn if multiple methods of different types for the same selector are
@@ -5902,6 +5973,38 @@ Ignoring the warning can result in poorly optimized code.
 \&\fB\-Wno\-missing\-profile\fR can be used to
 disable the warning, but this is not recommended and should be done only
 when non-existent profile data is justified.
+.IP "\fB\-Wno\-mismatched\-dealloc\fR" 4
+.IX Item "-Wno-mismatched-dealloc"
+Warn for calls to deallocation functions with pointer arguments returned
+from from allocations functions for which the former isn't a suitable
+deallocator.  A pair of functions can be associated as matching allocators
+and deallocators by use of attribute \f(CW\*(C`malloc\*(C'\fR.  Unless disabled by
+the \fB\-fno\-builtin\fR option the standard functions \f(CW\*(C`calloc\*(C'\fR,
+\&\f(CW\*(C`malloc\*(C'\fR, \f(CW\*(C`realloc\*(C'\fR, and \f(CW\*(C`free\*(C'\fR, as well as the corresponding
+forms of \*(C+ \f(CW\*(C`operator new\*(C'\fR and \f(CW\*(C`operator delete\*(C'\fR are implicitly
+associated as matching allocators and deallocators.  In the following
+example \f(CW\*(C`mydealloc\*(C'\fR is the deallocator for pointers returned from
+\&\f(CW\*(C`myalloc\*(C'\fR.
+.Sp
+.Vb 1
+\&        void mydealloc (void*);
+\&        
+\&        _\|_attribute_\|_ ((malloc (mydealloc, 1))) void*
+\&        myalloc (size_t);
+\&        
+\&        void f (void)
+\&        {
+\&          void *p = myalloc (32);
+\&          // ...use p...
+\&          free (p);   // warning: not a matching deallocator for myalloc
+\&          mydealloc (p);   // ok
+\&        }
+.Ve
+.Sp
+In \*(C+, the related option \fB\-Wmismatched\-new\-delete\fR diagnoses
+mismatches involving either \f(CW\*(C`operator new\*(C'\fR or \f(CW\*(C`operator delete\*(C'\fR.
+.Sp
+Option \fB\-Wmismatched\-dealloc\fR is enabled by default.
 .IP "\fB\-Wmultistatement\-macros\fR" 4
 .IX Item "-Wmultistatement-macros"
 Warn about unsafe multiple statement macros that appear to be guarded
@@ -7244,8 +7347,23 @@ Disable \fB\-Wframe\-larger\-than=\fR warnings.  The option is equivalent
 to \fB\-Wframe\-larger\-than=\fR\fB\s-1SIZE_MAX\s0\fR or larger.
 .IP "\fB\-Wno\-free\-nonheap\-object\fR" 4
 .IX Item "-Wno-free-nonheap-object"
-Do not warn when attempting to free an object that was not allocated
-on the heap.
+Warn when attempting to deallocate an object that was either not allocated
+on the heap, or by using a pointer that was not returned from a prior call
+to the corresponding allocation function.  For example, because the call
+to \f(CW\*(C`stpcpy\*(C'\fR returns a pointer to the terminating nul character and
+not to the begginning of the object, the call to \f(CW\*(C`free\*(C'\fR below is
+diagnosed.
+.Sp
+.Vb 6
+\&        void f (char *p)
+\&        {
+\&          p = stpcpy (p, "abc");
+\&          // ...
+\&          free (p);   // warning
+\&        }
+.Ve
+.Sp
+\&\fB\-Wfree\-nonheap\-object\fR is enabled by default.
 .IP "\fB\-Wstack\-usage=\fR\fIbyte-size\fR" 4
 .IX Item "-Wstack-usage=byte-size"
 Warn if the stack usage of a function might exceed \fIbyte-size\fR.
@@ -8249,6 +8367,8 @@ Enabling this option effectively enables the following warnings:
 \&\-Wanalyzer\-possible\-null\-dereference 
 \&\-Wanalyzer\-null\-argument 
 \&\-Wanalyzer\-null\-dereference 
+\&\-Wanalyzer\-shift\-count\-negative 
+\&\-Wanalyzer\-shift\-count\-overflow 
 \&\-Wanalyzer\-stale\-setjmp\-buffer 
 \&\-Wanalyzer\-tainted\-array\-index 
 \&\-Wanalyzer\-unsafe\-call\-within\-signal\-handler 
@@ -8356,6 +8476,31 @@ This warning requires \fB\-fanalyzer\fR, which enables it; use
 .Sp
 This diagnostic warns for paths through the code in which a
 value known to be \s-1NULL\s0 is dereferenced.
+.IP "\fB\-Wno\-analyzer\-shift\-count\-negative\fR" 4
+.IX Item "-Wno-analyzer-shift-count-negative"
+This warning requires \fB\-fanalyzer\fR, which enables it; use
+\&\fB\-Wno\-analyzer\-shift\-count\-negative\fR to disable it.
+.Sp
+This diagnostic warns for paths through the code in which a
+shift is attempted with a negative count.  It is analogous to
+the \fB\-Wshift\-count\-negative\fR diagnostic implemented in
+the C/\*(C+ front ends, but is implemented based on analyzing
+interprocedural paths, rather than merely parsing the syntax tree.
+However, the analyzer does not prioritize detection of such paths, so
+false negatives are more likely relative to other warnings.
+.IP "\fB\-Wno\-analyzer\-shift\-count\-overflow\fR" 4
+.IX Item "-Wno-analyzer-shift-count-overflow"
+This warning requires \fB\-fanalyzer\fR, which enables it; use
+\&\fB\-Wno\-analyzer\-shift\-count\-overflow\fR to disable it.
+.Sp
+This diagnostic warns for paths through the code in which a
+shift is attempted with a count greater than or equal to the
+precision of the operand's type.  It is analogous to
+the \fB\-Wshift\-count\-overflow\fR diagnostic implemented in
+the C/\*(C+ front ends, but is implemented based on analyzing
+interprocedural paths, rather than merely parsing the syntax tree.
+However, the analyzer does not prioritize detection of such paths, so
+false negatives are more likely relative to other warnings.
 .IP "\fB\-Wno\-analyzer\-stale\-setjmp\-buffer\fR" 4
 .IX Item "-Wno-analyzer-stale-setjmp-buffer"
 This warning requires \fB\-fanalyzer\fR, which enables it; use
@@ -8768,6 +8913,19 @@ information as possible into a separate output file with the extension
 \&\fI.dwo\fR.  This option allows the build system to avoid linking files with
 debug information.  To be useful, this option requires a debugger capable of
 reading \fI.dwo\fR files.
+.IP "\fB\-gdwarf32\fR" 4
+.IX Item "-gdwarf32"
+.PD 0
+.IP "\fB\-gdwarf64\fR" 4
+.IX Item "-gdwarf64"
+.PD
+If \s-1DWARF\s0 debugging information is enabled, the \fB\-gdwarf32\fR selects
+the 32\-bit \s-1DWARF\s0 format and the \fB\-gdwarf64\fR selects the 64\-bit
+\&\s-1DWARF\s0 format.  The default is target specific, on most targets it is
+\&\fB\-gdwarf32\fR though.  The 32\-bit \s-1DWARF\s0 format is smaller, but
+can't support more than 2GiB of debug information in any of the \s-1DWARF\s0
+debug information sections.  The 64\-bit \s-1DWARF\s0 format allows larger debug
+information and might not be well supported by all consumers yet.
 .IP "\fB\-gdescribe\-dies\fR" 4
 .IX Item "-gdescribe-dies"
 Add description attributes to some \s-1DWARF\s0 DIEs that have no name attribute,
@@ -10478,7 +10636,8 @@ and \fB\-fauto\-profile\fR.
 .IP "\fB\-fvect\-cost\-model=\fR\fImodel\fR" 4
 .IX Item "-fvect-cost-model=model"
 Alter the cost model used for vectorization.  The \fImodel\fR argument
-should be one of \fBunlimited\fR, \fBdynamic\fR or \fBcheap\fR.
+should be one of \fBunlimited\fR, \fBdynamic\fR, \fBcheap\fR or
+\&\fBvery-cheap\fR.
 With the \fBunlimited\fR model the vectorized code-path is assumed
 to be profitable while with the \fBdynamic\fR model a runtime check
 guards the vectorized code-path to enable it only for iteration
@@ -10486,7 +10645,14 @@ counts that will likely execute faster than when executing the original
 scalar loop.  The \fBcheap\fR model disables vectorization of
 loops where doing so would be cost prohibitive for example due to
 required runtime checks for data dependence or alignment but otherwise
-is equal to the \fBdynamic\fR model.
+is equal to the \fBdynamic\fR model.  The \fBvery-cheap\fR model only
+allows vectorization if the vector code would entirely replace the
+scalar code that is being vectorized.  For example, if each iteration
+of a vectorized loop would only be able to handle exactly four iterations
+of the scalar loop, the \fBvery-cheap\fR model would only allow
+vectorization if the scalar iteration count is known to be a multiple
+of four.
+.Sp
 The default cost model depends on other optimization flags and is
 either \fBdynamic\fR or \fBcheap\fR.
 .IP "\fB\-fsimd\-cost\-model=\fR\fImodel\fR" 4
@@ -11918,6 +12084,9 @@ large units consisting of small inlineable functions, however, the overall unit
 growth limit is needed to avoid exponential explosion of code size.  Thus for
 smaller units, the size is increased to \fB\-\-param large-unit-insns\fR
 before applying \fB\-\-param inline-unit-growth\fR.
+.IP "\fBlazy-modules\fR" 4
+.IX Item "lazy-modules"
+Maximum number of concurrently open \*(C+ module files when lazy loading.
 .IP "\fBinline-unit-growth\fR" 4
 .IX Item "inline-unit-growth"
 Specifies maximal overall growth of the compilation unit caused by inlining.
@@ -11929,6 +12098,9 @@ feedback) are not accounted into the unit size.
 Specifies maximal overall growth of the compilation unit caused by
 interprocedural constant propagation.  For example, parameter value 10 limits
 unit growth to 1.1 times the original size.
+.IP "\fBipa-cp-large-unit-insns\fR" 4
+.IX Item "ipa-cp-large-unit-insns"
+The size of translation unit that IPA-CP pass considers large.
 .IP "\fBlarge-stack-frame\fR" 4
 .IX Item "large-stack-frame"
 The limit specifying large stack frames.  While inlining the algorithm is trying
@@ -11989,22 +12161,29 @@ Deeper chains are still handled by late inlining.
 .IX Item "comdat-sharing-probability"
 Probability (in percent) that \*(C+ inline function with comdat visibility
 are shared across multiple compilation units.
-.IP "\fBipa-modref-max-bases\fR" 4
-.IX Item "ipa-modref-max-bases"
+.IP "\fBmodref-max-bases\fR" 4
+.IX Item "modref-max-bases"
 .PD 0
-.IP "\fBipa-modref-max-refs\fR" 4
-.IX Item "ipa-modref-max-refs"
-.IP "\fBipa-modref-max-accesses\fR" 4
-.IX Item "ipa-modref-max-accesses"
+.IP "\fBmodref-max-refs\fR" 4
+.IX Item "modref-max-refs"
+.IP "\fBmodref-max-accesses\fR" 4
+.IX Item "modref-max-accesses"
 .PD
 Specifies the maximal number of base pointers, referneces and accesses stored
 for a single function by mod/ref analysis.
-.IP "\fBipa-modref-max-tests\fR" 4
-.IX Item "ipa-modref-max-tests"
+.IP "\fBmodref-max-tests\fR" 4
+.IX Item "modref-max-tests"
 Specifies the maxmal number of tests alias oracle can perform to disambiguate
 memory locations using the mod/ref information.  This parameter ought to be
-bigger than \fB\-\-param ipa-modref-max-bases\fR and \fB\-\-param
-ipa-modref-max-refs\fR.
+bigger than \fB\-\-param modref-max-bases\fR and \fB\-\-param
+modref-max-refs\fR.
+.IP "\fBmodref-max-depth\fR" 4
+.IX Item "modref-max-depth"
+Specifies the maximum depth of \s-1DFS\s0 walk used by modref escape analysis.
+Setting to 0 disables the analysis completely.
+.IP "\fBmodref-max-escape-points\fR" 4
+.IX Item "modref-max-escape-points"
+Specifies the maximum number of escape points tracked by modref per SSA-name.
 .IP "\fBprofile-func-internal-id\fR" 4
 .IX Item "profile-func-internal-id"
 A parameter to control whether to use function internal id in profile
@@ -12496,11 +12675,6 @@ redundancies for loads and stores.  If this limit is hit the search
 is aborted and the load or store is not considered redundant.  The
 number of queries is algorithmically limited to the number of
 stores on all paths from the load to the function entry.
-.IP "\fBmax-pre-hoist-insert-iterations\fR" 4
-.IX Item "max-pre-hoist-insert-iterations"
-The maximum number of iterations doing insertion during code
-hoisting which is done as part of the partial redundancy elimination
-insertion phase.
 .IP "\fBira-max-loops-num\fR" 4
 .IX Item "ira-max-loops-num"
 \&\s-1IRA\s0 uses regional register allocation by default.  If a function
@@ -12800,11 +12974,64 @@ If number of memory accesses in function being instrumented
 is greater or equal to this number, use callbacks instead of inline checks.
 E.g. to disable inline code use
 \&\fB\-\-param asan\-instrumentation\-with\-call\-threshold=0\fR.
+.IP "\fBhwasan-instrument-stack\fR" 4
+.IX Item "hwasan-instrument-stack"
+Enable hwasan instrumentation of statically sized stack-allocated variables.
+This kind of instrumentation is enabled by default when using
+\&\fB\-fsanitize=hwaddress\fR and disabled by default when using
+\&\fB\-fsanitize=kernel\-hwaddress\fR.
+To disable stack instrumentation use
+\&\fB\-\-param hwasan\-instrument\-stack=0\fR, and to enable it use
+\&\fB\-\-param hwasan\-instrument\-stack=1\fR.
+.IP "\fBhwasan-random-frame-tag\fR" 4
+.IX Item "hwasan-random-frame-tag"
+When using stack instrumentation, decide tags for stack variables using a
+deterministic sequence beginning at a random tag for each frame.  With this
+parameter unset tags are chosen using the same sequence but beginning from 1.
+This is enabled by default for \fB\-fsanitize=hwaddress\fR and unavailable
+for \fB\-fsanitize=kernel\-hwaddress\fR.
+To disable it use \fB\-\-param hwasan\-random\-frame\-tag=0\fR.
+.IP "\fBhwasan-instrument-allocas\fR" 4
+.IX Item "hwasan-instrument-allocas"
+Enable hwasan instrumentation of dynamically sized stack-allocated variables.
+This kind of instrumentation is enabled by default when using
+\&\fB\-fsanitize=hwaddress\fR and disabled by default when using
+\&\fB\-fsanitize=kernel\-hwaddress\fR.
+To disable instrumentation of such variables use
+\&\fB\-\-param hwasan\-instrument\-allocas=0\fR, and to enable it use
+\&\fB\-\-param hwasan\-instrument\-allocas=1\fR.
+.IP "\fBhwasan-instrument-reads\fR" 4
+.IX Item "hwasan-instrument-reads"
+Enable hwasan checks on memory reads.  Instrumentation of reads is enabled by
+default for both \fB\-fsanitize=hwaddress\fR and
+\&\fB\-fsanitize=kernel\-hwaddress\fR.
+To disable checking memory reads use
+\&\fB\-\-param hwasan\-instrument\-reads=0\fR.
+.IP "\fBhwasan-instrument-writes\fR" 4
+.IX Item "hwasan-instrument-writes"
+Enable hwasan checks on memory writes.  Instrumentation of writes is enabled by
+default for both \fB\-fsanitize=hwaddress\fR and
+\&\fB\-fsanitize=kernel\-hwaddress\fR.
+To disable checking memory writes use
+\&\fB\-\-param hwasan\-instrument\-writes=0\fR.
+.IP "\fBhwasan-instrument-mem-intrinsics\fR" 4
+.IX Item "hwasan-instrument-mem-intrinsics"
+Enable hwasan instrumentation of builtin functions.  Instrumentation of these
+builtin functions is enabled by default for both \fB\-fsanitize=hwaddress\fR
+and \fB\-fsanitize=kernel\-hwaddress\fR.
+To disable instrumentation of builtin functions use
+\&\fB\-\-param hwasan\-instrument\-mem\-intrinsics=0\fR.
 .IP "\fBuse-after-scope-direct-emission-threshold\fR" 4
 .IX Item "use-after-scope-direct-emission-threshold"
 If the size of a local variable in bytes is smaller or equal to this
 number, directly poison (or unpoison) shadow memory instead of using
 run-time callbacks.
+.IP "\fBtsan-distinguish-volatile\fR" 4
+.IX Item "tsan-distinguish-volatile"
+Emit special instrumentation for accesses to volatiles.
+.IP "\fBtsan-instrument-func-entry-exit\fR" 4
+.IX Item "tsan-instrument-func-entry-exit"
+Emit instrumentation calls to _\|\fI_tsan_func_entry()\fR and _\|\fI_tsan_func_exit()\fR.
 .IP "\fBmax-fsm-thread-path-insns\fR" 4
 .IX Item "max-fsm-thread-path-insns"
 Maximum number of instructions to copy when duplicating blocks on a
@@ -12844,6 +13071,9 @@ we may be able to devirtualize speculatively.
 .IX Item "max-vrp-switch-assertions"
 The maximum number of assertions to add along the default edge of a switch
 statement during \s-1VRP.\s0
+.IP "\fBevrp-mode\fR" 4
+.IX Item "evrp-mode"
+Specifies the mode Early \s-1VRP\s0 should operate in.
 .IP "\fBunroll-jam-min-percent\fR" 4
 .IX Item "unroll-jam-min-percent"
 The minimum percentage of memory references that must be optimized
@@ -13008,15 +13238,26 @@ Maximum number of VALUEs handled during a single find_base_term call.
 .IX Item "analyzer-max-enodes-per-program-point"
 The maximum number of exploded nodes per program point within
 the analyzer, before terminating analysis of that point.
+.IP "\fBanalyzer-max-constraints\fR" 4
+.IX Item "analyzer-max-constraints"
+The maximum number of constraints per state.
 .IP "\fBanalyzer-min-snodes-for-call-summary\fR" 4
 .IX Item "analyzer-min-snodes-for-call-summary"
 The minimum number of supernodes within a function for the
 analyzer to consider summarizing its effects at call sites.
+.IP "\fBanalyzer-max-enodes-for-full-dump\fR" 4
+.IX Item "analyzer-max-enodes-for-full-dump"
+The maximum depth of exploded nodes that should appear in a dot dump
+before switching to a less verbose format.
 .IP "\fBanalyzer-max-recursion-depth\fR" 4
 .IX Item "analyzer-max-recursion-depth"
 The maximum number of times a callsite can appear in a call stack
 within the analyzer, before terminating analysis of a call that would
 recurse deeper.
+.IP "\fBanalyzer-max-svalue-depth\fR" 4
+.IX Item "analyzer-max-svalue-depth"
+The maximum depth of a symbolic value, before approximating
+the value as unknown.
 .IP "\fBgimple-fe-computed-hot-bb-threshold\fR" 4
 .IX Item "gimple-fe-computed-hot-bb-threshold"
 The number of executions of a basic block which is considered hot.
@@ -13048,6 +13289,32 @@ approximation is enabled.  The default value is 1.
 The number of Newton iterations for calculating the reciprocal for double type.
 The precision of division is propotional to this param when division
 approximation is enabled.  The default value is 2.
+.IP "\fBaarch64\-autovec\-preference\fR" 4
+.IX Item "aarch64-autovec-preference"
+Force an \s-1ISA\s0 selection strategy for auto-vectorization.  Accepts values from
+0 to 4, inclusive.
+.RS 4
+.IP "\fB0\fR" 4
+.IX Item "0"
+Use the default heuristics.
+.IP "\fB1\fR" 4
+.IX Item "1"
+Use only Advanced \s-1SIMD\s0 for auto-vectorization.
+.IP "\fB2\fR" 4
+.IX Item "2"
+Use only \s-1SVE\s0 for auto-vectorization.
+.IP "\fB3\fR" 4
+.IX Item "3"
+Use both Advanced \s-1SIMD\s0 and \s-1SVE.\s0  Prefer Advanced \s-1SIMD\s0 when the costs are
+deemed equal.
+.IP "\fB4\fR" 4
+.IX Item "4"
+Use both Advanced \s-1SIMD\s0 and \s-1SVE.\s0  Prefer \s-1SVE\s0 when the costs are deemed equal.
+.RE
+.RS 4
+.Sp
+The default value is 0.
+.RE
 .RE
 .RS 4
 .RE
@@ -13205,6 +13472,35 @@ the profile feedback data files. See \fB\-fprofile\-dir\fR.
 .Sp
 To optimize the program based on the collected profile information, use
 \&\fB\-fprofile\-use\fR.
+.IP "\fB\-fprofile\-info\-section\fR" 4
+.IX Item "-fprofile-info-section"
+.PD 0
+.IP "\fB\-fprofile\-info\-section=\fR\fIname\fR" 4
+.IX Item "-fprofile-info-section=name"
+.PD
+Register the profile information in the specified section instead of using a
+constructor/destructor.  The section name is \fIname\fR if it is specified,
+otherwise the section name defaults to \f(CW\*(C`.gcov_info\*(C'\fR.  A pointer to the
+profile information generated by \fB\-fprofile\-arcs\fR or
+\&\fB\-ftest\-coverage\fR is placed in the specified section for each
+translation unit.  This option disables the profile information registration
+through a constructor and it disables the profile information processing
+through a destructor.  This option is not intended to be used in hosted
+environments such as GNU/Linux.  It targets systems with limited resources
+which do not support constructors and destructors.  The linker could collect
+the input sections in a continuous memory block and define start and end
+symbols.  The runtime support could dump the profiling information registered
+in this linker set during program termination to a serial line for example.  A
+\&\s-1GNU\s0 linker script example which defines a linker output section follows:
+.Sp
+.Vb 6
+\&          .gcov_info      :
+\&          {
+\&            PROVIDE (_\|_gcov_info_start = .);
+\&            KEEP (*(.gcov_info))
+\&            PROVIDE (_\|_gcov_info_end = .);
+\&          }
+.Ve
 .IP "\fB\-fprofile\-note=\fR\fIpath\fR" 4
 .IX Item "-fprofile-note=path"
 If \fIpath\fR is specified, \s-1GCC\s0 saves \fI.gcno\fR file into \fIpath\fR
@@ -13270,7 +13566,7 @@ Note that it is quite common that execution counts of some part of
 programs depends, for example, on length of temporary file names or
 memory space randomization (that may affect hash-table collision rate).
 Such non-reproducible part of programs may be annotated by
-\&\f(CW\*(C`no_instrument_function\*(C'\fR function attribute. \f(CW\*(C`gcov\-dump\*(C'\fR with
+\&\f(CW\*(C`no_instrument_function\*(C'\fR function attribute. \fBgcov-dump\fR with
 \&\fB\-l\fR can be used to dump gathered data and verify that they are
 indeed reproducible.
 .Sp
@@ -13292,11 +13588,43 @@ more details.  The run-time behavior can be influenced using the
 the available options are shown at startup of the instrumented program.  See
 <\fBhttps://github.com/google/sanitizers/wiki/AddressSanitizerFlags#run\-time\-flags\fR>
 for a list of supported options.
-The option cannot be combined with \fB\-fsanitize=thread\fR.
+The option cannot be combined with \fB\-fsanitize=thread\fR or
+\&\fB\-fsanitize=hwaddress\fR.  Note that the only target this option is
+currently supported on is AArch64.
 .IP "\fB\-fsanitize=kernel\-address\fR" 4
 .IX Item "-fsanitize=kernel-address"
 Enable AddressSanitizer for Linux kernel.
 See <\fBhttps://github.com/google/kasan/wiki\fR> for more details.
+.IP "\fB\-fsanitize=hwaddress\fR" 4
+.IX Item "-fsanitize=hwaddress"
+Enable Hardware-assisted AddressSanitizer, which uses a hardware ability to
+ignore the top byte of a pointer to allow the detection of memory errors with
+a low memory overhead.
+Memory access instructions are instrumented to detect out-of-bounds and
+use-after-free bugs.
+The option enables \fB\-fsanitize\-address\-use\-after\-scope\fR.
+See
+<\fBhttps://clang.llvm.org/docs/HardwareAssistedAddressSanitizerDesign.html\fR>
+for more details.  The run-time behavior can be influenced using the
+\&\fB\s-1HWASAN_OPTIONS\s0\fR environment variable.  When set to \f(CW\*(C`help=1\*(C'\fR,
+the available options are shown at startup of the instrumented program.
+The option cannot be combined with \fB\-fsanitize=thread\fR or
+\&\fB\-fsanitize=address\fR, and is currently only available on AArch64.
+.IP "\fB\-fsanitize=kernel\-hwaddress\fR" 4
+.IX Item "-fsanitize=kernel-hwaddress"
+Enable Hardware-assisted AddressSanitizer for compilation of the Linux kernel.
+Similar to \fB\-fsanitize=kernel\-address\fR but using an alternate
+instrumentation method, and similar to \fB\-fsanitize=hwaddress\fR but with
+instrumentation differences necessary for compiling the Linux kernel.
+These differences are to avoid hwasan library initialization calls and to
+account for the stack pointer having a different value in its top byte.
+.Sp
+\&\fINote:\fR This option has different defaults to the \fB\-fsanitize=hwaddress\fR.
+Instrumenting the stack and alloca calls are not on by default but are still
+possible by specifying the command-line options
+\&\fB\-\-param hwasan\-instrument\-stack=1\fR and
+\&\fB\-\-param hwasan\-instrument\-allocas=1\fR respectively. Using a random frame
+tag is not implemented for kernel instrumentation.
 .IP "\fB\-fsanitize=pointer\-compare\fR" 4
 .IX Item "-fsanitize=pointer-compare"
 Instrument comparison operation (<, <=, >, >=) with pointer operands.
@@ -16959,10 +17287,10 @@ and the features that they enable by default:
 .IX Item "armv8.1-a : Armv8.1-A : armv8-a, +crc, +lse, +rdma"
 .IP "\fBarmv8.2\-a\fR : Armv8.2\-A : \fBarmv8.1\-a\fR" 4
 .IX Item "armv8.2-a : Armv8.2-A : armv8.1-a"
-.IP "\fBarmv8.3\-a\fR : Armv8.3\-A : \fBarmv8.2\-a\fR" 4
-.IX Item "armv8.3-a : Armv8.3-A : armv8.2-a"
-.IP "\fBarmv8.4\-a\fR : Armv8.4\-A : \fBarmv8.3\-a\fR, \fB+fp16fml\fR, \fB+dotprod\fR" 4
-.IX Item "armv8.4-a : Armv8.4-A : armv8.3-a, +fp16fml, +dotprod"
+.IP "\fBarmv8.3\-a\fR : Armv8.3\-A : \fBarmv8.2\-a\fR, \fB+pauth\fR" 4
+.IX Item "armv8.3-a : Armv8.3-A : armv8.2-a, +pauth"
+.IP "\fBarmv8.4\-a\fR : Armv8.4\-A : \fBarmv8.3\-a\fR, \fB+flagm\fR, \fB+fp16fml\fR, \fB+dotprod\fR" 4
+.IX Item "armv8.4-a : Armv8.4-A : armv8.3-a, +flagm, +fp16fml, +dotprod"
 .IP "\fBarmv8.5\-a\fR : Armv8.5\-A : \fBarmv8.4\-a\fR, \fB+sb\fR, \fB+ssbs\fR, \fB+predres\fR" 4
 .IX Item "armv8.5-a : Armv8.5-A : armv8.4-a, +sb, +ssbs, +predres"
 .IP "\fBarmv8.6\-a\fR : Armv8.6\-A : \fBarmv8.5\-a\fR, \fB+bf16\fR, \fB+i8mm\fR" 4
@@ -17264,6 +17592,12 @@ Enable brain half-precision floating-point instructions.  This also enables
 Advanced \s-1SIMD\s0 and floating-point instructions.  This option is enabled by
 default for \fB\-march=armv8.6\-a\fR.  Use of this option with architectures
 prior to Armv8.2\-A is not supported.
+.IP "\fBflagm\fR" 4
+.IX Item "flagm"
+Enable the Flag Manipulation instructions Extension.
+.IP "\fBpauth\fR" 4
+.IX Item "pauth"
+Enable the Pointer Authentication Extension.
 .PP
 Feature \fBcrypto\fR implies \fBaes\fR, \fBsha2\fR, and \fBsimd\fR,
 which implies \fBfp\fR.
@@ -28424,13 +28758,13 @@ BMI, BMI2\s0 and F16C instruction set support.
 .IX Item "broadwell"
 Intel Broadwell \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
 SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI, BMI2,
-F16C, RDSEED\s0 and \s-1ADCX\s0 instruction set support.
+F16C, RDSEED ADCX\s0 and \s-1PREFETCHW\s0 instruction set support.
 .IP "\fBskylake\fR" 4
 .IX Item "skylake"
 Intel Skylake \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
 SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX, CLFLUSHOPT, XSAVEC\s0 and \s-1XSAVES\s0 instruction set
-support.
+BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC\s0 and \s-1XSAVES\s0
+instruction set support.
 .IP "\fBbonnell\fR" 4
 .IX Item "bonnell"
 Intel Bonnell \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3\s0 and \s-1SSSE3\s0
@@ -28459,32 +28793,33 @@ MOVDIR64B, CLDEMOTE\s0 and \s-1WAITPKG\s0 instruction set support.
 .IX Item "knl"
 Intel Knight's Landing \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3,
 SSSE3, SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHWT1, AVX512F, AVX512PF, AVX512ER\s0 and
-\&\s-1AVX512CD\s0 instruction set support.
+BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, PREFETCHWT1, AVX512F, AVX512PF,
+AVX512ER\s0 and \s-1AVX512CD\s0 instruction set support.
 .IP "\fBknm\fR" 4
 .IX Item "knm"
 Intel Knights Mill \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3,
 SSSE3, SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHWT1, AVX512F, AVX512PF, AVX512ER, AVX512CD,
-AVX5124VNNIW, AVX5124FMAPS\s0 and \s-1AVX512VPOPCNTDQ\s0 instruction set support.
+BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, PREFETCHWT1, AVX512F, AVX512PF,
+AVX512ER, AVX512CD, AVX5124VNNIW, AVX5124FMAPS\s0 and \s-1AVX512VPOPCNTDQ\s0 instruction
+set support.
 .IP "\fBskylake\-avx512\fR" 4
 .IX Item "skylake-avx512"
 Intel Skylake Server \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3,
 SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA,
-BMI, BMI2, F16C, RDSEED, ADCX, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F,
+BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F,
 CLWB, AVX512VL, AVX512BW, AVX512DQ\s0 and \s-1AVX512CD\s0 instruction set support.
 .IP "\fBcannonlake\fR" 4
 .IX Item "cannonlake"
 Intel Cannonlake Server \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2,
 SSE3, SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE,
-RDRND, FMA, BMI, BMI2, F16C, RDSEED, ADCX, CLFLUSHOPT, XSAVEC,
+RDRND, FMA, BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC,
 XSAVES, AVX512F, AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI,
 AVX512IFMA, SHA\s0 and \s-1UMIP\s0 instruction set support.
 .IP "\fBicelake-client\fR" 4
 .IX Item "icelake-client"
 Intel Icelake Client \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2,
 SSE3, SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE,
-RDRND, FMA, BMI, BMI2, F16C, RDSEED, ADCX, CLFLUSHOPT, XSAVEC,
+RDRND, FMA, BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC,
 XSAVES, AVX512F, AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI,
 AVX512IFMA, SHA, CLWB, UMIP, RDPID, GFNI, AVX512VBMI2, AVX512VPOPCNTDQ,
 AVX512BITALG, AVX512VNNI, VPCLMULQDQ, VAES\s0 instruction set support.
@@ -28492,7 +28827,7 @@ AVX512BITALG, AVX512VNNI, VPCLMULQDQ, VAES\s0 instruction set support.
 .IX Item "icelake-server"
 Intel Icelake Server \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2,
 SSE3, SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE,
-RDRND, FMA, BMI, BMI2, F16C, RDSEED, ADCX, CLFLUSHOPT, XSAVEC,
+RDRND, FMA, BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC,
 XSAVES, AVX512F, AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI,
 AVX512IFMA, SHA, CLWB, UMIP, RDPID, GFNI, AVX512VBMI2, AVX512VPOPCNTDQ,
 AVX512BITALG, AVX512VNNI, VPCLMULQDQ, VAES, PCONFIG\s0 and \s-1WBNOINVD\s0 instruction
@@ -28501,37 +28836,40 @@ set support.
 .IX Item "cascadelake"
 Intel Cascadelake \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
 SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI,
-BMI2, F16C, RDSEED, ADCX, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F, CLWB,
+BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F, CLWB,
 AVX512VL, AVX512BW, AVX512DQ, AVX512CD\s0 and \s-1AVX512VNNI\s0 instruction set support.
 .IP "\fBcooperlake\fR" 4
 .IX Item "cooperlake"
 Intel cooperlake \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
 SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI,
-BMI2, F16C, RDSEED, ADCX, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F, CLWB,
+BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F, CLWB,
 AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VNNI\s0 and \s-1AVX512BF16\s0 instruction
 set support.
 .IP "\fBtigerlake\fR" 4
 .IX Item "tigerlake"
 Intel Tigerlake \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
 SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI,
-BMI2, F16C, RDSEED, ADCX, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F, AVX512VL,
-AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI, AVX512IFMA, SHA, CLWB, UMIP, RDPID,
-GFNI, AVX512VBMI2, AVX512VPOPCNTDQ, AVX512BITALG, AVX512VNNI, VPCLMULQDQ, VAES,
-PCONFIG, WBNOINVD, MOVDIRI, MOVDIR64B, AVX512VP2INTERSECT\s0 and \s-1KEYLOCKER\s0
+BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F,
+AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI, AVX512IFMA, SHA, CLWB, UMIP,
+RDPID, GFNI, AVX512VBMI2, AVX512VPOPCNTDQ, AVX512BITALG, AVX512VNNI, VPCLMULQDQ,
+VAES, PCONFIG, WBNOINVD, MOVDIRI, MOVDIR64B, AVX512VP2INTERSECT\s0 and \s-1KEYLOCKER\s0
 instruction set support.
 .IP "\fBsapphirerapids\fR" 4
 .IX Item "sapphirerapids"
 Intel sapphirerapids \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3,
 SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND,
-FMA, BMI, BMI2, F16C, RDSEED, ADCX, CLFLUSHOPT, XSAVEC, XSAVES, AVX512F, CLWB,
-AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VNNI, AVX512BF16, MOVDIRI,
-MOVDIR64B, AVX512VP2INTERSECT, ENQCMD, CLDEMOTE, PTWRITE, WAITPKG, SERIALIZE,
-TSXLDTRK, UINTR, AMX\-BF16,\s0 AMX-TILE and \s-1AMX\-INT8\s0 instruction set support.
+FMA, BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES,
+AVX512F, CLWB, AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VNNI, AVX512BF16,
+MOVDIRI, MOVDIR64B, AVX512VP2INTERSECT, ENQCMD, CLDEMOTE, PTWRITE, WAITPKG,
+SERIALIZE, TSXLDTRK, UINTR, AMX\-BF16,\s0 AMX-TILE, \s-1AMX\-INT8\s0 and AVX-VNNI
+instruction set support.
 .IP "\fBalderlake\fR" 4
 .IX Item "alderlake"
 Intel Alderlake \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
-SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, CLDEMOTE,
-PTWRITE, WAITPKG, SERIALIZE, KEYLOCKER\s0 and \s-1HRESET\s0 instruction set support.
+SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI,
+BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, CLDEMOTE,
+PTWRITE, WAITPKG, SERIALIZE, KEYLOCKER, HRESET\s0 and AVX-VNNI instruction set
+support.
 .IP "\fBk6\fR" 4
 .IX Item "k6"
 \&\s-1AMD K6 CPU\s0 with \s-1MMX\s0 instruction set support.
@@ -28629,6 +28967,13 @@ supersets \s-1BMI, BMI2, CLWB, F16C, FMA, FSGSBASE, AVX, AVX2, ADCX, RDSEED,
 MWAITX, SHA, CLZERO, AES, PCLMUL, CX16, MOVBE, MMX, SSE, SSE2, SSE3, SSE4A,
 SSSE3, SSE4.1, SSE4.2, ABM, XSAVEC, XSAVES, CLFLUSHOPT, POPCNT, RDPID,
 WBNOINVD,\s0 and 64\-bit instruction set extensions.)
+.IP "\fBznver3\fR" 4
+.IX Item "znver3"
+\&\s-1AMD\s0 Family 19h core based CPUs with x86\-64 instruction set support. (This
+supersets \s-1BMI, BMI2, CLWB, F16C, FMA, FSGSBASE, AVX, AVX2, ADCX, RDSEED,
+MWAITX, SHA, CLZERO, AES, PCLMUL, CX16, MOVBE, MMX, SSE, SSE2, SSE3, SSE4A,
+SSSE3, SSE4.1, SSE4.2, ABM, XSAVEC, XSAVES, CLFLUSHOPT, POPCNT, RDPID,
+WBNOINVD, PKU, VPCLMULQDQ, VAES,\s0 and 64\-bit instruction set extensions.)
 .IP "\fBbtver1\fR" 4
 .IX Item "btver1"
 CPUs based on \s-1AMD\s0 Family 14h cores with x86\-64 instruction set support.  (This
@@ -29248,6 +29593,8 @@ preferred alignment to \fB\-mpreferred\-stack\-boundary=2\fR.
 .IX Item "-mavx5124fmaps"
 .IP "\fB\-mavx512vnni\fR" 4
 .IX Item "-mavx512vnni"
+.IP "\fB\-mavxvnni\fR" 4
+.IX Item "-mavxvnni"
 .IP "\fB\-mavx5124vnniw\fR" 4
 .IX Item "-mavx5124vnniw"
 .IP "\fB\-mcldemote\fR" 4
@@ -29276,9 +29623,9 @@ WBNOINVD, FMA4, PREFETCHW, RDPID, PREFETCHWT1, RDSEED, SGX, XOP, LWP,\s0
 XSAVEOPT, XSAVEC, XSAVES, RTM, HLE, TBM, MWAITX, CLZERO, PKU, AVX512VBMI2,
 GFNI, VAES, WAITPKG, VPCLMULQDQ, AVX512BITALG, MOVDIRI, MOVDIR64B, AVX512BF16,
 ENQCMD, AVX512VPOPCNTDQ, AVX5124FMAPS, AVX512VNNI, AVX5124VNNIW, SERIALIZE,
-UINTR, HRESET, AMXTILE, AMXINT8, AMXBF16, KL, WIDEKL\s0 or \s-1CLDEMOTE\s0 extended
-instruction sets. Each has a corresponding \fB\-mno\-\fR option to disable
-use of these instructions.
+UINTR, HRESET, AMXTILE, AMXINT8, AMXBF16, KL, WIDEKL, AVXVNNI\s0 or \s-1CLDEMOTE\s0
+extended instruction sets. Each has a corresponding \fB\-mno\-\fR option to
+disable use of these instructions.
 .Sp
 These extensions are also available as built-in functions: see
 \&\fBx86 Built-in Functions\fR, for details of the functions enabled and
@@ -29975,6 +30322,14 @@ environments.
 Generate code for short address mode.  This is only supported for 32\-bit
 and x32 environments.  It is the default address mode for 32\-bit and
 x32 environments.
+.IP "\fB\-mneeded\fR" 4
+.IX Item "-mneeded"
+.PD 0
+.IP "\fB\-mno\-needed\fR" 4
+.IX Item "-mno-needed"
+.PD
+Emit \s-1GNU_PROPERTY_X86_ISA_1_NEEDED GNU\s0 property for Linux target to
+indicate the micro-architecture \s-1ISA\s0 level required to execute the binary.
 .PP
 \fIx86 Windows Options\fR
 .IX Subsection "x86 Windows Options"

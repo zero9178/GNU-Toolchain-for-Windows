@@ -217,6 +217,8 @@ see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 #define TARGET_KL_P(x) TARGET_ISA2_KL_P(x)
 #define TARGET_WIDEKL	TARGET_ISA2_WIDEKL
 #define TARGET_WIDEKL_P(x) TARGET_ISA2_WIDEKL_P(x)
+#define TARGET_AVXVNNI	TARGET_ISA2_AVXVNNI
+#define TARGET_AVXVNNI_P(x)	TARGET_ISA2_AVXVNNI_P(x)
 
 #define TARGET_LP64	TARGET_ABI_64
 #define TARGET_LP64_P(x)	TARGET_ABI_64_P(x)
@@ -482,6 +484,7 @@ extern const struct processor_costs ix86_size_cost;
 #define TARGET_BTVER2 (ix86_tune == PROCESSOR_BTVER2)
 #define TARGET_ZNVER1 (ix86_tune == PROCESSOR_ZNVER1)
 #define TARGET_ZNVER2 (ix86_tune == PROCESSOR_ZNVER2)
+#define TARGET_ZNVER3 (ix86_tune == PROCESSOR_ZNVER3)
 
 /* Feature tests against the various tunings.  */
 enum ix86_tune_indices {
@@ -826,15 +829,15 @@ extern const char *host_detect_local_cpu (int argc, const char **argv);
    SFmode, DFmode and XFmode) in the current excess precision
    configuration.  */
 #define X87_ENABLE_ARITH(MODE)				\
-  (flag_unsafe_math_optimizations			\
-   || flag_excess_precision == EXCESS_PRECISION_FAST	\
+  (ix86_unsafe_math_optimizations			\
+   || ix86_excess_precision == EXCESS_PRECISION_FAST	\
    || (MODE) == XFmode)
 
 /* Likewise, whether to allow direct conversions from integer mode
    IMODE (HImode, SImode or DImode) to MODE.  */
 #define X87_ENABLE_FLOAT(MODE, IMODE)			\
-  (flag_unsafe_math_optimizations			\
-   || flag_excess_precision == EXCESS_PRECISION_FAST	\
+  (ix86_unsafe_math_optimizations			\
+   || ix86_excess_precision == EXCESS_PRECISION_FAST	\
    || (MODE) == XFmode					\
    || ((MODE) == DFmode && (IMODE) == SImode)		\
    || (IMODE) == HImode)
@@ -1159,22 +1162,6 @@ extern const char *host_detect_local_cpu (int argc, const char **argv);
      1,    1,     1,    1,    1,    1,    1,    1,		\
  /* k0,  k1,  k2,  k3,  k4,  k5,  k6,  k7*/			\
      1,   1,   1,   1,   1,   1,   1,   1 }
-
-/* Order in which to allocate registers.  Each register must be
-   listed once, even those in FIXED_REGISTERS.  List frame pointer
-   late and fixed registers last.  Note that, in general, we prefer
-   registers listed in CALL_USED_REGISTERS, keeping the others
-   available for storage of persistent values.
-
-   The ADJUST_REG_ALLOC_ORDER actually overwrite the order,
-   so this is just empty initializer for array.  */
-
-#define REG_ALLOC_ORDER							\
-{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,			\
-  16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,	\
-  32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47,	\
-  48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,	\
-  64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75 }
 
 /* ADJUST_REG_ALLOC_ORDER is a macro which permits reg_alloc_order
    to be rearranged based on a particular function.  When using sse math,
@@ -2395,6 +2382,7 @@ enum processor_type
   PROCESSOR_BTVER2,
   PROCESSOR_ZNVER1,
   PROCESSOR_ZNVER2,
+  PROCESSOR_ZNVER3,
   PROCESSOR_max
 };
 
@@ -2480,19 +2468,20 @@ const wide_int_bitmask PTA_AVX512VP2INTERSECT (0, HOST_WIDE_INT_1U << 9);
 const wide_int_bitmask PTA_PTWRITE (0, HOST_WIDE_INT_1U << 10);
 const wide_int_bitmask PTA_AVX512BF16 (0, HOST_WIDE_INT_1U << 11);
 const wide_int_bitmask PTA_WAITPKG (0, HOST_WIDE_INT_1U << 12);
-const wide_int_bitmask PTA_MOVDIRI(0, HOST_WIDE_INT_1U << 13);
-const wide_int_bitmask PTA_MOVDIR64B(0, HOST_WIDE_INT_1U << 14);
+const wide_int_bitmask PTA_MOVDIRI (0, HOST_WIDE_INT_1U << 13);
+const wide_int_bitmask PTA_MOVDIR64B (0, HOST_WIDE_INT_1U << 14);
 const wide_int_bitmask PTA_ENQCMD (0, HOST_WIDE_INT_1U << 15);
 const wide_int_bitmask PTA_CLDEMOTE (0, HOST_WIDE_INT_1U << 16);
 const wide_int_bitmask PTA_SERIALIZE (0, HOST_WIDE_INT_1U << 17);
 const wide_int_bitmask PTA_TSXLDTRK (0, HOST_WIDE_INT_1U << 18);
-const wide_int_bitmask PTA_AMX_TILE(0, HOST_WIDE_INT_1U << 19);
-const wide_int_bitmask PTA_AMX_INT8(0, HOST_WIDE_INT_1U << 20);
-const wide_int_bitmask PTA_AMX_BF16(0, HOST_WIDE_INT_1U << 21);
+const wide_int_bitmask PTA_AMX_TILE (0, HOST_WIDE_INT_1U << 19);
+const wide_int_bitmask PTA_AMX_INT8 (0, HOST_WIDE_INT_1U << 20);
+const wide_int_bitmask PTA_AMX_BF16 (0, HOST_WIDE_INT_1U << 21);
 const wide_int_bitmask PTA_UINTR (0, HOST_WIDE_INT_1U << 22);
-const wide_int_bitmask PTA_HRESET(0, HOST_WIDE_INT_1U << 23);
+const wide_int_bitmask PTA_HRESET (0, HOST_WIDE_INT_1U << 23);
 const wide_int_bitmask PTA_KL (0, HOST_WIDE_INT_1U << 24);
 const wide_int_bitmask PTA_WIDEKL (0, HOST_WIDE_INT_1U << 25);
+const wide_int_bitmask PTA_AVXVNNI (0, HOST_WIDE_INT_1U << 26);
 
 const wide_int_bitmask PTA_X86_64_BASELINE = PTA_64BIT | PTA_MMX | PTA_SSE
   | PTA_SSE2 | PTA_NO_SAHF | PTA_FXSR;
@@ -2515,7 +2504,8 @@ const wide_int_bitmask PTA_IVYBRIDGE = PTA_SANDYBRIDGE | PTA_FSGSBASE
   | PTA_RDRND | PTA_F16C;
 const wide_int_bitmask PTA_HASWELL = PTA_IVYBRIDGE | PTA_AVX2 | PTA_BMI
   | PTA_BMI2 | PTA_LZCNT | PTA_FMA | PTA_MOVBE | PTA_HLE;
-const wide_int_bitmask PTA_BROADWELL = PTA_HASWELL | PTA_ADX | PTA_RDSEED;
+const wide_int_bitmask PTA_BROADWELL = PTA_HASWELL | PTA_ADX | PTA_RDSEED
+  | PTA_PRFCHW;
 const wide_int_bitmask PTA_SKYLAKE = PTA_BROADWELL | PTA_AES | PTA_CLFLUSHOPT
   | PTA_XSAVEC | PTA_XSAVES | PTA_SGX;
 const wide_int_bitmask PTA_SKYLAKE_AVX512 = PTA_SKYLAKE | PTA_AVX512F
@@ -2536,9 +2526,9 @@ const wide_int_bitmask PTA_TIGERLAKE = PTA_ICELAKE_CLIENT | PTA_MOVDIRI
 const wide_int_bitmask PTA_SAPPHIRERAPIDS = PTA_COOPERLAKE | PTA_MOVDIRI
   | PTA_MOVDIR64B | PTA_AVX512VP2INTERSECT | PTA_ENQCMD | PTA_CLDEMOTE
   | PTA_PTWRITE | PTA_WAITPKG | PTA_SERIALIZE | PTA_TSXLDTRK | PTA_AMX_TILE
-  | PTA_AMX_INT8 | PTA_AMX_BF16 | PTA_UINTR;
+  | PTA_AMX_INT8 | PTA_AMX_BF16 | PTA_UINTR | PTA_AVXVNNI;
 const wide_int_bitmask PTA_ALDERLAKE = PTA_SKYLAKE | PTA_CLDEMOTE | PTA_PTWRITE
-  | PTA_WAITPKG | PTA_SERIALIZE | PTA_HRESET | PTA_KL | PTA_WIDEKL;
+  | PTA_WAITPKG | PTA_SERIALIZE | PTA_HRESET | PTA_KL | PTA_WIDEKL | PTA_AVXVNNI;
 const wide_int_bitmask PTA_KNL = PTA_BROADWELL | PTA_AVX512PF | PTA_AVX512ER
   | PTA_AVX512F | PTA_AVX512CD | PTA_PREFETCHWT1;
 const wide_int_bitmask PTA_BONNELL = PTA_CORE2 | PTA_MOVBE;

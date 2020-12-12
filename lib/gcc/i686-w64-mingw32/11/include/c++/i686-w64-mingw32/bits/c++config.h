@@ -34,7 +34,7 @@
 #define _GLIBCXX_RELEASE 11
 
 // The datestamp of the C++ library in compressed ISO date format.
-#define __GLIBCXX__ 20201110
+#define __GLIBCXX__ 20201212
 
 // Macros for various attributes.
 //   _GLIBCXX_PURE
@@ -653,35 +653,36 @@ namespace std
 #define _GLIBCXX_USE_FLOAT128 1
 #endif
 
-#if __GNUC__ >= 7
-// Assume these are available if the compiler claims to be a recent GCC:
+#ifdef __has_builtin
+# ifdef __is_identifier
+// Intel and older Clang require !__is_identifier for some built-ins:
+#  define _GLIBCXX_HAS_BUILTIN(B) __has_builtin(B) || ! __is_identifier(B)
+# else
+#  define _GLIBCXX_HAS_BUILTIN(B) __has_builtin(B)
+# endif
+#endif
+
+#if _GLIBCXX_HAS_BUILTIN(__has_unique_object_representations)
 # define _GLIBCXX_HAVE_BUILTIN_HAS_UNIQ_OBJ_REP 1
+#endif
+
+#if _GLIBCXX_HAS_BUILTIN(__is_aggregate)
 # define _GLIBCXX_HAVE_BUILTIN_IS_AGGREGATE 1
+#endif
+
+#if _GLIBCXX_HAS_BUILTIN(__builtin_is_constant_evaluated)
+#  define _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED 1
+#endif
+
+#if _GLIBCXX_HAS_BUILTIN(__is_same)
+#  define _GLIBCXX_HAVE_BUILTIN_IS_SAME 1
+#endif
+
+#if _GLIBCXX_HAS_BUILTIN(__builtin_launder)
 # define _GLIBCXX_HAVE_BUILTIN_LAUNDER 1
-# if __GNUC__ >= 9
-#  define _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED 1
-# endif
-# if __GNUC__ >= 11
-#  define _GLIBCXX_HAVE_BUILTIN_IS_SAME 1
-# endif
-#elif defined(__is_identifier) && defined(__has_builtin)
-// For non-GNU compilers:
-# if ! __is_identifier(__has_unique_object_representations)
-#  define _GLIBCXX_HAVE_BUILTIN_HAS_UNIQ_OBJ_REP 1
-# endif
-# if ! __is_identifier(__is_aggregate)
-#  define _GLIBCXX_HAVE_BUILTIN_IS_AGGREGATE 1
-# endif
-# if __has_builtin(__builtin_launder)
-#  define _GLIBCXX_HAVE_BUILTIN_LAUNDER 1
-# endif
-# if __has_builtin(__builtin_is_constant_evaluated)
-#  define _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED 1
-# endif
-# if ! __is_identifier(__is_same)
-#  define _GLIBCXX_HAVE_BUILTIN_IS_SAME 1
-# endif
-#endif // GCC
+#endif
+
+#undef _GLIBCXX_HAS_BUILTIN
 
 #if _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED
 # define __glibcxx_assert_1(_Condition)		\
@@ -1500,6 +1501,9 @@ namespace std
    */
 #define LT_OBJDIR ".libs/"
 
+/* Defined if no way to sleep is available. */
+/* #undef NO_SLEEP */
+
 /* Name of package */
 /* #undef _GLIBCXX_PACKAGE */
 
@@ -1604,6 +1608,10 @@ namespace std
 
 /* Define if gthreads library is available. */
 #define _GLIBCXX_HAS_GTHREADS 1
+
+/* Define to 1 if POSIX Semaphores with sem_timedwait are available in
+   <semaphore.h>. */
+#define _GLIBCXX__GLIBCXX_HAVE_POSIX_SEMAPHORE 1
 
 /* Define to 1 if a full hosted library is built, or 0 if freestanding. */
 #define _GLIBCXX_HOSTED 1

@@ -1193,10 +1193,18 @@ extern void gt_ggc_mx_vec_tree_pair_s_va_gc_ (void *);
   if (X != NULL) gt_ggc_mx_hash_table_named_decl_hash_ (X);\
   } while (0)
 extern void gt_ggc_mx_hash_table_named_decl_hash_ (void *);
+#define gt_ggc_m_10spec_entry(X) do { \
+  if (X != NULL) gt_ggc_mx_spec_entry (X);\
+  } while (0)
+extern void gt_ggc_mx_spec_entry (void *);
 #define gt_ggc_m_11tinst_level(X) do { \
   if (X != NULL) gt_ggc_mx_tinst_level (X);\
   } while (0)
 extern void gt_ggc_mx_tinst_level (void *);
+#define gt_ggc_m_16constexpr_fundef(X) do { \
+  if (X != NULL) gt_ggc_mx_constexpr_fundef (X);\
+  } while (0)
+extern void gt_ggc_mx_constexpr_fundef (void *);
 #define gt_ggc_m_10tree_check(X) do { \
   if (X != NULL) gt_ggc_mx_tree_check (X);\
   } while (0)
@@ -1229,10 +1237,6 @@ extern void gt_ggc_mx_cp_parser (void *);
   if (X != NULL) gt_ggc_mx_hash_map_tree_int_ (X);\
   } while (0)
 extern void gt_ggc_mx_hash_map_tree_int_ (void *);
-#define gt_ggc_m_16constexpr_fundef(X) do { \
-  if (X != NULL) gt_ggc_mx_constexpr_fundef (X);\
-  } while (0)
-extern void gt_ggc_mx_constexpr_fundef (void *);
 #define gt_ggc_m_35hash_table_constexpr_fundef_hasher_(X) do { \
   if (X != NULL) gt_ggc_mx_hash_table_constexpr_fundef_hasher_ (X);\
   } while (0)
@@ -1313,10 +1317,6 @@ extern void gt_ggc_mx_hash_table_subsumption_hasher_ (void *);
   if (X != NULL) gt_ggc_mx_pending_template (X);\
   } while (0)
 extern void gt_ggc_mx_pending_template (void *);
-#define gt_ggc_m_10spec_entry(X) do { \
-  if (X != NULL) gt_ggc_mx_spec_entry (X);\
-  } while (0)
-extern void gt_ggc_mx_spec_entry (void *);
 #define gt_ggc_m_23hash_table_spec_hasher_(X) do { \
   if (X != NULL) gt_ggc_mx_hash_table_spec_hasher_ (X);\
   } while (0)
@@ -1341,14 +1341,6 @@ extern void gt_ggc_mx_hash_table_cplus_array_hasher_ (void *);
   if (X != NULL) gt_ggc_mx_hash_table_list_hasher_ (X);\
   } while (0)
 extern void gt_ggc_mx_hash_table_list_hasher_ (void *);
-#define gt_ggc_m_21pending_abstract_type(X) do { \
-  if (X != NULL) gt_ggc_mx_pending_abstract_type (X);\
-  } while (0)
-extern void gt_ggc_mx_pending_abstract_type (void *);
-#define gt_ggc_m_32hash_table_abstract_type_hasher_(X) do { \
-  if (X != NULL) gt_ggc_mx_hash_table_abstract_type_hasher_ (X);\
-  } while (0)
-extern void gt_ggc_mx_hash_table_abstract_type_hasher_ (void *);
 #define gt_ggc_m_9Statement(X) do { \
   if (X != NULL) gt_ggc_mx_Statement (X);\
   } while (0)
@@ -2594,10 +2586,18 @@ extern void gt_pch_nx_vec_tree_pair_s_va_gc_ (void *);
   if (X != NULL) gt_pch_nx_hash_table_named_decl_hash_ (X);\
   } while (0)
 extern void gt_pch_nx_hash_table_named_decl_hash_ (void *);
+#define gt_pch_n_10spec_entry(X) do { \
+  if (X != NULL) gt_pch_nx_spec_entry (X);\
+  } while (0)
+extern void gt_pch_nx_spec_entry (void *);
 #define gt_pch_n_11tinst_level(X) do { \
   if (X != NULL) gt_pch_nx_tinst_level (X);\
   } while (0)
 extern void gt_pch_nx_tinst_level (void *);
+#define gt_pch_n_16constexpr_fundef(X) do { \
+  if (X != NULL) gt_pch_nx_constexpr_fundef (X);\
+  } while (0)
+extern void gt_pch_nx_constexpr_fundef (void *);
 #define gt_pch_n_10tree_check(X) do { \
   if (X != NULL) gt_pch_nx_tree_check (X);\
   } while (0)
@@ -2630,10 +2630,6 @@ extern void gt_pch_nx_cp_parser (void *);
   if (X != NULL) gt_pch_nx_hash_map_tree_int_ (X);\
   } while (0)
 extern void gt_pch_nx_hash_map_tree_int_ (void *);
-#define gt_pch_n_16constexpr_fundef(X) do { \
-  if (X != NULL) gt_pch_nx_constexpr_fundef (X);\
-  } while (0)
-extern void gt_pch_nx_constexpr_fundef (void *);
 #define gt_pch_n_35hash_table_constexpr_fundef_hasher_(X) do { \
   if (X != NULL) gt_pch_nx_hash_table_constexpr_fundef_hasher_ (X);\
   } while (0)
@@ -2714,10 +2710,6 @@ extern void gt_pch_nx_hash_table_subsumption_hasher_ (void *);
   if (X != NULL) gt_pch_nx_pending_template (X);\
   } while (0)
 extern void gt_pch_nx_pending_template (void *);
-#define gt_pch_n_10spec_entry(X) do { \
-  if (X != NULL) gt_pch_nx_spec_entry (X);\
-  } while (0)
-extern void gt_pch_nx_spec_entry (void *);
 #define gt_pch_n_23hash_table_spec_hasher_(X) do { \
   if (X != NULL) gt_pch_nx_hash_table_spec_hasher_ (X);\
   } while (0)
@@ -2742,14 +2734,6 @@ extern void gt_pch_nx_hash_table_cplus_array_hasher_ (void *);
   if (X != NULL) gt_pch_nx_hash_table_list_hasher_ (X);\
   } while (0)
 extern void gt_pch_nx_hash_table_list_hasher_ (void *);
-#define gt_pch_n_21pending_abstract_type(X) do { \
-  if (X != NULL) gt_pch_nx_pending_abstract_type (X);\
-  } while (0)
-extern void gt_pch_nx_pending_abstract_type (void *);
-#define gt_pch_n_32hash_table_abstract_type_hasher_(X) do { \
-  if (X != NULL) gt_pch_nx_hash_table_abstract_type_hasher_ (X);\
-  } while (0)
-extern void gt_pch_nx_hash_table_abstract_type_hasher_ (void *);
 #define gt_pch_n_9Statement(X) do { \
   if (X != NULL) gt_pch_nx_Statement (X);\
   } while (0)
@@ -3527,7 +3511,11 @@ extern void gt_pch_p_22vec_tree_pair_s_va_gc_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_27hash_table_named_decl_hash_
     (void *, void *, gt_pointer_operator, void *);
+extern void gt_pch_p_10spec_entry
+    (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_11tinst_level
+    (void *, void *, gt_pointer_operator, void *);
+extern void gt_pch_p_16constexpr_fundef
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_10tree_check
     (void *, void *, gt_pointer_operator, void *);
@@ -3544,8 +3532,6 @@ extern void gt_pch_p_38vec_cp_unparsed_functions_entry_va_gc_
 extern void gt_pch_p_9cp_parser
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_18hash_map_tree_int_
-    (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_16constexpr_fundef
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_35hash_table_constexpr_fundef_hasher_
     (void *, void *, gt_pointer_operator, void *);
@@ -3587,8 +3573,6 @@ extern void gt_pch_p_30hash_table_subsumption_hasher_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_16pending_template
     (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_10spec_entry
-    (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_23hash_table_spec_hasher_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_26hash_map_tree_tree_pair_p_
@@ -3600,10 +3584,6 @@ extern void gt_pch_p_26vec_deferred_access_va_gc_
 extern void gt_pch_p_30hash_table_cplus_array_hasher_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_23hash_table_list_hasher_
-    (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_21pending_abstract_type
-    (void *, void *, gt_pointer_operator, void *);
-extern void gt_pch_p_32hash_table_abstract_type_hasher_
     (void *, void *, gt_pointer_operator, void *);
 extern void gt_pch_p_9Statement
     (void *, void *, gt_pointer_operator, void *);

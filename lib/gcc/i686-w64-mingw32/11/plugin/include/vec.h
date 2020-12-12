@@ -419,6 +419,16 @@ struct GTY((user)) vec
 {
 };
 
+/* Allow C++11 range-based 'for' to work directly on vec<T>*.  */
+template<typename T, typename A, typename L>
+T* begin (vec<T,A,L> *v) { return v ? v->begin () : nullptr; }
+template<typename T, typename A, typename L>
+T* end (vec<T,A,L> *v) { return v ? v->end () : nullptr; }
+template<typename T, typename A, typename L>
+const T* begin (const vec<T,A,L> *v) { return v ? v->begin () : nullptr; }
+template<typename T, typename A, typename L>
+const T* end (const vec<T,A,L> *v) { return v ? v->end () : nullptr; }
+
 /* Generic vec<> debug helpers.
 
    These need to be instantiated for each vec<TYPE> used throughout
@@ -1602,7 +1612,7 @@ class auto_delete_vec : public auto_vec <T *>
   ~auto_delete_vec ();
 
 private:
-  DISABLE_COPY_AND_ASSIGN(auto_delete_vec<T>);
+  DISABLE_COPY_AND_ASSIGN(auto_delete_vec);
 };
 
 /* Conditionally allocate heap memory for VEC and its internal vector.  */
