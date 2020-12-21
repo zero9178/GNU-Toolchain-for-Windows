@@ -59,7 +59,6 @@ Software development
 * Ld: (ld).                     The GNU linker.
 * g++: (gcc).                   The GNU C++ compiler.
 * gcc: (gcc).                   The GNU Compiler Collection.
-* gccinstall: (gccinstall).     Installing the GNU Compiler Collection.
 * gccint: (gccint).             Internals of the GNU Compiler Collection.
 * gcov: (gcc) Gcov.             'gcov'--a test coverage program.
 * gcov-dump: (gcc) Gcov-dump.   'gcov-dump'--an offline gcda and gcno profile 
@@ -68,4 +67,3 @@ Software development
                                   processing program.
 * gfortran: (gfortran).         The GNU Fortran Compiler.
 * gprof: (gprof).               Profiling your program's execution
-* lto-dump: (gcc) lto-dump.     'lto-dump'--Tool for dumping LTO object files.
