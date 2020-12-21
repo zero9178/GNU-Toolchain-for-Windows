@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "8.4.1 20201212")
+(!version  "8.4.1 20201221")
 (!srcdir  "../../gcc")
 (!languages 10 ada brig c cp fortran go jit lto objc objcp)
 (!fileslist 208
@@ -24726,7 +24726,7 @@
    (!type already_seen 1764)
   )
   gc_pointed_to "cp_parser"
-  (!srcfileloc  "cp/parser.c" 38773)
+  (!srcfileloc  "cp/parser.c" 38775)
   (!fields 37 
    (!pair  "lexer"
     (!type already_seen 1750)
@@ -26581,7 +26581,7 @@
   nil )
  (!pair  "cp_parser"
   (!type already_seen 1764)
-  (!srcfileloc  "cp/parser.c" 38773)
+  (!srcfileloc  "cp/parser.c" 38775)
   nil )
  (!pair  "cp_parser_expression_stack"
   (!type array 1946 nil  gc_unused "NUM_PREC_VALUES" 
@@ -30380,11 +30380,11 @@
   nil )
  (!pair  "generic_parm_count"
   (!type already_seen 2)
-  (!srcfileloc  "cp/parser.c" 39226)
+  (!srcfileloc  "cp/parser.c" 39228)
   nil )
  (!pair  "the_parser"
   (!type already_seen 1765)
-  (!srcfileloc  "cp/parser.c" 38773)
+  (!srcfileloc  "cp/parser.c" 38775)
   nil )
  (!pair  "cp_parser_context_free_list"
   (!type already_seen 1757)

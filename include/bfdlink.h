@@ -655,8 +655,17 @@ struct bfd_link_info
   /* May be used to set DT_FLAGS_1 for ELF. */
   bfd_vma flags_1;
 
+  /* May be used to set DT_GNU_FLAGS_1 for ELF. */
+  bfd_vma gnu_flags_1;
+
   /* May be used to set ELF visibility for __start_* / __stop_.  */
   unsigned int start_stop_visibility;
+
+  /* The maximum page size for ELF.  */
+  bfd_vma maxpagesize;
+
+  /* The common page size for ELF.  */
+  bfd_vma commonpagesize;
 
   /* Start and end of RELRO region.  */
   bfd_vma relro_start, relro_end;
