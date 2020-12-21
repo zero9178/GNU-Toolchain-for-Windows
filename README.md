@@ -32,6 +32,7 @@ for smaller readily available toolchains.
 
 Features compiled in are:
 * GCC:
+    * Modules support in GCC-11
     * Shared and static versions of runtime libraries such as libstdc++. By default programs are linked against shared 
     versions. use the -static flag to compile against the static versions
     * Link Time Optimization support
