@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "LD 1"
-.TH LD 1 "2020-12-04" "binutils-2.35.50" "GNU Development Tools"
+.TH LD 1 "2020-12-21" "binutils-2.35.50" "GNU Development Tools"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -1169,6 +1169,19 @@ objects.
 Specify that the dynamic loader should modify its symbol search order
 so that symbols in this shared library interpose all other shared
 libraries not so marked.
+.IP "\fBunique\fR" 4
+.IX Item "unique"
+.PD 0
+.IP "\fBnounique\fR" 4
+.IX Item "nounique"
+.PD
+When generating a shared library or other dynamically loadable \s-1ELF\s0
+object mark it as one that should (by default) only ever be loaded once,
+and only in the main namespace (when using \f(CW\*(C`dlmopen\*(C'\fR). This is
+primarily used to mark fundamental libraries such as libc, libpthread et
+al which do not usually function correctly unless they are the sole instances
+of themselves. This behaviour can be overridden by the \f(CW\*(C`dlmopen\*(C'\fR caller
+and does not apply to certain loading mechanisms (such as audit libraries).
 .IP "\fBlazy\fR" 4
 .IX Item "lazy"
 When generating an executable or shared library, mark it to tell the
