@@ -34,7 +34,7 @@
 #define _GLIBCXX_RELEASE 11
 
 // The datestamp of the C++ library in compressed ISO date format.
-#define __GLIBCXX__ 20201212
+#define __GLIBCXX__ 20201221
 
 // Macros for various attributes.
 //   _GLIBCXX_PURE
@@ -425,8 +425,28 @@ _GLIBCXX_END_NAMESPACE_VERSION
 // GLIBCXX_ABI Deprecated
 // Define if compatibility should be provided for -mlong-double-64.
 #undef _GLIBCXX_LONG_DOUBLE_COMPAT
+// Define if compatibility should be provided for alternative 128-bit long
+// double formats.
+#undef _GLIBCXX_LONG_DOUBLE_ALT128_COMPAT
 
-// Inline namespace for long double 128 mode.
+// Inline namespaces for long double 128 modes.
+#if defined _GLIBCXX_LONG_DOUBLE_ALT128_COMPAT \
+  && defined __LONG_DOUBLE_IEEE128__
+namespace std
+{
+  // Namespaces for 128-bit IEEE long double format on 64-bit POWER LE.
+  inline namespace __gnu_cxx_ieee128 { }
+  inline namespace __gnu_cxx11_ieee128 { }
+}
+# define _GLIBCXX_NAMESPACE_LDBL __gnu_cxx_ieee128::
+# define _GLIBCXX_BEGIN_NAMESPACE_LDBL namespace __gnu_cxx_ieee128 {
+# define _GLIBCXX_END_NAMESPACE_LDBL }
+# define _GLIBCXX_NAMESPACE_LDBL_OR_CXX11 __gnu_cxx11_ieee128::
+# define _GLIBCXX_BEGIN_NAMESPACE_LDBL_OR_CXX11 namespace __gnu_cxx11_ieee128 {
+# define _GLIBCXX_END_NAMESPACE_LDBL_OR_CXX11 }
+
+#else // _GLIBCXX_LONG_DOUBLE_ALT128_COMPAT && IEEE128
+
 #if defined _GLIBCXX_LONG_DOUBLE_COMPAT && defined __LONG_DOUBLE_128__
 namespace std
 {
@@ -440,6 +460,7 @@ namespace std
 # define _GLIBCXX_BEGIN_NAMESPACE_LDBL
 # define _GLIBCXX_END_NAMESPACE_LDBL
 #endif
+
 #if _GLIBCXX_USE_CXX11_ABI
 # define _GLIBCXX_NAMESPACE_LDBL_OR_CXX11 _GLIBCXX_NAMESPACE_CXX11
 # define _GLIBCXX_BEGIN_NAMESPACE_LDBL_OR_CXX11 _GLIBCXX_BEGIN_NAMESPACE_CXX11
@@ -449,6 +470,8 @@ namespace std
 # define _GLIBCXX_BEGIN_NAMESPACE_LDBL_OR_CXX11 _GLIBCXX_BEGIN_NAMESPACE_LDBL
 # define _GLIBCXX_END_NAMESPACE_LDBL_OR_CXX11 _GLIBCXX_END_NAMESPACE_LDBL
 #endif
+
+#endif // _GLIBCXX_LONG_DOUBLE_ALT128_COMPAT && IEEE128
 
 // Debug Mode implies checking assertions.
 #if defined(_GLIBCXX_DEBUG) && !defined(_GLIBCXX_ASSERTIONS)
@@ -523,6 +546,15 @@ namespace std
 # define _GLIBCXX_END_EXTERN_C }
 
 # define _GLIBCXX_USE_ALLOCATOR_NEW 1
+
+#ifdef __SIZEOF_INT128__
+#if ! defined __GLIBCXX_TYPE_INT_N_0 && ! defined __STRICT_ANSI__
+// If __int128 is supported, we expect __GLIBCXX_TYPE_INT_N_0 to be defined
+// unless the compiler is in strict mode. If it's not defined and the strict
+// macro is not defined, something is wrong.
+#warning "__STRICT_ANSI__ seems to have been undefined; this is not supported"
+#endif
+#endif
 
 #else // !__cplusplus
 # define _GLIBCXX_BEGIN_EXTERN_C
@@ -648,9 +680,12 @@ namespace std
 # define __cpp_lib_char8_t 201907L
 #endif
 
-/* Define if __float128 is supported on this host. */
+/* Define if __float128 is supported on this host.  */
 #if defined(__FLOAT128__) || defined(__SIZEOF_FLOAT128__)
-#define _GLIBCXX_USE_FLOAT128 1
+/* For powerpc64 don't use __float128 when it's the same type as long double. */
+# if !(defined(_GLIBCXX_LONG_DOUBLE_ALT128_COMPAT) && defined(__LONG_DOUBLE_IEEE128__))
+#  define _GLIBCXX_USE_FLOAT128 1
+# endif
 #endif
 
 #ifdef __has_builtin
@@ -684,7 +719,7 @@ namespace std
 
 #undef _GLIBCXX_HAS_BUILTIN
 
-#if _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED
+#if _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED && __cplusplus >= 201402L
 # define __glibcxx_assert_1(_Condition)		\
     if (__builtin_is_constant_evaluated())	\
      {						\
@@ -803,65 +838,8 @@ namespace std
 /* Define to 1 if you have the <dlfcn.h> header file. */
 /* #undef _GLIBCXX_HAVE_DLFCN_H */
 
-/* Define if EBADMSG exists. */
-#define _GLIBCXX_HAVE_EBADMSG 1
-
-/* Define if ECANCELED exists. */
-#define _GLIBCXX_HAVE_ECANCELED 1
-
-/* Define if ECHILD exists. */
-#define _GLIBCXX_HAVE_ECHILD 1
-
-/* Define if EIDRM exists. */
-#define _GLIBCXX_HAVE_EIDRM 1
-
 /* Define to 1 if you have the <endian.h> header file. */
 /* #undef _GLIBCXX_HAVE_ENDIAN_H */
-
-/* Define if ENODATA exists. */
-#define _GLIBCXX_HAVE_ENODATA 1
-
-/* Define if ENOLINK exists. */
-#define _GLIBCXX_HAVE_ENOLINK 1
-
-/* Define if ENOSPC exists. */
-#define _GLIBCXX_HAVE_ENOSPC 1
-
-/* Define if ENOSR exists. */
-#define _GLIBCXX_HAVE_ENOSR 1
-
-/* Define if ENOSTR exists. */
-#define _GLIBCXX_HAVE_ENOSTR 1
-
-/* Define if ENOTRECOVERABLE exists. */
-#define _GLIBCXX_HAVE_ENOTRECOVERABLE 1
-
-/* Define if ENOTSUP exists. */
-#define _GLIBCXX_HAVE_ENOTSUP 1
-
-/* Define if EOVERFLOW exists. */
-#define _GLIBCXX_HAVE_EOVERFLOW 1
-
-/* Define if EOWNERDEAD exists. */
-#define _GLIBCXX_HAVE_EOWNERDEAD 1
-
-/* Define if EPERM exists. */
-#define _GLIBCXX_HAVE_EPERM 1
-
-/* Define if EPROTO exists. */
-#define _GLIBCXX_HAVE_EPROTO 1
-
-/* Define if ETIME exists. */
-#define _GLIBCXX_HAVE_ETIME 1
-
-/* Define if ETIMEDOUT exists. */
-#define _GLIBCXX_HAVE_ETIMEDOUT 1
-
-/* Define if ETXTBSY exists. */
-#define _GLIBCXX_HAVE_ETXTBSY 1
-
-/* Define if EWOULDBLOCK exists. */
-#define _GLIBCXX_HAVE_EWOULDBLOCK 1
 
 /* Define to 1 if GCC 4.6 supported std::exception_ptr for the target */
 #define _GLIBCXX_HAVE_EXCEPTION_PTR_SINCE_GCC46 1
@@ -1616,6 +1594,9 @@ namespace std
 /* Define to 1 if a full hosted library is built, or 0 if freestanding. */
 #define _GLIBCXX_HOSTED 1
 
+/* Define if compatibility should be provided for alternative 128-bit long
+   double formats. */
+
 /* Define if compatibility should be provided for -mlong-double-64. */
 
 /* Define to the letter to which size_t is mangled. */
@@ -1776,6 +1757,9 @@ namespace std
 
 /* Define if sendfile is available in <sys/sendfile.h>. */
 /* #undef _GLIBCXX_USE_SENDFILE */
+
+/* Define to restrict std::__basic_file<> to stdio APIs. */
+/* #undef _GLIBCXX_USE_STDIO_PURE */
 
 /* Define if struct stat has timespec members. */
 /* #undef _GLIBCXX_USE_ST_MTIM */

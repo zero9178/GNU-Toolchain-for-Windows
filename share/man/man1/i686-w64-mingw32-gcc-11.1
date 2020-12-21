@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2020-12-10" "gcc-11" "GNU"
+.TH GCC 1 "2020-12-21" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -244,7 +244,13 @@ in the following sections.
 \&\-fno\-gnu\-keywords 
 \&\-fno\-implicit\-templates 
 \&\-fno\-implicit\-inline\-templates 
-\&\-fno\-implement\-inlines  \-fms\-extensions 
+\&\-fno\-implement\-inlines  
+\&\-fmodule\-header\fR[\fB=\fR\fIkind\fR] \fB\-fmodule\-only \-fmodules\-ts 
+\&\-fmodule\-implicit\-inline 
+\&\-fno\-module\-lazy 
+\&\-fmodule\-mapper=\fR\fIspecification\fR 
+\&\fB\-fmodule\-version\-ignore 
+\&\-fms\-extensions 
 \&\-fnew\-inheriting\-ctors 
 \&\-fnew\-ttp\-matching 
 \&\-fno\-nonansi\-builtins  \-fnothrow\-opt  \-fno\-operator\-names 
@@ -258,15 +264,18 @@ in the following sections.
 \&\-fvisibility\-inlines\-hidden 
 \&\-fvisibility\-ms\-compat 
 \&\-fext\-numeric\-literals 
+\&\-flang\-info\-include\-translate\fR[\fB=\fR\fIname\fR] 
+\&\fB\-flang\-info\-include\-translate\-not 
 \&\-Wabi\-tag  \-Wcatch\-value  \-Wcatch\-value=\fR\fIn\fR 
 \&\fB\-Wno\-class\-conversion  \-Wclass\-memaccess 
 \&\-Wcomma\-subscript  \-Wconditionally\-supported 
 \&\-Wno\-conversion\-null  \-Wctad\-maybe\-unsupported 
 \&\-Wctor\-dtor\-privacy  \-Wno\-delete\-incomplete 
-\&\-Wdelete\-non\-virtual\-dtor  \-Wdeprecated\-copy  \-Wdeprecated\-copy\-dtor 
+\&\-Wdelete\-non\-virtual\-dtor  \-Wdeprecated\-copy \-Wdeprecated\-copy\-dtor 
 \&\-Wno\-deprecated\-enum\-enum\-conversion \-Wno\-deprecated\-enum\-float\-conversion 
 \&\-Weffc++  \-Wno\-exceptions \-Wextra\-semi  \-Wno\-inaccessible\-base 
 \&\-Wno\-inherited\-variadic\-ctor  \-Wno\-init\-list\-lifetime 
+\&\-Winvalid\-imported\-macros 
 \&\-Wno\-invalid\-offsetof  \-Wno\-literal\-suffix 
 \&\-Wno\-mismatched\-new\-delete \-Wmismatched\-tags 
 \&\-Wmultiple\-inheritance  \-Wnamespaces  \-Wnarrowing 
@@ -398,7 +407,7 @@ in the following sections.
 \&\fB\-Wswitch  \-Wno\-switch\-bool  \-Wswitch\-default  \-Wswitch\-enum 
 \&\-Wno\-switch\-outside\-range  \-Wno\-switch\-unreachable  \-Wsync\-nand 
 \&\-Wsystem\-headers  \-Wtautological\-compare  \-Wtrampolines  \-Wtrigraphs 
-\&\-Wtype\-limits  \-Wundef 
+\&\-Wtsan \-Wtype\-limits  \-Wundef 
 \&\-Wuninitialized  \-Wunknown\-pragmas 
 \&\-Wunsuffixed\-float\-constants  \-Wunused 
 \&\-Wunused\-but\-set\-parameter  \-Wunused\-but\-set\-variable 
@@ -615,7 +624,7 @@ in the following sections.
 \&\-fpreprocessed  \-ftabstop=\fR\fIwidth\fR  \fB\-ftrack\-macro\-expansion  
 \&\-fwide\-exec\-charset=\fR\fIcharset\fR  \fB\-fworking\-directory 
 \&\-H  \-imacros\fR \fIfile\fR  \fB\-include\fR \fIfile\fR 
-\&\fB\-M  \-MD  \-MF  \-MG  \-MM  \-MMD  \-MP  \-MQ  \-MT 
+\&\fB\-M  \-MD  \-MF  \-MG  \-MM  \-MMD  \-MP  \-MQ  \-MT \-Mno\-modules 
 \&\-no\-integrated\-cpp  \-P  \-pthread  \-remap 
 \&\-traditional  \-traditional\-cpp  \-trigraphs 
 \&\-U\fR\fImacro\fR  \fB\-undef  
@@ -1611,7 +1620,7 @@ the next \fB\-x\fR option.  Possible values for \fIlanguage\fR are:
 .Sp
 .Vb 10
 \&        c  c\-header  cpp\-output
-\&        c++  c++\-header  c++\-cpp\-output
+\&        c++  c++\-header  c++\-system\-header c++\-user\-header c++\-cpp\-output
 \&        objective\-c  objective\-c\-header  objective\-c\-cpp\-output
 \&        objective\-c++ objective\-c++\-header objective\-c++\-cpp\-output
 \&        assembler  assembler\-with\-cpp
@@ -3033,6 +3042,57 @@ without optimization need the same set of explicit instantiations.
 To save space, do not emit out-of-line copies of inline functions
 controlled by \f(CW\*(C`#pragma implementation\*(C'\fR.  This causes linker
 errors if these functions are not inlined everywhere they are called.
+.IP "\fB\-fmodules\-ts\fR" 4
+.IX Item "-fmodules-ts"
+.PD 0
+.IP "\fB\-fno\-modules\-ts\fR" 4
+.IX Item "-fno-modules-ts"
+.PD
+Enable support for \*(C+20 modules   The
+\&\fB\-fno\-modules\-ts\fR is usually not needed, as that is the
+default.  Even though this is a \*(C+20 feature, it is not currently
+implicitly enabled by selecting that standard version.
+.IP "\fB\-fmodule\-header\fR" 4
+.IX Item "-fmodule-header"
+.PD 0
+.IP "\fB\-fmodule\-header=user\fR" 4
+.IX Item "-fmodule-header=user"
+.IP "\fB\-fmodule\-header=system\fR" 4
+.IX Item "-fmodule-header=system"
+.PD
+Compile a header file to create an importable header unit.
+.IP "\fB\-fmodule\-implicit\-inline\fR" 4
+.IX Item "-fmodule-implicit-inline"
+Member functions defined in their class definitions are not implicitly
+inline for modular code.  This is different to traditional \*(C+
+behavior, for good reasons.  However, it may result in a difficulty
+during code porting.  This option makes such function definitions
+implicitly inline.  It does however generate an \s-1ABI\s0 incompatibility,
+so you must use it everywhere or nowhere.  (Such definitions outside
+of a named module remain implicitly inline, regardless.)
+.IP "\fB\-fno\-module\-lazy\fR" 4
+.IX Item "-fno-module-lazy"
+Disable lazy module importing and module mapper creation.
+.IP "\fB\-fmodule\-mapper=\fR[\fIhostname\fR]\fB:\fR\fIport\fR[\fB?\fR\fIident\fR]" 4
+.IX Item "-fmodule-mapper=[hostname]:port[?ident]"
+.PD 0
+.IP "\fB\-fmodule\-mapper=|\fR\fIprogram\fR[\fB?\fR\fIident\fR]\fB \fR\fIargs...\fR" 4
+.IX Item "-fmodule-mapper=|program[?ident] args..."
+.IP "\fB\-fmodule\-mapper==\fR\fIsocket\fR[\fB?\fR\fIident\fR]" 4
+.IX Item "-fmodule-mapper==socket[?ident]"
+.IP "\fB\-fmodule\-mapper=<>\fR[\fIinout\fR][\fB?\fR\fIident\fR]" 4
+.IX Item "-fmodule-mapper=<>[inout][?ident]"
+.IP "\fB\-fmodule\-mapper=<\fR\fIin\fR\fB>\fR\fIout\fR[\fB?\fR\fIident\fR]" 4
+.IX Item "-fmodule-mapper=<in>out[?ident]"
+.IP "\fB\-fmodule\-mapper=\fR\fIfile\fR[\fB?\fR\fIident\fR]" 4
+.IX Item "-fmodule-mapper=file[?ident]"
+.PD
+An oracle to query for module name to filename mappings.  If
+unspecified the \fB\s-1CXX_MODULE_MAPPER\s0\fR environment variable is used,
+and if that is unset, an in-process default is provided.
+.IP "\fB\-fmodule\-only\fR" 4
+.IX Item "-fmodule-only"
+Only emit the Compiled Module Interface, inhibiting any object file.
 .IP "\fB\-fms\-extensions\fR" 4
 .IX Item "-fms-extensions"
 Disable Wpedantic warnings about constructs used in \s-1MFC,\s0 such as implicit
@@ -3252,6 +3312,15 @@ for \s-1ISO \*(C+11\s0 onwards (\fB\-std=c++11\fR, ...).
 Do not search for header files in the standard directories specific to
 \&\*(C+, but do still search the other standard directories.  (This option
 is used when building the \*(C+ library.)
+.IP "\fB\-flang\-info\-include\-translate\fR" 4
+.IX Item "-flang-info-include-translate"
+.PD 0
+.IP "\fB\-flang\-info\-include\-translate\-not\fR" 4
+.IX Item "-flang-info-include-translate-not"
+.IP "\fB\-flang\-info\-include\-translate=\fR\fIheader\fR" 4
+.IX Item "-flang-info-include-translate=header"
+.PD
+Diagnose include translation events.
 .PP
 In addition, these warning options have meanings only for \*(C+ programs:
 .IP "\fB\-Wabi\-tag\fR (\*(C+ and Objective\-\*(C+ only)" 4
@@ -3384,6 +3453,12 @@ the variable declaration statement.
 .RE
 .RS 4
 .RE
+.IP "\fB\-Winvalid\-imported\-macros\fR" 4
+.IX Item "-Winvalid-imported-macros"
+Verify all imported macro definitions are valid at the end of
+compilation.  This is not enabled by default, as it requires
+additional processing to determine.  It may be useful when preparing
+sets of header-units to ensure consistent macros.
 .IP "\fB\-Wno\-literal\-suffix\fR (\*(C+ and Objective\-\*(C+ only)" 4
 .IX Item "-Wno-literal-suffix ( and Objective- only)"
 Do not warn when a string or character literal is followed by a
@@ -7437,6 +7512,14 @@ means that the pointer was meant to be dereferenced.  For example:
 .Ve
 .Sp
 Note that the code above is invalid in \*(C+11.
+.Sp
+This warning is enabled by default.
+.IP "\fB\-Wtsan\fR" 4
+.IX Item "-Wtsan"
+Warn about unsupported features in ThreadSanitizer.
+.Sp
+ThreadSanitizer does not support \f(CW\*(C`std::atomic_thread_fence\*(C'\fR and
+can report false positives.
 .Sp
 This warning is enabled by default.
 .IP "\fB\-Wtype\-limits\fR" 4
@@ -13594,7 +13677,7 @@ currently supported on is AArch64.
 .IP "\fB\-fsanitize=kernel\-address\fR" 4
 .IX Item "-fsanitize=kernel-address"
 Enable AddressSanitizer for Linux kernel.
-See <\fBhttps://github.com/google/kasan/wiki\fR> for more details.
+See <\fBhttps://github.com/google/kasan\fR> for more details.
 .IP "\fB\-fsanitize=hwaddress\fR" 4
 .IX Item "-fsanitize=hwaddress"
 Enable Hardware-assisted AddressSanitizer, which uses a hardware ability to
@@ -14323,6 +14406,9 @@ also suppresses preprocessed output, as a missing header file renders
 this useless.
 .Sp
 This feature is used in automatic updating of makefiles.
+.IP "\fB\-Mno\-modules\fR" 4
+.IX Item "-Mno-modules"
+Disable dependency generation for compiled module interfaces.
 .IP "\fB\-MP\fR" 4
 .IX Item "-MP"
 This option instructs \s-1CPP\s0 to add a phony target for each dependency
@@ -16307,6 +16393,10 @@ By default, the dump will contain messages about successful
 optimizations (equivalent to \fB\-optimized\fR) together with
 low-level details about the analysis.
 .RE
+.IP "\fB\-fdump\-lang\fR" 4
+.IX Item "-fdump-lang"
+Dump language-specific information.  The file name is made by appending
+\&\fI.lang\fR to the source file name.
 .IP "\fB\-fdump\-lang\-all\fR" 4
 .IX Item "-fdump-lang-all"
 .PD 0
@@ -16329,6 +16419,14 @@ Enable all language-specific dumps.
 .IX Item "class"
 Dump class hierarchy information.  Virtual table information is emitted
 unless '\fBslim\fR' is specified.  This option is applicable to \*(C+ only.
+.IP "\fBmodule\fR" 4
+.IX Item "module"
+Dump module information.  Options \fBlineno\fR (locations),
+\&\fBgraph\fR (reachability), \fBblocks\fR (clusters),
+\&\fBuid\fR (serialization), \fBalias\fR (mergeable),
+\&\fBasmname\fR (Elrond), \fBeh\fR (mapper) & \fBvops\fR
+(macros) may provide additional information.  This option is
+applicable to \*(C+ only.
 .IP "\fBraw\fR" 4
 .IX Item "raw"
 Dump the raw internal tree data.  This option is applicable to \*(C+ only.
@@ -17325,7 +17423,7 @@ performance of the code.  Permissible values for this option are:
 \&\fBcortex\-a57\fR, \fBcortex\-a72\fR, \fBcortex\-a73\fR, \fBcortex\-a75\fR,
 \&\fBcortex\-a76\fR, \fBcortex\-a76ae\fR, \fBcortex\-a77\fR,
 \&\fBcortex\-a65\fR, \fBcortex\-a65ae\fR, \fBcortex\-a34\fR,
-\&\fBcortex\-a78\fR, \fBcortex\-a78ae\fR,
+\&\fBcortex\-a78\fR, \fBcortex\-a78ae\fR, \fBcortex\-a78c\fR,
 \&\fBares\fR, \fBexynos\-m1\fR, \fBemag\fR, \fBfalkor\fR,
 \&\fBneoverse\-e1\fR, \fBneoverse\-n1\fR, \fBneoverse\-n2\fR,
 \&\fBneoverse\-v1\fR, \fBqdf24xx\fR, \fBsaphira\fR,
@@ -19147,7 +19245,7 @@ Permissible names are: \fBarm7tdmi\fR, \fBarm7tdmi\-s\fR, \fBarm710t\fR,
 \&\fBcortex\-a32\fR, \fBcortex\-a35\fR, \fBcortex\-a53\fR, \fBcortex\-a55\fR,
 \&\fBcortex\-a57\fR, \fBcortex\-a72\fR, \fBcortex\-a73\fR, \fBcortex\-a75\fR,
 \&\fBcortex\-a76\fR, \fBcortex\-a76ae\fR, \fBcortex\-a77\fR,
-\&\fBcortex\-a78\fR, \fBcortex\-a78ae\fR,
+\&\fBcortex\-a78\fR, \fBcortex\-a78ae\fR, \fBcortex\-a78c\fR,
 \&\fBares\fR, \fBcortex\-r4\fR, \fBcortex\-r4f\fR,
 \&\fBcortex\-r5\fR, \fBcortex\-r7\fR, \fBcortex\-r8\fR, \fBcortex\-r52\fR,
 \&\fBcortex\-m0\fR, \fBcortex\-m0plus\fR, \fBcortex\-m1\fR, \fBcortex\-m3\fR,
@@ -27077,7 +27175,7 @@ the backchain is placed into the topmost word of the 96/160 byte register
 save area.
 .Sp
 In general, code compiled with \fB\-mbackchain\fR is call-compatible with
-code compiled with \fB\-mmo\-backchain\fR; however, use of the backchain
+code compiled with \fB\-mno\-backchain\fR; however, use of the backchain
 for debugging purposes usually requires that the whole binary is built with
 \&\fB\-mbackchain\fR.  Note that the combination of \fB\-mbackchain\fR,
 \&\fB\-mpacked\-stack\fR and \fB\-mhard\-float\fR is not supported.  In order
@@ -28662,8 +28760,9 @@ A generic \s-1CPU\s0 with 64\-bit extensions.
 .IX Item "x86-64-v4"
 .PD
 These choices for \fIcpu-type\fR select the corresponding
-micro-architecture level from the x86\-64 psABI.  They are only available
-when compiling for an x86\-64 target that uses the System V psABI.
+micro-architecture level from the x86\-64 psABI.  On ABIs other than
+the x86\-64 psABI they select the same \s-1CPU\s0 features as the x86\-64 psABI
+documents for the particular micro-architecture level.
 .Sp
 Since these \fIcpu-type\fR values do not have a corresponding
 \&\fB\-mtune\fR setting, using \fB\-march\fR with these values enables
