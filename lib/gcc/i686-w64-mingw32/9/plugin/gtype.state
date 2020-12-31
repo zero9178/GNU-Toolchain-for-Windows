@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "9.3.1 20201221")
+(!version  "9.3.1 20201231")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 211
@@ -32062,7 +32062,7 @@
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 346)
-  (!srcfileloc  "config/i386/i386.c" 46120)
+  (!srcfileloc  "config/i386/i386.c" 46138)
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)

@@ -1,4 +1,4 @@
-/* generated for  x86_64-w64-mingw32-gcc-10 (GCC) 10.2.1 20200804 */
+/* generated for  x86_64-w64-mingw32-gcc-10 (GCC) 10.2.1 20201125 */
 
 #ifndef GCC_GENERATED_STDINT_H
 #define GCC_GENERATED_STDINT_H 1
