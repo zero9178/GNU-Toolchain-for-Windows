@@ -6911,41 +6911,41 @@
 #define HAVE_absv4di2 ((TARGET_SSE2) && (TARGET_AVX2))
 #define HAVE_absv2di2 (TARGET_SSE2)
 #define HAVE_avx2_pblendw (TARGET_AVX2)
-#define HAVE_sign_extendv16qiv16hi2 (TARGET_AVX2)
+#define HAVE_extendv16qiv16hi2 (TARGET_AVX2)
 #define HAVE_zero_extendv16qiv16hi2 (TARGET_AVX2)
-#define HAVE_sign_extendv32qiv32hi2 (TARGET_AVX512BW)
+#define HAVE_extendv32qiv32hi2 (TARGET_AVX512BW)
 #define HAVE_zero_extendv32qiv32hi2 (TARGET_AVX512BW)
-#define HAVE_sign_extendv8qiv8hi2 (TARGET_SSE4_1)
+#define HAVE_extendv8qiv8hi2 (TARGET_SSE4_1)
 #define HAVE_zero_extendv8qiv8hi2 (TARGET_SSE4_1)
-#define HAVE_sign_extendv16qiv16si2 (TARGET_AVX512F)
+#define HAVE_extendv16qiv16si2 (TARGET_AVX512F)
 #define HAVE_zero_extendv16qiv16si2 (TARGET_AVX512F)
-#define HAVE_sign_extendv8qiv8si2 (TARGET_AVX2)
+#define HAVE_extendv8qiv8si2 (TARGET_AVX2)
 #define HAVE_zero_extendv8qiv8si2 (TARGET_AVX2)
-#define HAVE_sign_extendv4qiv4si2 (TARGET_SSE4_1)
+#define HAVE_extendv4qiv4si2 (TARGET_SSE4_1)
 #define HAVE_zero_extendv4qiv4si2 (TARGET_SSE4_1)
-#define HAVE_sign_extendv16hiv16si2 (TARGET_AVX512F)
+#define HAVE_extendv16hiv16si2 (TARGET_AVX512F)
 #define HAVE_zero_extendv16hiv16si2 (TARGET_AVX512F)
-#define HAVE_sign_extendv8hiv8si2 (TARGET_AVX2)
+#define HAVE_extendv8hiv8si2 (TARGET_AVX2)
 #define HAVE_zero_extendv8hiv8si2 (TARGET_AVX2)
-#define HAVE_sign_extendv4hiv4si2 (TARGET_SSE4_1)
+#define HAVE_extendv4hiv4si2 (TARGET_SSE4_1)
 #define HAVE_zero_extendv4hiv4si2 (TARGET_SSE4_1)
-#define HAVE_sign_extendv8qiv8di2 (TARGET_AVX512F)
+#define HAVE_extendv8qiv8di2 (TARGET_AVX512F)
 #define HAVE_zero_extendv8qiv8di2 (TARGET_AVX512F)
-#define HAVE_sign_extendv4qiv4di2 (TARGET_AVX2)
+#define HAVE_extendv4qiv4di2 (TARGET_AVX2)
 #define HAVE_zero_extendv4qiv4di2 (TARGET_AVX2)
-#define HAVE_sign_extendv2qiv2di2 (TARGET_SSE4_1)
+#define HAVE_extendv2qiv2di2 (TARGET_SSE4_1)
 #define HAVE_zero_extendv2qiv2di2 (TARGET_SSE4_1)
-#define HAVE_sign_extendv8hiv8di2 (TARGET_AVX512F)
+#define HAVE_extendv8hiv8di2 (TARGET_AVX512F)
 #define HAVE_zero_extendv8hiv8di2 (TARGET_AVX512F)
-#define HAVE_sign_extendv4hiv4di2 (TARGET_AVX2)
+#define HAVE_extendv4hiv4di2 (TARGET_AVX2)
 #define HAVE_zero_extendv4hiv4di2 (TARGET_AVX2)
-#define HAVE_sign_extendv2hiv2di2 (TARGET_SSE4_1)
+#define HAVE_extendv2hiv2di2 (TARGET_SSE4_1)
 #define HAVE_zero_extendv2hiv2di2 (TARGET_SSE4_1)
-#define HAVE_sign_extendv8siv8di2 (TARGET_AVX512F)
+#define HAVE_extendv8siv8di2 (TARGET_AVX512F)
 #define HAVE_zero_extendv8siv8di2 (TARGET_AVX512F)
-#define HAVE_sign_extendv4siv4di2 (TARGET_AVX2)
+#define HAVE_extendv4siv4di2 (TARGET_AVX2)
 #define HAVE_zero_extendv4siv4di2 (TARGET_AVX2)
-#define HAVE_sign_extendv2siv2di2 (TARGET_SSE4_1)
+#define HAVE_extendv2siv2di2 (TARGET_SSE4_1)
 #define HAVE_zero_extendv2siv2di2 (TARGET_SSE4_1)
 #define HAVE_nearbyintv16sf2 ((TARGET_SSE4_1) && (TARGET_AVX512F))
 #define HAVE_nearbyintv8sf2 ((TARGET_SSE4_1) && (TARGET_AVX))
@@ -13771,41 +13771,41 @@ extern rtx        gen_absv8di2                                   (rtx, rtx);
 extern rtx        gen_absv4di2                                   (rtx, rtx);
 extern rtx        gen_absv2di2                                   (rtx, rtx);
 extern rtx        gen_avx2_pblendw                               (rtx, rtx, rtx, rtx);
-extern rtx        gen_sign_extendv16qiv16hi2                     (rtx, rtx);
+extern rtx        gen_extendv16qiv16hi2                          (rtx, rtx);
 extern rtx        gen_zero_extendv16qiv16hi2                     (rtx, rtx);
-extern rtx        gen_sign_extendv32qiv32hi2                     (rtx, rtx);
+extern rtx        gen_extendv32qiv32hi2                          (rtx, rtx);
 extern rtx        gen_zero_extendv32qiv32hi2                     (rtx, rtx);
-extern rtx        gen_sign_extendv8qiv8hi2                       (rtx, rtx);
+extern rtx        gen_extendv8qiv8hi2                            (rtx, rtx);
 extern rtx        gen_zero_extendv8qiv8hi2                       (rtx, rtx);
-extern rtx        gen_sign_extendv16qiv16si2                     (rtx, rtx);
+extern rtx        gen_extendv16qiv16si2                          (rtx, rtx);
 extern rtx        gen_zero_extendv16qiv16si2                     (rtx, rtx);
-extern rtx        gen_sign_extendv8qiv8si2                       (rtx, rtx);
+extern rtx        gen_extendv8qiv8si2                            (rtx, rtx);
 extern rtx        gen_zero_extendv8qiv8si2                       (rtx, rtx);
-extern rtx        gen_sign_extendv4qiv4si2                       (rtx, rtx);
+extern rtx        gen_extendv4qiv4si2                            (rtx, rtx);
 extern rtx        gen_zero_extendv4qiv4si2                       (rtx, rtx);
-extern rtx        gen_sign_extendv16hiv16si2                     (rtx, rtx);
+extern rtx        gen_extendv16hiv16si2                          (rtx, rtx);
 extern rtx        gen_zero_extendv16hiv16si2                     (rtx, rtx);
-extern rtx        gen_sign_extendv8hiv8si2                       (rtx, rtx);
+extern rtx        gen_extendv8hiv8si2                            (rtx, rtx);
 extern rtx        gen_zero_extendv8hiv8si2                       (rtx, rtx);
-extern rtx        gen_sign_extendv4hiv4si2                       (rtx, rtx);
+extern rtx        gen_extendv4hiv4si2                            (rtx, rtx);
 extern rtx        gen_zero_extendv4hiv4si2                       (rtx, rtx);
-extern rtx        gen_sign_extendv8qiv8di2                       (rtx, rtx);
+extern rtx        gen_extendv8qiv8di2                            (rtx, rtx);
 extern rtx        gen_zero_extendv8qiv8di2                       (rtx, rtx);
-extern rtx        gen_sign_extendv4qiv4di2                       (rtx, rtx);
+extern rtx        gen_extendv4qiv4di2                            (rtx, rtx);
 extern rtx        gen_zero_extendv4qiv4di2                       (rtx, rtx);
-extern rtx        gen_sign_extendv2qiv2di2                       (rtx, rtx);
+extern rtx        gen_extendv2qiv2di2                            (rtx, rtx);
 extern rtx        gen_zero_extendv2qiv2di2                       (rtx, rtx);
-extern rtx        gen_sign_extendv8hiv8di2                       (rtx, rtx);
+extern rtx        gen_extendv8hiv8di2                            (rtx, rtx);
 extern rtx        gen_zero_extendv8hiv8di2                       (rtx, rtx);
-extern rtx        gen_sign_extendv4hiv4di2                       (rtx, rtx);
+extern rtx        gen_extendv4hiv4di2                            (rtx, rtx);
 extern rtx        gen_zero_extendv4hiv4di2                       (rtx, rtx);
-extern rtx        gen_sign_extendv2hiv2di2                       (rtx, rtx);
+extern rtx        gen_extendv2hiv2di2                            (rtx, rtx);
 extern rtx        gen_zero_extendv2hiv2di2                       (rtx, rtx);
-extern rtx        gen_sign_extendv8siv8di2                       (rtx, rtx);
+extern rtx        gen_extendv8siv8di2                            (rtx, rtx);
 extern rtx        gen_zero_extendv8siv8di2                       (rtx, rtx);
-extern rtx        gen_sign_extendv4siv4di2                       (rtx, rtx);
+extern rtx        gen_extendv4siv4di2                            (rtx, rtx);
 extern rtx        gen_zero_extendv4siv4di2                       (rtx, rtx);
-extern rtx        gen_sign_extendv2siv2di2                       (rtx, rtx);
+extern rtx        gen_extendv2siv2di2                            (rtx, rtx);
 extern rtx        gen_zero_extendv2siv2di2                       (rtx, rtx);
 extern rtx        gen_nearbyintv16sf2                            (rtx, rtx);
 extern rtx        gen_nearbyintv8sf2                             (rtx, rtx);
