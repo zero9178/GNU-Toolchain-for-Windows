@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "11.0.0 20201231 (experimental)")
+(!version  "11.0.0 20210110 (experimental)")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 230
@@ -14009,8 +14009,8 @@
                        (!type struct 621 
                         (!type already_seen 620)
                         gc_pointed_to "cl_target_option"
-                        (!fileloc  "options.h" 8423)
-                        (!fields 51 
+                        (!fileloc  "options.h" 8427)
+                        (!fields 55 
                          (!pair  "x_ix86_isa_flags2_explicit"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8371)
@@ -14079,23 +14079,23 @@
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8387)
                           nil )
-                         (!pair  "x_ix86_asm_dialect"
-                          (!type already_seen 2)
+                         (!pair  "x_ix86_stack_protector_guard_offset_str"
+                          (!type already_seen 11)
                           (!fileloc  "options.h" 8388)
                           nil )
-                         (!pair  "x_ix86_abi"
-                          (!type already_seen 2)
+                         (!pair  "x_ix86_stack_protector_guard_reg_str"
+                          (!type already_seen 11)
                           (!fileloc  "options.h" 8389)
                           nil )
-                         (!pair  "x_ix86_cmodel"
-                          (!type already_seen 2)
+                         (!pair  "x_ix86_stack_protector_guard_symbol_str"
+                          (!type already_seen 11)
                           (!fileloc  "options.h" 8390)
                           nil )
-                         (!pair  "x_ix86_veclibabi_type"
+                         (!pair  "x_ix86_asm_dialect"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8391)
                           nil )
-                         (!pair  "x_ix86_pmode"
+                         (!pair  "x_ix86_abi"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8392)
                           nil )
@@ -14111,35 +14111,35 @@
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8395)
                           nil )
-                         (!pair  "x_ix86_excess_precision"
+                         (!pair  "x_ix86_cmodel"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8396)
                           nil )
-                         (!pair  "x_ix86_branch_cost"
+                         (!pair  "x_ix86_excess_precision"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8397)
                           nil )
-                         (!pair  "x_ix86_dump_tunes"
+                         (!pair  "x_ix86_veclibabi_type"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8398)
                           nil )
-                         (!pair  "x_ix86_force_align_arg_pointer"
+                         (!pair  "x_ix86_pmode"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8399)
                           nil )
-                         (!pair  "x_ix86_force_drap"
+                         (!pair  "x_ix86_branch_cost"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8400)
                           nil )
-                         (!pair  "x_ix86_incoming_stack_boundary_arg"
+                         (!pair  "x_ix86_dump_tunes"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8401)
                           nil )
-                         (!pair  "x_ix86_preferred_stack_boundary_arg"
+                         (!pair  "x_ix86_force_align_arg_pointer"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8402)
                           nil )
-                         (!pair  "x_ix86_regparm"
+                         (!pair  "x_ix86_force_drap"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8403)
                           nil )
@@ -14159,63 +14159,79 @@
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8407)
                           nil )
-                         (!pair  "x_recip_mask"
+                         (!pair  "x_ix86_incoming_stack_boundary_arg"
                           (!type already_seen 2)
                           (!fileloc  "options.h" 8408)
                           nil )
-                         (!pair  "arch"
-                          (!type already_seen 8)
+                         (!pair  "x_ix86_preferred_stack_boundary_arg"
+                          (!type already_seen 2)
                           (!fileloc  "options.h" 8409)
                           nil )
-                         (!pair  "arch_specified"
-                          (!type already_seen 8)
+                         (!pair  "x_ix86_regparm"
+                          (!type already_seen 2)
                           (!fileloc  "options.h" 8410)
                           nil )
-                         (!pair  "branch_cost"
-                          (!type already_seen 8)
+                         (!pair  "x_recip_mask"
+                          (!type already_seen 2)
                           (!fileloc  "options.h" 8411)
                           nil )
-                         (!pair  "prefetch_sse"
+                         (!pair  "arch"
                           (!type already_seen 8)
                           (!fileloc  "options.h" 8412)
                           nil )
-                         (!pair  "schedule"
+                         (!pair  "arch_specified"
                           (!type already_seen 8)
                           (!fileloc  "options.h" 8413)
                           nil )
-                         (!pair  "tune"
+                         (!pair  "branch_cost"
                           (!type already_seen 8)
                           (!fileloc  "options.h" 8414)
                           nil )
-                         (!pair  "tune_defaulted"
+                         (!pair  "prefetch_sse"
                           (!type already_seen 8)
                           (!fileloc  "options.h" 8415)
                           nil )
+                         (!pair  "schedule"
+                          (!type already_seen 8)
+                          (!fileloc  "options.h" 8416)
+                          nil )
+                         (!pair  "tune"
+                          (!type already_seen 8)
+                          (!fileloc  "options.h" 8417)
+                          nil )
+                         (!pair  "tune_defaulted"
+                          (!type already_seen 8)
+                          (!fileloc  "options.h" 8418)
+                          nil )
+                         (!pair  "x_flag_fentry"
+                          (!type already_seen 2)
+                          (!fileloc  "options.h" 8419)
+                          nil )
                          (!pair  "x_ix86_needed"
                           (!type already_seen 2)
-                          (!fileloc  "options.h" 8416)
+                          (!fileloc  "options.h" 8420)
                           nil )
                          (!pair  "explicit_mask"
                           (!type array 622 nil  gc_used "1" 
                            (!type already_seen 2)
                           )
-                          (!fileloc  "options.h" 8418)
+                          (!fileloc  "options.h" 8422)
                           nil )
                          (!pair  "explicit_mask_target_flags"
                           (!type already_seen 2)
-                          (!fileloc  "options.h" 8419)
+                          (!fileloc  "options.h" 8423)
                           nil )
                          (!pair  "explicit_mask_ix86_isa_flags"
                           (!type already_seen 2)
-                          (!fileloc  "options.h" 8420)
+                          (!fileloc  "options.h" 8424)
                           nil )
                          (!pair  "explicit_mask_ix86_isa_flags2"
                           (!type already_seen 2)
-                          (!fileloc  "options.h" 8421)
+                          (!fileloc  "options.h" 8425)
                           nil )
                          (!pair  "explicit_mask_ix86_target_flags"
                           (!type already_seen 2)
-                          (!fileloc  "options.h" 8422)
+                          (!fileloc  "options.h" 8426)
                           nil )
                         )
                         nil 2047 nil nil )
@@ -27745,7 +27761,7 @@
    (!type already_seen 1967)
   )
   gc_pointed_to "cp_parser"
-  (!srcfileloc  "cp/parser.c" 44637)
+  (!srcfileloc  "cp/parser.c" 44640)
   (!fields 37 
    (!pair  "lexer"
     (!type already_seen 1953)
@@ -28976,7 +28992,7 @@
   nil 0 nil nil )
  
  (!type undefined 2124 nil  gc_unused "class_to_loc_map_t::iterator"
-  (!srcfileloc  "cp/parser.c" 32406)
+  (!srcfileloc  "cp/parser.c" 32409)
  )
  
  (!type struct 2125 
@@ -29056,15 +29072,15 @@
    (!type already_seen 2138)
   )
   gc_pointed_to "hash_map<tree,tree_pair_p>"
-  (!srcfileloc  "cp/pt.c" 28983)
+  (!srcfileloc  "cp/pt.c" 29003)
   (!fields 2 
    (!pair  "tree_pair_p"
     (!type already_seen 535)
-    (!srcfileloc  "cp/pt.c" 28983)
+    (!srcfileloc  "cp/pt.c" 29003)
     nil )
    (!pair  "tree"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28983)
+    (!srcfileloc  "cp/pt.c" 29003)
     nil )
   )
  )
@@ -30055,7 +30071,7 @@
   nil )
  (!pair  "go_char_p"
   (!type already_seen 9)
-  (!srcfileloc  "go/go-lang.c" 196)
+  (!srcfileloc  "go/go-lang.c" 198)
   nil )
  (!pair  "gfc_interface_mapping"
   (!type already_seen 2204)
@@ -30231,7 +30247,7 @@
   nil )
  (!pair  "hash_map<tree,tree_pair_p>"
   (!type already_seen 2138)
-  (!srcfileloc  "cp/pt.c" 28983)
+  (!srcfileloc  "cp/pt.c" 29003)
   nil )
  (!pair  "pending_template"
   (!type already_seen 2125)
@@ -30259,15 +30275,15 @@
   nil )
  (!pair  "cp_parser"
   (!type already_seen 1967)
-  (!srcfileloc  "cp/parser.c" 44637)
+  (!srcfileloc  "cp/parser.c" 44640)
   nil )
  (!pair  "iter_t"
   (!type already_seen 2124)
-  (!srcfileloc  "cp/parser.c" 32406)
+  (!srcfileloc  "cp/parser.c" 32409)
   nil )
  (!pair  "class_to_loc_map_t::iterator"
   (!type already_seen 2124)
-  (!srcfileloc  "cp/parser.c" 32406)
+  (!srcfileloc  "cp/parser.c" 32409)
   nil )
  (!pair  "cp_parser_expression_stack"
   (!type array 2248 nil  gc_unused "NUM_PREC_VALUES" 
@@ -33770,11 +33786,11 @@
   nil )
  (!pair  "go_non_zero_struct"
   (!type already_seen 23)
-  (!srcfileloc  "go/go-c.h" 80)
+  (!srcfileloc  "go/go-c.h" 81)
   nil )
  (!pair  "go_gc_root"
   (!type already_seen 23)
-  (!srcfileloc  "go/go-lang.c" 580)
+  (!srcfileloc  "go/go-lang.c" 586)
   nil )
  (!pair  "gfc_rank_cst"
   (!type array 2258 nil  gc_used "GFC_MAX_DIMENSIONS + 1" 
@@ -34450,37 +34466,37 @@
   (!type array 2275 nil  gc_used "(int) BT_LAST + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "d/d-builtins.cc" 1008)
+  (!srcfileloc  "d/d-builtins.cc" 1022)
   nil )
  (!pair  "built_in_attributes"
   (!type array 2276 nil  gc_used "(int) ATTR_LAST" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "d/d-builtins.cc" 912)
+  (!srcfileloc  "d/d-builtins.cc" 926)
   nil )
  (!pair  "signed_size_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "d/d-builtins.cc" 763)
+  (!srcfileloc  "d/d-builtins.cc" 777)
   nil )
  (!pair  "uintmax_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "d/d-builtins.cc" 762)
+  (!srcfileloc  "d/d-builtins.cc" 776)
   nil )
  (!pair  "intmax_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "d/d-builtins.cc" 761)
+  (!srcfileloc  "d/d-builtins.cc" 775)
   nil )
  (!pair  "wint_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "d/d-builtins.cc" 760)
+  (!srcfileloc  "d/d-builtins.cc" 774)
   nil )
  (!pair  "const_string_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "d/d-builtins.cc" 759)
+  (!srcfileloc  "d/d-builtins.cc" 773)
   nil )
  (!pair  "string_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "d/d-builtins.cc" 758)
+  (!srcfileloc  "d/d-builtins.cc" 772)
   nil )
  (!pair  "gcc_builtins_types"
   (!type already_seen 84)
@@ -34546,7 +34562,7 @@
   nil )
  (!pair  "dguide_cache"
   (!type already_seen 2139)
-  (!srcfileloc  "cp/pt.c" 28983)
+  (!srcfileloc  "cp/pt.c" 29003)
   (!options 
    (!option deletable string  "")
   )
@@ -34635,11 +34651,11 @@
   nil )
  (!pair  "generic_parm_count"
   (!type already_seen 2)
-  (!srcfileloc  "cp/parser.c" 45129)
+  (!srcfileloc  "cp/parser.c" 45132)
   nil )
  (!pair  "the_parser"
   (!type already_seen 1968)
-  (!srcfileloc  "cp/parser.c" 44637)
+  (!srcfileloc  "cp/parser.c" 44640)
   nil )
  (!pair  "cp_parser_context_free_list"
   (!type already_seen 1960)
@@ -34997,7 +35013,7 @@
  )
  (!pair  "cv_cache"
   (!type already_seen 392)
-  (!srcfileloc  "cp/constexpr.c" 7360)
+  (!srcfileloc  "cp/constexpr.c" 7375)
   (!options 
    (!option deletable string  "")
   )
@@ -35035,7 +35051,7 @@
   nil )
  (!pair  "default_arg_context"
   (!type already_seen 84)
-  (!srcfileloc  "cp/call.c" 8159)
+  (!srcfileloc  "cp/call.c" 8169)
   nil )
  (!pair  "unemitted_tinfo_decls"
   (!type already_seen 84)
@@ -35476,7 +35492,7 @@
   nil )
  (!pair  "ix86_previous_fndecl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386-options.c" 3057)
+  (!srcfileloc  "config/i386/i386-options.c" 3045)
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 295)
@@ -35627,7 +35643,7 @@
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 21658)
+  (!srcfileloc  "config/i386/i386.c" 21688)
   nil )
  (!pair  "dllimport_map"
   (!type already_seen 1619)
@@ -36034,7 +36050,7 @@
   nil )
  (!pair  "next_block_index"
   (!type already_seen 2)
-  (!srcfileloc  "function.c" 4599)
+  (!srcfileloc  "function.c" 4603)
   nil )
  (!pair  "temp_slot_address_table"
   (!type already_seen 1404)
@@ -36060,7 +36076,7 @@
   nil )
  (!pair  "stack_check_libfunc"
   (!type already_seen 100)
-  (!srcfileloc  "explow.c" 1617)
+  (!srcfileloc  "explow.c" 1637)
   nil )
  (!pair  "hard_reg_clobbers"
   (!type array 2308 nil  gc_used "NUM_MACHINE_MODES" 
