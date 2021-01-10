@@ -7,7 +7,7 @@
 
 /* Main header file for the bfd library -- portable access to object files.
 
-   Copyright (C) 1990-2020 Free Software Foundation, Inc.
+   Copyright (C) 1990-2021 Free Software Foundation, Inc.
 
    Contributed by Cygnus Support.
 
@@ -1184,6 +1184,9 @@ typedef struct bfd_section
   struct bfd_symbol *symbol;
   struct bfd_symbol **symbol_ptr_ptr;
 
+  /* The matching section name pattern in linker script.  */
+  const char *pattern;
+
   /* Early in the link process, map_head and map_tail are used to build
      a list of input sections attached to an output section.  Later,
      output sections use these fields for a list of bfd_link_order
@@ -1377,8 +1380,8 @@ discarded_section (const asection *sec)
   /* target_index, used_by_bfd, constructor_chain, owner,           */ \
      0,            NULL,        NULL,              NULL,               \
                                                                        \
-  /* symbol,                    symbol_ptr_ptr,                     */ \
-     (struct bfd_symbol *) SYM, &SEC.symbol,                           \
+  /* symbol,                    symbol_ptr_ptr, pattern,            */ \
+     (struct bfd_symbol *) SYM, &SEC.symbol,    NULL,                  \
                                                                        \
   /* map_head, map_tail, already_assigned                           */ \
      { NULL }, { NULL }, NULL                                          \
@@ -6413,6 +6416,9 @@ typedef struct bfd_symbol
      with this name and type in use.  BSF_OBJECT must also be set.  */
 #define BSF_GNU_UNIQUE          (1 << 23)
 
+  /* This section symbol should be included in the symbol table.  */
+#define BSF_SECTION_SYM_USED    (1 << 24)
+
   flagword flags;
 
   /* A pointer to the section to which this symbol is
@@ -7288,6 +7294,11 @@ bfd_boolean generic_core_file_matches_executable_p
    (bfd_assert (__FILE__,__LINE__), NULL))
 #endif
 
+/* Defined to TRUE if unused section symbol should be kept.  */
+#ifndef TARGET_KEEP_UNUSED_SECTION_SYMBOLS
+#define TARGET_KEEP_UNUSED_SECTION_SYMBOLS TRUE
+#endif
+
 enum bfd_flavour
 {
   /* N.B. Update bfd_flavour_name if you change this.  */
@@ -7360,6 +7371,9 @@ typedef struct bfd_target
   /* How well this target matches, used to select between various
      possible targets when more than one target matches.  */
   unsigned char match_priority;
+
+ /* TRUE if unused section symbols should be kept.  */
+  bfd_boolean keep_unused_section_symbols;
 
   /* Entries for byte swapping for data. These are different from the
      other entry points, since they don't take a BFD as the first argument.
@@ -7789,6 +7803,12 @@ bfd_asymbol_flavour (const asymbol *sy)
   if ((sy->flags & BSF_SYNTHETIC) != 0)
     return bfd_target_unknown_flavour;
   return sy->the_bfd->xvec->flavour;
+}
+
+static inline bfd_boolean
+bfd_keep_unused_section_symbols (const bfd *abfd)
+{
+  return abfd->xvec->keep_unused_section_symbols;
 }
 
 bfd_boolean bfd_set_default_target (const char *name);
