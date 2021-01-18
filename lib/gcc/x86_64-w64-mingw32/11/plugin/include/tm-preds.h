@@ -168,6 +168,7 @@ extern int vzeroupper_pattern (rtx, machine_mode);
 extern int addsub_vm_operator (rtx, machine_mode);
 extern int addsub_vs_operator (rtx, machine_mode);
 extern int addsub_vs_parallel (rtx, machine_mode);
+extern int pmovzx_parallel (rtx, machine_mode);
 extern int avx_vbroadcast_operand (rtx, machine_mode);
 extern int palignr_operand (rtx, machine_mode);
 extern int avx2_pblendw_operand (rtx, machine_mode);

@@ -2744,10 +2744,12 @@
 #define HAVE_avx512f_sign_extendv16hiv16si2_mask (TARGET_AVX512F)
 #define HAVE_avx512f_zero_extendv16hiv16si2 (TARGET_AVX512F)
 #define HAVE_avx512f_zero_extendv16hiv16si2_mask (TARGET_AVX512F)
+#define HAVE_avx512f_zero_extendv16hiv16si2_1 (TARGET_AVX512F)
 #define HAVE_avx2_sign_extendv8hiv8si2 (TARGET_AVX2 && 1)
 #define HAVE_avx2_sign_extendv8hiv8si2_mask ((TARGET_AVX512F) && (TARGET_AVX2 && TARGET_AVX512VL))
 #define HAVE_avx2_zero_extendv8hiv8si2 (TARGET_AVX2 && 1)
 #define HAVE_avx2_zero_extendv8hiv8si2_mask ((TARGET_AVX512F) && (TARGET_AVX2 && TARGET_AVX512VL))
+#define HAVE_avx2_zero_extendv8hiv8si2_1 (TARGET_AVX2)
 #define HAVE_sse4_1_sign_extendv4hiv4si2 (TARGET_SSE4_1 && 1)
 #define HAVE_sse4_1_sign_extendv4hiv4si2_mask ((TARGET_AVX512F) && (TARGET_SSE4_1 && TARGET_AVX512VL))
 #define HAVE_sse4_1_zero_extendv4hiv4si2 (TARGET_SSE4_1 && 1)
@@ -10701,10 +10703,12 @@ extern rtx        gen_avx512f_sign_extendv16hiv16si2             (rtx, rtx);
 extern rtx        gen_avx512f_sign_extendv16hiv16si2_mask        (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx512f_zero_extendv16hiv16si2             (rtx, rtx);
 extern rtx        gen_avx512f_zero_extendv16hiv16si2_mask        (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx512f_zero_extendv16hiv16si2_1           (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_avx2_sign_extendv8hiv8si2                  (rtx, rtx);
 extern rtx        gen_avx2_sign_extendv8hiv8si2_mask             (rtx, rtx, rtx, rtx);
 extern rtx        gen_avx2_zero_extendv8hiv8si2                  (rtx, rtx);
 extern rtx        gen_avx2_zero_extendv8hiv8si2_mask             (rtx, rtx, rtx, rtx);
+extern rtx        gen_avx2_zero_extendv8hiv8si2_1                (rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_sse4_1_sign_extendv4hiv4si2                (rtx, rtx);
 extern rtx        gen_sse4_1_sign_extendv4hiv4si2_mask           (rtx, rtx, rtx, rtx);
 extern rtx        gen_sse4_1_zero_extendv4hiv4si2                (rtx, rtx);
