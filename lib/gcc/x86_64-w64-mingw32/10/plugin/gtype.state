@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20210111")
+(!version  "10.2.1 20210118")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 224
@@ -32296,15 +32296,15 @@
   nil )
  (!pair  "objc_parmlist"
   (!type already_seen 23)
-  (!srcfileloc  "objc/objc-act.c" 8244)
+  (!srcfileloc  "objc/objc-act.c" 8258)
   nil )
  (!pair  "interface_map"
   (!type already_seen 2104)
-  (!srcfileloc  "objc/objc-act.c" 3790)
+  (!srcfileloc  "objc/objc-act.c" 3804)
   nil )
  (!pair  "string_layout_checked"
   (!type already_seen 2)
-  (!srcfileloc  "objc/objc-act.c" 3076)
+  (!srcfileloc  "objc/objc-act.c" 3090)
   nil )
  (!pair  "string_htab"
   (!type already_seen 2116)
