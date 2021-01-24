@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20210118")
+(!version  "10.2.1 20210124")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 224
@@ -27927,15 +27927,15 @@
    (!type already_seen 2014)
   )
   gc_pointed_to "hash_map<tree,tree_pair_p>"
-  (!srcfileloc  "cp/pt.c" 28789)
+  (!srcfileloc  "cp/pt.c" 28792)
   (!fields 2 
    (!pair  "tree_pair_p"
     (!type already_seen 544)
-    (!srcfileloc  "cp/pt.c" 28789)
+    (!srcfileloc  "cp/pt.c" 28792)
     nil )
    (!pair  "tree"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28789)
+    (!srcfileloc  "cp/pt.c" 28792)
     nil )
   )
  )
@@ -29163,7 +29163,7 @@
   nil )
  (!pair  "hash_map<tree,tree_pair_p>"
   (!type already_seen 2014)
-  (!srcfileloc  "cp/pt.c" 28789)
+  (!srcfileloc  "cp/pt.c" 28792)
   nil )
  (!pair  "pending_template"
   (!type already_seen 2000)
@@ -33196,7 +33196,7 @@
   nil )
  (!pair  "dguide_cache"
   (!type already_seen 2015)
-  (!srcfileloc  "cp/pt.c" 28789)
+  (!srcfileloc  "cp/pt.c" 28792)
   (!options 
    (!option deletable string  "")
   )
@@ -33990,7 +33990,7 @@
  )
  (!pair  "thunk_labelno"
   (!type already_seen 2)
-  (!srcfileloc  "ada/gcc-interface/trans.c" 11161)
+  (!srcfileloc  "ada/gcc-interface/trans.c" 11162)
   nil )
  (!pair  "gnu_loop_stack"
   (!type already_seen 1754)

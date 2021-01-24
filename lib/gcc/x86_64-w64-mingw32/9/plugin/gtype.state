@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "9.3.1 20210118")
+(!version  "9.3.1 20210124")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 212
@@ -31853,7 +31853,7 @@
  )
  (!pair  "thunk_labelno"
   (!type already_seen 2)
-  (!srcfileloc  "ada/gcc-interface/trans.c" 11099)
+  (!srcfileloc  "ada/gcc-interface/trans.c" 11100)
   nil )
  (!pair  "gnu_loop_stack"
   (!type already_seen 1691)

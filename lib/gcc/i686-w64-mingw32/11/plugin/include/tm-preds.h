@@ -123,6 +123,7 @@ extern int reg_or_pm1_operand (rtx, machine_mode);
 extern int shiftdi_operand (rtx, machine_mode);
 extern int ashldi_input_operand (rtx, machine_mode);
 extern int zero_extended_scalar_load_operand (rtx, machine_mode);
+extern int float_vector_all_ones_operand (rtx, machine_mode);
 extern int vector_all_ones_operand (rtx, machine_mode);
 extern int vector_memory_operand (rtx, machine_mode);
 extern int vector_operand (rtx, machine_mode);
