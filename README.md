@@ -75,7 +75,7 @@ Trunk version of this repository currently contains following versions:
 - GCC 10.2.1
 - GCC Trunk (11.0.0)
 - GDB Trunk (11.0.50)
-- Binutils Trunk (2.35.50)
+- Binutils Trunk (2.36.50)
 - MinGW Trunk (9.0.0)
 - Make Trunk (4.3.90)
 
