@@ -9,13 +9,13 @@ zstd: https://github.com/facebook/zstd dev branch at revision f5b3f64d3f58ce86bd
 libexpat: https://github.com/libexpat/libexpat master branch at revision aafd462fbdb9ca9144f9cf8d8265a6f1f8f6a73b
 MinGW-W64: https://github.com/mirror/mingw-w64 master branch at revision 6a1b8d0eae98e0cf183fbbdcc50bb7090406583f
 Make: https://github.com/mirror/make master branch at revision a80b0096f501b0e9a3349858396841d493cc45a4
-Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision 940d0202fd472b09d370fb483bf5a8ae99c9c830
+Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision 9a7ba4aa0ed5bd60fd01bf0817692212a854bf78
 GCC 7: https://github.com/gcc-mirror/gcc releases/gcc-7 branch at revision b2d961e7342b5ba4e57adfa81cb189b738d10901
-GCC 8: https://github.com/gcc-mirror/gcc releases/gcc-8 branch at revision c4eb74085756a71866741c18bd42dd835b17b06f
-GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision 65baaada003697295d0be06fa8d8546ab06618f9
-GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision 45674e9f77a623acd53d977b8898b4cdddfc3a25
-GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision 6b1633378b74bed1d999a0ae2549088515a30ba0
-GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision 940d0202fd472b09d370fb483bf5a8ae99c9c830
+GCC 8: https://github.com/gcc-mirror/gcc releases/gcc-8 branch at revision 17196d65c58405e56266aaf466e63a1aaf4f8132
+GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision 688b7cb0287e2a002432fa31bff581005fe53720
+GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision 739a5d4588478b367233b04692822352f9af4bed
+GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision 5dfbad4f7c4317e4653b0307503547fb1d9b5d6f
+GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision 9a7ba4aa0ed5bd60fd01bf0817692212a854bf78
 
 MinGW options used:
 mingw-w64-headers: --enable-idl --with-default-win32-winnt=0x601 --with-default-msvcrt=msvcrt

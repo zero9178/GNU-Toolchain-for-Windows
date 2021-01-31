@@ -17,7 +17,7 @@ SECTIONS
     _etext = .;
     __etext = .;
   }
-  . = ALIGN(8192);
+  . = 0;
   .data :
   {
     *(.data)
