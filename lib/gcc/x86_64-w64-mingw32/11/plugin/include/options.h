@@ -10361,7 +10361,7 @@ enum opt_code
   OPT_fprofile_prefix_path_ = 1350,          /* -fprofile-prefix-path= */
   OPT_fprofile_reorder_functions = 1351,     /* -fprofile-reorder-functions */
   OPT_fprofile_report = 1352,                /* -fprofile-report */
-  OPT_fprofile_reproducible = 1353,          /* -fprofile-reproducible */
+  OPT_fprofile_reproducible_ = 1353,         /* -fprofile-reproducible= */
   OPT_fprofile_update_ = 1354,               /* -fprofile-update= */
   OPT_fprofile_use = 1355,                   /* -fprofile-use */
   OPT_fprofile_use_ = 1356,                  /* -fprofile-use= */
@@ -10953,69 +10953,73 @@ enum opt_code
   /* OPT_std_c__1y = 1942, */                /* -std=c++1y */
   /* OPT_std_c__1z = 1943, */                /* -std=c++1z */
   OPT_std_c__20 = 1944,                      /* -std=c++20 */
-  /* OPT_std_c__2a = 1945, */                /* -std=c++2a */
-  OPT_std_c__98 = 1946,                      /* -std=c++98 */
-  OPT_std_c11 = 1947,                        /* -std=c11 */
-  OPT_std_c17 = 1948,                        /* -std=c17 */
-  /* OPT_std_c18 = 1949, */                  /* -std=c18 */
-  /* OPT_std_c1x = 1950, */                  /* -std=c1x */
-  OPT_std_c2x = 1951,                        /* -std=c2x */
-  /* OPT_std_c89 = 1952, */                  /* -std=c89 */
-  OPT_std_c90 = 1953,                        /* -std=c90 */
-  OPT_std_c99 = 1954,                        /* -std=c99 */
-  /* OPT_std_c9x = 1955, */                  /* -std=c9x */
-  OPT_std_f2003 = 1956,                      /* -std=f2003 */
-  OPT_std_f2008 = 1957,                      /* -std=f2008 */
-  OPT_std_f2008ts = 1958,                    /* -std=f2008ts */
-  OPT_std_f2018 = 1959,                      /* -std=f2018 */
-  OPT_std_f95 = 1960,                        /* -std=f95 */
-  OPT_std_gnu = 1961,                        /* -std=gnu */
-  /* OPT_std_gnu__03 = 1962, */              /* -std=gnu++03 */
-  /* OPT_std_gnu__0x = 1963, */              /* -std=gnu++0x */
-  OPT_std_gnu__11 = 1964,                    /* -std=gnu++11 */
-  OPT_std_gnu__14 = 1965,                    /* -std=gnu++14 */
-  OPT_std_gnu__17 = 1966,                    /* -std=gnu++17 */
-  /* OPT_std_gnu__1y = 1967, */              /* -std=gnu++1y */
-  /* OPT_std_gnu__1z = 1968, */              /* -std=gnu++1z */
-  OPT_std_gnu__20 = 1969,                    /* -std=gnu++20 */
-  /* OPT_std_gnu__2a = 1970, */              /* -std=gnu++2a */
-  OPT_std_gnu__98 = 1971,                    /* -std=gnu++98 */
-  OPT_std_gnu11 = 1972,                      /* -std=gnu11 */
-  OPT_std_gnu17 = 1973,                      /* -std=gnu17 */
-  /* OPT_std_gnu18 = 1974, */                /* -std=gnu18 */
-  /* OPT_std_gnu1x = 1975, */                /* -std=gnu1x */
-  OPT_std_gnu2x = 1976,                      /* -std=gnu2x */
-  /* OPT_std_gnu89 = 1977, */                /* -std=gnu89 */
-  OPT_std_gnu90 = 1978,                      /* -std=gnu90 */
-  OPT_std_gnu99 = 1979,                      /* -std=gnu99 */
-  /* OPT_std_gnu9x = 1980, */                /* -std=gnu9x */
-  /* OPT_std_iso9899_1990 = 1981, */         /* -std=iso9899:1990 */
-  OPT_std_iso9899_199409 = 1982,             /* -std=iso9899:199409 */
-  /* OPT_std_iso9899_1999 = 1983, */         /* -std=iso9899:1999 */
-  /* OPT_std_iso9899_199x = 1984, */         /* -std=iso9899:199x */
-  /* OPT_std_iso9899_2011 = 1985, */         /* -std=iso9899:2011 */
-  /* OPT_std_iso9899_2017 = 1986, */         /* -std=iso9899:2017 */
-  /* OPT_std_iso9899_2018 = 1987, */         /* -std=iso9899:2018 */
-  OPT_std_legacy = 1988,                     /* -std=legacy */
-  OPT_stdlib_ = 1989,                        /* -stdlib= */
-  OPT_symbol_ = 1990,                        /* -symbol= */
-  OPT_symbolic = 1991,                       /* -symbolic */
-  OPT_t = 1992,                              /* -t */
-  OPT_time = 1993,                           /* -time */
-  OPT_time_ = 1994,                          /* -time= */
-  OPT_traditional = 1995,                    /* -traditional */
-  OPT_traditional_cpp = 1996,                /* -traditional-cpp */
-  OPT_tree_stats = 1997,                     /* -tree-stats */
-  OPT_trigraphs = 1998,                      /* -trigraphs */
-  OPT_type_stats = 1999,                     /* -type-stats */
-  OPT_u = 2000,                              /* -u */
-  OPT_undef = 2001,                          /* -undef */
-  OPT_v = 2002,                              /* -v */
-  OPT_version = 2003,                        /* -version */
-  OPT_w = 2004,                              /* -w */
-  OPT_wrapper = 2005,                        /* -wrapper */
-  OPT_x = 2006,                              /* -x */
-  OPT_z = 2007,                              /* -z */
+  OPT_std_c__23 = 1945,                      /* -std=c++23 */
+  /* OPT_std_c__2a = 1946, */                /* -std=c++2a */
+  /* OPT_std_c__2b = 1947, */                /* -std=c++2b */
+  OPT_std_c__98 = 1948,                      /* -std=c++98 */
+  OPT_std_c11 = 1949,                        /* -std=c11 */
+  OPT_std_c17 = 1950,                        /* -std=c17 */
+  /* OPT_std_c18 = 1951, */                  /* -std=c18 */
+  /* OPT_std_c1x = 1952, */                  /* -std=c1x */
+  OPT_std_c2x = 1953,                        /* -std=c2x */
+  /* OPT_std_c89 = 1954, */                  /* -std=c89 */
+  OPT_std_c90 = 1955,                        /* -std=c90 */
+  OPT_std_c99 = 1956,                        /* -std=c99 */
+  /* OPT_std_c9x = 1957, */                  /* -std=c9x */
+  OPT_std_f2003 = 1958,                      /* -std=f2003 */
+  OPT_std_f2008 = 1959,                      /* -std=f2008 */
+  OPT_std_f2008ts = 1960,                    /* -std=f2008ts */
+  OPT_std_f2018 = 1961,                      /* -std=f2018 */
+  OPT_std_f95 = 1962,                        /* -std=f95 */
+  OPT_std_gnu = 1963,                        /* -std=gnu */
+  /* OPT_std_gnu__03 = 1964, */              /* -std=gnu++03 */
+  /* OPT_std_gnu__0x = 1965, */              /* -std=gnu++0x */
+  OPT_std_gnu__11 = 1966,                    /* -std=gnu++11 */
+  OPT_std_gnu__14 = 1967,                    /* -std=gnu++14 */
+  OPT_std_gnu__17 = 1968,                    /* -std=gnu++17 */
+  /* OPT_std_gnu__1y = 1969, */              /* -std=gnu++1y */
+  /* OPT_std_gnu__1z = 1970, */              /* -std=gnu++1z */
+  OPT_std_gnu__20 = 1971,                    /* -std=gnu++20 */
+  OPT_std_gnu__23 = 1972,                    /* -std=gnu++23 */
+  /* OPT_std_gnu__2a = 1973, */              /* -std=gnu++2a */
+  /* OPT_std_gnu__2b = 1974, */              /* -std=gnu++2b */
+  OPT_std_gnu__98 = 1975,                    /* -std=gnu++98 */
+  OPT_std_gnu11 = 1976,                      /* -std=gnu11 */
+  OPT_std_gnu17 = 1977,                      /* -std=gnu17 */
+  /* OPT_std_gnu18 = 1978, */                /* -std=gnu18 */
+  /* OPT_std_gnu1x = 1979, */                /* -std=gnu1x */
+  OPT_std_gnu2x = 1980,                      /* -std=gnu2x */
+  /* OPT_std_gnu89 = 1981, */                /* -std=gnu89 */
+  OPT_std_gnu90 = 1982,                      /* -std=gnu90 */
+  OPT_std_gnu99 = 1983,                      /* -std=gnu99 */
+  /* OPT_std_gnu9x = 1984, */                /* -std=gnu9x */
+  /* OPT_std_iso9899_1990 = 1985, */         /* -std=iso9899:1990 */
+  OPT_std_iso9899_199409 = 1986,             /* -std=iso9899:199409 */
+  /* OPT_std_iso9899_1999 = 1987, */         /* -std=iso9899:1999 */
+  /* OPT_std_iso9899_199x = 1988, */         /* -std=iso9899:199x */
+  /* OPT_std_iso9899_2011 = 1989, */         /* -std=iso9899:2011 */
+  /* OPT_std_iso9899_2017 = 1990, */         /* -std=iso9899:2017 */
+  /* OPT_std_iso9899_2018 = 1991, */         /* -std=iso9899:2018 */
+  OPT_std_legacy = 1992,                     /* -std=legacy */
+  OPT_stdlib_ = 1993,                        /* -stdlib= */
+  OPT_symbol_ = 1994,                        /* -symbol= */
+  OPT_symbolic = 1995,                       /* -symbolic */
+  OPT_t = 1996,                              /* -t */
+  OPT_time = 1997,                           /* -time */
+  OPT_time_ = 1998,                          /* -time= */
+  OPT_traditional = 1999,                    /* -traditional */
+  OPT_traditional_cpp = 2000,                /* -traditional-cpp */
+  OPT_tree_stats = 2001,                     /* -tree-stats */
+  OPT_trigraphs = 2002,                      /* -trigraphs */
+  OPT_type_stats = 2003,                     /* -type-stats */
+  OPT_u = 2004,                              /* -u */
+  OPT_undef = 2005,                          /* -undef */
+  OPT_v = 2006,                              /* -v */
+  OPT_version = 2007,                        /* -version */
+  OPT_w = 2008,                              /* -w */
+  OPT_wrapper = 2009,                        /* -wrapper */
+  OPT_x = 2010,                              /* -x */
+  OPT_z = 2011,                              /* -z */
   N_OPTS,
   OPT_SPECIAL_unknown,
   OPT_SPECIAL_ignore,
