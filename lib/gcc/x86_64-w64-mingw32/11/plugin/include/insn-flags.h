@@ -2298,9 +2298,9 @@
 #define HAVE_avx512vl_gtv16hi3_mask ((TARGET_AVX512F) && ((TARGET_AVX512BW) && (TARGET_AVX512VL)))
 #define HAVE_avx512vl_gtv8hi3 ((TARGET_AVX512BW) && (TARGET_AVX512VL))
 #define HAVE_avx512vl_gtv8hi3_mask ((TARGET_AVX512F) && ((TARGET_AVX512BW) && (TARGET_AVX512VL)))
-#define HAVE_sse2_gtv16qi3 (TARGET_SSE2 && !TARGET_XOP)
-#define HAVE_sse2_gtv8hi3 (TARGET_SSE2 && !TARGET_XOP)
-#define HAVE_sse2_gtv4si3 (TARGET_SSE2 && !TARGET_XOP)
+#define HAVE_sse2_gtv16qi3 (TARGET_SSE2)
+#define HAVE_sse2_gtv8hi3 (TARGET_SSE2)
+#define HAVE_sse2_gtv4si3 (TARGET_SSE2)
 #define HAVE_one_cmplv16si2_mask ((TARGET_AVX512F) && ((TARGET_AVX512F \
    && (!true \
        || SImode == SImode \

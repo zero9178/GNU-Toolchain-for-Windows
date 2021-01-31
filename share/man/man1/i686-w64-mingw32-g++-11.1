@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2021-01-24" "gcc-11" "GNU"
+.TH GCC 1 "2021-01-31" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -2484,6 +2484,24 @@ The name \fBc++2a\fR is deprecated.
 Support is experimental, and could change in incompatible ways in
 future releases.
 The name \fBgnu++2a\fR is deprecated.
+.IP "\fBc++2b\fR" 4
+.IX Item "c++2b"
+.PD 0
+.IP "\fBc++23\fR" 4
+.IX Item "c++23"
+.PD
+The next revision of the \s-1ISO \*(C+\s0 standard, planned for
+2023.  Support is highly experimental, and will almost certainly
+change in incompatible ways in future releases.
+.IP "\fBgnu++2b\fR" 4
+.IX Item "gnu++2b"
+.PD 0
+.IP "\fBgnu++23\fR" 4
+.IX Item "gnu++23"
+.PD
+\&\s-1GNU\s0 dialect of \fB\-std=c++2b\fR.  Support is highly experimental,
+and will almost certainly change in incompatible ways in future
+releases.
 .RE
 .RS 4
 .RE
@@ -12094,7 +12112,7 @@ should be removed when the delay slot code is rewritten to maintain the
 control-flow graph.
 .IP "\fBmax-gcse-memory\fR" 4
 .IX Item "max-gcse-memory"
-The approximate maximum amount of memory that can be allocated in
+The approximate maximum amount of memory in \f(CW\*(C`kB\*(C'\fR that can be allocated in
 order to perform the global common subexpression elimination
 optimization.  If more memory than specified is required, the
 optimization is not done.
@@ -26497,9 +26515,10 @@ Return structures smaller than 8 bytes in registers (as specified by the
 .IP "\fB\-mabi=\fR\fIabi-type\fR" 4
 .IX Item "-mabi=abi-type"
 Extend the current \s-1ABI\s0 with a particular extension, or remove such extension.
-Valid values are \fBaltivec\fR, \fBno-altivec\fR,
+Valid values are: \fBaltivec\fR, \fBno-altivec\fR,
 \&\fBibmlongdouble\fR, \fBieeelongdouble\fR,
-\&\fBelfv1\fR, \fBelfv2\fR.
+\&\fBelfv1\fR, \fBelfv2\fR,
+and for \s-1AIX:\s0 \fBvec-extabi\fR, \fBvec-default\fR.
 .IP "\fB\-mabi=ibmlongdouble\fR" 4
 .IX Item "-mabi=ibmlongdouble"
 Change the current \s-1ABI\s0 to use \s-1IBM\s0 extended-precision long double.

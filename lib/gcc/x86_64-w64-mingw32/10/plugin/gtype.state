@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20210124")
+(!version  "10.2.1 20210131")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 224
@@ -27927,15 +27927,15 @@
    (!type already_seen 2014)
   )
   gc_pointed_to "hash_map<tree,tree_pair_p>"
-  (!srcfileloc  "cp/pt.c" 28792)
+  (!srcfileloc  "cp/pt.c" 28804)
   (!fields 2 
    (!pair  "tree_pair_p"
     (!type already_seen 544)
-    (!srcfileloc  "cp/pt.c" 28792)
+    (!srcfileloc  "cp/pt.c" 28804)
     nil )
    (!pair  "tree"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28792)
+    (!srcfileloc  "cp/pt.c" 28804)
     nil )
   )
  )
@@ -28017,7 +28017,7 @@
   nil 0 nil nil )
  
  (!type struct 2024 nil  gc_used "cplus_array_hasher"
-  (!srcfileloc  "cp/tree.c" 979)
+  (!srcfileloc  "cp/tree.c" 987)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -28026,11 +28026,11 @@
    (!type already_seen 2025)
   )
   gc_pointed_to "hash_table<cplus_array_hasher>"
-  (!srcfileloc  "cp/tree.c" 979)
+  (!srcfileloc  "cp/tree.c" 987)
   (!fields 1 
    (!pair  "cplus_array_hasher"
     (!type already_seen 2024)
-    (!srcfileloc  "cp/tree.c" 979)
+    (!srcfileloc  "cp/tree.c" 987)
     nil )
   )
  )
@@ -28040,7 +28040,7 @@
   nil 0 nil nil )
  
  (!type struct 2028 nil  gc_used "list_hasher"
-  (!srcfileloc  "cp/tree.c" 2060)
+  (!srcfileloc  "cp/tree.c" 2068)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -28049,11 +28049,11 @@
    (!type already_seen 2029)
   )
   gc_pointed_to "hash_table<list_hasher>"
-  (!srcfileloc  "cp/tree.c" 2060)
+  (!srcfileloc  "cp/tree.c" 2068)
   (!fields 1 
    (!pair  "list_hasher"
     (!type already_seen 2028)
-    (!srcfileloc  "cp/tree.c" 2060)
+    (!srcfileloc  "cp/tree.c" 2068)
     nil )
   )
  )
@@ -29131,19 +29131,19 @@
   nil )
  (!pair  "list_hasher"
   (!type already_seen 2028)
-  (!srcfileloc  "cp/tree.c" 2060)
+  (!srcfileloc  "cp/tree.c" 2068)
   nil )
  (!pair  "hash_table<list_hasher>"
   (!type already_seen 2029)
-  (!srcfileloc  "cp/tree.c" 2060)
+  (!srcfileloc  "cp/tree.c" 2068)
   nil )
  (!pair  "cplus_array_hasher"
   (!type already_seen 2024)
-  (!srcfileloc  "cp/tree.c" 979)
+  (!srcfileloc  "cp/tree.c" 987)
   nil )
  (!pair  "hash_table<cplus_array_hasher>"
   (!type already_seen 2025)
-  (!srcfileloc  "cp/tree.c" 979)
+  (!srcfileloc  "cp/tree.c" 987)
   nil )
  (!pair  "deferred_access"
   (!type already_seen 2019)
@@ -29163,7 +29163,7 @@
   nil )
  (!pair  "hash_map<tree,tree_pair_p>"
   (!type already_seen 2014)
-  (!srcfileloc  "cp/pt.c" 28792)
+  (!srcfileloc  "cp/pt.c" 28804)
   nil )
  (!pair  "pending_template"
   (!type already_seen 2000)
@@ -33172,15 +33172,15 @@
   nil )
  (!pair  "deleted_copy_types"
   (!type already_seen 477)
-  (!srcfileloc  "cp/tree.c" 4089)
+  (!srcfileloc  "cp/tree.c" 4097)
   nil )
  (!pair  "list_hash_table"
   (!type already_seen 2030)
-  (!srcfileloc  "cp/tree.c" 2060)
+  (!srcfileloc  "cp/tree.c" 2068)
   nil )
  (!pair  "cplus_array_htab"
   (!type already_seen 2026)
-  (!srcfileloc  "cp/tree.c" 979)
+  (!srcfileloc  "cp/tree.c" 987)
   nil )
  (!pair  "deferred_access_no_check"
   (!type already_seen 2)
@@ -33196,7 +33196,7 @@
   nil )
  (!pair  "dguide_cache"
   (!type already_seen 2015)
-  (!srcfileloc  "cp/pt.c" 28792)
+  (!srcfileloc  "cp/pt.c" 28804)
   (!options 
    (!option deletable string  "")
   )
@@ -33386,7 +33386,7 @@
   nil )
  (!pair  "nsdmi_inst"
   (!type already_seen 947)
-  (!srcfileloc  "cp/init.c" 552)
+  (!srcfileloc  "cp/init.c" 549)
   (!options 
    (!option cache string  "")
   )
@@ -33441,11 +33441,11 @@
   nil )
  (!pair  "start_cleanup_cnt"
   (!type already_seen 2)
-  (!srcfileloc  "cp/decl.c" 8658)
+  (!srcfileloc  "cp/decl.c" 8664)
   nil )
  (!pair  "decomp_type_table"
   (!type already_seen 947)
-  (!srcfileloc  "cp/decl.c" 8140)
+  (!srcfileloc  "cp/decl.c" 8146)
   (!options 
    (!option cache string  "")
   )
@@ -33609,7 +33609,7 @@
  )
  (!pair  "cv_cache"
   (!type already_seen 398)
-  (!srcfileloc  "cp/constexpr.c" 6970)
+  (!srcfileloc  "cp/constexpr.c" 6984)
   (!options 
    (!option deletable string  "")
   )
