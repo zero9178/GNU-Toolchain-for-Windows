@@ -83,18 +83,6 @@ extern int recip_mask;
 #define recip_mask global_options.x_recip_mask
 #endif
 #ifdef GENERATOR_FILE
-extern HOST_WIDE_INT function_entry_patch_area_size;
-#else
-  HOST_WIDE_INT x_function_entry_patch_area_size;
-#define function_entry_patch_area_size global_options.x_function_entry_patch_area_size
-#endif
-#ifdef GENERATOR_FILE
-extern HOST_WIDE_INT function_entry_patch_area_start;
-#else
-  HOST_WIDE_INT x_function_entry_patch_area_start;
-#define function_entry_patch_area_start global_options.x_function_entry_patch_area_start
-#endif
-#ifdef GENERATOR_FILE
 extern HOST_WIDE_INT ix86_isa_flags;
 #else
   HOST_WIDE_INT x_ix86_isa_flags;
@@ -5969,6 +5957,12 @@ extern int flag_partial_inlining;
 #define flag_partial_inlining global_options.x_flag_partial_inlining
 #endif
 #ifdef GENERATOR_FILE
+extern const char *flag_patchable_function_entry;
+#else
+  const char *x_flag_patchable_function_entry;
+#define flag_patchable_function_entry global_options.x_flag_patchable_function_entry
+#endif
+#ifdef GENERATOR_FILE
 extern int flag_pcc_struct_return;
 #else
   int x_flag_pcc_struct_return;
@@ -7895,6 +7889,7 @@ struct GTY(()) cl_optimization
   const char *x_str_align_jumps;
   const char *x_str_align_labels;
   const char *x_str_align_loops;
+  const char *x_flag_patchable_function_entry;
   int x_param_align_loop_iterations;
   int x_param_align_threshold;
   int x_param_asan_protect_allocas;
@@ -8361,7 +8356,7 @@ struct GTY(()) cl_optimization
   signed char x_flag_web;
   signed char x_flag_wrapv;
   signed char x_flag_wrapv_pointer;
-  /* 470 members */
+  /* 471 members */
   unsigned HOST_WIDE_INT explicit_mask[8];
 };
 

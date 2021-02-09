@@ -12842,18 +12842,6 @@ gen_lshrv2si3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 {
   return 0;
 }
-static inline rtx gen_ashlv1di3                                  (rtx, rtx, rtx);
-static inline rtx
-gen_ashlv1di3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
-{
-  return 0;
-}
-static inline rtx gen_lshrv1di3                                  (rtx, rtx, rtx);
-static inline rtx
-gen_lshrv1di3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
-{
-  return 0;
-}
 extern rtx        gen_mmx_eqv8qi3                                (rtx, rtx, rtx);
 extern rtx        gen_mmx_eqv4hi3                                (rtx, rtx, rtx);
 extern rtx        gen_mmx_eqv2si3                                (rtx, rtx, rtx);
