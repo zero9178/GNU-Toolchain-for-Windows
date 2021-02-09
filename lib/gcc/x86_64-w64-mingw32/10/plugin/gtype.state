@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20210131")
+(!version  "10.2.1 20210209")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 224
@@ -27282,19 +27282,19 @@
   nil 0 nil nil )
  
  (!type struct 1921 nil  gc_pointed_to "sat_entry"
-  (!srcfileloc  "cp/constraint.cc" 2290)
+  (!srcfileloc  "cp/constraint.cc" 2282)
   (!fields 3 
    (!pair  "constr"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constraint.cc" 2287)
+    (!srcfileloc  "cp/constraint.cc" 2279)
     nil )
    (!pair  "args"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constraint.cc" 2288)
+    (!srcfileloc  "cp/constraint.cc" 2280)
     nil )
    (!pair  "result"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constraint.cc" 2289)
+    (!srcfileloc  "cp/constraint.cc" 2281)
     nil )
   )
   (!options 
@@ -27303,7 +27303,7 @@
   1032 nil nil )
  
  (!type struct 1922 nil  gc_used "sat_hasher"
-  (!srcfileloc  "cp/constraint.cc" 2309)
+  (!srcfileloc  "cp/constraint.cc" 2301)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -27312,11 +27312,11 @@
    (!type already_seen 1923)
   )
   gc_pointed_to "hash_table<sat_hasher>"
-  (!srcfileloc  "cp/constraint.cc" 2309)
+  (!srcfileloc  "cp/constraint.cc" 2301)
   (!fields 1 
    (!pair  "sat_hasher"
     (!type already_seen 1922)
-    (!srcfileloc  "cp/constraint.cc" 2309)
+    (!srcfileloc  "cp/constraint.cc" 2301)
     nil )
   )
  )
@@ -29301,11 +29301,11 @@
   nil )
  (!pair  "sat_hasher"
   (!type already_seen 1922)
-  (!srcfileloc  "cp/constraint.cc" 2309)
+  (!srcfileloc  "cp/constraint.cc" 2301)
   nil )
  (!pair  "hash_table<sat_hasher>"
   (!type already_seen 1923)
-  (!srcfileloc  "cp/constraint.cc" 2309)
+  (!srcfileloc  "cp/constraint.cc" 2301)
   nil )
  (!pair  "constexpr_call_hasher"
   (!type already_seen 1911)
@@ -29645,7 +29645,7 @@
   nil )
  (!pair  "builtin_type"
   (!type already_seen 2)
-  (!srcfileloc  "ada/gcc-interface/utils.c" 6027)
+  (!srcfileloc  "ada/gcc-interface/utils.c" 6033)
   nil )
  (!pair  "pad_type_hasher"
   (!type already_seen 1759)
@@ -29685,7 +29685,7 @@
   nil )
  (!pair  "vinfo_t"
   (!type already_seen 1742)
-  (!srcfileloc  "ada/gcc-interface/decl.c" 7590)
+  (!srcfileloc  "ada/gcc-interface/decl.c" 7600)
   nil )
  (!pair  "intrin_binding_t"
   (!type already_seen 1740)
@@ -33581,14 +33581,14 @@
   nil )
  (!pair  "decl_satisfied_cache"
   (!type already_seen 398)
-  (!srcfileloc  "cp/constraint.cc" 2312)
+  (!srcfileloc  "cp/constraint.cc" 2304)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "sat_cache"
   (!type already_seen 1924)
-  (!srcfileloc  "cp/constraint.cc" 2309)
+  (!srcfileloc  "cp/constraint.cc" 2301)
   (!options 
    (!option deletable string  "")
   )
@@ -33609,7 +33609,7 @@
  )
  (!pair  "cv_cache"
   (!type already_seen 398)
-  (!srcfileloc  "cp/constexpr.c" 6984)
+  (!srcfileloc  "cp/constexpr.c" 7001)
   (!options 
    (!option deletable string  "")
   )
@@ -33911,17 +33911,17 @@
   (!type array 2172 nil  gc_used "(int) ATTR_LAST" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "ada/gcc-interface/utils.c" 6197)
+  (!srcfileloc  "ada/gcc-interface/utils.c" 6203)
   nil )
  (!pair  "builtin_types"
   (!type array 2173 nil  gc_used "(int) BT_LAST + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "ada/gcc-interface/utils.c" 6030)
+  (!srcfileloc  "ada/gcc-interface/utils.c" 6036)
   nil )
  (!pair  "dummy_global"
   (!type already_seen 23)
-  (!srcfileloc  "ada/gcc-interface/utils.c" 5791)
+  (!srcfileloc  "ada/gcc-interface/utils.c" 5797)
   nil )
  (!pair  "pad_type_hash_table"
   (!type already_seen 1761)
