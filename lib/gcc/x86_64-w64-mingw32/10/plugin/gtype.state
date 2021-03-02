@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20210223")
+(!version  "10.2.1 20210302")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 224
@@ -24261,7 +24261,7 @@
   nil 0 nil nil )
  
  (!type struct 1557 nil  gc_used "dllimport_hasher"
-  (!srcfileloc  "config/i386/i386.c" 11333)
+  (!srcfileloc  "config/i386/i386.c" 11324)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -24270,11 +24270,11 @@
    (!type already_seen 1558)
   )
   gc_pointed_to "hash_table<dllimport_hasher>"
-  (!srcfileloc  "config/i386/i386.c" 11333)
+  (!srcfileloc  "config/i386/i386.c" 11324)
   (!fields 1 
    (!pair  "dllimport_hasher"
     (!type already_seen 1557)
-    (!srcfileloc  "config/i386/i386.c" 11333)
+    (!srcfileloc  "config/i386/i386.c" 11324)
     nil )
   )
  )
@@ -26924,7 +26924,7 @@
    (!type already_seen 1887)
   )
   gc_pointed_to "cp_parser"
-  (!srcfileloc  "cp/parser.c" 43545)
+  (!srcfileloc  "cp/parser.c" 43552)
   (!fields 37 
    (!pair  "lexer"
     (!type already_seen 1873)
@@ -27826,7 +27826,7 @@
   nil 0 nil nil )
  
  (!type undefined 1999 nil  gc_unused "class_to_loc_map_t::iterator"
-  (!srcfileloc  "cp/parser.c" 31480)
+  (!srcfileloc  "cp/parser.c" 31487)
  )
  
  (!type struct 2000 
@@ -27927,15 +27927,15 @@
    (!type already_seen 2014)
   )
   gc_pointed_to "hash_map<tree,tree_pair_p>"
-  (!srcfileloc  "cp/pt.c" 28819)
+  (!srcfileloc  "cp/pt.c" 28829)
   (!fields 2 
    (!pair  "tree_pair_p"
     (!type already_seen 544)
-    (!srcfileloc  "cp/pt.c" 28819)
+    (!srcfileloc  "cp/pt.c" 28829)
     nil )
    (!pair  "tree"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28819)
+    (!srcfileloc  "cp/pt.c" 28829)
     nil )
   )
  )
@@ -29163,7 +29163,7 @@
   nil )
  (!pair  "hash_map<tree,tree_pair_p>"
   (!type already_seen 2014)
-  (!srcfileloc  "cp/pt.c" 28819)
+  (!srcfileloc  "cp/pt.c" 28829)
   nil )
  (!pair  "pending_template"
   (!type already_seen 2000)
@@ -29187,15 +29187,15 @@
   nil )
  (!pair  "cp_parser"
   (!type already_seen 1887)
-  (!srcfileloc  "cp/parser.c" 43545)
+  (!srcfileloc  "cp/parser.c" 43552)
   nil )
  (!pair  "iter_t"
   (!type already_seen 1999)
-  (!srcfileloc  "cp/parser.c" 31480)
+  (!srcfileloc  "cp/parser.c" 31487)
   nil )
  (!pair  "class_to_loc_map_t::iterator"
   (!type already_seen 1999)
-  (!srcfileloc  "cp/parser.c" 31480)
+  (!srcfileloc  "cp/parser.c" 31487)
   nil )
  (!pair  "cp_parser_expression_stack"
   (!type array 2130 nil  gc_unused "NUM_PREC_VALUES" 
@@ -30061,11 +30061,11 @@
   nil )
  (!pair  "dllimport_hasher"
   (!type already_seen 1557)
-  (!srcfileloc  "config/i386/i386.c" 11333)
+  (!srcfileloc  "config/i386/i386.c" 11324)
   nil )
  (!pair  "hash_table<dllimport_hasher>"
   (!type already_seen 1558)
-  (!srcfileloc  "config/i386/i386.c" 11333)
+  (!srcfileloc  "config/i386/i386.c" 11324)
   nil )
  (!pair  "use_optype_p"
   (!type already_seen 407)
@@ -33196,21 +33196,21 @@
   nil )
  (!pair  "dguide_cache"
   (!type already_seen 2015)
-  (!srcfileloc  "cp/pt.c" 28819)
+  (!srcfileloc  "cp/pt.c" 28829)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "explicit_specifier_map"
   (!type already_seen 947)
-  (!srcfileloc  "cp/pt.c" 13551)
+  (!srcfileloc  "cp/pt.c" 13562)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "defarg_inst"
   (!type already_seen 947)
-  (!srcfileloc  "cp/pt.c" 13440)
+  (!srcfileloc  "cp/pt.c" 13451)
   (!options 
    (!option cache string  "")
   )
@@ -33285,11 +33285,11 @@
   nil )
  (!pair  "generic_parm_count"
   (!type already_seen 2)
-  (!srcfileloc  "cp/parser.c" 44035)
+  (!srcfileloc  "cp/parser.c" 44042)
   nil )
  (!pair  "the_parser"
   (!type already_seen 1888)
-  (!srcfileloc  "cp/parser.c" 43545)
+  (!srcfileloc  "cp/parser.c" 43552)
   nil )
  (!pair  "cp_parser_context_free_list"
   (!type already_seen 1880)
@@ -34230,34 +34230,34 @@
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 21265)
+  (!srcfileloc  "config/i386/i386.c" 21256)
   nil )
  (!pair  "dllimport_map"
   (!type already_seen 1559)
-  (!srcfileloc  "config/i386/i386.c" 11333)
+  (!srcfileloc  "config/i386/i386.c" 11324)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "ix86_tls_module_base_symbol"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 10966)
+  (!srcfileloc  "config/i386/i386.c" 10957)
   nil )
  (!pair  "ix86_tls_symbol"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 10939)
+  (!srcfileloc  "config/i386/i386.c" 10930)
   nil )
  (!pair  "split_stack_fn_large"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 9448)
+  (!srcfileloc  "config/i386/i386.c" 9439)
   nil )
  (!pair  "split_stack_fn"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 9443)
+  (!srcfileloc  "config/i386/i386.c" 9434)
   nil )
  (!pair  "queued_cfa_restores"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 6705)
+  (!srcfileloc  "config/i386/i386.c" 6707)
   nil )
  (!pair  "stack_chk_fail_decl"
   (!type already_seen 23)

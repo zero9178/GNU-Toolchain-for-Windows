@@ -5549,10 +5549,10 @@ extern int note_include_translate_no;
 #define note_include_translate_no global_options.x_note_include_translate_no
 #endif
 #ifdef GENERATOR_FILE
-extern int note_module_read_yes;
+extern int note_module_cmi_yes;
 #else
-  int x_note_module_read_yes;
-#define note_module_read_yes global_options.x_note_module_read_yes
+  int x_note_module_cmi_yes;
+#define note_module_cmi_yes global_options.x_note_module_cmi_yes
 #endif
 #ifdef GENERATOR_FILE
 extern int flag_large_source_files;
@@ -10233,8 +10233,8 @@ enum opt_code
   OPT_flang_info_include_translate = 1209,   /* -flang-info-include-translate */
   OPT_flang_info_include_translate_not = 1210,/* -flang-info-include-translate-not */
   OPT_flang_info_include_translate_ = 1211,  /* -flang-info-include-translate= */
-  OPT_flang_info_module_read = 1212,         /* -flang-info-module-read */
-  OPT_flang_info_module_read_ = 1213,        /* -flang-info-module-read= */
+  OPT_flang_info_module_cmi = 1212,          /* -flang-info-module-cmi */
+  OPT_flang_info_module_cmi_ = 1213,         /* -flang-info-module-cmi= */
   OPT_flarge_source_files = 1214,            /* -flarge-source-files */
   OPT_flax_vector_conversions = 1215,        /* -flax-vector-conversions */
   OPT_fleading_underscore = 1216,            /* -fleading-underscore */
