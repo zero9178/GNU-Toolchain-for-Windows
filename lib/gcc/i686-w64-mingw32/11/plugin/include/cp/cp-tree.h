@@ -1578,10 +1578,18 @@ check_constraint_info (tree t)
 #define COMPOUND_REQ_NOEXCEPT_P(NODE) \
   TREE_LANG_FLAG_0 (TREE_CHECK (NODE, COMPOUND_REQ))
 
-/* The constraints on an 'auto' placeholder type, used in an argument deduction
-   constraint.  */
-#define PLACEHOLDER_TYPE_CONSTRAINTS(NODE) \
+/* A TREE_LIST whose TREE_VALUE is the constraints on the 'auto' placeholder
+   type NODE, used in an argument deduction constraint.  The TREE_PURPOSE
+   holds the set of template parameters that were in-scope when this 'auto'
+   was formed.  */
+#define PLACEHOLDER_TYPE_CONSTRAINTS_INFO(NODE) \
   DECL_SIZE_UNIT (TYPE_NAME (NODE))
+
+/* The constraints on the 'auto' placeholder type NODE.  */
+#define PLACEHOLDER_TYPE_CONSTRAINTS(NODE)		   \
+  (PLACEHOLDER_TYPE_CONSTRAINTS_INFO (NODE)		   \
+   ? TREE_VALUE (PLACEHOLDER_TYPE_CONSTRAINTS_INFO (NODE)) \
+   : NULL_TREE)
 
 /* True if NODE is a constraint.  */
 #define CONSTR_P(NODE)                  \
@@ -1670,21 +1678,10 @@ check_constraint_info (tree t)
 #define DECL_MODULE_ENTITY_P(NODE) \
   (DECL_LANG_SPECIFIC (DECL_MODULE_CHECK (NODE))->u.base.module_entity_p)
 
-/* True if there are unloaded specializations keyed to this template.  */
-#define DECL_MODULE_PENDING_SPECIALIZATIONS_P(NODE)	\
-  (DECL_LANG_SPECIFIC (TEMPLATE_DECL_CHECK (NODE))	\
-   ->u.base.module_pending_p)
-
-/* True if this class has unloaded members.  These should be loaded
-   before we do member lookups.   */
-#define DECL_MODULE_PENDING_MEMBERS_P(NODE)		\
-  (DECL_LANG_SPECIFIC (TYPE_DECL_CHECK (NODE))		\
-   ->u.base.module_pending_p)
-
 /* DECL that has attached decls for ODR-relatedness.  */
 #define DECL_MODULE_ATTACHMENTS_P(NODE)			\
   (DECL_LANG_SPECIFIC (TREE_CHECK2(NODE,FUNCTION_DECL,VAR_DECL))\
-   ->u.base.module_pending_p)
+   ->u.base.module_attached_p)
 
 /* Whether this is an exported DECL.  Held on any decl that can appear
    at namespace scope (function, var, type, template, const or
@@ -2763,10 +2760,8 @@ struct GTY(()) lang_decl_base {
   unsigned module_import_p : 1;     	   /* from an import */
   unsigned module_entity_p : 1;		   /* is in the entitity ary &
 					      hash.  */
-  /* TEMPLATE_DECL has specializations or,
-     TYPE_DECL has class members yet to load, or
-     VAR_DECL or FUNCTION_DECL has attached decls.     */
-  unsigned module_pending_p : 1;
+  /* VAR_DECL or FUNCTION_DECL has attached decls.     */
+  unsigned module_attached_p : 1;
 
   /* 12 spare bits.  */
 };
@@ -7017,9 +7012,7 @@ extern void mangle_module (int m, bool include_partition);
 extern void mangle_module_fini ();
 extern void lazy_load_binding (unsigned mod, tree ns, tree id,
 			       binding_slot *bslot);
-extern void lazy_load_specializations (tree tmpl);
-extern void lazy_load_members (tree decl);
-extern bool lazy_specializations_p (unsigned, bool, bool);
+extern void lazy_load_pendings (tree decl);
 extern module_state *preprocess_module (module_state *, location_t,
 					bool in_purview, 
 					bool is_import, bool export_p,
@@ -7271,6 +7264,7 @@ extern void emit_support_tinfos			(void);
 extern bool emit_tinfo_decl			(tree);
 extern unsigned get_pseudo_tinfo_index		(tree);
 extern tree get_pseudo_tinfo_type		(unsigned);
+extern tree build_if_nonnull			(tree, tree, tsubst_flags_t);
 
 /* in search.c */
 extern tree get_parent_with_private_access 	(tree decl, tree binfo);
@@ -8101,6 +8095,7 @@ extern tree finish_compound_requirement         (location_t, tree, tree, bool);
 extern tree finish_nested_requirement           (location_t, tree);
 extern void check_constrained_friend            (tree, tree);
 extern tree tsubst_requires_expr                (tree, tree, tsubst_flags_t, tree);
+extern tree evaluate_requires_expr		(tree);
 extern tree tsubst_constraint                   (tree, tree, tsubst_flags_t, tree);
 extern tree tsubst_constraint_info              (tree, tree, tsubst_flags_t, tree);
 extern tree tsubst_parameter_mapping		(tree, tree, tsubst_flags_t, tree);
@@ -8115,10 +8110,8 @@ struct processing_constraint_expression_sentinel
 extern bool processing_constraint_expression_p	();
 
 extern tree unpack_concept_check		(tree);
-extern tree evaluate_concept_check              (tree, tsubst_flags_t);
-extern tree satisfy_constraint_expression	(tree);
-extern bool constraints_satisfied_p		(tree);
-extern bool constraints_satisfied_p		(tree, tree);
+extern tree evaluate_concept_check              (tree);
+extern bool constraints_satisfied_p		(tree, tree = NULL_TREE);
 extern bool* lookup_subsumption_result          (tree, tree);
 extern bool save_subsumption_result             (tree, tree, bool);
 extern tree find_template_parameters		(tree, tree);
@@ -8420,7 +8413,7 @@ set_implicit_rvalue_p (tree ot)
 inline bool
 is_constrained_auto (const_tree t)
 {
-  return is_auto (t) && PLACEHOLDER_TYPE_CONSTRAINTS (t);
+  return is_auto (t) && PLACEHOLDER_TYPE_CONSTRAINTS_INFO (t);
 }
 
 /* RAII class to push/pop class scope T; if T is not a class, do nothing.  */

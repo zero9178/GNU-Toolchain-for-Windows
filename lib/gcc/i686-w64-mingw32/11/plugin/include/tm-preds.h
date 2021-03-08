@@ -157,6 +157,7 @@ extern int cmp_fp_expander_operand (rtx, machine_mode);
 extern int binary_fp_operator (rtx, machine_mode);
 extern int mult_operator (rtx, machine_mode);
 extern int div_operator (rtx, machine_mode);
+extern int logic_operator (rtx, machine_mode);
 extern int plusminuslogic_operator (rtx, machine_mode);
 extern int arith_or_logical_operator (rtx, machine_mode);
 extern int commutative_operator (rtx, machine_mode);
