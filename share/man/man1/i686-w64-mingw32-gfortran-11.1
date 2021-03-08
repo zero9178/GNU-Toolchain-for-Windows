@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GFORTRAN 1"
-.TH GFORTRAN 1 "2021-02-26" "gcc-11" "GNU"
+.TH GFORTRAN 1 "2021-03-05" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -513,13 +513,24 @@ representation of the translated Fortran code, produced by
 .PD
 Promote all \f(CW\*(C`REAL(KIND=M)\*(C'\fR entities to \f(CW\*(C`REAL(KIND=N)\*(C'\fR entities.
 If \f(CW\*(C`REAL(KIND=N)\*(C'\fR is unavailable, then an error will be issued.
-All other real kind types are unaffected by this option.
+The \f(CW\*(C`\-freal\-4\-\*(C'\fR flags also affect the default real kind and the
+\&\f(CW\*(C`\-freal\-8\-\*(C'\fR flags also the double-precision real kind.  All other
+real-kind types are unaffected by this option.  The promotion is also
+applied to real literal constants of default and double-precision kind
+and a specified kind number of 4 or 8, respectively.
+However, \f(CW\*(C`\-fdefault\-real\-8\*(C'\fR, \f(CW\*(C`\-fdefault\-real\-10\*(C'\fR,
+\&\f(CW\*(C`\-fdefault\-real\-10\*(C'\fR, and \f(CW\*(C`\-fdefault\-double\-8\*(C'\fR take precedence
+for the default and double-precision real kinds, both for real literal
+constants and for declarations without a kind number.
+Note that for \f(CW\*(C`REAL(KIND=KIND(1.0))\*(C'\fR the literal may get promoted and
+then the result may get promoted again.
 These options should be used with care and may not be suitable for your
 codes.  Areas of possible concern include calls to external procedures,
 alignment in \f(CW\*(C`EQUIVALENCE\*(C'\fR and/or \f(CW\*(C`COMMON\*(C'\fR, generic interfaces,
-\&\s-1BOZ\s0 literal constant conversion, and I/O.  Inspection of the intermediate
-representation of the translated Fortran code, produced by
-\&\fB\-fdump\-tree\-original\fR, is suggested.
+\&\s-1BOZ\s0 literal constant conversion, and I/O and calls to intrinsic procedures
+when passing a value to the \f(CW\*(C`kind=\*(C'\fR dummy argument.  Inspection of the
+intermediate representation of the translated Fortran code, produced by
+\&\fB\-fdump\-fortran\-original\fR or \fB\-fdump\-tree\-original\fR, is suggested.
 .IP "\fB\-std=\fR\fIstd\fR" 4
 .IX Item "-std=std"
 Specify the standard to which the program is expected to conform,
