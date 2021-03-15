@@ -217,6 +217,7 @@ enum constraint_num
   CONSTRAINT_Yr,
   CONSTRAINT_Yv,
   CONSTRAINT_Yw,
+  CONSTRAINT_YW,
   CONSTRAINT_I,
   CONSTRAINT_J,
   CONSTRAINT_K,
@@ -288,7 +289,7 @@ constraint_satisfied_p (rtx x, enum constraint_num c)
 static inline bool
 insn_extra_register_constraint (enum constraint_num c)
 {
-  return c >= CONSTRAINT_r && c <= CONSTRAINT_Yw;
+  return c >= CONSTRAINT_r && c <= CONSTRAINT_YW;
 }
 
 static inline bool
