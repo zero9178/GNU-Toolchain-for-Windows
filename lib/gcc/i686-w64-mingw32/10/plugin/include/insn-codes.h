@@ -3834,8 +3834,6 @@ enum insn_code {
    CODE_FOR_lshrv4hi3 = CODE_FOR_nothing,
    CODE_FOR_ashlv2si3 = CODE_FOR_nothing,
    CODE_FOR_lshrv2si3 = CODE_FOR_nothing,
-   CODE_FOR_ashlv1di3 = CODE_FOR_nothing,
-   CODE_FOR_lshrv1di3 = CODE_FOR_nothing,
   CODE_FOR_mmx_eqv8qi3 = 6083,
   CODE_FOR_mmx_eqv4hi3 = 6084,
   CODE_FOR_mmx_eqv2si3 = 6085,
