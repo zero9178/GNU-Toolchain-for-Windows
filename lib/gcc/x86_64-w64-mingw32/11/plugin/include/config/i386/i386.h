@@ -2941,6 +2941,14 @@ struct GTY(()) machine_function {
   /* True if the function needs a stack frame.  */
   BOOL_BITFIELD stack_frame_required : 1;
 
+  /* True if __builtin_ia32_vzeroupper () has been expanded in current
+     function.  */
+  BOOL_BITFIELD has_explicit_vzeroupper : 1;
+
+  /* True if we should act silently, rather than raise an error for
+     invalid calls.  */
+  BOOL_BITFIELD silent_p : 1;
+
   /* The largest alignment, in bytes, of stack slot actually used.  */
   unsigned int max_used_stack_alignment;
 

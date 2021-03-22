@@ -4867,8 +4867,6 @@
 #define HAVE_lshrv4hi3 (TARGET_MMX_WITH_SSE)
 #define HAVE_ashlv2si3 (TARGET_MMX_WITH_SSE)
 #define HAVE_lshrv2si3 (TARGET_MMX_WITH_SSE)
-#define HAVE_ashlv1di3 (TARGET_MMX_WITH_SSE)
-#define HAVE_lshrv1di3 (TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_eqv8qi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_eqv4hi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_eqv2si3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
@@ -11728,8 +11726,6 @@ extern rtx        gen_ashlv4hi3                                  (rtx, rtx, rtx)
 extern rtx        gen_lshrv4hi3                                  (rtx, rtx, rtx);
 extern rtx        gen_ashlv2si3                                  (rtx, rtx, rtx);
 extern rtx        gen_lshrv2si3                                  (rtx, rtx, rtx);
-extern rtx        gen_ashlv1di3                                  (rtx, rtx, rtx);
-extern rtx        gen_lshrv1di3                                  (rtx, rtx, rtx);
 extern rtx        gen_mmx_eqv8qi3                                (rtx, rtx, rtx);
 extern rtx        gen_mmx_eqv4hi3                                (rtx, rtx, rtx);
 extern rtx        gen_mmx_eqv2si3                                (rtx, rtx, rtx);

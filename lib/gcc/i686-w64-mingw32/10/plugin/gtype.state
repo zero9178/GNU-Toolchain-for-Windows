@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.2.1 20210315")
+(!version  "10.2.1 20210322")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 223
@@ -8552,8 +8552,8 @@
                            (!type struct 426 
                             (!type already_seen 425)
                             gc_maybe_pointed_to "machine_function"
-                            (!srcfileloc  "config/i386/i386.h" 2859)
-                            (!fields 28 
+                            (!srcfileloc  "config/i386/i386.h" 2863)
+                            (!fields 29 
                              (!pair  "stack_locals"
                               (!type pointer 427 nil  gc_used
                                (!type struct 428 
@@ -8748,9 +8748,13 @@
                               (!type already_seen 2)
                               (!srcfileloc  "config/i386/i386.h" 2848)
                               nil )
+                             (!pair  "has_explicit_vzeroupper"
+                              (!type already_seen 2)
+                              (!srcfileloc  "config/i386/i386.h" 2852)
+                              nil )
                              (!pair  "max_used_stack_alignment"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2851)
+                              (!srcfileloc  "config/i386/i386.h" 2855)
                               nil )
                              (!pair  "fs"
                               (!type struct 431 nil  gc_used "machine_frame_state"
@@ -8806,7 +8810,7 @@
                                  nil )
                                )
                                nil 2047 nil nil )
-                              (!srcfileloc  "config/i386/i386.h" 2855)
+                              (!srcfileloc  "config/i386/i386.h" 2859)
                               nil )
                              (!pair  "seh"
                               (!type pointer 432 nil  gc_unused
@@ -8816,7 +8820,7 @@
                                 (!fields 0 )
                                 nil 0 nil nil )
                               )
-                              (!srcfileloc  "config/i386/i386.h" 2858)
+                              (!srcfileloc  "config/i386/i386.h" 2862)
                               (!options 
                                (!option skip string  "")
                               )
@@ -23721,7 +23725,7 @@
   nil 0 nil nil )
  
  (!type struct 1465 nil  gc_used "tm_clone_hasher"
-  (!srcfileloc  "varasm.c" 6096)
+  (!srcfileloc  "varasm.c" 6101)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -23730,11 +23734,11 @@
    (!type already_seen 1466)
   )
   gc_pointed_to "hash_table<tm_clone_hasher>"
-  (!srcfileloc  "varasm.c" 6096)
+  (!srcfileloc  "varasm.c" 6101)
   (!fields 1 
    (!pair  "tm_clone_hasher"
     (!type already_seen 1465)
-    (!srcfileloc  "varasm.c" 6096)
+    (!srcfileloc  "varasm.c" 6101)
     nil )
   )
  )
@@ -26927,7 +26931,7 @@
    (!type already_seen 1888)
   )
   gc_pointed_to "cp_parser"
-  (!srcfileloc  "cp/parser.c" 43552)
+  (!srcfileloc  "cp/parser.c" 43554)
   (!fields 37 
    (!pair  "lexer"
     (!type already_seen 1874)
@@ -27165,23 +27169,23 @@
    (!type already_seen 1906)
   )
   gc_pointed_to "constexpr_fundef"
-  (!srcfileloc  "cp/constexpr.c" 1002)
+  (!srcfileloc  "cp/constexpr.c" 1003)
   (!fields 4 
    (!pair  "decl"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constexpr.c" 141)
+    (!srcfileloc  "cp/constexpr.c" 142)
     nil )
    (!pair  "body"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constexpr.c" 142)
+    (!srcfileloc  "cp/constexpr.c" 143)
     nil )
    (!pair  "parms"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constexpr.c" 143)
+    (!srcfileloc  "cp/constexpr.c" 144)
     nil )
    (!pair  "result"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constexpr.c" 144)
+    (!srcfileloc  "cp/constexpr.c" 145)
     nil )
   )
   (!options 
@@ -27190,7 +27194,7 @@
   1032 nil nil )
  
  (!type struct 1908 nil  gc_used "constexpr_fundef_hasher"
-  (!srcfileloc  "cp/constexpr.c" 156)
+  (!srcfileloc  "cp/constexpr.c" 157)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -27199,37 +27203,37 @@
    (!type already_seen 1909)
   )
   gc_pointed_to "hash_table<constexpr_fundef_hasher>"
-  (!srcfileloc  "cp/constexpr.c" 156)
+  (!srcfileloc  "cp/constexpr.c" 157)
   (!fields 1 
    (!pair  "constexpr_fundef_hasher"
     (!type already_seen 1908)
-    (!srcfileloc  "cp/constexpr.c" 156)
+    (!srcfileloc  "cp/constexpr.c" 157)
     nil )
   )
  )
  
  (!type struct 1911 nil  gc_pointed_to "constexpr_call"
-  (!srcfileloc  "cp/constexpr.c" 1015)
+  (!srcfileloc  "cp/constexpr.c" 1016)
   (!fields 5 
    (!pair  "fundef"
     (!type already_seen 1907)
-    (!srcfileloc  "cp/constexpr.c" 1002)
+    (!srcfileloc  "cp/constexpr.c" 1003)
     nil )
    (!pair  "bindings"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constexpr.c" 1004)
+    (!srcfileloc  "cp/constexpr.c" 1005)
     nil )
    (!pair  "result"
     (!type already_seen 23)
-    (!srcfileloc  "cp/constexpr.c" 1009)
+    (!srcfileloc  "cp/constexpr.c" 1010)
     nil )
    (!pair  "hash"
     (!type already_seen 2)
-    (!srcfileloc  "cp/constexpr.c" 1012)
+    (!srcfileloc  "cp/constexpr.c" 1013)
     nil )
    (!pair  "manifestly_const_eval"
     (!type already_seen 2)
-    (!srcfileloc  "cp/constexpr.c" 1014)
+    (!srcfileloc  "cp/constexpr.c" 1015)
     nil )
   )
   (!options 
@@ -27238,7 +27242,7 @@
   1032 nil nil )
  
  (!type struct 1912 nil  gc_used "constexpr_call_hasher"
-  (!srcfileloc  "cp/constexpr.c" 1100)
+  (!srcfileloc  "cp/constexpr.c" 1101)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -27255,11 +27259,11 @@
    (!type already_seen 1915)
   )
   gc_pointed_to "hash_table<constexpr_call_hasher>"
-  (!srcfileloc  "cp/constexpr.c" 1100)
+  (!srcfileloc  "cp/constexpr.c" 1101)
   (!fields 1 
    (!pair  "constexpr_call_hasher"
     (!type already_seen 1912)
-    (!srcfileloc  "cp/constexpr.c" 1100)
+    (!srcfileloc  "cp/constexpr.c" 1101)
     nil )
   )
  )
@@ -27625,15 +27629,15 @@
  )
  
  (!type struct 1968 nil  gc_used "tree_int"
-  (!srcfileloc  "cp/lambda.c" 1361)
+  (!srcfileloc  "cp/lambda.c" 1362)
   (!fields 2 
    (!pair  "t"
     (!type already_seen 23)
-    (!srcfileloc  "cp/lambda.c" 1358)
+    (!srcfileloc  "cp/lambda.c" 1359)
     nil )
    (!pair  "i"
     (!type already_seen 2)
-    (!srcfileloc  "cp/lambda.c" 1359)
+    (!srcfileloc  "cp/lambda.c" 1360)
     nil )
   )
   nil 1032 nil nil )
@@ -27643,15 +27647,15 @@
    (!type already_seen 1969)
   )
   gc_pointed_to "vec<tree_int,va_gc>"
-  (!srcfileloc  "cp/lambda.c" 1361)
+  (!srcfileloc  "cp/lambda.c" 1362)
   (!fields 2 
    (!pair  "va_gc"
     (!type already_seen 79)
-    (!srcfileloc  "cp/lambda.c" 1361)
+    (!srcfileloc  "cp/lambda.c" 1362)
     nil )
    (!pair  "tree_int"
     (!type already_seen 1968)
-    (!srcfileloc  "cp/lambda.c" 1361)
+    (!srcfileloc  "cp/lambda.c" 1362)
     nil )
   )
  )
@@ -27829,7 +27833,7 @@
   nil 0 nil nil )
  
  (!type undefined 2000 nil  gc_unused "class_to_loc_map_t::iterator"
-  (!srcfileloc  "cp/parser.c" 31487)
+  (!srcfileloc  "cp/parser.c" 31489)
  )
  
  (!type struct 2001 
@@ -29190,15 +29194,15 @@
   nil )
  (!pair  "cp_parser"
   (!type already_seen 1888)
-  (!srcfileloc  "cp/parser.c" 43552)
+  (!srcfileloc  "cp/parser.c" 43554)
   nil )
  (!pair  "iter_t"
   (!type already_seen 2000)
-  (!srcfileloc  "cp/parser.c" 31487)
+  (!srcfileloc  "cp/parser.c" 31489)
   nil )
  (!pair  "class_to_loc_map_t::iterator"
   (!type already_seen 2000)
-  (!srcfileloc  "cp/parser.c" 31487)
+  (!srcfileloc  "cp/parser.c" 31489)
   nil )
  (!pair  "cp_parser_expression_stack"
   (!type array 2131 nil  gc_unused "NUM_PREC_VALUES" 
@@ -29236,11 +29240,11 @@
   nil )
  (!pair  "tree_int"
   (!type already_seen 1968)
-  (!srcfileloc  "cp/lambda.c" 1361)
+  (!srcfileloc  "cp/lambda.c" 1362)
   nil )
  (!pair  "vec<tree_int,va_gc>"
   (!type already_seen 1969)
-  (!srcfileloc  "cp/lambda.c" 1361)
+  (!srcfileloc  "cp/lambda.c" 1362)
   nil )
  (!pair  "pending_noexcept"
   (!type already_seen 1965)
@@ -29312,23 +29316,23 @@
   nil )
  (!pair  "constexpr_call_hasher"
   (!type already_seen 1912)
-  (!srcfileloc  "cp/constexpr.c" 1100)
+  (!srcfileloc  "cp/constexpr.c" 1101)
   nil )
  (!pair  "hash_table<constexpr_call_hasher>"
   (!type already_seen 1915)
-  (!srcfileloc  "cp/constexpr.c" 1100)
+  (!srcfileloc  "cp/constexpr.c" 1101)
   nil )
  (!pair  "constexpr_fundef"
   (!type already_seen 1906)
-  (!srcfileloc  "cp/constexpr.c" 1002)
+  (!srcfileloc  "cp/constexpr.c" 1003)
   nil )
  (!pair  "constexpr_fundef_hasher"
   (!type already_seen 1908)
-  (!srcfileloc  "cp/constexpr.c" 156)
+  (!srcfileloc  "cp/constexpr.c" 157)
   nil )
  (!pair  "hash_table<constexpr_fundef_hasher>"
   (!type already_seen 1909)
-  (!srcfileloc  "cp/constexpr.c" 156)
+  (!srcfileloc  "cp/constexpr.c" 157)
   nil )
  (!pair  "hash_map<tree,int>"
   (!type already_seen 1903)
@@ -30136,11 +30140,11 @@
   nil )
  (!pair  "tm_clone_hasher"
   (!type already_seen 1465)
-  (!srcfileloc  "varasm.c" 6096)
+  (!srcfileloc  "varasm.c" 6101)
   nil )
  (!pair  "hash_table<tm_clone_hasher>"
   (!type already_seen 1466)
-  (!srcfileloc  "varasm.c" 6096)
+  (!srcfileloc  "varasm.c" 6101)
   nil )
  (!pair  "const_rtx_desc_hasher"
   (!type already_seen 1016)
@@ -33288,11 +33292,11 @@
   nil )
  (!pair  "generic_parm_count"
   (!type already_seen 2)
-  (!srcfileloc  "cp/parser.c" 44042)
+  (!srcfileloc  "cp/parser.c" 44044)
   nil )
  (!pair  "the_parser"
   (!type already_seen 1889)
-  (!srcfileloc  "cp/parser.c" 43552)
+  (!srcfileloc  "cp/parser.c" 43554)
   nil )
  (!pair  "cp_parser_context_free_list"
   (!type already_seen 1881)
@@ -33369,15 +33373,15 @@
   nil )
  (!pair  "lambda_scope_stack"
   (!type already_seen 1970)
-  (!srcfileloc  "cp/lambda.c" 1361)
+  (!srcfileloc  "cp/lambda.c" 1362)
   nil )
  (!pair  "lambda_count"
   (!type already_seen 2)
-  (!srcfileloc  "cp/lambda.c" 1355)
+  (!srcfileloc  "cp/lambda.c" 1356)
   nil )
  (!pair  "lambda_scope"
   (!type already_seen 23)
-  (!srcfileloc  "cp/lambda.c" 1354)
+  (!srcfileloc  "cp/lambda.c" 1355)
   nil )
  (!pair  "max_id"
   (!type already_seen 23)
@@ -33389,7 +33393,7 @@
   nil )
  (!pair  "nsdmi_inst"
   (!type already_seen 947)
-  (!srcfileloc  "cp/init.c" 549)
+  (!srcfileloc  "cp/init.c" 551)
   (!options 
    (!option cache string  "")
   )
@@ -33444,11 +33448,11 @@
   nil )
  (!pair  "start_cleanup_cnt"
   (!type already_seen 2)
-  (!srcfileloc  "cp/decl.c" 8664)
+  (!srcfileloc  "cp/decl.c" 8677)
   nil )
  (!pair  "decomp_type_table"
   (!type already_seen 947)
-  (!srcfileloc  "cp/decl.c" 8146)
+  (!srcfileloc  "cp/decl.c" 8159)
   (!options 
    (!option cache string  "")
   )
@@ -33612,22 +33616,22 @@
  )
  (!pair  "cv_cache"
   (!type already_seen 398)
-  (!srcfileloc  "cp/constexpr.c" 7001)
+  (!srcfileloc  "cp/constexpr.c" 7012)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "fundef_copies_table"
   (!type already_seen 953)
-  (!srcfileloc  "cp/constexpr.c" 1152)
+  (!srcfileloc  "cp/constexpr.c" 1153)
   nil )
  (!pair  "constexpr_call_table"
   (!type already_seen 1916)
-  (!srcfileloc  "cp/constexpr.c" 1100)
+  (!srcfileloc  "cp/constexpr.c" 1101)
   nil )
  (!pair  "constexpr_fundef_table"
   (!type already_seen 1910)
-  (!srcfileloc  "cp/constexpr.c" 156)
+  (!srcfileloc  "cp/constexpr.c" 157)
   nil )
  (!pair  "dvirt_fn"
   (!type already_seen 23)
@@ -33650,7 +33654,7 @@
   nil )
  (!pair  "default_arg_context"
   (!type already_seen 84)
-  (!srcfileloc  "cp/call.c" 8083)
+  (!srcfileloc  "cp/call.c" 8092)
   nil )
  (!pair  "unemitted_tinfo_decls"
   (!type already_seen 84)
@@ -34084,7 +34088,7 @@
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 295)
-  (!srcfileloc  "config/i386/i386-expand.c" 16276)
+  (!srcfileloc  "config/i386/i386-expand.c" 16280)
   nil )
  (!pair  "ix86_builtins"
   (!type array 2181 nil  gc_used "(int) IX86_BUILTIN_MAX" 
@@ -34363,22 +34367,22 @@
   nil )
  (!pair  "elf_fini_array_section"
   (!type already_seen 213)
-  (!srcfileloc  "varasm.c" 8074)
+  (!srcfileloc  "varasm.c" 8079)
   nil )
  (!pair  "elf_init_array_section"
   (!type already_seen 213)
-  (!srcfileloc  "varasm.c" 8073)
+  (!srcfileloc  "varasm.c" 8078)
   nil )
  (!pair  "tm_clone_hash"
   (!type already_seen 1467)
-  (!srcfileloc  "varasm.c" 6096)
+  (!srcfileloc  "varasm.c" 6101)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "weakref_targets"
   (!type already_seen 23)
-  (!srcfileloc  "varasm.c" 5751)
+  (!srcfileloc  "varasm.c" 5756)
   nil )
  (!pair  "const_desc_htab"
   (!type already_seen 1462)
@@ -35026,7 +35030,7 @@
   nil )
  (!pair  "saved_do_cfi_asm"
   (!type already_seen 2)
-  (!srcfileloc  "dwarf2cfi.c" 3512)
+  (!srcfileloc  "dwarf2cfi.c" 3518)
   nil )
  (!pair  "dwarf2out_cfi_label_num"
   (!type already_seen 2)
@@ -35402,11 +35406,11 @@
   nil )
  (!pair  "ms_va_list_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.h" 2862)
+  (!srcfileloc  "config/i386/i386.h" 2866)
   nil )
  (!pair  "sysv_va_list_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.h" 2861)
+  (!srcfileloc  "config/i386/i386.h" 2865)
   nil )
  (!pair  "saved_line_table"
   (!type already_seen 704)
