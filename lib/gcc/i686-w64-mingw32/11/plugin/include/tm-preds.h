@@ -130,6 +130,7 @@ extern int vector_operand (rtx, machine_mode);
 extern int bcst_mem_operand (rtx, machine_mode);
 extern int bcst_vector_operand (rtx, machine_mode);
 extern int nonimmediate_or_const_vector_operand (rtx, machine_mode);
+extern int reg_or_const_vector_operand (rtx, machine_mode);
 extern int nonimmediate_or_sse_const_operand (rtx, machine_mode);
 extern int reg_or_0_operand (rtx, machine_mode);
 extern int nonimm_or_0_operand (rtx, machine_mode);
@@ -305,6 +306,12 @@ insn_extra_special_memory_constraint (enum constraint_num c)
 }
 
 static inline bool
+insn_extra_relaxed_memory_constraint (enum constraint_num)
+{
+  return false;
+}
+
+static inline bool
 insn_extra_address_constraint (enum constraint_num c)
 {
   return c >= CONSTRAINT_p && c <= CONSTRAINT_Ts;
@@ -367,6 +374,7 @@ enum constraint_type
   CT_CONST_INT,
   CT_MEMORY,
   CT_SPECIAL_MEMORY,
+  CT_RELAXED_MEMORY,
   CT_ADDRESS,
   CT_FIXED_FORM
 };
