@@ -36,7 +36,7 @@ Features compiled in are:
     * Shared and static versions of runtime libraries such as libstdc++. By default programs are linked against shared 
     versions. use the -static flag to compile against the static versions
     * Link Time Optimization support
-    * C, C++, Fortran, ObjC and ObjC++
+    * C, C++, Fortran, ObjC, ObjC++ and D
     * OpenMP support
     * Quad Precision Math support
     * C++11 Threading using pthreads
