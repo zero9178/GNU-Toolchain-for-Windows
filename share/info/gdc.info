@@ -1420,12 +1420,12 @@ These options affect the runtime behavior of programs compiled with
      'ident'
           Turns on compilation of 'version' code identified by IDENT.
 
-'-fno-weak'
-     Turns off emission of instantiated declarations that can be defined
-     in multiple objects as weak or one-only symbols.  The default is to
-     emit all public symbols as weak, unless the target lacks support
-     for weak symbols.  Disabling this option means that common symbols
-     are instead put in COMDAT or become private.
+'-fno-weak-templates'
+     Turns off emission of declarations that can be defined in multiple
+     objects as weak symbols.  The default is to emit all public symbols
+     as weak, unless the target lacks support for weak symbols.
+     Disabling this option means that common symbols are instead put in
+     COMDAT or become private.
 
 
 File: gdc.info,  Node: Directory Options,  Next: Code Generation,  Prev: Runtime Options,  Up: Invoking gdc
@@ -1780,7 +1780,7 @@ Index
 * -fno-switch-errors:                    Runtime Options.     (line 104)
 * -fno-syntax-only:                      Warnings.            (line  68)
 * -fno-unittest:                         Runtime Options.     (line 110)
-* -fno-weak:                             Runtime Options.     (line 124)
+* -fno-weak-templates:                   Runtime Options.     (line 124)
 * -fonly:                                Runtime Options.     (line  77)
 * -fpostconditions:                      Runtime Options.     (line  82)
 * -fpreconditions:                       Runtime Options.     (line  85)
@@ -1791,7 +1791,7 @@ Index
 * -ftransition:                          Warnings.            (line  74)
 * -funittest:                            Runtime Options.     (line 110)
 * -fversion:                             Runtime Options.     (line 114)
-* -fweak:                                Runtime Options.     (line 124)
+* -fweak-templates:                      Runtime Options.     (line 124)
 * -H:                                    Code Generation.     (line  10)
 * -Hd:                                   Code Generation.     (line  16)
 * -Hf:                                   Code Generation.     (line  21)
@@ -1869,11 +1869,11 @@ Node: GNU Free Documentation License39253
 Node: Invoking gdc64377
 Node: Input and Output files65252
 Node: Runtime Options66600
-Node: Directory Options71657
-Node: Code Generation74080
-Node: Warnings77522
-Node: Linking80872
-Node: Developer Options82545
-Node: Index83295
+Node: Directory Options71641
+Node: Code Generation74064
+Node: Warnings77506
+Node: Linking80856
+Node: Developer Options82529
+Node: Index83279
 
 End Tag Table

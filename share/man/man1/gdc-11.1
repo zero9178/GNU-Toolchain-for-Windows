@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GDC 1"
-.TH GDC 1 "2021-03-29" "gcc-11" "GNU"
+.TH GDC 1 "2021-04-10" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -323,12 +323,12 @@ Turns on compilation of \f(CW\*(C`version\*(C'\fR code identified by \fIident\fR
 .RE
 .RS 4
 .RE
-.IP "\fB\-fno\-weak\fR" 4
-.IX Item "-fno-weak"
-Turns off emission of instantiated declarations that can be defined in multiple
-objects as weak or one-only symbols.  The default is to emit all public symbols
-as weak, unless the target lacks support for weak symbols.  Disabling this
-option means that common symbols are instead put in \s-1COMDAT\s0 or become private.
+.IP "\fB\-fno\-weak\-templates\fR" 4
+.IX Item "-fno-weak-templates"
+Turns off emission of declarations that can be defined in multiple objects as
+weak symbols.  The default is to emit all public symbols as weak, unless the
+target lacks support for weak symbols.  Disabling this option means that common
+symbols are instead put in \s-1COMDAT\s0 or become private.
 .SS "Options for Directory Search"
 .IX Subsection "Options for Directory Search"
 These options specify directories to search for files, libraries, and
