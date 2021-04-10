@@ -369,7 +369,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
         { return __t.operator->(); }
     };
 
-  //@{
+  ///@{
   /**
    *  @param  __x  A %reverse_iterator.
    *  @param  __y  A %reverse_iterator.
@@ -503,7 +503,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 		const reverse_iterator<_IteratorR>& __y)
     { return __y.base() <=> __x.base(); }
 #endif // C++20
-  //@}
+  ///@}
 
 #if __cplusplus < 201103L
   template<typename _Iterator>
@@ -926,16 +926,13 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     inserter(_Container& __x, std::__detail::__range_iter_t<_Container> __i)
     { return insert_iterator<_Container>(__x, __i); }
 #else
-  template<typename _Container, typename _Iterator>
+  template<typename _Container>
     inline insert_iterator<_Container>
-    inserter(_Container& __x, _Iterator __i)
-    {
-      return insert_iterator<_Container>(__x,
-					 typename _Container::iterator(__i));
-    }
+    inserter(_Container& __x, typename _Container::iterator __i)
+    { return insert_iterator<_Container>(__x, __i); }
 #endif
 
-  // @} group iterators
+  /// @} group iterators
 
 _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace
@@ -1330,6 +1327,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	_GLIBCXX17_CONSTEXPR
 	move_iterator(const move_iterator<_Iter>& __i)
 	: _M_current(__i.base()) { }
+
+      template<typename _Iter>
+	_GLIBCXX17_CONSTEXPR
+	move_iterator& operator=(const move_iterator<_Iter>& __i)
+	{
+	  _M_current = __i.base();
+	  return *this;
+	}
 
 #if __cplusplus <= 201703L
       _GLIBCXX17_CONSTEXPR iterator_type
@@ -2178,7 +2183,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     };
 #endif // C++20
 
-  // @} group iterators
+  /// @} group iterators
 
   template<typename _Iterator>
     auto
