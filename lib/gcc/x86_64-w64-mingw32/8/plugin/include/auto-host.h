@@ -1544,7 +1544,7 @@
 
 
 /* Define if your linker supports .eh_frame_hdr. */
-#define HAVE_LD_EH_FRAME_HDR 1
+/* #undef HAVE_LD_EH_FRAME_HDR */
 
 /* Define if your linker supports garbage collection of sections in presence
    of EH frames. */
