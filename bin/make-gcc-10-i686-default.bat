@@ -12,5 +12,3 @@ del i686-w64-mingw32-gcc-ranlib.exe
 mklink i686-w64-mingw32-gcc-ranlib.exe i686-w64-mingw32-gcc-ranlib-10.exe
 del i686-w64-mingw32-gfortran.exe
 mklink i686-w64-mingw32-gfortran.exe i686-w64-mingw32-gfortran-10.exe
-del i686-w64-mingw32-gdc.exe
-mklink i686-w64-mingw32-gdc.exe i686-w64-mingw32-gdc-10.exe

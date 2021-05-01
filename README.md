@@ -8,7 +8,8 @@ Binaries are provided for the following programs:
 * GCC 8
 * GCC 9
 * GCC 10
-* GCC Trunk (11)
+* GCC 11
+* GCC Trunk (12)
 * make
 * binutils
 * gdb
@@ -73,7 +74,8 @@ Trunk version of this repository currently contains following versions:
 - GCC 8.4.1
 - GCC 9.3.1
 - GCC 10.3.1
-- GCC Trunk (11.0.0)
+- GCC 11.1.1
+- GCC Trunk (12.0.0)
 - GDB Trunk (11.0.50)
 - Binutils Trunk (2.36.50)
 - MinGW Trunk (9.0.0)

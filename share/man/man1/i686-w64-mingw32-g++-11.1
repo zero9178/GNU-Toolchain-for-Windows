@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2021-04-10" "gcc-11" "GNU"
+.TH GCC 1 "2021-05-01" "gcc-11" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -227,7 +227,7 @@ in the following sections.
 \&\fB\-aux\-info\fR \fIfilename\fR  \fB\-fallow\-parameterless\-variadic\-functions 
 \&\-fno\-asm  \-fno\-builtin  \-fno\-builtin\-\fR\fIfunction\fR  \fB\-fgimple
 \&\-fhosted  \-ffreestanding 
-\&\-fopenacc  \-fopenacc\-dim=\fR\fIgeom\fR  \fB\-fopenacc\-kernels=\fR\fImode\fR 
+\&\-fopenacc  \-fopenacc\-dim=\fR\fIgeom\fR 
 \&\fB\-fopenmp  \-fopenmp\-simd 
 \&\-fms\-extensions  \-fplan9\-extensions  \-fsso\-struct=\fR\fIendianness\fR 
 \&\fB\-fallow\-single\-precision  \-fcond\-mismatch  \-flax\-vector\-conversions 
@@ -2651,16 +2651,6 @@ Specify default compute dimensions for parallel offload regions that do
 not explicitly specify.  The \fIgeom\fR value is a triple of
 \&':'\-separated sizes, in order 'gang', 'worker' and, 'vector'.  A size
 can be omitted, to use a target-specific default value.
-.IP "\fB\-fopenacc\-kernels=\fR\fImode\fR" 4
-.IX Item "-fopenacc-kernels=mode"
-Specify mode of OpenACC `kernels' constructs handling.
-With \fB\-fopenacc\-kernels=decompose\fR, OpenACC `kernels'
-constructs are decomposed into parts, a sequence of compute
-constructs, each then handled individually.
-This is work in progress.
-With \fB\-fopenacc\-kernels=parloops\fR, OpenACC `kernels' constructs
-are handled by the \fBparloops\fR pass, en bloc.
-This is the current default.
 .IP "\fB\-fopenmp\fR" 4
 .IX Item "-fopenmp"
 Enable handling of OpenMP directives \f(CW\*(C`#pragma omp\*(C'\fR in C/\*(C+ and
@@ -12084,10 +12074,6 @@ also use other heuristics to decide whether if-conversion is likely to be
 profitable.
 .IP "\fBmax-rtl-if-conversion-predictable-cost\fR" 4
 .IX Item "max-rtl-if-conversion-predictable-cost"
-.PD 0
-.IP "\fBmax-rtl-if-conversion-unpredictable-cost\fR" 4
-.IX Item "max-rtl-if-conversion-unpredictable-cost"
-.PD
 \&\s-1RTL\s0 if-conversion will try to remove conditional branches around a block
 and replace them with conditionally executed instructions.  These parameters
 give the maximum permissible cost for the sequence that would be generated
@@ -13427,6 +13413,20 @@ The parameter is used only in \s-1GIMPLE FE.\s0
 .IX Item "analyzer-bb-explosion-factor"
 The maximum number of 'after supernode' exploded nodes within the analyzer
 per supernode, before terminating analysis.
+.IP "\fBranger-logical-depth\fR" 4
+.IX Item "ranger-logical-depth"
+Maximum depth of logical expression evaluation ranger will look through
+when evaluating outgoing edge ranges.
+.IP "\fBopenacc-kernels\fR" 4
+.IX Item "openacc-kernels"
+Specify mode of OpenACC `kernels' constructs handling.
+With \fB\-\-param=openacc\-kernels=decompose\fR, OpenACC `kernels'
+constructs are decomposed into parts, a sequence of compute
+constructs, each then handled individually.
+This is work in progress.
+With \fB\-\-param=openacc\-kernels=parloops\fR, OpenACC `kernels'
+constructs are handled by the \fBparloops\fR pass, en bloc.
+This is the current default.
 .RE
 .RS 4
 .Sp
@@ -29089,10 +29089,19 @@ instruction set support.
 .IP "\fBalderlake\fR" 4
 .IX Item "alderlake"
 Intel Alderlake \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2, SSE3, SSSE3,
-SSE4.1, SSE4.2, POPCNT, AVX, AVX2, AES, PCLMUL, FSGSBASE, RDRND, FMA, BMI,
-BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC, XSAVES, CLDEMOTE,
-PTWRITE, WAITPKG, SERIALIZE, KEYLOCKER, HRESET\s0 and AVX-VNNI instruction set
-support.
+SSE4.1, SSE4.2, POPCNT, AES, PREFETCHW, PCLMUL, RDRND, XSAVE, XSAVEC, XSAVES,
+XSAVEOPT, FSGSBASE, PTWRITE, RDPID, SGX, UMIP,\s0 GFNI-SSE, \s-1CLWB, MOVDIRI,
+MOVDIR64B, CLDEMOTE, WAITPKG, ADCX, AVX, AVX2, BMI, BMI2, F16C, FMA, LZCNT,
+PCONFIG, PKU, VAES, VPCLMULQDQ, SERIALIZE, HRESET, KL, WIDEKL\s0 and AVX-VNNI
+instruction set support.
+.IP "\fBrocketlake\fR" 4
+.IX Item "rocketlake"
+Intel Rocketlake \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE, MMX, SSE, SSE2,
+SSE3, SSSE3, SSE4.1, SSE4.2, POPCNT, PKU, AVX, AVX2, AES, PCLMUL, FSGSBASE,
+RDRND, FMA, BMI, BMI2, F16C, RDSEED, ADCX, PREFETCHW, CLFLUSHOPT, XSAVEC,
+XSAVES, AVX512F, AVX512VL, AVX512BW, AVX512DQ, AVX512CD, AVX512VBMI,
+AVX512IFMA, SHA, CLWB, UMIP, RDPID, GFNI, AVX512VBMI2, AVX512VPOPCNTDQ,
+AVX512BITALG, AVX512VNNI, VPCLMULQDQ, VAES\s0 instruction set support.
 .IP "\fBk6\fR" 4
 .IX Item "k6"
 \&\s-1AMD K6 CPU\s0 with \s-1MMX\s0 instruction set support.

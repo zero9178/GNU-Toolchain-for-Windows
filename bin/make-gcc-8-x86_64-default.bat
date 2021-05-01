@@ -12,8 +12,6 @@ del x86_64-w64-mingw32-gcc-ranlib.exe
 mklink x86_64-w64-mingw32-gcc-ranlib.exe x86_64-w64-mingw32-gcc-ranlib-8.exe
 del x86_64-w64-mingw32-gfortran.exe
 mklink x86_64-w64-mingw32-gfortran.exe x86_64-w64-mingw32-gfortran-8.exe
-del x86_64-w64-mingw32-gdc.exe
-mklink x86_64-w64-mingw32-gdc.exe x86_64-w64-mingw32-gdc-8.exe
 del gcc.exe
 mklink gcc.exe gcc-8.exe
 del g++.exe
@@ -36,5 +34,3 @@ del gcc-ar.exe
 mklink gcc-ar.exe gcc-ar-8.exe
 del gfortran.exe
 mklink gfortran.exe gfortran-8.exe
-del gdc.exe
-mklink gdc.exe gdc-8.exe

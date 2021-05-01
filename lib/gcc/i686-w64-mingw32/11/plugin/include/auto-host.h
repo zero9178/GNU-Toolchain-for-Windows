@@ -1583,7 +1583,7 @@
 
 /* Define if the PE linker has broken DWARF 5 support. */
 #ifndef USED_FOR_TARGET
-#define HAVE_LD_BROKEN_PE_DWARF5 1
+/* #undef HAVE_LD_BROKEN_PE_DWARF5 */
 #endif
 
 
@@ -1619,7 +1619,7 @@
 
 
 /* Define if your linker supports .eh_frame_hdr. */
-#define HAVE_LD_EH_FRAME_HDR 1
+/* #undef HAVE_LD_EH_FRAME_HDR */
 
 /* Define if your linker supports garbage collection of sections in presence
    of EH frames. */

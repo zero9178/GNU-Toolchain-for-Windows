@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "9.3.1 20210410")
+(!version  "9.3.1 20210501")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 212
@@ -224,7 +224,7 @@
 (!structures 1540
  
  (!type struct 1 nil  gc_used "source_range"
-  (!srcfileloc  "../libcpp/include/line-map.h" 749)
+  (!srcfileloc  "../libcpp/include/line-map.h" 745)
   (!fields 2 
    (!pair  "m_start"
     (!type scalar_nonchar 2 
@@ -264,7 +264,7 @@
    (!type already_seen 6)
   )
   gc_used "line_map_ordinary"
-  (!srcfileloc  "../libcpp/include/line-map.h" 718)
+  (!srcfileloc  "../libcpp/include/line-map.h" 714)
   (!fields 7 
    (!pair  "reason"
     (!type already_seen 2)
@@ -8989,249 +8989,249 @@
                            (!type struct 463 
                             (!type already_seen 462)
                             gc_maybe_pointed_to "machine_function"
-                            (!srcfileloc  "config/i386/i386.h" 2789)
+                            (!srcfileloc  "config/i386/i386.h" 2793)
                             (!fields 27 
                              (!pair  "stack_locals"
                               (!type pointer 464 nil  gc_used
                                (!type struct 465 
                                 (!type already_seen 464)
                                 gc_pointed_to "stack_local_entry"
-                                (!srcfileloc  "config/i386/i386.c" 730)
+                                (!srcfileloc  "config/i386/i386.c" 732)
                                 (!fields 4 
                                  (!pair  "mode"
                                   (!type already_seen 2)
-                                  (!srcfileloc  "config/i386/i386.c" 726)
+                                  (!srcfileloc  "config/i386/i386.c" 728)
                                   nil )
                                  (!pair  "n"
                                   (!type already_seen 2)
-                                  (!srcfileloc  "config/i386/i386.c" 727)
+                                  (!srcfileloc  "config/i386/i386.c" 729)
                                   nil )
                                  (!pair  "rtl"
                                   (!type already_seen 150)
-                                  (!srcfileloc  "config/i386/i386.c" 728)
+                                  (!srcfileloc  "config/i386/i386.c" 730)
                                   nil )
                                  (!pair  "next"
                                   (!type already_seen 464)
-                                  (!srcfileloc  "config/i386/i386.c" 729)
+                                  (!srcfileloc  "config/i386/i386.c" 731)
                                   nil )
                                 )
                                 nil 2047 nil nil )
                               )
-                              (!srcfileloc  "config/i386/i386.h" 2688)
+                              (!srcfileloc  "config/i386/i386.h" 2692)
                               nil )
                              (!pair  "varargs_gpr_size"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2689)
+                              (!srcfileloc  "config/i386/i386.h" 2693)
                               nil )
                              (!pair  "varargs_fpr_size"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2690)
+                              (!srcfileloc  "config/i386/i386.h" 2694)
                               nil )
                              (!pair  "optimize_mode_switching"
                               (!type array 466 nil  gc_used "MAX_386_ENTITIES" 
                                (!type already_seen 2)
                               )
-                              (!srcfileloc  "config/i386/i386.h" 2691)
+                              (!srcfileloc  "config/i386/i386.h" 2695)
                               nil )
                              (!pair  "frame"
                               (!type struct 467 nil  gc_used "ix86_frame"
-                               (!srcfileloc  "config/i386/i386.h" 2613)
+                               (!srcfileloc  "config/i386/i386.h" 2617)
                                (!fields 14 
                                 (!pair  "nsseregs"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2594)
+                                 (!srcfileloc  "config/i386/i386.h" 2598)
                                  nil )
                                 (!pair  "nregs"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2595)
+                                 (!srcfileloc  "config/i386/i386.h" 2599)
                                  nil )
                                 (!pair  "va_arg_size"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2596)
+                                 (!srcfileloc  "config/i386/i386.h" 2600)
                                  nil )
                                 (!pair  "red_zone_size"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2597)
+                                 (!srcfileloc  "config/i386/i386.h" 2601)
                                  nil )
                                 (!pair  "outgoing_arguments_size"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2598)
+                                 (!srcfileloc  "config/i386/i386.h" 2602)
                                  nil )
                                 (!pair  "frame_pointer_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2601)
+                                 (!srcfileloc  "config/i386/i386.h" 2605)
                                  nil )
                                 (!pair  "hard_frame_pointer_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2602)
+                                 (!srcfileloc  "config/i386/i386.h" 2606)
                                  nil )
                                 (!pair  "stack_pointer_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2603)
+                                 (!srcfileloc  "config/i386/i386.h" 2607)
                                  nil )
                                 (!pair  "hfp_save_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2604)
+                                 (!srcfileloc  "config/i386/i386.h" 2608)
                                  nil )
                                 (!pair  "reg_save_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2605)
+                                 (!srcfileloc  "config/i386/i386.h" 2609)
                                  nil )
                                 (!pair  "stack_realign_allocate"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2606)
+                                 (!srcfileloc  "config/i386/i386.h" 2610)
                                  nil )
                                 (!pair  "stack_realign_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2607)
+                                 (!srcfileloc  "config/i386/i386.h" 2611)
                                  nil )
                                 (!pair  "sse_reg_save_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2608)
+                                 (!srcfileloc  "config/i386/i386.h" 2612)
                                  nil )
                                 (!pair  "save_regs_using_mov"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2612)
+                                 (!srcfileloc  "config/i386/i386.h" 2616)
                                  nil )
                                )
                                nil 2047 nil nil )
-                              (!srcfileloc  "config/i386/i386.h" 2694)
+                              (!srcfileloc  "config/i386/i386.h" 2698)
                               nil )
                              (!pair  "split_stack_varargs_pointer"
                               (!type already_seen 150)
-                              (!srcfileloc  "config/i386/i386.h" 2701)
+                              (!srcfileloc  "config/i386/i386.h" 2705)
                               nil )
                              (!pair  "call_abi"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2705)
+                              (!srcfileloc  "config/i386/i386.h" 2709)
                               nil )
                              (!pair  "accesses_prev_frame"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2708)
+                              (!srcfileloc  "config/i386/i386.h" 2712)
                               nil )
                              (!pair  "use_fast_prologue_epilogue"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2712)
+                              (!srcfileloc  "config/i386/i386.h" 2716)
                               nil )
                              (!pair  "pc_thunk_call_expanded"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2716)
+                              (!srcfileloc  "config/i386/i386.h" 2720)
                               nil )
                              (!pair  "tls_descriptor_call_expanded_p"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2727)
+                              (!srcfileloc  "config/i386/i386.h" 2731)
                               nil )
                              (!pair  "static_chain_on_stack"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2731)
+                              (!srcfileloc  "config/i386/i386.h" 2735)
                               nil )
                              (!pair  "no_drap_save_restore"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2734)
+                              (!srcfileloc  "config/i386/i386.h" 2738)
                               nil )
                              (!pair  "func_type"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2737)
+                              (!srcfileloc  "config/i386/i386.h" 2741)
                               nil )
                              (!pair  "indirect_branch_type"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2740)
+                              (!srcfileloc  "config/i386/i386.h" 2744)
                               nil )
                              (!pair  "has_local_indirect_jump"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2744)
+                              (!srcfileloc  "config/i386/i386.h" 2748)
                               nil )
                              (!pair  "function_return_type"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2747)
+                              (!srcfileloc  "config/i386/i386.h" 2751)
                               nil )
                              (!pair  "no_caller_saved_registers"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2751)
+                              (!srcfileloc  "config/i386/i386.h" 2755)
                               nil )
                              (!pair  "arg_reg_available"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2758)
+                              (!srcfileloc  "config/i386/i386.h" 2762)
                               nil )
                              (!pair  "call_ms2sysv"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2762)
+                              (!srcfileloc  "config/i386/i386.h" 2766)
                               nil )
                              (!pair  "call_ms2sysv_pad_in"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2766)
+                              (!srcfileloc  "config/i386/i386.h" 2770)
                               nil )
                              (!pair  "call_ms2sysv_extra_regs"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2772)
+                              (!srcfileloc  "config/i386/i386.h" 2776)
                               nil )
                              (!pair  "outgoing_args_on_stack"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2775)
+                              (!srcfileloc  "config/i386/i386.h" 2779)
                               nil )
                              (!pair  "endbr_queued_at_entrance"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2778)
+                              (!srcfileloc  "config/i386/i386.h" 2782)
                               nil )
                              (!pair  "max_used_stack_alignment"
                               (!type already_seen 2)
-                              (!srcfileloc  "config/i386/i386.h" 2781)
+                              (!srcfileloc  "config/i386/i386.h" 2785)
                               nil )
                              (!pair  "fs"
                               (!type struct 468 nil  gc_used "machine_frame_state"
-                               (!srcfileloc  "config/i386/i386.h" 2669)
+                               (!srcfileloc  "config/i386/i386.h" 2673)
                                (!fields 12 
                                 (!pair  "cfa_reg"
                                  (!type already_seen 150)
-                                 (!srcfileloc  "config/i386/i386.h" 2624)
+                                 (!srcfileloc  "config/i386/i386.h" 2628)
                                  nil )
                                 (!pair  "cfa_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2625)
+                                 (!srcfileloc  "config/i386/i386.h" 2629)
                                  nil )
                                 (!pair  "sp_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2631)
+                                 (!srcfileloc  "config/i386/i386.h" 2635)
                                  nil )
                                 (!pair  "fp_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2632)
+                                 (!srcfileloc  "config/i386/i386.h" 2636)
                                  nil )
                                 (!pair  "red_zone_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2638)
+                                 (!srcfileloc  "config/i386/i386.h" 2642)
                                  nil )
                                 (!pair  "sp_valid"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2644)
+                                 (!srcfileloc  "config/i386/i386.h" 2648)
                                  nil )
                                 (!pair  "fp_valid"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2645)
+                                 (!srcfileloc  "config/i386/i386.h" 2649)
                                  nil )
                                 (!pair  "drap_valid"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2646)
+                                 (!srcfileloc  "config/i386/i386.h" 2650)
                                  nil )
                                 (!pair  "realigned"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2651)
+                                 (!srcfileloc  "config/i386/i386.h" 2655)
                                  nil )
                                 (!pair  "sp_realigned"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2658)
+                                 (!srcfileloc  "config/i386/i386.h" 2662)
                                  nil )
                                 (!pair  "sp_realigned_fp_last"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2662)
+                                 (!srcfileloc  "config/i386/i386.h" 2666)
                                  nil )
                                 (!pair  "sp_realigned_offset"
                                  (!type already_seen 2)
-                                 (!srcfileloc  "config/i386/i386.h" 2668)
+                                 (!srcfileloc  "config/i386/i386.h" 2672)
                                  nil )
                                )
                                nil 2047 nil nil )
-                              (!srcfileloc  "config/i386/i386.h" 2785)
+                              (!srcfileloc  "config/i386/i386.h" 2789)
                               nil )
                              (!pair  "seh"
                               (!type pointer 469 nil  gc_unused
@@ -9241,7 +9241,7 @@
                                 (!fields 0 )
                                 nil 0 nil nil )
                               )
-                              (!srcfileloc  "config/i386/i386.h" 2788)
+                              (!srcfileloc  "config/i386/i386.h" 2792)
                               (!options 
                                (!option skip string  "")
                               )
@@ -9279,8 +9279,8 @@
                            (!type struct 474 
                             (!type already_seen 473)
                             gc_pointed_to "dw_fde_node"
-                            (!srcfileloc  "dwarf2out.h" 111)
-                            (!fields 22 
+                            (!srcfileloc  "dwarf2out.h" 117)
+                            (!fields 23 
                              (!pair  "decl"
                               (!type already_seen 23)
                               (!srcfileloc  "dwarf2out.h" 79)
@@ -9365,27 +9365,27 @@
                                           (!type struct 481 
                                            (!type already_seen 480)
                                            gc_pointed_to "dw_loc_descr_node"
-                                           (!srcfileloc  "dwarf2out.h" 258)
+                                           (!srcfileloc  "dwarf2out.h" 264)
                                            (!fields 7 
                                             (!pair  "dw_loc_next"
                                              (!type already_seen 480)
-                                             (!srcfileloc  "dwarf2out.h" 246)
+                                             (!srcfileloc  "dwarf2out.h" 252)
                                              nil )
                                             (!pair  "dw_loc_opc"
                                              (!type already_seen 2)
-                                             (!srcfileloc  "dwarf2out.h" 247)
+                                             (!srcfileloc  "dwarf2out.h" 253)
                                              nil )
                                             (!pair  "dtprel"
                                              (!type already_seen 2)
-                                             (!srcfileloc  "dwarf2out.h" 250)
+                                             (!srcfileloc  "dwarf2out.h" 256)
                                              nil )
                                             (!pair  "frame_offset_rel"
                                              (!type already_seen 2)
-                                             (!srcfileloc  "dwarf2out.h" 254)
+                                             (!srcfileloc  "dwarf2out.h" 260)
                                              nil )
                                             (!pair  "dw_loc_addr"
                                              (!type already_seen 2)
-                                             (!srcfileloc  "dwarf2out.h" 255)
+                                             (!srcfileloc  "dwarf2out.h" 261)
                                              nil )
                                             (!pair  "dw_loc_oprnd1"
                                              (!type struct 482 
@@ -9393,11 +9393,11 @@
                                                (!type already_seen 482)
                                               )
                                               gc_used "dw_val_node"
-                                              (!srcfileloc  "dwarf2out.h" 256)
+                                              (!srcfileloc  "dwarf2out.h" 262)
                                               (!fields 3 
                                                (!pair  "val_class"
                                                 (!type already_seen 2)
-                                                (!srcfileloc  "dwarf2out.h" 201)
+                                                (!srcfileloc  "dwarf2out.h" 207)
                                                 nil )
                                                (!pair  "val_entry"
                                                 (!type pointer 484 nil  gc_used
@@ -9449,22 +9449,22 @@
                                                   )
                                                   2047 nil nil )
                                                 )
-                                                (!srcfileloc  "dwarf2out.h" 202)
+                                                (!srcfileloc  "dwarf2out.h" 208)
                                                 nil )
                                                (!pair  "v"
                                                 (!type union 487 nil  gc_used "dw_val_struct_union"
-                                                 (!srcfileloc  "dwarf2out.h" 238)
+                                                 (!srcfileloc  "dwarf2out.h" 244)
                                                  (!fields 23 
                                                   (!pair  "val_addr"
                                                    (!type already_seen 150)
-                                                   (!srcfileloc  "dwarf2out.h" 205)
+                                                   (!srcfileloc  "dwarf2out.h" 211)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_addr")
                                                    )
                                                   )
                                                   (!pair  "val_offset"
                                                    (!type already_seen 2)
-                                                   (!srcfileloc  "dwarf2out.h" 206)
+                                                   (!srcfileloc  "dwarf2out.h" 212)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_offset")
                                                    )
@@ -9551,7 +9551,7 @@
                                                      )
                                                      nil 2047 nil nil )
                                                    )
-                                                   (!srcfileloc  "dwarf2out.h" 207)
+                                                   (!srcfileloc  "dwarf2out.h" 213)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_loc_list")
                                                    )
@@ -9709,35 +9709,35 @@
                                                      )
                                                      2047 nil nil )
                                                    )
-                                                   (!srcfileloc  "dwarf2out.h" 208)
+                                                   (!srcfileloc  "dwarf2out.h" 214)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_view_list")
                                                    )
                                                   )
                                                   (!pair  "val_loc"
                                                    (!type already_seen 480)
-                                                   (!srcfileloc  "dwarf2out.h" 209)
+                                                   (!srcfileloc  "dwarf2out.h" 215)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_loc")
                                                    )
                                                   )
                                                   (!pair  "val_int"
                                                    (!type already_seen 2)
-                                                   (!srcfileloc  "dwarf2out.h" 210)
+                                                   (!srcfileloc  "dwarf2out.h" 216)
                                                    (!options 
                                                     (!option default string  "")
                                                    )
                                                   )
                                                   (!pair  "val_unsigned"
                                                    (!type already_seen 2)
-                                                   (!srcfileloc  "dwarf2out.h" 212)
+                                                   (!srcfileloc  "dwarf2out.h" 218)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_unsigned_const")
                                                    )
                                                   )
                                                   (!pair  "val_double"
                                                    (!type already_seen 2)
-                                                   (!srcfileloc  "dwarf2out.h" 213)
+                                                   (!srcfileloc  "dwarf2out.h" 219)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_const_double")
                                                    )
@@ -9774,59 +9774,59 @@
                                                      )
                                                     )
                                                    )
-                                                   (!srcfileloc  "dwarf2out.h" 214)
+                                                   (!srcfileloc  "dwarf2out.h" 220)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_wide_int")
                                                    )
                                                   )
                                                   (!pair  "val_vec"
                                                    (!type struct 503 nil  gc_used "dw_vec_const"
-                                                    (!srcfileloc  "dwarf2out.h" 215)
+                                                    (!srcfileloc  "dwarf2out.h" 221)
                                                     (!fields 3 
                                                      (!pair  "array"
                                                       (!type already_seen 3)
-                                                      (!srcfileloc  "dwarf2out.h" 171)
+                                                      (!srcfileloc  "dwarf2out.h" 177)
                                                       (!options 
                                                        (!option atomic string  "")
                                                       )
                                                      )
                                                      (!pair  "length"
                                                       (!type already_seen 2)
-                                                      (!srcfileloc  "dwarf2out.h" 172)
+                                                      (!srcfileloc  "dwarf2out.h" 178)
                                                       nil )
                                                      (!pair  "elt_size"
                                                       (!type already_seen 2)
-                                                      (!srcfileloc  "dwarf2out.h" 173)
+                                                      (!srcfileloc  "dwarf2out.h" 179)
                                                       nil )
                                                     )
                                                     nil 2047 nil nil )
-                                                   (!srcfileloc  "dwarf2out.h" 215)
+                                                   (!srcfileloc  "dwarf2out.h" 221)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_vec")
                                                    )
                                                   )
                                                   (!pair  "val_die_ref"
                                                    (!type struct 504 nil  gc_used "dw_val_die_union"
-                                                    (!srcfileloc  "dwarf2out.h" 220)
+                                                    (!srcfileloc  "dwarf2out.h" 226)
                                                     (!fields 2 
                                                      (!pair  "die"
                                                       (!type already_seen 490)
-                                                      (!srcfileloc  "dwarf2out.h" 218)
+                                                      (!srcfileloc  "dwarf2out.h" 224)
                                                       nil )
                                                      (!pair  "external"
                                                       (!type already_seen 2)
-                                                      (!srcfileloc  "dwarf2out.h" 219)
+                                                      (!srcfileloc  "dwarf2out.h" 225)
                                                       nil )
                                                     )
                                                     nil 2047 nil nil )
-                                                   (!srcfileloc  "dwarf2out.h" 220)
+                                                   (!srcfileloc  "dwarf2out.h" 226)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_die_ref")
                                                    )
                                                   )
                                                   (!pair  "val_fde_index"
                                                    (!type already_seen 2)
-                                                   (!srcfileloc  "dwarf2out.h" 221)
+                                                   (!srcfileloc  "dwarf2out.h" 227)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_fde_ref")
                                                    )
@@ -9864,21 +9864,21 @@
                                                      )
                                                      2047 nil nil )
                                                    )
-                                                   (!srcfileloc  "dwarf2out.h" 222)
+                                                   (!srcfileloc  "dwarf2out.h" 228)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_str")
                                                    )
                                                   )
                                                   (!pair  "val_lbl_id"
                                                    (!type already_seen 11)
-                                                   (!srcfileloc  "dwarf2out.h" 223)
+                                                   (!srcfileloc  "dwarf2out.h" 229)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_lbl_id")
                                                    )
                                                   )
                                                   (!pair  "val_flag"
                                                    (!type already_seen 8)
-                                                   (!srcfileloc  "dwarf2out.h" 224)
+                                                   (!srcfileloc  "dwarf2out.h" 230)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_flag")
                                                    )
@@ -9904,14 +9904,14 @@
                                                      )
                                                      2047 nil nil )
                                                    )
-                                                   (!srcfileloc  "dwarf2out.h" 225)
+                                                   (!srcfileloc  "dwarf2out.h" 231)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_file")
                                                    )
                                                   )
                                                   (!pair  "val_file_implicit"
                                                    (!type already_seen 507)
-                                                   (!srcfileloc  "dwarf2out.h" 227)
+                                                   (!srcfileloc  "dwarf2out.h" 233)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_file_implicit")
                                                    )
@@ -9920,73 +9920,73 @@
                                                    (!type array 509 nil  gc_used "8" 
                                                     (!type already_seen 8)
                                                    )
-                                                   (!srcfileloc  "dwarf2out.h" 228)
+                                                   (!srcfileloc  "dwarf2out.h" 234)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_data8")
                                                    )
                                                   )
                                                   (!pair  "val_decl_ref"
                                                    (!type already_seen 23)
-                                                   (!srcfileloc  "dwarf2out.h" 229)
+                                                   (!srcfileloc  "dwarf2out.h" 235)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_decl_ref")
                                                    )
                                                   )
                                                   (!pair  "val_vms_delta"
                                                    (!type struct 510 nil  gc_used "dw_val_vms_delta_union"
-                                                    (!srcfileloc  "dwarf2out.h" 234)
+                                                    (!srcfileloc  "dwarf2out.h" 240)
                                                     (!fields 2 
                                                      (!pair  "lbl1"
                                                       (!type already_seen 11)
-                                                      (!srcfileloc  "dwarf2out.h" 232)
+                                                      (!srcfileloc  "dwarf2out.h" 238)
                                                       nil )
                                                      (!pair  "lbl2"
                                                       (!type already_seen 11)
-                                                      (!srcfileloc  "dwarf2out.h" 233)
+                                                      (!srcfileloc  "dwarf2out.h" 239)
                                                       nil )
                                                     )
                                                     nil 2047 nil nil )
-                                                   (!srcfileloc  "dwarf2out.h" 234)
+                                                   (!srcfileloc  "dwarf2out.h" 240)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_vms_delta")
                                                    )
                                                   )
                                                   (!pair  "val_discr_value"
                                                    (!type struct 511 nil  gc_used "dw_discr_value"
-                                                    (!srcfileloc  "dwarf2out.h" 235)
+                                                    (!srcfileloc  "dwarf2out.h" 241)
                                                     (!fields 2 
                                                      (!pair  "pos"
                                                       (!type already_seen 2)
-                                                      (!srcfileloc  "dwarf2out.h" 186)
+                                                      (!srcfileloc  "dwarf2out.h" 192)
                                                       nil )
                                                      (!pair  "v"
-                                                      (!type union 512 nil  gc_used "anonymous:../../gcc/dwarf2out.h:188"
-                                                       (!srcfileloc  "dwarf2out.h" 191)
+                                                      (!type union 512 nil  gc_used "anonymous:../../gcc/dwarf2out.h:194"
+                                                       (!srcfileloc  "dwarf2out.h" 197)
                                                        (!fields 2 
                                                         (!pair  "sval"
                                                          (!type already_seen 2)
-                                                         (!srcfileloc  "dwarf2out.h" 189)
+                                                         (!srcfileloc  "dwarf2out.h" 195)
                                                          (!options 
                                                           (!option tag string  "0")
                                                          )
                                                         )
                                                         (!pair  "uval"
                                                          (!type already_seen 2)
-                                                         (!srcfileloc  "dwarf2out.h" 190)
+                                                         (!srcfileloc  "dwarf2out.h" 196)
                                                          (!options 
                                                           (!option tag string  "1")
                                                          )
                                                         )
                                                        )
                                                        nil 2047 nil )
-                                                      (!srcfileloc  "dwarf2out.h" 192)
+                                                      (!srcfileloc  "dwarf2out.h" 198)
                                                       (!options 
                                                        (!option desc string  "%1.pos")
                                                       )
                                                      )
                                                     )
                                                     nil 2047 nil nil )
-                                                   (!srcfileloc  "dwarf2out.h" 235)
+                                                   (!srcfileloc  "dwarf2out.h" 241)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_discr_value")
                                                    )
@@ -9996,53 +9996,53 @@
                                                     (!type struct 514 
                                                      (!type already_seen 513)
                                                      gc_pointed_to "dw_discr_list_node"
-                                                     (!srcfileloc  "dwarf2out.h" 273)
+                                                     (!srcfileloc  "dwarf2out.h" 279)
                                                      (!fields 4 
                                                       (!pair  "dw_discr_next"
                                                        (!type already_seen 513)
-                                                       (!srcfileloc  "dwarf2out.h" 265)
+                                                       (!srcfileloc  "dwarf2out.h" 271)
                                                        nil )
                                                       (!pair  "dw_discr_lower_bound"
                                                        (!type already_seen 511)
-                                                       (!srcfileloc  "dwarf2out.h" 267)
+                                                       (!srcfileloc  "dwarf2out.h" 273)
                                                        nil )
                                                       (!pair  "dw_discr_upper_bound"
                                                        (!type already_seen 511)
-                                                       (!srcfileloc  "dwarf2out.h" 268)
+                                                       (!srcfileloc  "dwarf2out.h" 274)
                                                        nil )
                                                       (!pair  "dw_discr_range"
                                                        (!type already_seen 2)
-                                                       (!srcfileloc  "dwarf2out.h" 272)
+                                                       (!srcfileloc  "dwarf2out.h" 278)
                                                        nil )
                                                      )
                                                      nil 2047 nil nil )
                                                    )
-                                                   (!srcfileloc  "dwarf2out.h" 236)
+                                                   (!srcfileloc  "dwarf2out.h" 242)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_discr_list")
                                                    )
                                                   )
                                                   (!pair  "val_symbolic_view"
                                                    (!type already_seen 11)
-                                                   (!srcfileloc  "dwarf2out.h" 237)
+                                                   (!srcfileloc  "dwarf2out.h" 243)
                                                    (!options 
                                                     (!option tag string  "dw_val_class_symview")
                                                    )
                                                   )
                                                  )
                                                  nil 2047 nil )
-                                                (!srcfileloc  "dwarf2out.h" 239)
+                                                (!srcfileloc  "dwarf2out.h" 245)
                                                 (!options 
                                                  (!option desc string  "%1.val_class")
                                                 )
                                                )
                                               )
                                               nil 2047 nil nil )
-                                             (!srcfileloc  "dwarf2out.h" 256)
+                                             (!srcfileloc  "dwarf2out.h" 262)
                                              nil )
                                             (!pair  "dw_loc_oprnd2"
                                              (!type already_seen 482)
-                                             (!srcfileloc  "dwarf2out.h" 257)
+                                             (!srcfileloc  "dwarf2out.h" 263)
                                              nil )
                                            )
                                            (!options 
@@ -10064,23 +10064,23 @@
                                            (!fields 5 
                                             (!pair  "offset"
                                              (!type already_seen 2)
-                                             (!srcfileloc  "dwarf2out.h" 120)
+                                             (!srcfileloc  "dwarf2out.h" 126)
                                              nil )
                                             (!pair  "base_offset"
                                              (!type already_seen 2)
-                                             (!srcfileloc  "dwarf2out.h" 121)
+                                             (!srcfileloc  "dwarf2out.h" 127)
                                              nil )
                                             (!pair  "reg"
                                              (!type already_seen 2)
-                                             (!srcfileloc  "dwarf2out.h" 123)
+                                             (!srcfileloc  "dwarf2out.h" 129)
                                              nil )
                                             (!pair  "indirect"
                                              (!type already_seen 2)
-                                             (!srcfileloc  "dwarf2out.h" 124)
+                                             (!srcfileloc  "dwarf2out.h" 130)
                                              nil )
                                             (!pair  "in_use"
                                              (!type already_seen 2)
-                                             (!srcfileloc  "dwarf2out.h" 125)
+                                             (!srcfileloc  "dwarf2out.h" 131)
                                              nil )
                                            )
                                            nil 2047 nil nil )
@@ -10165,6 +10165,10 @@
                              (!pair  "second_in_std_section"
                               (!type already_seen 2)
                               (!srcfileloc  "dwarf2out.h" 110)
+                              nil )
+                             (!pair  "rule18"
+                              (!type already_seen 2)
+                              (!srcfileloc  "dwarf2out.h" 116)
                               nil )
                             )
                             nil 2047 nil nil )
@@ -12781,49 +12785,49 @@
                            (!type struct 591 
                             (!type already_seen 590)
                             gc_pointed_to "target_rtl"
-                            (!srcfileloc  "rtl.h" 3725)
+                            (!srcfileloc  "rtl.h" 3742)
                             (!fields 8 
                              (!pair  "x_global_rtl"
                               (!type array 592 nil  gc_used "GR_MAX" 
                                (!type already_seen 150)
                               )
-                              (!srcfileloc  "rtl.h" 3697)
+                              (!srcfileloc  "rtl.h" 3714)
                               nil )
                              (!pair  "x_pic_offset_table_rtx"
                               (!type already_seen 150)
-                              (!srcfileloc  "rtl.h" 3700)
+                              (!srcfileloc  "rtl.h" 3717)
                               nil )
                              (!pair  "x_return_address_pointer_rtx"
                               (!type already_seen 150)
-                              (!srcfileloc  "rtl.h" 3705)
+                              (!srcfileloc  "rtl.h" 3722)
                               nil )
                              (!pair  "x_initial_regno_reg_rtx"
                               (!type array 593 nil  gc_used "FIRST_PSEUDO_REGISTER" 
                                (!type already_seen 150)
                               )
-                              (!srcfileloc  "rtl.h" 3711)
+                              (!srcfileloc  "rtl.h" 3728)
                               nil )
                              (!pair  "x_top_of_stack"
                               (!type array 594 nil  gc_used "MAX_MACHINE_MODE" 
                                (!type already_seen 150)
                               )
-                              (!srcfileloc  "rtl.h" 3714)
+                              (!srcfileloc  "rtl.h" 3731)
                               nil )
                              (!pair  "x_static_reg_base_value"
                               (!type array 595 nil  gc_used "FIRST_PSEUDO_REGISTER" 
                                (!type already_seen 150)
                               )
-                              (!srcfileloc  "rtl.h" 3718)
+                              (!srcfileloc  "rtl.h" 3735)
                               nil )
                              (!pair  "x_mode_mem_attrs"
                               (!type array 596 nil  gc_used "(int) MAX_MACHINE_MODE" 
                                (!type already_seen 276)
                               )
-                              (!srcfileloc  "rtl.h" 3721)
+                              (!srcfileloc  "rtl.h" 3738)
                               nil )
                              (!pair  "target_specific_initialized"
                               (!type already_seen 2)
-                              (!srcfileloc  "rtl.h" 3724)
+                              (!srcfileloc  "rtl.h" 3741)
                               nil )
                             )
                             nil 2047 nil nil )
@@ -14496,7 +14500,7 @@
    (!type already_seen 686)
   )
   gc_used "line_map_macro"
-  (!srcfileloc  "../libcpp/include/line-map.h" 733)
+  (!srcfileloc  "../libcpp/include/line-map.h" 729)
   (!fields 4 
    (!pair  "n_tokens"
     (!type already_seen 2)
@@ -14531,51 +14535,51 @@
  )
  
  (!type struct 688 nil  gc_used "maps_info_ordinary"
-  (!srcfileloc  "../libcpp/include/line-map.h" 777)
+  (!srcfileloc  "../libcpp/include/line-map.h" 773)
   (!fields 4 
    (!pair  "maps"
     (!type already_seen 7)
-    (!srcfileloc  "../libcpp/include/line-map.h" 718)
+    (!srcfileloc  "../libcpp/include/line-map.h" 714)
     (!options 
      (!option length string  "%h.used")
     )
    )
    (!pair  "allocated"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 721)
+    (!srcfileloc  "../libcpp/include/line-map.h" 717)
     nil )
    (!pair  "used"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 725)
+    (!srcfileloc  "../libcpp/include/line-map.h" 721)
     nil )
    (!pair  "cache"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 727)
+    (!srcfileloc  "../libcpp/include/line-map.h" 723)
     nil )
   )
   nil 2047 nil nil )
  
  (!type struct 689 nil  gc_used "maps_info_macro"
-  (!srcfileloc  "../libcpp/include/line-map.h" 779)
+  (!srcfileloc  "../libcpp/include/line-map.h" 775)
   (!fields 4 
    (!pair  "maps"
     (!type already_seen 687)
-    (!srcfileloc  "../libcpp/include/line-map.h" 733)
+    (!srcfileloc  "../libcpp/include/line-map.h" 729)
     (!options 
      (!option length string  "%h.used")
     )
    )
    (!pair  "allocated"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 736)
+    (!srcfileloc  "../libcpp/include/line-map.h" 732)
     nil )
    (!pair  "used"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 740)
+    (!srcfileloc  "../libcpp/include/line-map.h" 736)
     nil )
    (!pair  "cache"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 742)
+    (!srcfileloc  "../libcpp/include/line-map.h" 738)
     nil )
   )
   nil 2047 nil nil )
@@ -14585,19 +14589,19 @@
    (!type already_seen 690)
   )
   gc_used "location_adhoc_data"
-  (!srcfileloc  "../libcpp/include/line-map.h" 751)
+  (!srcfileloc  "../libcpp/include/line-map.h" 747)
   (!fields 3 
    (!pair  "locus"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 748)
+    (!srcfileloc  "../libcpp/include/line-map.h" 744)
     nil )
    (!pair  "src_range"
     (!type already_seen 1)
-    (!srcfileloc  "../libcpp/include/line-map.h" 749)
+    (!srcfileloc  "../libcpp/include/line-map.h" 745)
     nil )
    (!pair  "data"
     (!type already_seen 3)
-    (!srcfileloc  "../libcpp/include/line-map.h" 750)
+    (!srcfileloc  "../libcpp/include/line-map.h" 746)
     (!options 
      (!option skip string  "")
     )
@@ -14608,26 +14612,26 @@
  (!type already_seen 389)
  
  (!type struct 692 nil  gc_used "location_adhoc_data_map"
-  (!srcfileloc  "../libcpp/include/line-map.h" 770)
+  (!srcfileloc  "../libcpp/include/line-map.h" 766)
   (!fields 4 
    (!pair  "htab"
     (!type already_seen 388)
-    (!srcfileloc  "../libcpp/include/line-map.h" 766)
+    (!srcfileloc  "../libcpp/include/line-map.h" 762)
     (!options 
      (!option skip string  "")
     )
    )
    (!pair  "curr_loc"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 767)
+    (!srcfileloc  "../libcpp/include/line-map.h" 763)
     nil )
    (!pair  "allocated"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 768)
+    (!srcfileloc  "../libcpp/include/line-map.h" 764)
     nil )
    (!pair  "data"
     (!type already_seen 691)
-    (!srcfileloc  "../libcpp/include/line-map.h" 769)
+    (!srcfileloc  "../libcpp/include/line-map.h" 765)
     (!options 
      (!option length string  "%h.allocated")
     )
@@ -14640,72 +14644,72 @@
    (!type already_seen 693)
   )
   gc_pointed_to "line_maps"
-  (!srcfileloc  "../libcpp/include/line-map.h" 818)
+  (!srcfileloc  "../libcpp/include/line-map.h" 814)
   (!fields 15 
    (!pair  "info_ordinary"
     (!type already_seen 688)
-    (!srcfileloc  "../libcpp/include/line-map.h" 777)
+    (!srcfileloc  "../libcpp/include/line-map.h" 773)
     nil )
    (!pair  "info_macro"
     (!type already_seen 689)
-    (!srcfileloc  "../libcpp/include/line-map.h" 779)
+    (!srcfileloc  "../libcpp/include/line-map.h" 775)
     nil )
    (!pair  "depth"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 782)
+    (!srcfileloc  "../libcpp/include/line-map.h" 778)
     nil )
    (!pair  "trace_includes"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 785)
+    (!srcfileloc  "../libcpp/include/line-map.h" 781)
     nil )
    (!pair  "highest_location"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 788)
+    (!srcfileloc  "../libcpp/include/line-map.h" 784)
     nil )
    (!pair  "highest_line"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 791)
+    (!srcfileloc  "../libcpp/include/line-map.h" 787)
     nil )
    (!pair  "max_column_hint"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 795)
+    (!srcfileloc  "../libcpp/include/line-map.h" 791)
     nil )
    (!pair  "reallocator"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 798)
+    (!srcfileloc  "../libcpp/include/line-map.h" 794)
     nil )
    (!pair  "round_alloc_size"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 802)
+    (!srcfileloc  "../libcpp/include/line-map.h" 798)
     nil )
    (!pair  "location_adhoc_data_map"
     (!type already_seen 692)
-    (!srcfileloc  "../libcpp/include/line-map.h" 804)
+    (!srcfileloc  "../libcpp/include/line-map.h" 800)
     nil )
    (!pair  "builtin_location"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 808)
+    (!srcfileloc  "../libcpp/include/line-map.h" 804)
     nil )
    (!pair  "seen_line_directive"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 811)
+    (!srcfileloc  "../libcpp/include/line-map.h" 807)
     nil )
    (!pair  "default_range_bits"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 814)
+    (!srcfileloc  "../libcpp/include/line-map.h" 810)
     nil )
    (!pair  "num_optimized_ranges"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 816)
+    (!srcfileloc  "../libcpp/include/line-map.h" 812)
     nil )
    (!pair  "num_unoptimized_ranges"
     (!type already_seen 2)
-    (!srcfileloc  "../libcpp/include/line-map.h" 817)
+    (!srcfileloc  "../libcpp/include/line-map.h" 813)
     nil )
   )
   nil 2047 nil nil )
  
- (!type struct 695 nil  gc_unused "anonymous:../../gcc/../libcpp/include/line-map.h:1277"nil 
+ (!type struct 695 nil  gc_unused "anonymous:../../gcc/../libcpp/include/line-map.h:1273"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -16261,19 +16265,19 @@
      (!type struct 821 
       (!type already_seen 820)
       gc_pointed_to "cgraph_rtl_info"
-      (!srcfileloc  "rtl.h" 4364)
+      (!srcfileloc  "rtl.h" 4381)
       (!fields 3 
        (!pair  "preferred_incoming_stack_boundary"
         (!type already_seen 2)
-        (!srcfileloc  "rtl.h" 4356)
+        (!srcfileloc  "rtl.h" 4373)
         nil )
        (!pair  "function_used_regs"
         (!type already_seen 2)
-        (!srcfileloc  "rtl.h" 4361)
+        (!srcfileloc  "rtl.h" 4378)
         nil )
        (!pair  "function_used_regs_valid"
         (!type already_seen 2)
-        (!srcfileloc  "rtl.h" 4363)
+        (!srcfileloc  "rtl.h" 4380)
         nil )
       )
       nil 2047 nil nil )
@@ -20716,23 +20720,23 @@
   nil 0 nil nil )
  
  (!type struct 1231 nil  gc_pointed_to "inline_entry_data"
-  (!srcfileloc  "dwarf2out.c" 23642)
+  (!srcfileloc  "dwarf2out.c" 23671)
   (!fields 4 
    (!pair  "block"
     (!type already_seen 23)
-    (!srcfileloc  "dwarf2out.c" 23634)
+    (!srcfileloc  "dwarf2out.c" 23663)
     nil )
    (!pair  "label_pfx"
     (!type already_seen 11)
-    (!srcfileloc  "dwarf2out.c" 23637)
+    (!srcfileloc  "dwarf2out.c" 23666)
     nil )
    (!pair  "label_num"
     (!type already_seen 2)
-    (!srcfileloc  "dwarf2out.c" 23638)
+    (!srcfileloc  "dwarf2out.c" 23667)
     nil )
    (!pair  "view"
     (!type already_seen 2)
-    (!srcfileloc  "dwarf2out.c" 23641)
+    (!srcfileloc  "dwarf2out.c" 23670)
     nil )
   )
   (!options 
@@ -20741,7 +20745,7 @@
   2047 nil nil )
  
  (!type struct 1232 nil  gc_used "inline_entry_data_hasher"
-  (!srcfileloc  "dwarf2out.c" 23668)
+  (!srcfileloc  "dwarf2out.c" 23697)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -20750,26 +20754,26 @@
    (!type already_seen 1233)
   )
   gc_pointed_to "hash_table<inline_entry_data_hasher>"
-  (!srcfileloc  "dwarf2out.c" 23668)
+  (!srcfileloc  "dwarf2out.c" 23697)
   (!fields 1 
    (!pair  "inline_entry_data_hasher"
     (!type already_seen 1232)
-    (!srcfileloc  "dwarf2out.c" 23668)
+    (!srcfileloc  "dwarf2out.c" 23697)
     nil )
   )
  )
  
  (!type struct 1235 nil  gc_unused "macinfo_entry_hasher"
-  (!srcfileloc  "dwarf2out.c" 28229)
+  (!srcfileloc  "dwarf2out.c" 28255)
   (!fields 0 )
   nil 2047 nil nil )
  
  (!type user_struct 1236 nil  gc_unused "hash_table<macinfo_entry_hasher>"
-  (!srcfileloc  "dwarf2out.c" 28229)
+  (!srcfileloc  "dwarf2out.c" 28255)
   (!fields 1 
    (!pair  "macinfo_entry_hasher"
     (!type already_seen 1235)
-    (!srcfileloc  "dwarf2out.c" 28229)
+    (!srcfileloc  "dwarf2out.c" 28255)
     nil )
   )
  )
@@ -20779,16 +20783,16 @@
   nil 0 nil nil )
  
  (!type struct 1238 nil  gc_unused "loc_list_hasher"
-  (!srcfileloc  "dwarf2out.c" 31155)
+  (!srcfileloc  "dwarf2out.c" 31181)
   (!fields 0 )
   nil 2047 nil nil )
  
  (!type user_struct 1239 nil  gc_unused "hash_table<loc_list_hasher>"
-  (!srcfileloc  "dwarf2out.c" 31155)
+  (!srcfileloc  "dwarf2out.c" 31181)
   (!fields 1 
    (!pair  "loc_list_hasher"
     (!type already_seen 1238)
-    (!srcfileloc  "dwarf2out.c" 31155)
+    (!srcfileloc  "dwarf2out.c" 31181)
     nil )
   )
  )
@@ -22122,7 +22126,7 @@
   nil 0 nil nil )
  
  (!type struct 1399 nil  gc_used "tm_clone_hasher"
-  (!srcfileloc  "varasm.c" 6059)
+  (!srcfileloc  "varasm.c" 6064)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -22131,11 +22135,11 @@
    (!type already_seen 1400)
   )
   gc_pointed_to "hash_table<tm_clone_hasher>"
-  (!srcfileloc  "varasm.c" 6059)
+  (!srcfileloc  "varasm.c" 6064)
   (!fields 1 
    (!pair  "tm_clone_hasher"
     (!type already_seen 1399)
-    (!srcfileloc  "varasm.c" 6059)
+    (!srcfileloc  "varasm.c" 6064)
     nil )
   )
  )
@@ -22569,27 +22573,27 @@
    (!type already_seen 1474)
   )
   gc_pointed_to "grid_launch_attributes_trees"
-  (!srcfileloc  "omp-expand.c" 7047)
+  (!srcfileloc  "omp-expand.c" 7052)
   (!fields 5 
    (!pair  "kernel_dim_array_type"
     (!type already_seen 23)
-    (!srcfileloc  "omp-expand.c" 7042)
+    (!srcfileloc  "omp-expand.c" 7047)
     nil )
    (!pair  "kernel_lattrs_dimnum_decl"
     (!type already_seen 23)
-    (!srcfileloc  "omp-expand.c" 7043)
+    (!srcfileloc  "omp-expand.c" 7048)
     nil )
    (!pair  "kernel_lattrs_grid_decl"
     (!type already_seen 23)
-    (!srcfileloc  "omp-expand.c" 7044)
+    (!srcfileloc  "omp-expand.c" 7049)
     nil )
    (!pair  "kernel_lattrs_group_decl"
     (!type already_seen 23)
-    (!srcfileloc  "omp-expand.c" 7045)
+    (!srcfileloc  "omp-expand.c" 7050)
     nil )
    (!pair  "kernel_launch_attributes_type"
     (!type already_seen 23)
-    (!srcfileloc  "omp-expand.c" 7046)
+    (!srcfileloc  "omp-expand.c" 7051)
     nil )
   )
   nil 2047 nil nil )
@@ -22687,7 +22691,7 @@
   nil 0 nil nil )
  
  (!type struct 1499 nil  gc_used "dllimport_hasher"
-  (!srcfileloc  "config/i386/i386.c" 16629)
+  (!srcfileloc  "config/i386/i386.c" 16632)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -22696,11 +22700,11 @@
    (!type already_seen 1500)
   )
   gc_pointed_to "hash_table<dllimport_hasher>"
-  (!srcfileloc  "config/i386/i386.c" 16629)
+  (!srcfileloc  "config/i386/i386.c" 16632)
   (!fields 1 
    (!pair  "dllimport_hasher"
     (!type already_seen 1499)
-    (!srcfileloc  "config/i386/i386.c" 16629)
+    (!srcfileloc  "config/i386/i386.c" 16632)
     nil )
   )
  )
@@ -22729,19 +22733,19 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1508 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34102"nil 
+ (!type struct 1508 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34120"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1509 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34781"nil 
+ (!type struct 1509 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34799"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1510 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:35914"nil 
+ (!type struct 1510 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:35932"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1511 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:36140"nil 
+ (!type struct 1511 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:36158"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -25256,7 +25260,7 @@
    (!type already_seen 1817)
   )
   gc_pointed_to "cp_parser"
-  (!srcfileloc  "cp/parser.c" 40834)
+  (!srcfileloc  "cp/parser.c" 40840)
   (!fields 37 
    (!pair  "lexer"
     (!type already_seen 1803)
@@ -25468,15 +25472,15 @@
    (!type already_seen 1831)
   )
   gc_pointed_to "hash_map<tree,int>"
-  (!srcfileloc  "cp/class.c" 3216)
+  (!srcfileloc  "cp/class.c" 3220)
   (!fields 2 
    (!pair  "int"
     (!type already_seen 428)
-    (!srcfileloc  "cp/class.c" 3216)
+    (!srcfileloc  "cp/class.c" 3220)
     nil )
    (!pair  "tree"
     (!type already_seen 23)
-    (!srcfileloc  "cp/class.c" 3216)
+    (!srcfileloc  "cp/class.c" 3220)
     nil )
   )
  )
@@ -25726,15 +25730,15 @@
  )
  
  (!type struct 1865 nil  gc_used "tree_int"
-  (!srcfileloc  "cp/lambda.c" 1350)
+  (!srcfileloc  "cp/lambda.c" 1351)
   (!fields 2 
    (!pair  "t"
     (!type already_seen 23)
-    (!srcfileloc  "cp/lambda.c" 1347)
+    (!srcfileloc  "cp/lambda.c" 1348)
     nil )
    (!pair  "i"
     (!type already_seen 2)
-    (!srcfileloc  "cp/lambda.c" 1348)
+    (!srcfileloc  "cp/lambda.c" 1349)
     nil )
   )
   nil 1032 nil nil )
@@ -25744,15 +25748,15 @@
    (!type already_seen 1866)
   )
   gc_pointed_to "vec<tree_int,va_gc>"
-  (!srcfileloc  "cp/lambda.c" 1350)
+  (!srcfileloc  "cp/lambda.c" 1351)
   (!fields 2 
    (!pair  "va_gc"
     (!type already_seen 79)
-    (!srcfileloc  "cp/lambda.c" 1350)
+    (!srcfileloc  "cp/lambda.c" 1351)
     nil )
    (!pair  "tree_int"
     (!type already_seen 1865)
-    (!srcfileloc  "cp/lambda.c" 1350)
+    (!srcfileloc  "cp/lambda.c" 1351)
     nil )
   )
  )
@@ -25955,15 +25959,15 @@
   nil 0 nil nil )
  
  (!type struct 1900 nil  gc_pointed_to "constr_entry"
-  (!srcfileloc  "cp/pt.c" 28208)
+  (!srcfileloc  "cp/pt.c" 28254)
   (!fields 2 
    (!pair  "decl"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28206)
+    (!srcfileloc  "cp/pt.c" 28252)
     nil )
    (!pair  "ci"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28207)
+    (!srcfileloc  "cp/pt.c" 28253)
     nil )
   )
   (!options 
@@ -25972,7 +25976,7 @@
   1032 nil nil )
  
  (!type struct 1901 nil  gc_used "constr_hasher"
-  (!srcfileloc  "cp/pt.c" 28231)
+  (!srcfileloc  "cp/pt.c" 28277)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -25981,29 +25985,29 @@
    (!type already_seen 1902)
   )
   gc_pointed_to "hash_table<constr_hasher>"
-  (!srcfileloc  "cp/pt.c" 28231)
+  (!srcfileloc  "cp/pt.c" 28277)
   (!fields 1 
    (!pair  "constr_hasher"
     (!type already_seen 1901)
-    (!srcfileloc  "cp/pt.c" 28231)
+    (!srcfileloc  "cp/pt.c" 28277)
     nil )
   )
  )
  
  (!type struct 1904 nil  gc_pointed_to "constraint_sat_entry"
-  (!srcfileloc  "cp/pt.c" 28298)
+  (!srcfileloc  "cp/pt.c" 28344)
   (!fields 3 
    (!pair  "ci"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28295)
+    (!srcfileloc  "cp/pt.c" 28341)
     nil )
    (!pair  "args"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28296)
+    (!srcfileloc  "cp/pt.c" 28342)
     nil )
    (!pair  "result"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28297)
+    (!srcfileloc  "cp/pt.c" 28343)
     nil )
   )
   (!options 
@@ -26012,24 +26016,24 @@
   1032 nil nil )
  
  (!type struct 1905 nil  gc_used "constraint_sat_hasher"
-  (!srcfileloc  "cp/pt.c" 28343)
+  (!srcfileloc  "cp/pt.c" 28389)
   (!fields 0 )
   nil 1032 nil nil )
  
  (!type struct 1906 nil  gc_pointed_to "concept_spec_entry"
-  (!srcfileloc  "cp/pt.c" 28323)
+  (!srcfileloc  "cp/pt.c" 28369)
   (!fields 3 
    (!pair  "tmpl"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28320)
+    (!srcfileloc  "cp/pt.c" 28366)
     nil )
    (!pair  "args"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28321)
+    (!srcfileloc  "cp/pt.c" 28367)
     nil )
    (!pair  "result"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28322)
+    (!srcfileloc  "cp/pt.c" 28368)
     nil )
   )
   (!options 
@@ -26038,7 +26042,7 @@
   1032 nil nil )
  
  (!type struct 1907 nil  gc_used "concept_spec_hasher"
-  (!srcfileloc  "cp/pt.c" 28344)
+  (!srcfileloc  "cp/pt.c" 28390)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -26047,11 +26051,11 @@
    (!type already_seen 1908)
   )
   gc_pointed_to "hash_table<constraint_sat_hasher>"
-  (!srcfileloc  "cp/pt.c" 28343)
+  (!srcfileloc  "cp/pt.c" 28389)
   (!fields 1 
    (!pair  "constraint_sat_hasher"
     (!type already_seen 1905)
-    (!srcfileloc  "cp/pt.c" 28343)
+    (!srcfileloc  "cp/pt.c" 28389)
     nil )
   )
  )
@@ -26061,29 +26065,29 @@
    (!type already_seen 1910)
   )
   gc_pointed_to "hash_table<concept_spec_hasher>"
-  (!srcfileloc  "cp/pt.c" 28344)
+  (!srcfileloc  "cp/pt.c" 28390)
   (!fields 1 
    (!pair  "concept_spec_hasher"
     (!type already_seen 1907)
-    (!srcfileloc  "cp/pt.c" 28344)
+    (!srcfileloc  "cp/pt.c" 28390)
     nil )
   )
  )
  
  (!type struct 1912 nil  gc_pointed_to "subsumption_entry"
-  (!srcfileloc  "cp/pt.c" 28466)
+  (!srcfileloc  "cp/pt.c" 28512)
   (!fields 3 
    (!pair  "t1"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28463)
+    (!srcfileloc  "cp/pt.c" 28509)
     nil )
    (!pair  "t2"
     (!type already_seen 23)
-    (!srcfileloc  "cp/pt.c" 28464)
+    (!srcfileloc  "cp/pt.c" 28510)
     nil )
    (!pair  "result"
     (!type already_seen 2)
-    (!srcfileloc  "cp/pt.c" 28465)
+    (!srcfileloc  "cp/pt.c" 28511)
     nil )
   )
   (!options 
@@ -26092,7 +26096,7 @@
   1032 nil nil )
  
  (!type struct 1913 nil  gc_used "subsumption_hasher"
-  (!srcfileloc  "cp/pt.c" 28486)
+  (!srcfileloc  "cp/pt.c" 28532)
   (!fields 0 )
   nil 1032 nil nil )
  
@@ -26101,11 +26105,11 @@
    (!type already_seen 1914)
   )
   gc_pointed_to "hash_table<subsumption_hasher>"
-  (!srcfileloc  "cp/pt.c" 28486)
+  (!srcfileloc  "cp/pt.c" 28532)
   (!fields 1 
    (!pair  "subsumption_hasher"
     (!type already_seen 1913)
-    (!srcfileloc  "cp/pt.c" 28486)
+    (!srcfileloc  "cp/pt.c" 28532)
     nil )
   )
  )
@@ -26915,15 +26919,15 @@
   nil 0 nil nil )
  
  (!type struct 2014 nil  gc_used "ident_data_tuple"
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1039)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1041)
   (!fields 2 
    (!pair  "ident"
     (!type already_seen 23)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1015)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1017)
     nil )
    (!pair  "data"
     (!type already_seen 23)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1016)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1018)
     nil )
   )
   nil 1536 nil nil )
@@ -26933,33 +26937,33 @@
    (!type already_seen 2015)
   )
   gc_pointed_to "vec<ident_data_tuple,va_gc>"
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1039)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1041)
   (!fields 2 
    (!pair  "va_gc"
     (!type already_seen 79)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1039)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1041)
     nil )
    (!pair  "ident_data_tuple"
     (!type already_seen 2014)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1039)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1041)
     nil )
   )
  )
  
  (!type struct 2017 nil  gc_used "msgref_entry"
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1204)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1206)
   (!fields 3 
    (!pair  "func"
     (!type already_seen 23)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1199)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1201)
     nil )
    (!pair  "selname"
     (!type already_seen 23)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1200)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1202)
     nil )
    (!pair  "refdecl"
     (!type already_seen 23)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1201)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1203)
     nil )
   )
   nil 1536 nil nil )
@@ -26969,29 +26973,29 @@
    (!type already_seen 2018)
   )
   gc_pointed_to "vec<msgref_entry,va_gc>"
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1204)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1206)
   (!fields 2 
    (!pair  "va_gc"
     (!type already_seen 79)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1204)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1206)
     nil )
    (!pair  "msgref_entry"
     (!type already_seen 2017)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1204)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1206)
     nil )
   )
  )
  
  (!type struct 2020 nil  gc_used "prot_list_entry"
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1258)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1260)
   (!fields 2 
    (!pair  "id"
     (!type already_seen 23)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1255)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1257)
     nil )
    (!pair  "refdecl"
     (!type already_seen 23)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1256)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1258)
     nil )
   )
   nil 1536 nil nil )
@@ -27001,29 +27005,29 @@
    (!type already_seen 2021)
   )
   gc_pointed_to "vec<prot_list_entry,va_gc>"
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1258)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1260)
   (!fields 2 
    (!pair  "va_gc"
     (!type already_seen 79)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1258)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1260)
     nil )
    (!pair  "prot_list_entry"
     (!type already_seen 2020)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1258)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1260)
     nil )
   )
  )
  
  (!type struct 2023 nil  gc_used "ivarref_entry"
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2764)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2766)
   (!fields 2 
    (!pair  "decl"
     (!type already_seen 23)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2760)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2762)
     nil )
    (!pair  "offset"
     (!type already_seen 23)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2761)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2763)
     nil )
   )
   nil 1536 nil nil )
@@ -27033,15 +27037,15 @@
    (!type already_seen 2024)
   )
   gc_pointed_to "vec<ivarref_entry,va_gc>"
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2764)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2766)
   (!fields 2 
    (!pair  "va_gc"
     (!type already_seen 79)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2764)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2766)
     nil )
    (!pair  "ivarref_entry"
     (!type already_seen 2023)
-    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2764)
+    (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2766)
     nil )
   )
  )
@@ -27049,35 +27053,35 @@
 (!typedefs 764
  (!pair  "ivarref_entry"
   (!type already_seen 2023)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2764)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2766)
   nil )
  (!pair  "vec<ivarref_entry,va_gc>"
   (!type already_seen 2024)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2764)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2766)
   nil )
  (!pair  "prot_list_entry"
   (!type already_seen 2020)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1258)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1260)
   nil )
  (!pair  "vec<prot_list_entry,va_gc>"
   (!type already_seen 2021)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1258)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1260)
   nil )
  (!pair  "msgref_entry"
   (!type already_seen 2017)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1204)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1206)
   nil )
  (!pair  "vec<msgref_entry,va_gc>"
   (!type already_seen 2018)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1204)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1206)
   nil )
  (!pair  "ident_data_tuple"
   (!type already_seen 2014)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1039)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1041)
   nil )
  (!pair  "vec<ident_data_tuple,va_gc>"
   (!type already_seen 2015)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1039)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1041)
   nil )
  (!pair  "objc_string_hasher"
   (!type already_seen 2010)
@@ -27285,35 +27289,35 @@
   nil )
  (!pair  "subsumption_hasher"
   (!type already_seen 1913)
-  (!srcfileloc  "cp/pt.c" 28486)
+  (!srcfileloc  "cp/pt.c" 28532)
   nil )
  (!pair  "hash_table<subsumption_hasher>"
   (!type already_seen 1914)
-  (!srcfileloc  "cp/pt.c" 28486)
+  (!srcfileloc  "cp/pt.c" 28532)
   nil )
  (!pair  "concept_spec_hasher"
   (!type already_seen 1907)
-  (!srcfileloc  "cp/pt.c" 28344)
+  (!srcfileloc  "cp/pt.c" 28390)
   nil )
  (!pair  "hash_table<concept_spec_hasher>"
   (!type already_seen 1910)
-  (!srcfileloc  "cp/pt.c" 28344)
+  (!srcfileloc  "cp/pt.c" 28390)
   nil )
  (!pair  "constraint_sat_hasher"
   (!type already_seen 1905)
-  (!srcfileloc  "cp/pt.c" 28343)
+  (!srcfileloc  "cp/pt.c" 28389)
   nil )
  (!pair  "hash_table<constraint_sat_hasher>"
   (!type already_seen 1908)
-  (!srcfileloc  "cp/pt.c" 28343)
+  (!srcfileloc  "cp/pt.c" 28389)
   nil )
  (!pair  "constr_hasher"
   (!type already_seen 1901)
-  (!srcfileloc  "cp/pt.c" 28231)
+  (!srcfileloc  "cp/pt.c" 28277)
   nil )
  (!pair  "hash_table<constr_hasher>"
   (!type already_seen 1902)
-  (!srcfileloc  "cp/pt.c" 28231)
+  (!srcfileloc  "cp/pt.c" 28277)
   nil )
  (!pair  "pending_template"
   (!type already_seen 1887)
@@ -27337,7 +27341,7 @@
   nil )
  (!pair  "cp_parser"
   (!type already_seen 1817)
-  (!srcfileloc  "cp/parser.c" 40834)
+  (!srcfileloc  "cp/parser.c" 40840)
   nil )
  (!pair  "cp_parser_expression_stack"
   (!type array 2026 nil  gc_unused "NUM_PREC_VALUES" 
@@ -27367,11 +27371,11 @@
   nil )
  (!pair  "tree_int"
   (!type already_seen 1865)
-  (!srcfileloc  "cp/lambda.c" 1350)
+  (!srcfileloc  "cp/lambda.c" 1351)
   nil )
  (!pair  "vec<tree_int,va_gc>"
   (!type already_seen 1866)
-  (!srcfileloc  "cp/lambda.c" 1350)
+  (!srcfileloc  "cp/lambda.c" 1351)
   nil )
  (!pair  "pending_noexcept"
   (!type already_seen 1862)
@@ -27439,7 +27443,7 @@
   nil )
  (!pair  "hash_map<tree,int>"
   (!type already_seen 1831)
-  (!srcfileloc  "cp/class.c" 3216)
+  (!srcfileloc  "cp/class.c" 3220)
   nil )
  (!pair  "subobject_offset_fn"
   (!type already_seen 2)
@@ -28147,15 +28151,15 @@
   nil )
  (!pair  "function_version_info"
   (!type already_seen 1507)
-  (!srcfileloc  "config/i386/i386.c" 32405)
+  (!srcfileloc  "config/i386/i386.c" 32423)
   nil )
  (!pair  "dllimport_hasher"
   (!type already_seen 1499)
-  (!srcfileloc  "config/i386/i386.c" 16629)
+  (!srcfileloc  "config/i386/i386.c" 16632)
   nil )
  (!pair  "hash_table<dllimport_hasher>"
   (!type already_seen 1500)
-  (!srcfileloc  "config/i386/i386.c" 16629)
+  (!srcfileloc  "config/i386/i386.c" 16632)
   nil )
  (!pair  "use_optype_p"
   (!type already_seen 450)
@@ -28223,11 +28227,11 @@
   nil )
  (!pair  "tm_clone_hasher"
   (!type already_seen 1399)
-  (!srcfileloc  "varasm.c" 6059)
+  (!srcfileloc  "varasm.c" 6064)
   nil )
  (!pair  "hash_table<tm_clone_hasher>"
   (!type already_seen 1400)
-  (!srcfileloc  "varasm.c" 6059)
+  (!srcfileloc  "varasm.c" 6064)
   nil )
  (!pair  "const_rtx_desc_hasher"
   (!type already_seen 980)
@@ -28571,35 +28575,35 @@
   nil )
  (!pair  "loc_list_hash_type"
   (!type already_seen 1239)
-  (!srcfileloc  "dwarf2out.c" 31155)
+  (!srcfileloc  "dwarf2out.c" 31181)
   nil )
  (!pair  "loc_list_hasher"
   (!type already_seen 1238)
-  (!srcfileloc  "dwarf2out.c" 31155)
+  (!srcfileloc  "dwarf2out.c" 31181)
   nil )
  (!pair  "hash_table<loc_list_hasher>"
   (!type already_seen 1239)
-  (!srcfileloc  "dwarf2out.c" 31155)
+  (!srcfileloc  "dwarf2out.c" 31181)
   nil )
  (!pair  "macinfo_hash_type"
   (!type already_seen 1236)
-  (!srcfileloc  "dwarf2out.c" 28229)
+  (!srcfileloc  "dwarf2out.c" 28255)
   nil )
  (!pair  "macinfo_entry_hasher"
   (!type already_seen 1235)
-  (!srcfileloc  "dwarf2out.c" 28229)
+  (!srcfileloc  "dwarf2out.c" 28255)
   nil )
  (!pair  "hash_table<macinfo_entry_hasher>"
   (!type already_seen 1236)
-  (!srcfileloc  "dwarf2out.c" 28229)
+  (!srcfileloc  "dwarf2out.c" 28255)
   nil )
  (!pair  "inline_entry_data_hasher"
   (!type already_seen 1232)
-  (!srcfileloc  "dwarf2out.c" 23668)
+  (!srcfileloc  "dwarf2out.c" 23697)
   nil )
  (!pair  "hash_table<inline_entry_data_hasher>"
   (!type already_seen 1233)
-  (!srcfileloc  "dwarf2out.c" 23668)
+  (!srcfileloc  "dwarf2out.c" 23697)
   nil )
  (!pair  "external_ref_hash_type"
   (!type already_seen 1225)
@@ -28827,15 +28831,15 @@
   nil )
  (!pair  "dw_val_node"
   (!type already_seen 482)
-  (!srcfileloc  "dwarf2out.h" 256)
+  (!srcfileloc  "dwarf2out.h" 262)
   nil )
  (!pair  "dw_discr_value"
   (!type already_seen 511)
-  (!srcfileloc  "dwarf2out.h" 235)
+  (!srcfileloc  "dwarf2out.h" 241)
   nil )
  (!pair  "dw_vec_const"
   (!type already_seen 503)
-  (!srcfileloc  "dwarf2out.h" 215)
+  (!srcfileloc  "dwarf2out.h" 221)
   nil )
  (!pair  "dw_fde_ref"
   (!type already_seen 473)
@@ -29433,15 +29437,15 @@
   nil )
  (!pair  "hash_rtx_callback_function"
   (!type already_seen 2)
-  (!srcfileloc  "rtl.h" 3513)
+  (!srcfileloc  "rtl.h" 3530)
   nil )
  (!pair  "rtx_equal_p_callback_function"
   (!type already_seen 2)
-  (!srcfileloc  "rtl.h" 3508)
+  (!srcfileloc  "rtl.h" 3525)
   nil )
  (!pair  "for_each_inc_dec_fn"
   (!type already_seen 2)
-  (!srcfileloc  "rtl.h" 3504)
+  (!srcfileloc  "rtl.h" 3521)
   nil )
  (!pair  "rtx_to_poly_wide_ref"
   (!type already_seen 908)
@@ -29989,27 +29993,27 @@
   nil )
  (!pair  "expanded_location"
   (!type already_seen 695)
-  (!srcfileloc  "../libcpp/include/line-map.h" 1290)
+  (!srcfileloc  "../libcpp/include/line-map.h" 1286)
   nil )
  (!pair  "maps_info_macro"
   (!type already_seen 689)
-  (!srcfileloc  "../libcpp/include/line-map.h" 779)
+  (!srcfileloc  "../libcpp/include/line-map.h" 775)
   nil )
  (!pair  "maps_info_ordinary"
   (!type already_seen 688)
-  (!srcfileloc  "../libcpp/include/line-map.h" 777)
+  (!srcfileloc  "../libcpp/include/line-map.h" 773)
   nil )
  (!pair  "source_range"
   (!type already_seen 1)
-  (!srcfileloc  "../libcpp/include/line-map.h" 749)
+  (!srcfileloc  "../libcpp/include/line-map.h" 745)
   nil )
  (!pair  "line_map_macro"
   (!type already_seen 686)
-  (!srcfileloc  "../libcpp/include/line-map.h" 733)
+  (!srcfileloc  "../libcpp/include/line-map.h" 729)
   nil )
  (!pair  "line_map_ordinary"
   (!type already_seen 6)
-  (!srcfileloc  "../libcpp/include/line-map.h" 718)
+  (!srcfileloc  "../libcpp/include/line-map.h" 714)
   nil )
  (!pair  "line_map_round_alloc_size_func"
   (!type already_seen 2)
@@ -30111,67 +30115,67 @@
 (!variables 709
  (!pair  "objc_eh_personality_decl"
   (!type already_seen 23)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 3607)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 3609)
   nil )
  (!pair  "next_v2_EHTYPE_id_decl"
   (!type already_seen 23)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 3397)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 3399)
   nil )
  (!pair  "next_v2_ehvtable_decl"
   (!type already_seen 23)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 3396)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 3398)
   nil )
  (!pair  "objc_v2_ehtype_template"
   (!type already_seen 23)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 3395)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 3397)
   nil )
  (!pair  "ehtype_list"
   (!type already_seen 2016)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 3054)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 3056)
   nil )
  (!pair  "ivar_offset_refs"
   (!type already_seen 2025)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2764)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2766)
   nil )
  (!pair  "protlist"
   (!type already_seen 2022)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2109)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2111)
   nil )
  (!pair  "nonlazy_category_list"
   (!type already_seen 96)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2021)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2023)
   nil )
  (!pair  "category_list"
   (!type already_seen 96)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2010)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2012)
   nil )
  (!pair  "nonlazy_class_list"
   (!type already_seen 96)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1999)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 2001)
   nil )
  (!pair  "class_list"
   (!type already_seen 96)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1991)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1993)
   nil )
  (!pair  "metaclass_super_refs"
   (!type already_seen 2016)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1435)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1437)
   nil )
  (!pair  "class_super_refs"
   (!type already_seen 2016)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1434)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1436)
   nil )
  (!pair  "protrefs"
   (!type already_seen 2022)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1258)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1260)
   nil )
  (!pair  "msgrefs"
   (!type already_seen 2019)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1204)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1206)
   nil )
  (!pair  "classrefs"
   (!type already_seen 2016)
-  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1039)
+  (!srcfileloc  "objc/objc-next-runtime-abi-02.c" 1041)
   nil )
  (!pair  "extern_names"
   (!type already_seen 2003)
@@ -31182,34 +31186,34 @@
   nil )
  (!pair  "subsumption_table"
   (!type already_seen 1915)
-  (!srcfileloc  "cp/pt.c" 28486)
+  (!srcfileloc  "cp/pt.c" 28532)
   nil )
  (!pair  "concept_expansions"
   (!type already_seen 1911)
-  (!srcfileloc  "cp/pt.c" 28399)
+  (!srcfileloc  "cp/pt.c" 28445)
   nil )
  (!pair  "concept_memos"
   (!type already_seen 1911)
-  (!srcfileloc  "cp/pt.c" 28344)
+  (!srcfileloc  "cp/pt.c" 28390)
   nil )
  (!pair  "constraint_memos"
   (!type already_seen 1909)
-  (!srcfileloc  "cp/pt.c" 28343)
+  (!srcfileloc  "cp/pt.c" 28389)
   nil )
  (!pair  "decl_constraints"
   (!type already_seen 1903)
-  (!srcfileloc  "cp/pt.c" 28231)
+  (!srcfileloc  "cp/pt.c" 28277)
   nil )
  (!pair  "explicit_specifier_map"
   (!type already_seen 917)
-  (!srcfileloc  "cp/pt.c" 12965)
+  (!srcfileloc  "cp/pt.c" 12985)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "defarg_inst"
   (!type already_seen 917)
-  (!srcfileloc  "cp/pt.c" 12854)
+  (!srcfileloc  "cp/pt.c" 12874)
   (!options 
    (!option cache string  "")
   )
@@ -31284,11 +31288,11 @@
   nil )
  (!pair  "generic_parm_count"
   (!type already_seen 2)
-  (!srcfileloc  "cp/parser.c" 41307)
+  (!srcfileloc  "cp/parser.c" 41313)
   nil )
  (!pair  "the_parser"
   (!type already_seen 1818)
-  (!srcfileloc  "cp/parser.c" 40834)
+  (!srcfileloc  "cp/parser.c" 40840)
   nil )
  (!pair  "cp_parser_context_free_list"
   (!type already_seen 1810)
@@ -31357,15 +31361,15 @@
   nil )
  (!pair  "lambda_scope_stack"
   (!type already_seen 1867)
-  (!srcfileloc  "cp/lambda.c" 1350)
+  (!srcfileloc  "cp/lambda.c" 1351)
   nil )
  (!pair  "lambda_count"
   (!type already_seen 2)
-  (!srcfileloc  "cp/lambda.c" 1344)
+  (!srcfileloc  "cp/lambda.c" 1345)
   nil )
  (!pair  "lambda_scope"
   (!type already_seen 23)
-  (!srcfileloc  "cp/lambda.c" 1343)
+  (!srcfileloc  "cp/lambda.c" 1344)
   nil )
  (!pair  "max_id"
   (!type already_seen 23)
@@ -31377,7 +31381,7 @@
   nil )
  (!pair  "nsdmi_inst"
   (!type already_seen 917)
-  (!srcfileloc  "cp/init.c" 552)
+  (!srcfileloc  "cp/init.c" 551)
   (!options 
    (!option cache string  "")
   )
@@ -31432,11 +31436,11 @@
   nil )
  (!pair  "start_cleanup_cnt"
   (!type already_seen 2)
-  (!srcfileloc  "cp/decl.c" 8112)
+  (!srcfileloc  "cp/decl.c" 8137)
   nil )
  (!pair  "decomp_type_table"
   (!type already_seen 917)
-  (!srcfileloc  "cp/decl.c" 7590)
+  (!srcfileloc  "cp/decl.c" 7609)
   (!options 
    (!option cache string  "")
   )
@@ -31469,14 +31473,14 @@
   nil )
  (!pair  "fold_cache"
   (!type already_seen 441)
-  (!srcfileloc  "cp/cp-gimplify.c" 2290)
+  (!srcfileloc  "cp/cp-gimplify.c" 2298)
   (!options 
    (!option deletable string  "")
   )
  )
  (!pair  "cv_cache"
   (!type already_seen 441)
-  (!srcfileloc  "cp/constexpr.c" 5577)
+  (!srcfileloc  "cp/constexpr.c" 5593)
   (!options 
    (!option deletable string  "")
   )
@@ -31495,15 +31499,15 @@
   nil )
  (!pair  "dvirt_fn"
   (!type already_seen 23)
-  (!srcfileloc  "cp/class.c" 9339)
+  (!srcfileloc  "cp/class.c" 9343)
   nil )
  (!pair  "abort_fndecl_addr"
   (!type already_seen 23)
-  (!srcfileloc  "cp/class.c" 9338)
+  (!srcfileloc  "cp/class.c" 9342)
   nil )
  (!pair  "enum_to_min_precision"
   (!type already_seen 1832)
-  (!srcfileloc  "cp/class.c" 3216)
+  (!srcfileloc  "cp/class.c" 3220)
   (!options 
    (!option deletable string  "")
   )
@@ -31514,7 +31518,7 @@
   nil )
  (!pair  "default_arg_context"
   (!type already_seen 96)
-  (!srcfileloc  "cp/call.c" 7696)
+  (!srcfileloc  "cp/call.c" 7705)
   nil )
  (!pair  "unemitted_tinfo_decls"
   (!type already_seen 96)
@@ -31768,7 +31772,7 @@
   nil )
  (!pair  "gnat_eh_personality_decl"
   (!type already_seen 23)
-  (!srcfileloc  "ada/gcc-interface/misc.c" 1334)
+  (!srcfileloc  "ada/gcc-interface/misc.c" 1337)
   nil )
  (!pair  "built_in_attributes"
   (!type array 2067 nil  gc_used "(int) ATTR_LAST" 
@@ -31853,7 +31857,7 @@
  )
  (!pair  "thunk_labelno"
   (!type already_seen 2)
-  (!srcfileloc  "ada/gcc-interface/trans.c" 11100)
+  (!srcfileloc  "ada/gcc-interface/trans.c" 11084)
   nil )
  (!pair  "gnu_loop_stack"
   (!type already_seen 1691)
@@ -32063,68 +32067,68 @@
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 346)
-  (!srcfileloc  "config/i386/i386.c" 46132)
+  (!srcfileloc  "config/i386/i386.c" 46150)
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 45152)
+  (!srcfileloc  "config/i386/i386.c" 45170)
   nil )
  (!pair  "ix86_builtins"
   (!type array 2080 nil  gc_used "(int) IX86_BUILTIN_MAX" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30648)
+  (!srcfileloc  "config/i386/i386.c" 30661)
   nil )
  (!pair  "ix86_builtin_func_type_tab"
   (!type array 2081 nil  gc_used "(int) IX86_BT_LAST_ALIAS + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30405)
+  (!srcfileloc  "config/i386/i386.c" 30418)
   nil )
  (!pair  "ix86_builtin_type_tab"
   (!type array 2082 nil  gc_used "(int) IX86_BT_LAST_CPTR + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30355)
+  (!srcfileloc  "config/i386/i386.c" 30368)
   nil )
  (!pair  "dllimport_map"
   (!type already_seen 1501)
-  (!srcfileloc  "config/i386/i386.c" 16629)
+  (!srcfileloc  "config/i386/i386.c" 16632)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "ix86_tls_module_base_symbol"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 16274)
+  (!srcfileloc  "config/i386/i386.c" 16277)
   nil )
  (!pair  "ix86_tls_symbol"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 16247)
+  (!srcfileloc  "config/i386/i386.c" 16250)
   nil )
  (!pair  "split_stack_fn_large"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 14755)
+  (!srcfileloc  "config/i386/i386.c" 14758)
   nil )
  (!pair  "split_stack_fn"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 14750)
+  (!srcfileloc  "config/i386/i386.c" 14753)
   nil )
  (!pair  "queued_cfa_restores"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 12013)
+  (!srcfileloc  "config/i386/i386.c" 12016)
   nil )
  (!pair  "ix86_previous_fndecl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 5717)
+  (!srcfileloc  "config/i386/i386.c" 5720)
   nil )
  (!pair  "ms_va_list_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 778)
+  (!srcfileloc  "config/i386/i386.c" 780)
   nil )
  (!pair  "sysv_va_list_type_node"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 777)
+  (!srcfileloc  "config/i386/i386.c" 779)
   nil )
  (!pair  "stack_chk_fail_decl"
   (!type already_seen 23)
@@ -32136,11 +32140,11 @@
   nil )
  (!pair  "critical_name_mutexes"
   (!type already_seen 441)
-  (!srcfileloc  "omp-low.c" 8023)
+  (!srcfileloc  "omp-low.c" 8024)
   nil )
  (!pair  "grid_attr_trees"
   (!type already_seen 1475)
-  (!srcfileloc  "omp-expand.c" 7049)
+  (!srcfileloc  "omp-expand.c" 7054)
   nil )
  (!pair  "offload_vars"
   (!type already_seen 96)
@@ -32235,22 +32239,22 @@
   nil )
  (!pair  "elf_fini_array_section"
   (!type already_seen 263)
-  (!srcfileloc  "varasm.c" 8026)
+  (!srcfileloc  "varasm.c" 8031)
   nil )
  (!pair  "elf_init_array_section"
   (!type already_seen 263)
-  (!srcfileloc  "varasm.c" 8025)
+  (!srcfileloc  "varasm.c" 8030)
   nil )
  (!pair  "tm_clone_hash"
   (!type already_seen 1401)
-  (!srcfileloc  "varasm.c" 6059)
+  (!srcfileloc  "varasm.c" 6064)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "weakref_targets"
   (!type already_seen 23)
-  (!srcfileloc  "varasm.c" 5731)
+  (!srcfileloc  "varasm.c" 5736)
   nil )
  (!pair  "const_desc_htab"
   (!type already_seen 1396)
@@ -32302,7 +32306,7 @@
   nil )
  (!pair  "gcc_eh_personality_decl"
   (!type already_seen 23)
-  (!srcfileloc  "tree.c" 12982)
+  (!srcfileloc  "tree.c" 12993)
   nil )
  (!pair  "nonstandard_boolean_type_cache"
   (!type array 2083 nil  gc_used "MAX_BOOL_CACHED_PREC + 1" 
@@ -32641,7 +32645,7 @@
   nil )
  (!pair  "inline_entry_data_table"
   (!type already_seen 1234)
-  (!srcfileloc  "dwarf2out.c" 23668)
+  (!srcfileloc  "dwarf2out.c" 23697)
   nil )
  (!pair  "external_die_map"
   (!type already_seen 1219)
@@ -32905,7 +32909,7 @@
   nil )
  (!pair  "saved_do_cfi_asm"
   (!type already_seen 2)
-  (!srcfileloc  "dwarf2cfi.c" 3505)
+  (!srcfileloc  "dwarf2cfi.c" 3533)
   nil )
  (!pair  "dwarf2out_cfi_label_num"
   (!type already_seen 2)
@@ -32929,7 +32933,7 @@
   nil )
  (!pair  "cie_cfi_vec"
   (!type already_seen 475)
-  (!srcfileloc  "dwarf2out.h" 297)
+  (!srcfileloc  "dwarf2out.h" 303)
   nil )
  (!pair  "lastfile_is_base"
   (!type already_seen 2)
@@ -33209,31 +33213,31 @@
   nil )
  (!pair  "stack_limit_rtx"
   (!type already_seen 150)
-  (!srcfileloc  "rtl.h" 4292)
+  (!srcfileloc  "rtl.h" 4309)
   nil )
  (!pair  "default_target_rtl"
   (!type already_seen 591)
-  (!srcfileloc  "rtl.h" 3727)
+  (!srcfileloc  "rtl.h" 3744)
   nil )
  (!pair  "invalid_insn_rtx"
   (!type already_seen 346)
-  (!srcfileloc  "rtl.h" 3625)
+  (!srcfileloc  "rtl.h" 3642)
   nil )
  (!pair  "simple_return_rtx"
   (!type already_seen 150)
-  (!srcfileloc  "rtl.h" 3624)
+  (!srcfileloc  "rtl.h" 3641)
   nil )
  (!pair  "ret_rtx"
   (!type already_seen 150)
-  (!srcfileloc  "rtl.h" 3623)
+  (!srcfileloc  "rtl.h" 3640)
   nil )
  (!pair  "cc0_rtx"
   (!type already_seen 150)
-  (!srcfileloc  "rtl.h" 3622)
+  (!srcfileloc  "rtl.h" 3639)
   nil )
  (!pair  "pc_rtx"
   (!type already_seen 150)
-  (!srcfileloc  "rtl.h" 3621)
+  (!srcfileloc  "rtl.h" 3638)
   nil )
  (!pair  "const_tiny_rtx"
   (!type array 2094 nil  gc_used "4" 
@@ -33241,17 +33245,17 @@
     (!type already_seen 150)
    )
   )
-  (!srcfileloc  "rtl.h" 3608)
+  (!srcfileloc  "rtl.h" 3625)
   nil )
  (!pair  "const_true_rtx"
   (!type already_seen 150)
-  (!srcfileloc  "rtl.h" 3606)
+  (!srcfileloc  "rtl.h" 3623)
   nil )
  (!pair  "const_int_rtx"
   (!type array 2096 nil  gc_used "MAX_SAVED_CONST_INT * 2 + 1" 
    (!type already_seen 150)
   )
-  (!srcfileloc  "rtl.h" 3600)
+  (!srcfileloc  "rtl.h" 3617)
   nil )
  (!pair  "gcov_fn_info_ptr_type"
   (!type already_seen 23)
