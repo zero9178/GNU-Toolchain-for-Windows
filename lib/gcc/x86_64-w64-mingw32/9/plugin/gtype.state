@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "9.3.1 20210501")
+(!version  "9.3.1 20210507")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 212
@@ -22691,7 +22691,7 @@
   nil 0 nil nil )
  
  (!type struct 1499 nil  gc_used "dllimport_hasher"
-  (!srcfileloc  "config/i386/i386.c" 16632)
+  (!srcfileloc  "config/i386/i386.c" 16649)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -22700,11 +22700,11 @@
    (!type already_seen 1500)
   )
   gc_pointed_to "hash_table<dllimport_hasher>"
-  (!srcfileloc  "config/i386/i386.c" 16632)
+  (!srcfileloc  "config/i386/i386.c" 16649)
   (!fields 1 
    (!pair  "dllimport_hasher"
     (!type already_seen 1499)
-    (!srcfileloc  "config/i386/i386.c" 16632)
+    (!srcfileloc  "config/i386/i386.c" 16649)
     nil )
   )
  )
@@ -22733,19 +22733,19 @@
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1508 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34120"nil 
+ (!type struct 1508 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34137"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1509 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34799"nil 
+ (!type struct 1509 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:34816"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1510 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:35932"nil 
+ (!type struct 1510 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:35949"nil 
   (!fields 0 )
   nil 0 nil nil )
  
- (!type struct 1511 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:36158"nil 
+ (!type struct 1511 nil  gc_unused "anonymous:../../gcc/config/i386/i386.c:36175"nil 
   (!fields 0 )
   nil 0 nil nil )
  
@@ -28151,15 +28151,15 @@
   nil )
  (!pair  "function_version_info"
   (!type already_seen 1507)
-  (!srcfileloc  "config/i386/i386.c" 32423)
+  (!srcfileloc  "config/i386/i386.c" 32440)
   nil )
  (!pair  "dllimport_hasher"
   (!type already_seen 1499)
-  (!srcfileloc  "config/i386/i386.c" 16632)
+  (!srcfileloc  "config/i386/i386.c" 16649)
   nil )
  (!pair  "hash_table<dllimport_hasher>"
   (!type already_seen 1500)
-  (!srcfileloc  "config/i386/i386.c" 16632)
+  (!srcfileloc  "config/i386/i386.c" 16649)
   nil )
  (!pair  "use_optype_p"
   (!type already_seen 450)
@@ -32067,56 +32067,56 @@
   nil )
  (!pair  "vselect_insn"
   (!type already_seen 346)
-  (!srcfileloc  "config/i386/i386.c" 46150)
+  (!srcfileloc  "config/i386/i386.c" 46167)
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 45170)
+  (!srcfileloc  "config/i386/i386.c" 45187)
   nil )
  (!pair  "ix86_builtins"
   (!type array 2080 nil  gc_used "(int) IX86_BUILTIN_MAX" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30661)
+  (!srcfileloc  "config/i386/i386.c" 30678)
   nil )
  (!pair  "ix86_builtin_func_type_tab"
   (!type array 2081 nil  gc_used "(int) IX86_BT_LAST_ALIAS + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30418)
+  (!srcfileloc  "config/i386/i386.c" 30435)
   nil )
  (!pair  "ix86_builtin_type_tab"
   (!type array 2082 nil  gc_used "(int) IX86_BT_LAST_CPTR + 1" 
    (!type already_seen 23)
   )
-  (!srcfileloc  "config/i386/i386.c" 30368)
+  (!srcfileloc  "config/i386/i386.c" 30385)
   nil )
  (!pair  "dllimport_map"
   (!type already_seen 1501)
-  (!srcfileloc  "config/i386/i386.c" 16632)
+  (!srcfileloc  "config/i386/i386.c" 16649)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "ix86_tls_module_base_symbol"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 16277)
+  (!srcfileloc  "config/i386/i386.c" 16294)
   nil )
  (!pair  "ix86_tls_symbol"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 16250)
+  (!srcfileloc  "config/i386/i386.c" 16267)
   nil )
  (!pair  "split_stack_fn_large"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 14758)
+  (!srcfileloc  "config/i386/i386.c" 14775)
   nil )
  (!pair  "split_stack_fn"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 14753)
+  (!srcfileloc  "config/i386/i386.c" 14770)
   nil )
  (!pair  "queued_cfa_restores"
   (!type already_seen 150)
-  (!srcfileloc  "config/i386/i386.c" 12016)
+  (!srcfileloc  "config/i386/i386.c" 12033)
   nil )
  (!pair  "ix86_previous_fndecl"
   (!type already_seen 23)
