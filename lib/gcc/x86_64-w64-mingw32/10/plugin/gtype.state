@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "10.3.1 20210501")
+(!version  "10.3.1 20210507")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 224
@@ -24269,7 +24269,7 @@
   nil 0 nil nil )
  
  (!type struct 1557 nil  gc_used "dllimport_hasher"
-  (!srcfileloc  "config/i386/i386.c" 11327)
+  (!srcfileloc  "config/i386/i386.c" 11344)
   (!fields 0 )
   nil 2047 nil nil )
  
@@ -24278,11 +24278,11 @@
    (!type already_seen 1558)
   )
   gc_pointed_to "hash_table<dllimport_hasher>"
-  (!srcfileloc  "config/i386/i386.c" 11327)
+  (!srcfileloc  "config/i386/i386.c" 11344)
   (!fields 1 
    (!pair  "dllimport_hasher"
     (!type already_seen 1557)
-    (!srcfileloc  "config/i386/i386.c" 11327)
+    (!srcfileloc  "config/i386/i386.c" 11344)
     nil )
   )
  )
@@ -30077,11 +30077,11 @@
   nil )
  (!pair  "dllimport_hasher"
   (!type already_seen 1557)
-  (!srcfileloc  "config/i386/i386.c" 11327)
+  (!srcfileloc  "config/i386/i386.c" 11344)
   nil )
  (!pair  "hash_table<dllimport_hasher>"
   (!type already_seen 1558)
-  (!srcfileloc  "config/i386/i386.c" 11327)
+  (!srcfileloc  "config/i386/i386.c" 11344)
   nil )
  (!pair  "use_optype_p"
   (!type already_seen 407)
@@ -34246,34 +34246,34 @@
   nil )
  (!pair  "ix86_tls_stack_chk_guard_decl"
   (!type already_seen 23)
-  (!srcfileloc  "config/i386/i386.c" 21259)
+  (!srcfileloc  "config/i386/i386.c" 21276)
   nil )
  (!pair  "dllimport_map"
   (!type already_seen 1559)
-  (!srcfileloc  "config/i386/i386.c" 11327)
+  (!srcfileloc  "config/i386/i386.c" 11344)
   (!options 
    (!option cache string  "")
   )
  )
  (!pair  "ix86_tls_module_base_symbol"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 10960)
+  (!srcfileloc  "config/i386/i386.c" 10977)
   nil )
  (!pair  "ix86_tls_symbol"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 10933)
+  (!srcfileloc  "config/i386/i386.c" 10950)
   nil )
  (!pair  "split_stack_fn_large"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 9442)
+  (!srcfileloc  "config/i386/i386.c" 9459)
   nil )
  (!pair  "split_stack_fn"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 9437)
+  (!srcfileloc  "config/i386/i386.c" 9454)
   nil )
  (!pair  "queued_cfa_restores"
   (!type already_seen 100)
-  (!srcfileloc  "config/i386/i386.c" 6710)
+  (!srcfileloc  "config/i386/i386.c" 6727)
   nil )
  (!pair  "stack_chk_fail_decl"
   (!type already_seen 23)
