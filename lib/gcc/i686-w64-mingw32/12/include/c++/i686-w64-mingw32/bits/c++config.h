@@ -34,7 +34,7 @@
 #define _GLIBCXX_RELEASE 12
 
 // The datestamp of the C++ library in compressed ISO date format.
-#define __GLIBCXX__ 20210501
+#define __GLIBCXX__ 20210507
 
 // Macros for various attributes.
 //   _GLIBCXX_PURE
@@ -1712,9 +1712,6 @@ namespace std
 
 /* Define if get_nprocs is available in <sys/sysinfo.h>. */
 /* #undef _GLIBCXX_USE_GET_NPROCS */
-
-/* Define if __int128 is supported on this host. */
-/* #undef _GLIBCXX_USE_INT128 */
 
 /* Define if LFS support is available. */
 #define _GLIBCXX_USE_LFS 1
