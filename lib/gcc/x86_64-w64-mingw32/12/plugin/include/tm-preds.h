@@ -166,6 +166,7 @@ extern int commutative_operator (rtx, machine_mode);
 extern int promotable_binary_operator (rtx, machine_mode);
 extern int compare_operator (rtx, machine_mode);
 extern int misaligned_operand (rtx, machine_mode);
+extern int movq_parallel (rtx, machine_mode);
 extern int vzeroall_operation (rtx, machine_mode);
 extern int vzeroall_pattern (rtx, machine_mode);
 extern int vzeroupper_pattern (rtx, machine_mode);
