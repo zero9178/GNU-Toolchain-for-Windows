@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "11.1.1 20210507")
+(!version  "11.1.1 20210516")
 (!srcdir  "../../gcc")
 (!languages 11 ada brig c cp d fortran go jit lto objc objcp)
 (!fileslist 229
@@ -35307,7 +35307,7 @@
   nil )
  (!pair  "ext_block"
   (!type already_seen 23)
-  (!srcfileloc  "c/c-decl.c" 12135)
+  (!srcfileloc  "c/c-decl.c" 12138)
   nil )
  (!pair  "last_structptr_types"
   (!type array 2292 nil  gc_used "builtin_structptr_type_count" 
@@ -35772,7 +35772,7 @@
   nil )
  (!pair  "critical_name_mutexes"
   (!type already_seen 392)
-  (!srcfileloc  "omp-low.c" 9807)
+  (!srcfileloc  "omp-low.c" 9817)
   nil )
  (!pair  "omp_declare_variant_alt"
   (!type already_seen 1605)
