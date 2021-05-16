@@ -1,10 +1,13 @@
 /* Script for -N */
 OUTPUT_FORMAT("elf32-pru","elf32-pru","elf32-pru")
 OUTPUT_ARCH(pru)
+/* Allow memory sizes to be overridden from command line.  */
+__IMEM_SIZE = DEFINED(__IMEM_SIZE) ? __IMEM_SIZE : 8K;
+__DMEM_SIZE = DEFINED(__DMEM_SIZE) ? __DMEM_SIZE : 8K;
 MEMORY
 {
-  imem   (x)   : ORIGIN = 0x20000000, LENGTH = 8K
-  dmem   (rw!x) : ORIGIN = 0x0, LENGTH = 8K
+  imem   (x)   : ORIGIN = 0x20000000, LENGTH = __IMEM_SIZE
+  dmem   (rw!x) : ORIGIN = 0x0, LENGTH = __DMEM_SIZE
 }
 __HEAP_SIZE = DEFINED(__HEAP_SIZE) ? __HEAP_SIZE : 32;
 __STACK_SIZE = DEFINED(__STACK_SIZE) ? __STACK_SIZE : 512;
@@ -126,6 +129,9 @@ SECTIONS
   }  > dmem
   .resource_table   :
   {
+    /* Linux remoteproc loader requires the resource table address
+       to be aligned to 8 bytes.  */
+    . = ALIGN(8);
     KEEP (*(.resource_table))
   }  > dmem
   .bss   :
