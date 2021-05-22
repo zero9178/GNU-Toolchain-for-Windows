@@ -3529,6 +3529,7 @@ struct GTY(()) lang_decl {
    created by handle_using_decl.  */
 #define CONST_DECL_USING_P(NODE)			\
   (TREE_CODE (NODE) == CONST_DECL			\
+   && TREE_TYPE (NODE)					\
    && TREE_CODE (TREE_TYPE (NODE)) == ENUMERAL_TYPE	\
    && DECL_CONTEXT (NODE) != TREE_TYPE (NODE))
 
@@ -5480,9 +5481,10 @@ class cp_evaluated
 public:
   int uneval;
   int inhibit;
-  cp_evaluated ()
+  cp_evaluated (bool reset = true)
     : uneval(cp_unevaluated_operand), inhibit(c_inhibit_evaluation_warnings)
-  { cp_unevaluated_operand = c_inhibit_evaluation_warnings = 0; }
+  { if (reset)
+      cp_unevaluated_operand = c_inhibit_evaluation_warnings = 0; }
   ~cp_evaluated ()
   { cp_unevaluated_operand = uneval;
     c_inhibit_evaluation_warnings = inhibit; }
