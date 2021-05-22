@@ -355,6 +355,11 @@
 #define HAVE_mmx_pf2iw (TARGET_3DNOW_A)
 #define HAVE_mmx_pi2fw (TARGET_3DNOW_A)
 #define HAVE_mmx_pswapdv2sf2 (TARGET_3DNOW_A || TARGET_MMX_WITH_SSE)
+#define HAVE_ssse3_absv8qi2 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
+#define HAVE_ssse3_absv4hi2 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
+#define HAVE_ssse3_absv2si2 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
+#define HAVE_absv4qi2 (TARGET_SSSE3)
+#define HAVE_absv2hi2 (TARGET_SSSE3)
 #define HAVE_mmx_ashrv4hi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_ashrv2si3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_ashlv4hi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
@@ -366,6 +371,7 @@
 #define HAVE_mmx_gtv8qi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_gtv4hi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_gtv2si3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
+#define HAVE_mmx_pblendvb32 (TARGET_SSE4_1)
 #define HAVE_mmx_andnotv8qi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_andnotv4hi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_andnotv2si3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
@@ -2668,9 +2674,6 @@
 #define HAVE_absv32hi2_mask (TARGET_AVX512BW)
 #define HAVE_absv16hi2_mask ((TARGET_AVX512BW) && (TARGET_AVX512VL))
 #define HAVE_absv8hi2_mask ((TARGET_AVX512BW) && (TARGET_AVX512VL))
-#define HAVE_ssse3_absv8qi2 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
-#define HAVE_ssse3_absv4hi2 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
-#define HAVE_ssse3_absv2si2 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
 #define HAVE_sse4a_movntsf (TARGET_SSE4A)
 #define HAVE_sse4a_movntdf (TARGET_SSE4A)
 #define HAVE_sse4a_vmmovntv4sf (TARGET_SSE4A)
@@ -4664,6 +4667,10 @@
 #define HAVE_movmisalignv2si (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_movmisalignv1di (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_movmisalignv2sf (TARGET_MMX || TARGET_MMX_WITH_SSE)
+#define HAVE_movv4qi (TARGET_SSE2)
+#define HAVE_movv2hi (TARGET_SSE2)
+#define HAVE_movmisalignv4qi (TARGET_SSE2)
+#define HAVE_movmisalignv2hi (TARGET_SSE2)
 #define HAVE_mmx_addv2sf3 (TARGET_3DNOW)
 #define HAVE_mmx_subv2sf3 (TARGET_3DNOW)
 #define HAVE_mmx_subrv2sf3 (TARGET_3DNOW)
@@ -4684,6 +4691,12 @@
 #define HAVE_mmx_subv2si3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_addv1di3 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && (TARGET_SSE2))
 #define HAVE_mmx_subv1di3 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && (TARGET_SSE2))
+#define HAVE_negv4qi2 (TARGET_SSE2)
+#define HAVE_negv2hi2 (TARGET_SSE2)
+#define HAVE_addv4qi3 (TARGET_SSE2)
+#define HAVE_subv4qi3 (TARGET_SSE2)
+#define HAVE_addv2hi3 (TARGET_SSE2)
+#define HAVE_subv2hi3 (TARGET_SSE2)
 #define HAVE_mmx_ssaddv8qi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_usaddv8qi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_sssubv8qi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
@@ -4693,9 +4706,12 @@
 #define HAVE_mmx_sssubv4hi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_ussubv4hi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_mulv4hi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
+#define HAVE_mulv2hi3 (TARGET_SSE2)
 #define HAVE_mmx_smulv4hi3_highpart (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_umulv4hi3_highpart ((TARGET_MMX || TARGET_MMX_WITH_SSE) \
    && (TARGET_SSE || TARGET_3DNOW_A))
+#define HAVE_smulv2hi3_highpart (TARGET_SSE2)
+#define HAVE_umulv2hi3_highpart (TARGET_SSE2)
 #define HAVE_mmx_pmaddwd (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_pmulhrwv4hi3 (TARGET_3DNOW)
 #define HAVE_sse2_umulv1siv1di3 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSE2)
@@ -4703,13 +4719,36 @@
    && (TARGET_SSE || TARGET_3DNOW_A))
 #define HAVE_mmx_sminv4hi3 ((TARGET_MMX || TARGET_MMX_WITH_SSE) \
    && (TARGET_SSE || TARGET_3DNOW_A))
+#define HAVE_smaxv4qi3 ((TARGET_SSE2) && (TARGET_SSE4_1))
+#define HAVE_sminv4qi3 ((TARGET_SSE2) && (TARGET_SSE4_1))
+#define HAVE_smaxv2hi3 (TARGET_SSE2)
+#define HAVE_sminv2hi3 (TARGET_SSE2)
 #define HAVE_mmx_umaxv8qi3 ((TARGET_MMX || TARGET_MMX_WITH_SSE) \
    && (TARGET_SSE || TARGET_3DNOW_A))
 #define HAVE_mmx_uminv8qi3 ((TARGET_MMX || TARGET_MMX_WITH_SSE) \
    && (TARGET_SSE || TARGET_3DNOW_A))
+#define HAVE_umaxv4qi3 (TARGET_SSE2)
+#define HAVE_uminv4qi3 (TARGET_SSE2)
+#define HAVE_umaxv2hi3 ((TARGET_SSE2) && (TARGET_SSE4_1))
+#define HAVE_uminv2hi3 ((TARGET_SSE2) && (TARGET_SSE4_1))
+#define HAVE_ashlv2hi3 (TARGET_SSE2)
+#define HAVE_lshrv2hi3 (TARGET_SSE2)
+#define HAVE_ashrv2hi3 (TARGET_SSE2)
 #define HAVE_mmx_eqv8qi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_eqv4hi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_eqv2si3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
+#define HAVE_vec_cmpv4qiv4qi (TARGET_SSE2)
+#define HAVE_vec_cmpv2hiv2hi (TARGET_SSE2)
+#define HAVE_vec_cmpuv4qiv4qi (TARGET_SSE2)
+#define HAVE_vec_cmpuv2hiv2hi (TARGET_SSE2)
+#define HAVE_vcondv4qiv4qi (TARGET_SSE2)
+#define HAVE_vcondv2hiv2hi (TARGET_SSE2)
+#define HAVE_vconduv4qiv4qi (TARGET_SSE2)
+#define HAVE_vconduv2hiv2hi (TARGET_SSE2)
+#define HAVE_vcond_mask_v4qiv4qi (TARGET_SSE2)
+#define HAVE_vcond_mask_v2hiv2hi (TARGET_SSE2)
+#define HAVE_one_cmplv4qi2 (TARGET_SSE2)
+#define HAVE_one_cmplv2hi2 (TARGET_SSE2)
 #define HAVE_mmx_andv8qi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_iorv8qi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_xorv8qi3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
@@ -4719,6 +4758,12 @@
 #define HAVE_mmx_andv2si3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_iorv2si3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
 #define HAVE_mmx_xorv2si3 (TARGET_MMX || TARGET_MMX_WITH_SSE)
+#define HAVE_andv4qi3 (TARGET_SSE2)
+#define HAVE_iorv4qi3 (TARGET_SSE2)
+#define HAVE_xorv4qi3 (TARGET_SSE2)
+#define HAVE_andv2hi3 (TARGET_SSE2)
+#define HAVE_iorv2hi3 (TARGET_SSE2)
+#define HAVE_xorv2hi3 (TARGET_SSE2)
 #define HAVE_mmx_pinsrw ((TARGET_MMX || TARGET_MMX_WITH_SSE) \
    && (TARGET_SSE || TARGET_3DNOW_A))
 #define HAVE_mmx_pshufw ((TARGET_MMX || TARGET_MMX_WITH_SSE) \
@@ -5141,36 +5186,36 @@
 #define HAVE_vcondv32qiv8sf (TARGET_AVX \
    && (GET_MODE_NUNITS (V32QImode) \
        == GET_MODE_NUNITS (V8SFmode)))
-#define HAVE_vcondv16hiv8sf (TARGET_AVX \
-   && (GET_MODE_NUNITS (V16HImode) \
-       == GET_MODE_NUNITS (V8SFmode)))
-#define HAVE_vcondv8siv8sf (TARGET_AVX \
-   && (GET_MODE_NUNITS (V8SImode) \
-       == GET_MODE_NUNITS (V8SFmode)))
-#define HAVE_vcondv4div8sf (TARGET_AVX \
-   && (GET_MODE_NUNITS (V4DImode) \
-       == GET_MODE_NUNITS (V8SFmode)))
-#define HAVE_vcondv8sfv8sf (TARGET_AVX \
-   && (GET_MODE_NUNITS (V8SFmode) \
-       == GET_MODE_NUNITS (V8SFmode)))
-#define HAVE_vcondv4dfv8sf (TARGET_AVX \
-   && (GET_MODE_NUNITS (V4DFmode) \
-       == GET_MODE_NUNITS (V8SFmode)))
 #define HAVE_vcondv32qiv4df (TARGET_AVX \
    && (GET_MODE_NUNITS (V32QImode) \
        == GET_MODE_NUNITS (V4DFmode)))
+#define HAVE_vcondv16hiv8sf (TARGET_AVX \
+   && (GET_MODE_NUNITS (V16HImode) \
+       == GET_MODE_NUNITS (V8SFmode)))
 #define HAVE_vcondv16hiv4df (TARGET_AVX \
    && (GET_MODE_NUNITS (V16HImode) \
        == GET_MODE_NUNITS (V4DFmode)))
+#define HAVE_vcondv8siv8sf (TARGET_AVX \
+   && (GET_MODE_NUNITS (V8SImode) \
+       == GET_MODE_NUNITS (V8SFmode)))
 #define HAVE_vcondv8siv4df (TARGET_AVX \
    && (GET_MODE_NUNITS (V8SImode) \
        == GET_MODE_NUNITS (V4DFmode)))
+#define HAVE_vcondv4div8sf (TARGET_AVX \
+   && (GET_MODE_NUNITS (V4DImode) \
+       == GET_MODE_NUNITS (V8SFmode)))
 #define HAVE_vcondv4div4df (TARGET_AVX \
    && (GET_MODE_NUNITS (V4DImode) \
        == GET_MODE_NUNITS (V4DFmode)))
+#define HAVE_vcondv8sfv8sf (TARGET_AVX \
+   && (GET_MODE_NUNITS (V8SFmode) \
+       == GET_MODE_NUNITS (V8SFmode)))
 #define HAVE_vcondv8sfv4df (TARGET_AVX \
    && (GET_MODE_NUNITS (V8SFmode) \
        == GET_MODE_NUNITS (V4DFmode)))
+#define HAVE_vcondv4dfv8sf (TARGET_AVX \
+   && (GET_MODE_NUNITS (V4DFmode) \
+       == GET_MODE_NUNITS (V8SFmode)))
 #define HAVE_vcondv4dfv4df (TARGET_AVX \
    && (GET_MODE_NUNITS (V4DFmode) \
        == GET_MODE_NUNITS (V4DFmode)))
@@ -6097,72 +6142,72 @@
 #define HAVE_vcondv32qiv32qi (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V32QImode) \
        == GET_MODE_NUNITS (V32QImode)))
-#define HAVE_vcondv16hiv32qi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V16HImode) \
-       == GET_MODE_NUNITS (V32QImode)))
-#define HAVE_vcondv8siv32qi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SImode) \
-       == GET_MODE_NUNITS (V32QImode)))
-#define HAVE_vcondv4div32qi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DImode) \
-       == GET_MODE_NUNITS (V32QImode)))
-#define HAVE_vcondv8sfv32qi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SFmode) \
-       == GET_MODE_NUNITS (V32QImode)))
-#define HAVE_vcondv4dfv32qi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DFmode) \
-       == GET_MODE_NUNITS (V32QImode)))
 #define HAVE_vcondv32qiv16hi (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V32QImode) \
-       == GET_MODE_NUNITS (V16HImode)))
-#define HAVE_vcondv16hiv16hi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V16HImode) \
-       == GET_MODE_NUNITS (V16HImode)))
-#define HAVE_vcondv8siv16hi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SImode) \
-       == GET_MODE_NUNITS (V16HImode)))
-#define HAVE_vcondv4div16hi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DImode) \
-       == GET_MODE_NUNITS (V16HImode)))
-#define HAVE_vcondv8sfv16hi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SFmode) \
-       == GET_MODE_NUNITS (V16HImode)))
-#define HAVE_vcondv4dfv16hi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DFmode) \
        == GET_MODE_NUNITS (V16HImode)))
 #define HAVE_vcondv32qiv8si (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V32QImode) \
        == GET_MODE_NUNITS (V8SImode)))
-#define HAVE_vcondv16hiv8si (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V16HImode) \
-       == GET_MODE_NUNITS (V8SImode)))
-#define HAVE_vcondv8siv8si (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SImode) \
-       == GET_MODE_NUNITS (V8SImode)))
-#define HAVE_vcondv4div8si (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DImode) \
-       == GET_MODE_NUNITS (V8SImode)))
-#define HAVE_vcondv8sfv8si (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SFmode) \
-       == GET_MODE_NUNITS (V8SImode)))
-#define HAVE_vcondv4dfv8si (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DFmode) \
-       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vcondv32qiv4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V32QImode) \
        == GET_MODE_NUNITS (V4DImode)))
+#define HAVE_vcondv16hiv32qi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V16HImode) \
+       == GET_MODE_NUNITS (V32QImode)))
+#define HAVE_vcondv16hiv16hi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V16HImode) \
+       == GET_MODE_NUNITS (V16HImode)))
+#define HAVE_vcondv16hiv8si (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V16HImode) \
+       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vcondv16hiv4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V16HImode) \
        == GET_MODE_NUNITS (V4DImode)))
+#define HAVE_vcondv8siv32qi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SImode) \
+       == GET_MODE_NUNITS (V32QImode)))
+#define HAVE_vcondv8siv16hi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SImode) \
+       == GET_MODE_NUNITS (V16HImode)))
+#define HAVE_vcondv8siv8si (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SImode) \
+       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vcondv8siv4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V8SImode) \
        == GET_MODE_NUNITS (V4DImode)))
+#define HAVE_vcondv4div32qi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DImode) \
+       == GET_MODE_NUNITS (V32QImode)))
+#define HAVE_vcondv4div16hi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DImode) \
+       == GET_MODE_NUNITS (V16HImode)))
+#define HAVE_vcondv4div8si (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DImode) \
+       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vcondv4div4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V4DImode) \
        == GET_MODE_NUNITS (V4DImode)))
+#define HAVE_vcondv8sfv32qi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SFmode) \
+       == GET_MODE_NUNITS (V32QImode)))
+#define HAVE_vcondv8sfv16hi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SFmode) \
+       == GET_MODE_NUNITS (V16HImode)))
+#define HAVE_vcondv8sfv8si (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SFmode) \
+       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vcondv8sfv4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V8SFmode) \
        == GET_MODE_NUNITS (V4DImode)))
+#define HAVE_vcondv4dfv32qi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DFmode) \
+       == GET_MODE_NUNITS (V32QImode)))
+#define HAVE_vcondv4dfv16hi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DFmode) \
+       == GET_MODE_NUNITS (V16HImode)))
+#define HAVE_vcondv4dfv8si (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DFmode) \
+       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vcondv4dfv4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V4DFmode) \
        == GET_MODE_NUNITS (V4DImode)))
@@ -6297,72 +6342,72 @@
 #define HAVE_vconduv32qiv32qi (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V32QImode) \
        == GET_MODE_NUNITS (V32QImode)))
-#define HAVE_vconduv16hiv32qi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V16HImode) \
-       == GET_MODE_NUNITS (V32QImode)))
-#define HAVE_vconduv8siv32qi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SImode) \
-       == GET_MODE_NUNITS (V32QImode)))
-#define HAVE_vconduv4div32qi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DImode) \
-       == GET_MODE_NUNITS (V32QImode)))
-#define HAVE_vconduv8sfv32qi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SFmode) \
-       == GET_MODE_NUNITS (V32QImode)))
-#define HAVE_vconduv4dfv32qi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DFmode) \
-       == GET_MODE_NUNITS (V32QImode)))
 #define HAVE_vconduv32qiv16hi (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V32QImode) \
-       == GET_MODE_NUNITS (V16HImode)))
-#define HAVE_vconduv16hiv16hi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V16HImode) \
-       == GET_MODE_NUNITS (V16HImode)))
-#define HAVE_vconduv8siv16hi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SImode) \
-       == GET_MODE_NUNITS (V16HImode)))
-#define HAVE_vconduv4div16hi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DImode) \
-       == GET_MODE_NUNITS (V16HImode)))
-#define HAVE_vconduv8sfv16hi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SFmode) \
-       == GET_MODE_NUNITS (V16HImode)))
-#define HAVE_vconduv4dfv16hi (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DFmode) \
        == GET_MODE_NUNITS (V16HImode)))
 #define HAVE_vconduv32qiv8si (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V32QImode) \
        == GET_MODE_NUNITS (V8SImode)))
-#define HAVE_vconduv16hiv8si (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V16HImode) \
-       == GET_MODE_NUNITS (V8SImode)))
-#define HAVE_vconduv8siv8si (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SImode) \
-       == GET_MODE_NUNITS (V8SImode)))
-#define HAVE_vconduv4div8si (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DImode) \
-       == GET_MODE_NUNITS (V8SImode)))
-#define HAVE_vconduv8sfv8si (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V8SFmode) \
-       == GET_MODE_NUNITS (V8SImode)))
-#define HAVE_vconduv4dfv8si (TARGET_AVX2 \
-   && (GET_MODE_NUNITS (V4DFmode) \
-       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vconduv32qiv4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V32QImode) \
        == GET_MODE_NUNITS (V4DImode)))
+#define HAVE_vconduv16hiv32qi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V16HImode) \
+       == GET_MODE_NUNITS (V32QImode)))
+#define HAVE_vconduv16hiv16hi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V16HImode) \
+       == GET_MODE_NUNITS (V16HImode)))
+#define HAVE_vconduv16hiv8si (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V16HImode) \
+       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vconduv16hiv4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V16HImode) \
        == GET_MODE_NUNITS (V4DImode)))
+#define HAVE_vconduv8siv32qi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SImode) \
+       == GET_MODE_NUNITS (V32QImode)))
+#define HAVE_vconduv8siv16hi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SImode) \
+       == GET_MODE_NUNITS (V16HImode)))
+#define HAVE_vconduv8siv8si (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SImode) \
+       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vconduv8siv4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V8SImode) \
        == GET_MODE_NUNITS (V4DImode)))
+#define HAVE_vconduv4div32qi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DImode) \
+       == GET_MODE_NUNITS (V32QImode)))
+#define HAVE_vconduv4div16hi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DImode) \
+       == GET_MODE_NUNITS (V16HImode)))
+#define HAVE_vconduv4div8si (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DImode) \
+       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vconduv4div4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V4DImode) \
        == GET_MODE_NUNITS (V4DImode)))
+#define HAVE_vconduv8sfv32qi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SFmode) \
+       == GET_MODE_NUNITS (V32QImode)))
+#define HAVE_vconduv8sfv16hi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SFmode) \
+       == GET_MODE_NUNITS (V16HImode)))
+#define HAVE_vconduv8sfv8si (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V8SFmode) \
+       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vconduv8sfv4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V8SFmode) \
        == GET_MODE_NUNITS (V4DImode)))
+#define HAVE_vconduv4dfv32qi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DFmode) \
+       == GET_MODE_NUNITS (V32QImode)))
+#define HAVE_vconduv4dfv16hi (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DFmode) \
+       == GET_MODE_NUNITS (V16HImode)))
+#define HAVE_vconduv4dfv8si (TARGET_AVX2 \
+   && (GET_MODE_NUNITS (V4DFmode) \
+       == GET_MODE_NUNITS (V8SImode)))
 #define HAVE_vconduv4dfv4di (TARGET_AVX2 \
    && (GET_MODE_NUNITS (V4DFmode) \
        == GET_MODE_NUNITS (V4DImode)))
@@ -6630,6 +6675,7 @@
 #define HAVE_smulhrsv16hi3 ((TARGET_SSSE3) && (TARGET_AVX2))
 #define HAVE_smulhrsv8hi3 (TARGET_SSSE3)
 #define HAVE_ssse3_pmulhrswv4hi3 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
+#define HAVE_smulhrsv2hi3 (TARGET_SSSE3)
 #define HAVE_ssse3_pshufbv8qi3 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
 #define HAVE_absv64qi2 ((TARGET_SSE2) && (TARGET_AVX512BW))
 #define HAVE_absv32qi2 ((TARGET_SSE2) && (TARGET_AVX2))
@@ -7894,6 +7940,11 @@ gen_floatunsv2siv2sf2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
 extern rtx        gen_mmx_pf2iw                                  (rtx, rtx);
 extern rtx        gen_mmx_pi2fw                                  (rtx, rtx);
 extern rtx        gen_mmx_pswapdv2sf2                            (rtx, rtx);
+extern rtx        gen_ssse3_absv8qi2                             (rtx, rtx);
+extern rtx        gen_ssse3_absv4hi2                             (rtx, rtx);
+extern rtx        gen_ssse3_absv2si2                             (rtx, rtx);
+extern rtx        gen_absv4qi2                                   (rtx, rtx);
+extern rtx        gen_absv2hi2                                   (rtx, rtx);
 extern rtx        gen_mmx_ashrv4hi3                              (rtx, rtx, rtx);
 extern rtx        gen_mmx_ashrv2si3                              (rtx, rtx, rtx);
 extern rtx        gen_mmx_ashlv4hi3                              (rtx, rtx, rtx);
@@ -7905,12 +7956,13 @@ extern rtx        gen_mmx_lshrv1di3                              (rtx, rtx, rtx)
 extern rtx        gen_mmx_gtv8qi3                                (rtx, rtx, rtx);
 extern rtx        gen_mmx_gtv4hi3                                (rtx, rtx, rtx);
 extern rtx        gen_mmx_gtv2si3                                (rtx, rtx, rtx);
-static inline rtx gen_mmx_pblendvb                               (rtx, rtx, rtx, rtx);
+static inline rtx gen_mmx_pblendvb64                             (rtx, rtx, rtx, rtx);
 static inline rtx
-gen_mmx_pblendvb(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c), rtx ARG_UNUSED (d))
+gen_mmx_pblendvb64(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c), rtx ARG_UNUSED (d))
 {
   return 0;
 }
+extern rtx        gen_mmx_pblendvb32                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_mmx_andnotv8qi3                            (rtx, rtx, rtx);
 extern rtx        gen_mmx_andnotv4hi3                            (rtx, rtx, rtx);
 extern rtx        gen_mmx_andnotv2si3                            (rtx, rtx, rtx);
@@ -10610,27 +10662,6 @@ extern rtx        gen_absv32qi2_mask                             (rtx, rtx, rtx,
 extern rtx        gen_absv32hi2_mask                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_absv16hi2_mask                             (rtx, rtx, rtx, rtx);
 extern rtx        gen_absv8hi2_mask                              (rtx, rtx, rtx, rtx);
-extern rtx        gen_ssse3_absv8qi2                             (rtx, rtx);
-extern rtx        gen_ssse3_absv4hi2                             (rtx, rtx);
-extern rtx        gen_ssse3_absv2si2                             (rtx, rtx);
-static inline rtx gen_absv8qi2                                   (rtx, rtx);
-static inline rtx
-gen_absv8qi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
-{
-  return 0;
-}
-static inline rtx gen_absv4hi2                                   (rtx, rtx);
-static inline rtx
-gen_absv4hi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
-{
-  return 0;
-}
-static inline rtx gen_absv2si2                                   (rtx, rtx);
-static inline rtx
-gen_absv2si2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
-{
-  return 0;
-}
 extern rtx        gen_sse4a_movntsf                              (rtx, rtx);
 extern rtx        gen_sse4a_movntdf                              (rtx, rtx);
 extern rtx        gen_sse4a_vmmovntv4sf                          (rtx, rtx);
@@ -12623,6 +12654,10 @@ extern rtx        gen_movmisalignv4hi                            (rtx, rtx);
 extern rtx        gen_movmisalignv2si                            (rtx, rtx);
 extern rtx        gen_movmisalignv1di                            (rtx, rtx);
 extern rtx        gen_movmisalignv2sf                            (rtx, rtx);
+extern rtx        gen_movv4qi                                    (rtx, rtx);
+extern rtx        gen_movv2hi                                    (rtx, rtx);
+extern rtx        gen_movmisalignv4qi                            (rtx, rtx);
+extern rtx        gen_movmisalignv2hi                            (rtx, rtx);
 static inline rtx gen_absv2sf2                                   (rtx, rtx);
 static inline rtx
 gen_absv2sf2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
@@ -12725,6 +12760,24 @@ gen_floatv2siv2sf2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
 extern rtx        gen_vec_setv2sf                                (rtx, rtx, rtx);
 extern rtx        gen_vec_extractv2sfsf                          (rtx, rtx, rtx);
 extern rtx        gen_vec_initv2sfsf                             (rtx, rtx);
+static inline rtx gen_negv8qi2                                   (rtx, rtx);
+static inline rtx
+gen_negv8qi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
+{
+  return 0;
+}
+static inline rtx gen_negv4hi2                                   (rtx, rtx);
+static inline rtx
+gen_negv4hi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
+{
+  return 0;
+}
+static inline rtx gen_negv2si2                                   (rtx, rtx);
+static inline rtx
+gen_negv2si2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
+{
+  return 0;
+}
 extern rtx        gen_mmx_addv8qi3                               (rtx, rtx, rtx);
 extern rtx        gen_mmx_subv8qi3                               (rtx, rtx, rtx);
 extern rtx        gen_mmx_addv4hi3                               (rtx, rtx, rtx);
@@ -12769,6 +12822,12 @@ gen_subv2si3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 {
   return 0;
 }
+extern rtx        gen_negv4qi2                                   (rtx, rtx);
+extern rtx        gen_negv2hi2                                   (rtx, rtx);
+extern rtx        gen_addv4qi3                                   (rtx, rtx, rtx);
+extern rtx        gen_subv4qi3                                   (rtx, rtx, rtx);
+extern rtx        gen_addv2hi3                                   (rtx, rtx, rtx);
+extern rtx        gen_subv2hi3                                   (rtx, rtx, rtx);
 extern rtx        gen_mmx_ssaddv8qi3                             (rtx, rtx, rtx);
 extern rtx        gen_mmx_usaddv8qi3                             (rtx, rtx, rtx);
 extern rtx        gen_mmx_sssubv8qi3                             (rtx, rtx, rtx);
@@ -12784,11 +12843,28 @@ gen_mulv4hi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 {
   return 0;
 }
+extern rtx        gen_mulv2hi3                                   (rtx, rtx, rtx);
 extern rtx        gen_mmx_smulv4hi3_highpart                     (rtx, rtx, rtx);
 extern rtx        gen_mmx_umulv4hi3_highpart                     (rtx, rtx, rtx);
+static inline rtx gen_smulv4hi3_highpart                         (rtx, rtx, rtx);
+static inline rtx
+gen_smulv4hi3_highpart(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
+{
+  return 0;
+}
+static inline rtx gen_umulv4hi3_highpart                         (rtx, rtx, rtx);
+static inline rtx
+gen_umulv4hi3_highpart(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
+{
+  return 0;
+}
+extern rtx        gen_smulv2hi3_highpart                         (rtx, rtx, rtx);
+extern rtx        gen_umulv2hi3_highpart                         (rtx, rtx, rtx);
 extern rtx        gen_mmx_pmaddwd                                (rtx, rtx, rtx);
 extern rtx        gen_mmx_pmulhrwv4hi3                           (rtx, rtx, rtx);
 extern rtx        gen_sse2_umulv1siv1di3                         (rtx, rtx, rtx);
+extern rtx        gen_mmx_smaxv4hi3                              (rtx, rtx, rtx);
+extern rtx        gen_mmx_sminv4hi3                              (rtx, rtx, rtx);
 static inline rtx gen_smaxv8qi3                                  (rtx, rtx, rtx);
 static inline rtx
 gen_smaxv8qi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
@@ -12798,6 +12874,18 @@ gen_smaxv8qi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 static inline rtx gen_sminv8qi3                                  (rtx, rtx, rtx);
 static inline rtx
 gen_sminv8qi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
+{
+  return 0;
+}
+static inline rtx gen_smaxv4hi3                                  (rtx, rtx, rtx);
+static inline rtx
+gen_smaxv4hi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
+{
+  return 0;
+}
+static inline rtx gen_sminv4hi3                                  (rtx, rtx, rtx);
+static inline rtx
+gen_sminv4hi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 {
   return 0;
 }
@@ -12813,17 +12901,21 @@ gen_sminv2si3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 {
   return 0;
 }
-extern rtx        gen_mmx_smaxv4hi3                              (rtx, rtx, rtx);
-extern rtx        gen_mmx_sminv4hi3                              (rtx, rtx, rtx);
-static inline rtx gen_smaxv4hi3                                  (rtx, rtx, rtx);
+extern rtx        gen_smaxv4qi3                                  (rtx, rtx, rtx);
+extern rtx        gen_sminv4qi3                                  (rtx, rtx, rtx);
+extern rtx        gen_smaxv2hi3                                  (rtx, rtx, rtx);
+extern rtx        gen_sminv2hi3                                  (rtx, rtx, rtx);
+extern rtx        gen_mmx_umaxv8qi3                              (rtx, rtx, rtx);
+extern rtx        gen_mmx_uminv8qi3                              (rtx, rtx, rtx);
+static inline rtx gen_umaxv8qi3                                  (rtx, rtx, rtx);
 static inline rtx
-gen_smaxv4hi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
+gen_umaxv8qi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 {
   return 0;
 }
-static inline rtx gen_sminv4hi3                                  (rtx, rtx, rtx);
+static inline rtx gen_uminv8qi3                                  (rtx, rtx, rtx);
 static inline rtx
-gen_sminv4hi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
+gen_uminv8qi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 {
   return 0;
 }
@@ -12851,17 +12943,25 @@ gen_uminv2si3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 {
   return 0;
 }
-extern rtx        gen_mmx_umaxv8qi3                              (rtx, rtx, rtx);
-extern rtx        gen_mmx_uminv8qi3                              (rtx, rtx, rtx);
-static inline rtx gen_umaxv8qi3                                  (rtx, rtx, rtx);
+extern rtx        gen_umaxv4qi3                                  (rtx, rtx, rtx);
+extern rtx        gen_uminv4qi3                                  (rtx, rtx, rtx);
+extern rtx        gen_umaxv2hi3                                  (rtx, rtx, rtx);
+extern rtx        gen_uminv2hi3                                  (rtx, rtx, rtx);
+static inline rtx gen_absv8qi2                                   (rtx, rtx);
 static inline rtx
-gen_umaxv8qi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
+gen_absv8qi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
 {
   return 0;
 }
-static inline rtx gen_uminv8qi3                                  (rtx, rtx, rtx);
+static inline rtx gen_absv4hi2                                   (rtx, rtx);
 static inline rtx
-gen_uminv8qi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
+gen_absv4hi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
+{
+  return 0;
+}
+static inline rtx gen_absv2si2                                   (rtx, rtx);
+static inline rtx
+gen_absv2si2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
 {
   return 0;
 }
@@ -12901,6 +13001,9 @@ gen_lshrv2si3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 {
   return 0;
 }
+extern rtx        gen_ashlv2hi3                                  (rtx, rtx, rtx);
+extern rtx        gen_lshrv2hi3                                  (rtx, rtx, rtx);
+extern rtx        gen_ashrv2hi3                                  (rtx, rtx, rtx);
 extern rtx        gen_mmx_eqv8qi3                                (rtx, rtx, rtx);
 extern rtx        gen_mmx_eqv4hi3                                (rtx, rtx, rtx);
 extern rtx        gen_mmx_eqv2si3                                (rtx, rtx, rtx);
@@ -12922,6 +13025,8 @@ gen_vec_cmpv2siv2si(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c), 
 {
   return 0;
 }
+extern rtx        gen_vec_cmpv4qiv4qi                            (rtx, rtx, rtx, rtx);
+extern rtx        gen_vec_cmpv2hiv2hi                            (rtx, rtx, rtx, rtx);
 static inline rtx gen_vec_cmpuv8qiv8qi                           (rtx, rtx, rtx, rtx);
 static inline rtx
 gen_vec_cmpuv8qiv8qi(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c), rtx ARG_UNUSED (d))
@@ -12940,6 +13045,8 @@ gen_vec_cmpuv2siv2si(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c),
 {
   return 0;
 }
+extern rtx        gen_vec_cmpuv4qiv4qi                           (rtx, rtx, rtx, rtx);
+extern rtx        gen_vec_cmpuv2hiv2hi                           (rtx, rtx, rtx, rtx);
 static inline rtx gen_vcondv8qiv8qi                              (rtx, rtx, rtx, rtx, rtx, rtx);
 static inline rtx
 gen_vcondv8qiv8qi(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c), rtx ARG_UNUSED (d), rtx ARG_UNUSED (e), rtx ARG_UNUSED (f))
@@ -13012,6 +13119,8 @@ gen_vcondv2sfv2si(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c), rt
 {
   return 0;
 }
+extern rtx        gen_vcondv4qiv4qi                              (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv2hiv2hi                              (rtx, rtx, rtx, rtx, rtx, rtx);
 static inline rtx gen_vconduv8qiv8qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
 static inline rtx
 gen_vconduv8qiv8qi(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c), rtx ARG_UNUSED (d), rtx ARG_UNUSED (e), rtx ARG_UNUSED (f))
@@ -13084,6 +13193,8 @@ gen_vconduv2sfv2si(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c), r
 {
   return 0;
 }
+extern rtx        gen_vconduv4qiv4qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv2hiv2hi                             (rtx, rtx, rtx, rtx, rtx, rtx);
 static inline rtx gen_vcond_mask_v8qiv8qi                        (rtx, rtx, rtx, rtx);
 static inline rtx
 gen_vcond_mask_v8qiv8qi(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c), rtx ARG_UNUSED (d))
@@ -13108,6 +13219,8 @@ gen_vcond_mask_v2sfv2si(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (
 {
   return 0;
 }
+extern rtx        gen_vcond_mask_v4qiv4qi                        (rtx, rtx, rtx, rtx);
+extern rtx        gen_vcond_mask_v2hiv2hi                        (rtx, rtx, rtx, rtx);
 static inline rtx gen_one_cmplv8qi2                              (rtx, rtx);
 static inline rtx
 gen_one_cmplv8qi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
@@ -13126,6 +13239,8 @@ gen_one_cmplv2si2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
 {
   return 0;
 }
+extern rtx        gen_one_cmplv4qi2                              (rtx, rtx);
+extern rtx        gen_one_cmplv2hi2                              (rtx, rtx);
 extern rtx        gen_mmx_andv8qi3                               (rtx, rtx, rtx);
 extern rtx        gen_mmx_iorv8qi3                               (rtx, rtx, rtx);
 extern rtx        gen_mmx_xorv8qi3                               (rtx, rtx, rtx);
@@ -13189,6 +13304,12 @@ gen_xorv2si3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
 {
   return 0;
 }
+extern rtx        gen_andv4qi3                                   (rtx, rtx, rtx);
+extern rtx        gen_iorv4qi3                                   (rtx, rtx, rtx);
+extern rtx        gen_xorv4qi3                                   (rtx, rtx, rtx);
+extern rtx        gen_andv2hi3                                   (rtx, rtx, rtx);
+extern rtx        gen_iorv2hi3                                   (rtx, rtx, rtx);
+extern rtx        gen_xorv2hi3                                   (rtx, rtx, rtx);
 extern rtx        gen_mmx_pinsrw                                 (rtx, rtx, rtx, rtx);
 extern rtx        gen_mmx_pshufw                                 (rtx, rtx, rtx);
 extern rtx        gen_vec_setv2si                                (rtx, rtx, rtx);
@@ -13787,16 +13908,16 @@ extern rtx        gen_vcondv8div8df                              (rtx, rtx, rtx,
 extern rtx        gen_vcondv16sfv8df                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv8dfv8df                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv32qiv8sf                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv16hiv8sf                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv8siv8sf                              (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv4div8sf                              (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv8sfv8sf                              (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv4dfv8sf                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv32qiv4df                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv16hiv8sf                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv16hiv4df                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv8siv8sf                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv8siv4df                              (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv4div8sf                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv4div4df                              (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv8sfv8sf                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv8sfv4df                              (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv4dfv8sf                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv4dfv4df                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv16qiv4sf                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv16qiv2df                             (rtx, rtx, rtx, rtx, rtx, rtx);
@@ -14647,28 +14768,28 @@ extern rtx        gen_vcondv8div64qi                             (rtx, rtx, rtx,
 extern rtx        gen_vcondv16sfv64qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv8dfv64qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv32qiv32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv16hiv32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv8siv32qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv4div32qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv8sfv32qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv4dfv32qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv32qiv16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv16hiv16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv8siv16hi                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv4div16hi                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv8sfv16hi                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv4dfv16hi                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv32qiv8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv16hiv8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv8siv8si                              (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv4div8si                              (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv8sfv8si                              (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vcondv4dfv8si                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv32qiv4di                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv16hiv32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv16hiv16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv16hiv8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv16hiv4di                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv8siv32qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv8siv16hi                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv8siv8si                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv8siv4di                              (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv4div32qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv4div16hi                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv4div8si                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv4div4di                              (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv8sfv32qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv8sfv16hi                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv8sfv8si                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv8sfv4di                              (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv4dfv32qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv4dfv16hi                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vcondv4dfv8si                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv4dfv4di                              (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv16qiv16qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vcondv8hiv16qi                             (rtx, rtx, rtx, rtx, rtx, rtx);
@@ -14715,28 +14836,28 @@ extern rtx        gen_vconduv8div64qi                            (rtx, rtx, rtx,
 extern rtx        gen_vconduv16sfv64qi                           (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv8dfv64qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv32qiv32qi                           (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv16hiv32qi                           (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv8siv32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv4div32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv8sfv32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv4dfv32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv32qiv16hi                           (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv16hiv16hi                           (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv8siv16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv4div16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv8sfv16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv4dfv16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv32qiv8si                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv16hiv8si                            (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv8siv8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv4div8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv8sfv8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
-extern rtx        gen_vconduv4dfv8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv32qiv4di                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv16hiv32qi                           (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv16hiv16hi                           (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv16hiv8si                            (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv16hiv4di                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv8siv32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv8siv16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv8siv8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv8siv4di                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv4div32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv4div16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv4div8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv4div4di                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv8sfv32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv8sfv16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv8sfv8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv8sfv4di                             (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv4dfv32qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv4dfv16hi                            (rtx, rtx, rtx, rtx, rtx, rtx);
+extern rtx        gen_vconduv4dfv8si                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv4dfv4di                             (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv16qiv16qi                           (rtx, rtx, rtx, rtx, rtx, rtx);
 extern rtx        gen_vconduv8hiv16qi                            (rtx, rtx, rtx, rtx, rtx, rtx);
@@ -14972,6 +15093,7 @@ gen_smulhrsv4hi3(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b), rtx ARG_UNUSED (c))
   return 0;
 }
 extern rtx        gen_ssse3_pmulhrswv4hi3                        (rtx, rtx, rtx);
+extern rtx        gen_smulhrsv2hi3                               (rtx, rtx, rtx);
 extern rtx        gen_ssse3_pshufbv8qi3                          (rtx, rtx, rtx);
 extern rtx        gen_absv64qi2                                  (rtx, rtx);
 extern rtx        gen_absv32qi2                                  (rtx, rtx);
