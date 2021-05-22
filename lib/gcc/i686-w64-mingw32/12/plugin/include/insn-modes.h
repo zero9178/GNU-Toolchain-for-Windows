@@ -174,7 +174,7 @@ enum machine_mode
 #else
 #define P2HImode (scalar_int_mode ((scalar_int_mode::from_int) E_P2HImode))
 #endif
-  E_POImode,               /* config/i386/i386-modes.def:116 */
+  E_POImode,               /* config/i386/i386-modes.def:113 */
 #define HAVE_POImode
 #ifdef USE_ENUM_MODES
 #define POImode E_POImode
@@ -858,7 +858,7 @@ enum machine_mode
 #define CONST_MODE_MASK const
 
 #define BITS_PER_UNIT (8)
-#define MAX_BITSIZE_MODE_ANY_INT 160
+#define MAX_BITSIZE_MODE_ANY_INT (64*BITS_PER_UNIT)
 #define MAX_BITSIZE_MODE_ANY_MODE (256*BITS_PER_UNIT)
 #define NUM_INT_N_ENTS 1
 #define NUM_POLY_INT_COEFFS 1
