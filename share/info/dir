@@ -69,4 +69,3 @@ Software development
 * gdc: (gdc).                   A GCC-based compiler for the D language
 * gfortran: (gfortran).         The GNU Fortran Compiler.
 * gprof: (gprof).               Profiling your program's execution
-* lto-dump: (gcc) lto-dump.     'lto-dump'--Tool for dumping LTO object files.
