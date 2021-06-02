@@ -10333,24 +10333,6 @@ extern rtx        gen_absv8hi2_mask                              (rtx, rtx, rtx,
 extern rtx        gen_ssse3_absv8qi2                             (rtx, rtx);
 extern rtx        gen_ssse3_absv4hi2                             (rtx, rtx);
 extern rtx        gen_ssse3_absv2si2                             (rtx, rtx);
-static inline rtx gen_absv8qi2                                   (rtx, rtx);
-static inline rtx
-gen_absv8qi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
-{
-  return 0;
-}
-static inline rtx gen_absv4hi2                                   (rtx, rtx);
-static inline rtx
-gen_absv4hi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
-{
-  return 0;
-}
-static inline rtx gen_absv2si2                                   (rtx, rtx);
-static inline rtx
-gen_absv2si2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
-{
-  return 0;
-}
 extern rtx        gen_sse4a_movntsf                              (rtx, rtx);
 extern rtx        gen_sse4a_movntdf                              (rtx, rtx);
 extern rtx        gen_sse4a_vmmovntv4sf                          (rtx, rtx);
@@ -14273,6 +14255,24 @@ extern rtx        gen_absv4si2                                   (rtx, rtx);
 extern rtx        gen_absv8di2                                   (rtx, rtx);
 extern rtx        gen_absv4di2                                   (rtx, rtx);
 extern rtx        gen_absv2di2                                   (rtx, rtx);
+static inline rtx gen_absv8qi2                                   (rtx, rtx);
+static inline rtx
+gen_absv8qi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
+{
+  return 0;
+}
+static inline rtx gen_absv4hi2                                   (rtx, rtx);
+static inline rtx
+gen_absv4hi2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
+{
+  return 0;
+}
+static inline rtx gen_absv2si2                                   (rtx, rtx);
+static inline rtx
+gen_absv2si2(rtx ARG_UNUSED (a), rtx ARG_UNUSED (b))
+{
+  return 0;
+}
 extern rtx        gen_avx2_pblendw                               (rtx, rtx, rtx, rtx);
 extern rtx        gen_nearbyintv16sf2                            (rtx, rtx);
 extern rtx        gen_nearbyintv8sf2                             (rtx, rtx);
