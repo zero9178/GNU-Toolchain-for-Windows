@@ -72,7 +72,7 @@ For GCC to function it requires the folder it's located in (the bin folder) to b
 Trunk version of this repository currently contains following versions:
 - GCC 7.5.0
 - GCC 8.5.0
-- GCC 9.3.1
+- GCC 9.4.1
 - GCC 10.3.1
 - GCC 11.1.1
 - GCC Trunk (12.0.0)

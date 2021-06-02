@@ -2797,9 +2797,6 @@
 #define HAVE_ssse3_absv8qi2 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
 #define HAVE_ssse3_absv4hi2 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
 #define HAVE_ssse3_absv2si2 ((TARGET_MMX || TARGET_MMX_WITH_SSE) && TARGET_SSSE3)
-#define HAVE_absv8qi2 (TARGET_MMX_WITH_SSE && TARGET_SSSE3)
-#define HAVE_absv4hi2 (TARGET_MMX_WITH_SSE && TARGET_SSSE3)
-#define HAVE_absv2si2 (TARGET_MMX_WITH_SSE && TARGET_SSSE3)
 #define HAVE_sse4a_movntsf (TARGET_SSE4A)
 #define HAVE_sse4a_movntdf (TARGET_SSE4A)
 #define HAVE_sse4a_vmmovntv4sf (TARGET_SSE4A)
@@ -6910,6 +6907,9 @@
 #define HAVE_absv8di2 ((TARGET_SSE2) && (TARGET_AVX512F))
 #define HAVE_absv4di2 ((TARGET_SSE2) && (TARGET_AVX2))
 #define HAVE_absv2di2 (TARGET_SSE2)
+#define HAVE_absv8qi2 (TARGET_MMX_WITH_SSE && TARGET_SSSE3)
+#define HAVE_absv4hi2 (TARGET_MMX_WITH_SSE && TARGET_SSSE3)
+#define HAVE_absv2si2 (TARGET_MMX_WITH_SSE && TARGET_SSSE3)
 #define HAVE_avx2_pblendw (TARGET_AVX2)
 #define HAVE_extendv16qiv16hi2 (TARGET_AVX2)
 #define HAVE_zero_extendv16qiv16hi2 (TARGET_AVX2)
@@ -10294,9 +10294,6 @@ extern rtx        gen_absv8hi2_mask                              (rtx, rtx, rtx,
 extern rtx        gen_ssse3_absv8qi2                             (rtx, rtx);
 extern rtx        gen_ssse3_absv4hi2                             (rtx, rtx);
 extern rtx        gen_ssse3_absv2si2                             (rtx, rtx);
-extern rtx        gen_absv8qi2                                   (rtx, rtx);
-extern rtx        gen_absv4hi2                                   (rtx, rtx);
-extern rtx        gen_absv2si2                                   (rtx, rtx);
 extern rtx        gen_sse4a_movntsf                              (rtx, rtx);
 extern rtx        gen_sse4a_movntdf                              (rtx, rtx);
 extern rtx        gen_sse4a_vmmovntv4sf                          (rtx, rtx);
@@ -13770,6 +13767,9 @@ extern rtx        gen_absv4si2                                   (rtx, rtx);
 extern rtx        gen_absv8di2                                   (rtx, rtx);
 extern rtx        gen_absv4di2                                   (rtx, rtx);
 extern rtx        gen_absv2di2                                   (rtx, rtx);
+extern rtx        gen_absv8qi2                                   (rtx, rtx);
+extern rtx        gen_absv4hi2                                   (rtx, rtx);
+extern rtx        gen_absv2si2                                   (rtx, rtx);
 extern rtx        gen_avx2_pblendw                               (rtx, rtx, rtx, rtx);
 extern rtx        gen_extendv16qiv16hi2                          (rtx, rtx);
 extern rtx        gen_zero_extendv16qiv16hi2                     (rtx, rtx);
