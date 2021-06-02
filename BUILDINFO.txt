@@ -7,15 +7,15 @@ libiconv: Version 1.16
 Python: 2.7.18
 zstd: https://github.com/facebook/zstd dev branch at revision 18d02cbf2e0654de08093094f1a77cfd231f11d7
 libexpat: https://github.com/libexpat/libexpat master branch at revision a28238bdeebc087071777001245df1876a11f5ee
-MinGW-W64: https://github.com/mirror/mingw-w64 master branch at revision f95546461fa7edfb2856c92f2c48f958ff0a9de4
+MinGW-W64: https://github.com/mirror/mingw-w64 master branch at revision 333a219d5a95c0be3b0a01eb8ec659a72997dcd4
 Make: https://github.com/mirror/make master branch at revision a80b0096f501b0e9a3349858396841d493cc45a4
-Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision eddc7b6871d5a072bdde392b78d751d1dc302f1c
+Binutils: git://sourceware.org/git/binutils-gdb.git master branch at revision 8f467114435286e4f78b16fc1f5864acf6488fc0
 GCC 7: https://github.com/gcc-mirror/gcc releases/gcc-7 branch at revision b2d961e7342b5ba4e57adfa81cb189b738d10901
 GCC 8: https://github.com/gcc-mirror/gcc releases/gcc-8 branch at revision eafe83f2f20ef0c1e7703c361ba314b44574523c
-GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision c85dee62fd8e0283411e12019931048acf1d269f
-GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision c571dbf77560687d0a7ae0489b2ca5116d32d327
-GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision 1a87f8381085de50726634e8cb4a651c05b272b5
-GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision eddc7b6871d5a072bdde392b78d751d1dc302f1c
+GCC 9: https://github.com/gcc-mirror/gcc releases/gcc-9 branch at revision d3d956b29ddafedfd68849e38acc95aedb90e1ec
+GCC 10: https://github.com/gcc-mirror/gcc releases/gcc-10 branch at revision 9f610f5cf810ab90814e89b1b7348a17532aad8e
+GCC Trunk: https://github.com/gcc-mirror/gcc master branch at revision f8f0193b5b83f6e85d65015e79c803295baf5166
+GDB: git://sourceware.org/git/binutils-gdb.git master branch at revision 8f467114435286e4f78b16fc1f5864acf6488fc0
 
 MinGW options used:
 mingw-w64-headers: --enable-idl --with-default-win32-winnt=0x601 --with-default-msvcrt=msvcrt
