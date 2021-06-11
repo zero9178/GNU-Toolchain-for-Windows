@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2021-06-02" "gcc-12" "GNU"
+.TH GCC 1 "2021-06-11" "gcc-12" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -4916,8 +4916,7 @@ might be printed in \s-1JSON\s0 form (after formatting) like this:
 \&                    }
 \&                ]
 \&                "column\-origin": 1,
-\&            },
-\&            ...
+\&            }
 \&        ]
 .Ve
 .Sp
@@ -5501,6 +5500,15 @@ disable the error.  Disabling the error for this warning can result in
 poorly optimized code and is useful only in the
 case of very minor changes such as bug fixes to an existing code-base.
 Completely disabling the warning is not recommended.
+.IP "\fB\-Wno\-coverage\-invalid\-line\-number\fR" 4
+.IX Item "-Wno-coverage-invalid-line-number"
+Warn in case a function ends earlier than it begins due
+to an invalid linenum macros.  The warning is emitted only
+with \fB\-\-coverage\fR enabled.
+ By default, this warning is enabled and is treated as an
+error.  \fB\-Wno\-coverage\-invalid\-line\-number\fR can be used to disable the
+warning or \fB\-Wno\-error=coverage\-invalid\-line\-number\fR can be used to
+disable the error.
 .IP "\fB\-Wno\-cpp\fR" 4
 .IX Item "-Wno-cpp"
 (C, Objective-C, \*(C+, Objective\-\*(C+ and Fortran only)
@@ -13243,6 +13251,9 @@ we may be able to devirtualize speculatively.
 .IX Item "max-vrp-switch-assertions"
 The maximum number of assertions to add along the default edge of a switch
 statement during \s-1VRP.\s0
+.IP "\fBevrp-sparse-threshold\fR" 4
+.IX Item "evrp-sparse-threshold"
+Maximum number of basic blocks before \s-1EVRP\s0 uses a sparse cache.
 .IP "\fBevrp-mode\fR" 4
 .IX Item "evrp-mode"
 Specifies the mode Early \s-1VRP\s0 should operate in.
@@ -16031,6 +16042,11 @@ Moreover, code compiled with \fB\-ftrampolines\fR and code compiled with
 \&\fB\-fno\-trampolines\fR are not binary compatible if nested functions are
 present.  This option must therefore be used on a program-wide basis and be
 manipulated with extreme care.
+.Sp
+For languages other than Ada, the \f(CW\*(C`\-ftrampolines\*(C'\fR and
+\&\f(CW\*(C`\-fno\-trampolines\*(C'\fR options currently have no effect, and
+trampolines are always generated on platforms that need them
+for nested functions.
 .IP "\fB\-fvisibility=\fR[\fBdefault\fR|\fBinternal\fR|\fBhidden\fR|\fBprotected\fR]" 4
 .IX Item "-fvisibility=[default|internal|hidden|protected]"
 Set the default \s-1ELF\s0 image symbol visibility to the specified option\-\-\-all
@@ -18482,7 +18498,7 @@ Enable cache bypass for volatile references.
 The following options fine tune code generation:
 .IP "\fB\-malign\-call\fR" 4
 .IX Item "-malign-call"
-Do alignment optimizations for call instructions.
+Does nothing.  Preserved for backward compatibility.
 .IP "\fB\-mauto\-modify\-reg\fR" 4
 .IX Item "-mauto-modify-reg"
 Enable the use of pre/post modify with register displacement.
@@ -18561,9 +18577,7 @@ instructions.  These instructions are only valid for CPUs with
 code-density feature.
 .IP "\fB\-mmixed\-code\fR" 4
 .IX Item "-mmixed-code"
-Tweak register allocation to help 16\-bit instruction generation.
-This generally has the effect of decreasing the average instruction size
-while increasing the instruction count.
+Does nothing.  Preserved for backward compatibility.
 .IP "\fB\-mq\-class\fR" 4
 .IX Item "-mq-class"
 Ths option is deprecated.  Enable \fBq\fR instruction alternatives.
@@ -18635,12 +18649,7 @@ Cost to assume for a multiply instruction, with \fB4\fR being equal to a
 normal instruction.
 .IP "\fB\-munalign\-prob\-threshold=\fR\fIprobability\fR" 4
 .IX Item "-munalign-prob-threshold=probability"
-Set probability threshold for unaligning branches.
-When tuning for \fB\s-1ARC700\s0\fR and optimizing for speed, branches without
-filled delay slot are preferably emitted unaligned and long, unless
-profiling indicates that the probability for the branch to be taken
-is below \fIprobability\fR.  
-The default is (\s-1REG_BR_PROB_BASE/2\s0), i.e. 5000.
+Does nothing.  Preserved for backward compatibility.
 .PP
 The following options are maintained for backward compatibility, but
 are now deprecated and will be removed in a future release:
@@ -19361,7 +19370,7 @@ For some \s-1ARM\s0 implementations better performance can be obtained by using
 this option.
 Permissible names are: \fBarm7tdmi\fR, \fBarm7tdmi\-s\fR, \fBarm710t\fR,
 \&\fBarm720t\fR, \fBarm740t\fR, \fBstrongarm\fR, \fBstrongarm110\fR,
-\&\fBstrongarm1100\fR, 0\fBstrongarm1110\fR, \fBarm8\fR, \fBarm810\fR,
+\&\fBstrongarm1100\fR, \fBstrongarm1110\fR, \fBarm8\fR, \fBarm810\fR,
 \&\fBarm9\fR, \fBarm9e\fR, \fBarm920\fR, \fBarm920t\fR, \fBarm922t\fR,
 \&\fBarm946e\-s\fR, \fBarm966e\-s\fR, \fBarm968e\-s\fR, \fBarm926ej\-s\fR,
 \&\fBarm940t\fR, \fBarm9tdmi\fR, \fBarm10tdmi\fR, \fBarm1020t\fR,
@@ -22695,7 +22704,7 @@ The M680x0 \fIcpu\fRs are: \fB68000\fR, \fB68010\fR, \fB68020\fR,
 and \fBcpu32\fR.  The ColdFire \fIcpu\fRs are given by the table
 below, which also classifies the CPUs into families:
 .RS 4
-.IP "Family : \fB\-mcpu\fR arguments" 4
+.IP "\fIFamily\fR : \fB\-mcpu\fR \fIarguments\fR" 4
 .IX Item "Family : -mcpu arguments"
 .PD 0
 .IP "\fB51\fR : \fB51\fR \fB51ac\fR \fB51ag\fR \fB51cn\fR \fB51em\fR \fB51je\fR \fB51jf\fR \fB51jg\fR \fB51jm\fR \fB51mm\fR \fB51qe\fR \fB51qm\fR" 4
@@ -30654,8 +30663,8 @@ startup object and entry point.
 .IX Item "-mnop-fun-dllimport"
 This option is available for Cygwin and MinGW targets.  It
 specifies that the \f(CW\*(C`dllimport\*(C'\fR attribute should be ignored.
-.IP "\fB\-mthread\fR" 4
-.IX Item "-mthread"
+.IP "\fB\-mthreads\fR" 4
+.IX Item "-mthreads"
 This option is available for MinGW targets. It specifies
 that MinGW-specific thread support is to be used.
 .IP "\fB\-municode\fR" 4
